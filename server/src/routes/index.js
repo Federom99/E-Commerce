@@ -3,6 +3,7 @@ const router = Router();
 
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
+const userRouter = require('./user.js')
 
 const { Op } = require("../db");
 const {Categoria, Pedido, Producto, ProductosFav, Rating, Usuario} = require("../db");
@@ -11,6 +12,8 @@ const {API_KEY} = process.env;
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
+
+router.use('/user', userRouter)
 
 //TEST DE RUTAS
 router.get("/algo", async (req, res) => {
