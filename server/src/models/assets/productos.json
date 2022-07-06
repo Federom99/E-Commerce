@@ -1,0 +1,883 @@
+[
+  {
+    "nombre": "Remera manga corta tie-dye",
+    "precio": "1120",
+    "descripcion": "Color:Verde. Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/8138/443/526/8138443526_2_4_3.jpg",
+    "stock": 90
+  },
+  {
+    "nombre": "Remera manga corta easy fit print",
+    "precio": "1190",
+    "descripcion": "Color:Negro. Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/3251/130/800//01/3251130800_2_13_1.jpg",
+    "stock": 95
+  },
+  {
+    "nombre": "Remera manga corta extra loose fit print",
+    "precio": "2190",
+    "descripcion": "Color: Negro. El estampado de la prenda puede variar ligeramente.Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/2696/461/279/2696461279_2_4_1.jpg",
+    "stock": 73
+  },
+  {
+    "nombre": "Remera manga corta boxy fit print arte",
+    "precio": "3150",
+    "descripcion": "Color: Blanco roto. 100% algodon",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/2824/922/251//02/2824922251_2_13_1.jpg",
+    "stock": 99
+  },
+  {
+    "nombre": "Remera manga corta extra loose deep-dye print",
+    "precio": "4120",
+    "descripcion": "Color: Blanco roto. 100% algodon",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/2708/458/251/2708458251_2_4_1.jpg",
+    "stock": 50
+  },
+  {
+    "nombre": "Camiseta manga corta tie-dye funny print",
+    "precio": "4680",
+    "descripcion": "Color: Azul. Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/8138/443/400/8138443400_2_4_3.jpg",
+    "stock": 90
+  },
+  {
+    "nombre": "Camiseta manga corta extra loose",
+    "precio": "2650",
+    "descripcion": "Color: Verde. 100% algodon",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/2695/880/500/2695880500_2_4_3.jpg",
+    "stock": 500
+  },
+  {
+    "nombre": "Camiseta manga corta boxy fit print oriental",
+    "precio": "4120",
+    "descripcion": "Color: Blacno. 100% algodon",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/8167/538/250/8167538250_2_4_3.jpg",
+    "stock": 316
+  },
+  {
+    "nombre": "Camiseta manga corta print animé",
+    "precio": "6182",
+    "descripcion": "Color: Negro. 100% algodon",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/8137/461/800/8137461800_2_4_3.jpg",
+    "stock": 389
+  },
+  {
+    "nombre": "Camiseta sin mangas worker oversize Smiley",
+    "precio": "8462",
+    "descripcion": "Color: Blanco. Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/8149/130/250//01/8149130250_2_4_3.jpg",
+    "stock": 210
+  },
+  {
+    "nombre": "Camiseta manga corta print",
+    "precio": "4185",
+    "descripcion": "Color: Blanco. 100% algodon",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/8136/461/250//01/8136461250_2_4_3.jpg",
+    "stock": 510
+  },
+  {
+    "nombre": "Camiseta manga corta slim fit cuello perkins",
+    "precio": "1185",
+    "descripcion": "Color: Granate. 97% algodón 3% elastano",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/2834/130/605/2834130605_2_4_3.jpg",
+    "stock": 610
+  },
+  {
+    "nombre": "Camiseta manga corta oversize print",
+    "precio": "7475",
+    "descripcion": "Color: Blanco. 100% algodon",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/2833/922/250/2833922250_2_4_3.jpg",
+    "stock": 370
+  },
+  {
+    "nombre": "Camiseta manga corta boxy fit print",
+    "precio": "4137",
+    "descripcion": "Color: Negro. 100% algodon",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/2741/130/800/2741130800_2_4_3.jpg",
+    "stock": 500
+  },
+  {
+    "nombre": "Camiseta manga corta extra loose print",
+    "precio": "6317",
+    "descripcion": "Color: Blanco. 100% algodon",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/2751/538/250/2751538250_2_4_3.jpg",
+    "stock": 318
+  },
+  {
+    "nombre": "Camiseta manga corta oversize deep-dye print",
+    "precio": "8317",
+    "descripcion": "Color: Morado. Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/2786/461/612/2786461612_2_4_3.jpg",
+    "stock": 50
+  },
+  {
+    "nombre": "Camiseta manga corta regular fit print",
+    "precio": "3687",
+    "descripcion": "Color: Azul. 100% algodon",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/2753/443/400/2753443400_2_4_3.jpg",
+    "stock": 400
+  },
+  {
+    "nombre": "Camiseta manga corta oversize deep-dye",
+    "precio": "6237",
+    "descripcion": "Color: Amarillo. Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/2788/461/612/2788461612_2_4_3.jpg",
+    "stock": 326
+  },
+  {
+    "nombre": "Camiseta polo cuadros",
+    "precio": "2000",
+    "descripcion": "Color: Blanco y negro. 100% poliéster",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/3390/296/611/3390296611_2_4_3.jpg",
+    "stock": 600
+  },
+  {
+    "nombre": "Camiseta manga corta oversize texto",
+    "precio": "5160",
+    "descripcion": "Color: Beige. Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/2793/240/459/2793240459_2_4_3.jpg",
+    "stock": 260
+  },
+
+
+
+
+
+  {
+    "nombre": "Camisa manga corta boxy fit print arte",
+    "precio": "5100",
+    "descripcion": "Color: Naranja. Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/2685/623/305/2685623305_2_4_3.jpg",
+    "stock": 120
+  },
+  {
+    "nombre": "Camisa manga corta relaxed fit",
+    "precio": "2110",
+    "descripcion": "Color: Azul lavado. Care for fiber & water: al menos 75% TENCEL  Lyocell. El TENCEL  se obtiene de madera de bosques gestionados de forma más sostenible y se produce con tecnologías que reutilizan el agua y 99% de los químicos. Esta prenda se ha producido utilizando tecnologías que nos ayudan a reducir el consumo de agua en los procesos de tintado y lavado.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/1524/019/428//01/1524019428_2_4_1.jpg",
+    "stock": 100
+  },
+  {
+    "nombre": "Camisa manga corta relaxed fit 70",
+    "precio": "1140",
+    "descripcion": "Color: Marrón. 100% viscosa",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/1536/694/700/1536694700_2_4_1.jpg",
+    "stock": 130
+  },
+  {
+    "nombre": "Camisa manga larga regular fit cuello mao",
+    "precio": "3180",
+    "descripcion": "Color: Negro. Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/1528/019/800/1528019800_2_4_1.jpg",
+    "stock": 130
+  },
+  {
+    "nombre": "Camisa manga corta raya vertical",
+    "precio": "780",
+    "descripcion": "Color: Verde. Care for fiber: al menos 80% ECOVERO  Viscose. Esta viscosa se obtiene a partir de madera de bosques gestionados de forma más sostenible donde los árboles se cultivan de forma controlada y con programas que garantizan su reforestación. Además, está certificada por la EU Ecolabel por cumplir exigentes estándares medioambientales en su proceso productivo.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/2684/715/500/2684715500_2_4_1.jpg",
+    "stock": 50
+  },
+  {
+    "nombre": "Camisa manga corta relaxed fit print dragón",
+    "precio": "3580",
+    "descripcion": "Color: Azul. Care for fiber: 100% ECOVERO  Viscose. Esta viscosa se obtiene a partir de madera de bosques gestionados de forma más sostenible donde los árboles se cultivan de forma controlada y con programas que garantizan su reforestación. Además, está certificada por la EU Ecolabel por cumplir exigentes estándares medioambientales en su proceso productivo.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/6515/557/400/6515557400_2_4_3.jpg",
+    "stock": 502
+  },
+  {
+    "nombre": "Camisa manga corta relaxed fit print palmeras",
+    "precio": "4420",
+    "descripcion": "Color: Amarillo. 100% viscosa",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/6512/557/300/6512557300_2_4_3.jpg",
+    "stock": 312
+  },
+  {
+    "nombre": "Camisa manga corta relaxed fit",
+    "precio": "5420",
+    "descripcion": "Color: Verde. Care for fiber & water: al menos 75% TENCEL  Lyocell. El TENCEL  se obtiene de madera de bosques gestionados de forma más sostenible y se produce con tecnologías que reutilizan el agua y 99% de los químicos. Esta prenda se ha producido utilizando tecnologías que nos ayudan a reducir el consumo de agua en los procesos de tintado y lavado.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/1524/020/819/1524020819_2_4_3.jpg",
+    "stock": 433
+  },
+  {
+    "nombre": "Camisa manga corta relaxed fit print",
+    "precio": "5990",
+    "descripcion": "Color: Fucsia. 100% viscosa",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/6511/557/630/6511557630_2_4_3.jpg",
+    "stock": 713
+  },
+  {
+    "nombre": "Camisa manga corta relaxed fit multi rayas",
+    "precio": "1990",
+    "descripcion": "Color: Rojo. Care for fiber: 100% ECOVERO  Viscose. Esta viscosa se obtiene a partir de madera de bosques gestionados de forma más sostenible donde los árboles se cultivan de forma controlada y con programas que garantizan su reforestación. Además, está certificada por la EU Ecolabel por cumplir exigentes estándares medioambientales en su proceso productivo.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/6505/694/600/6505694600_2_4_3.jpg",
+    "stock": 3
+  },
+  {
+    "nombre": "Camisa manga corta relaxed fit rústica print",
+    "precio": "8290",
+    "descripcion": "Color: Turquesa. Care for fiber & water: al menos 75% TENCEL  Lyocell. El TENCEL  se obtiene de madera de bosques gestionados de forma más sostenible y se produce con tecnologías que reutilizan el agua y 99% de los químicos. Esta prenda se ha producido utilizando tecnologías que nos ayudan a reducir el consumo de agua en los procesos de tintado y lavado.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/1573/019/518/1573019518_2_4_3.jpg",
+    "stock": 8
+  },
+  {
+    "nombre": "Camisa manga corta print",
+    "precio": "890",
+    "descripcion": "Color: Blanco/negro. 100% viscosa",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/1561/692/060/1561692060_2_4_3.jpg",
+    "stock": 2
+  },
+  {
+    "nombre": "Camisa manga corta cuello baseball",
+    "precio": "999",
+    "descripcion": "Color: Negro. Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/1521/019/800/1521019800_2_4_3.jpg",
+    "stock": 28
+  },
+  {
+    "nombre": "Camisa manga corta relaxed fit print fruta",
+    "precio": "1200",
+    "descripcion": "Color: Mostaza. Care for fiber: al menos 85% ECOVERO  Viscose. Esta viscosa se obtiene a partir de madera de bosques gestionados de forma más sostenible donde los árboles se cultivan de forma controlada y con programas que garantizan su reforestación. Además, está certificada por la EU Ecolabel por cumplir exigentes estándares medioambientales en su proceso productivo.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/1530/557/305/1530557305_2_4_3.jpg",
+    "stock": 450
+  },
+  {
+    "nombre": "Camisa manga corta mesh print",
+    "precio": "1260",
+    "descripcion": "Color:Negro. 100% poliéster",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/1531/326/800/1531326800_2_4_3.jpg",
+    "stock": 480
+  },
+  {
+    "nombre": "Camisa oversize popelin print",
+    "precio": "5130",
+    "descripcion": "Color: Verde. Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/1523/557/500/1523557500_2_4_3.jpg",
+    "stock": 101
+  },
+  {
+    "nombre": "Camisa manga corta print flores",
+    "precio": "2111",
+    "descripcion": "Color:Blanco.45% viscosa, 41% algodón, 14% poliamida",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/1577/557/250/1577557250_2_4_3.jpg",
+    "stock": 336
+  },
+  {
+    "nombre": "Camisa manga corta print tigres",
+    "precio": "2111",
+    "descripcion": "Color: Azul claro. Care for fiber: 100% ECOVERO  Viscose. Esta viscosa se obtiene a partir de madera de bosques gestionados de forma más sostenible donde los árboles se cultivan de forma controlada y con programas que garantizan su reforestación. Además, está certificada por la EU Ecolabel por cumplir exigentes estándares medioambientales en su proceso productivo.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/1545/557/403/1545557403_2_4_3.jpg",
+    "stock": 436
+  },
+  {
+    "nombre": "Camisa manga corta oversize crochet parches",
+    "precio": "3521",
+    "descripcion": "Color: Blanco. Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/1539/326/250/1539326250_2_4_3.jpg",
+    "stock": 512
+  },
+  {
+    "nombre": "Camisa denim bicolor",
+    "precio": "4621",
+    "descripcion": "Color:Azul lavado. 70% algodón, 30% liocel",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/1496/179/428/1496179428_2_4_3.jpg",
+    "stock": 30
+  },
+
+
+
+
+
+
+  {
+    "nombre": "Jeans carrot rotos",
+    "precio": "5180",
+    "descripcion": "Color: Azul. Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/0548/388/400//01/0548388400_2_4_3.jpg",
+    "stock": 140
+  },
+  {
+    "nombre": "Jeans loose prtin",
+    "precio": "7120",
+    "descripcion": "Color: Negro. Care for fiber & water: al menos 20% algodón reciclado. La producción de esta fibra recupera residuo de algodón, principalmente de la producción de otras prendas de algodón, reduciendo así la producción de materia prima virgen y el consumo de agua, energía y recursos naturales. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/0540/179/800/0540179800_2_4_3.jpg",
+    "stock": 100
+  },
+  {
+    "nombre": "Pantalon felpa jogger",
+    "precio": "8240",
+    "descripcion": "Color: Blanco. Care for fiber & water: al menos 25% poliéster reciclado. El poliéster reciclado se produce a partir de plástico PET recuperado, reduciendo el consumo de agua, energía y recursos naturales. Esta prenda se ha producido utilizando tecnologías que nos ayudan a reducir el consumo de agua en los procesos de tintado y lavado.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/0689/498/812/0689498812_2_4_1.jpg",
+    "stock": 220
+  },
+  {
+    "nombre": "Pantalon jogger cargo",
+    "precio": "9120",
+    "descripcion": "Color: Kaki. 52% algodón, 40% poliéster, 8% poliamida",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/0603/388/505/0603388505_2_4_1.jpg",
+    "stock": 310
+  },
+  {
+    "nombre": "Pantalon algodon jogger",
+    "precio": "3250",
+    "descripcion": "Color: Negro. Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/0604/637/800/0604637800_2_4_1.jpg",
+    "stock": 160
+  },
+  {
+    "nombre": "Pantalon jogger felpa print efecto spray multicolor",
+    "precio": "2580",
+    "descripcion": "Color: Varios. 60% algodón, 40% poliéster",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/0688/461/400/0688461400_2_4_3.jpg",
+    "stock": 230
+  },
+  {
+    "nombre": "Bermuda felpa básica",
+    "precio": "780",
+    "descripcion": "Color: Rosa. Care for fiber & water: al menos 25% poliéster reciclado. El poliéster reciclado se produce a partir de plástico PET recuperado, reduciendo el consumo de agua, energía y recursos naturales. Esta prenda se ha producido utilizando tecnologías que nos ayudan a reducir el consumo de agua en los procesos de tintado y lavado.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/3228/498/902/3228498902_2_4_3.jpg",
+    "stock": 356
+  },
+  {
+    "nombre": "Bermuda denim rotos",
+    "precio": "980",
+    "descripcion": "Color: Azul lavado. 92% algodón, 5% poliéster, 3% elastano",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/3165/969/428//01/3165969428_2_4_3.jpg",
+    "stock": 287
+  },
+  {
+    "nombre": "Bermuda denim rotos print",
+    "precio": "1820",
+    "descripcion": "Color: Blanco. Care for fiber: al menos 20% algodón reciclado. La producción de esta fibra recupera residuo de algodón, principalmente de la producción de otras prendas de algodón, reduciendo así la producción de materia prima virgen y el consumo de agua, energía y recursos naturales.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/3175/220/250/3175220250_2_4_3.jpg",
+    "stock": 487
+  },
+  {
+    "nombre": "Bermuda denim print smil",
+    "precio": "2460",
+    "descripcion": "Color: Blanco. 100% algodón",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/0/1/p/8476/847/250//01/8476847250_2_4_3.jpg",
+    "stock": 124
+  },
+  {
+    "nombre": "Pantalón jogger cargo algodón detalle correas",
+    "precio": "5210",
+    "descripcion": "Color: Kaki. 52% algodón, 40% poliéster, 8% poliamida",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/0606/665/505/0606665505_2_4_3.jpg",
+    "stock": 200
+  },
+  {
+    "nombre": "Pantalón jogger slim piqué",
+    "precio": "7710",
+    "descripcion": "Color: Blanco. Care for fiber & water: al menos 25% poliéster reciclado. El poliéster reciclado se produce a partir de plástico PET recuperado, reduciendo el consumo de agua, energía y recursos naturales. Esta prenda se ha producido utilizando tecnologías que nos ayudan a reducir el consumo de agua en los procesos de tintado y lavado.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/0684/478/250/0684478250_2_4_3.jpg",
+    "stock": 18
+  },
+  {
+    "nombre": "Pantalón jogger snaps",
+    "precio": "2992",
+    "descripcion": "Color: Negro. Care for fiber & water: al menos 25% poliéster reciclado. El poliéster reciclado se produce a partir de plástico PET recuperado, reduciendo el consumo de agua, energía y recursos naturales. Esta prenda se ha producido utilizando tecnologías que nos ayudan a reducir el consumo de agua en los procesos de tintado y lavado.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/0681/498/800/0681498800_2_4_3.jpg",
+    "stock": 50
+  },
+
+  {
+    "nombre": "Pantalón jogger felpa",
+    "precio": "1592",
+    "descripcion": "Color: Verde. Care for fiber & water: al menos 25% poliéster reciclado. El poliéster reciclado se produce a partir de plástico PET recuperado, reduciendo el consumo de agua, energía y recursos naturales. Esta prenda se ha producido utilizando tecnologías que nos ayudan a reducir el consumo de agua en los procesos de tintado y lavado.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/0679/498/503//01/0679498503_2_4_3.jpg",
+    "stock": 100
+  },
+
+  {
+    "nombre": "Jeans super skinny rotos",
+    "precio": "7592",
+    "descripcion": "Color: Gris. 99% algodón, 1%elastano",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/0535/534/811/0535534811_2_4_3.jpg",
+    "stock": 310
+  },
+  {
+    "nombre": "Jeans carpenter print",
+    "precio": "4182",
+    "descripcion": "Color: Blanco. Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/5454/179/250/5454179250_2_4_3.jpg",
+    "stock": 610
+  },
+  {
+    "nombre": "Jeans 90's bicolor",
+    "precio": "9682",
+    "descripcion": "Color: Azul. Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/0539/969/400/0539969400_2_4_3.jpg",
+    "stock": 5
+  },
+  {
+    "nombre": "Jeans cargo",
+    "precio": "5142",
+    "descripcion": "Color: Naranja. Care for fiber & water: al menos 15% algodón reciclado. El algodón reciclado se produce a partir del residuo de algodón de otras producciones, reduciendo el consumo de algodón virgen y los procesos de obtención de la fibra. Esta prenda se ha producido utilizando tecnologías que nos ayudan a reducir el consumo de agua en los procesos de tintado y lavado.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/0553/335/615/0553335615_2_4_3.jpg",
+    "stock": 70
+  },
+  {
+    "nombre": "Jeans jogger patchwork",
+    "precio": "6279",
+    "descripcion": "Color: Azul lavado. Care for fiber: al menos 20% algodón reciclado. La producción de esta fibra recupera residuo de algodón, principalmente de la producción de otras prendas de algodón, reduciendo así la producción de materia prima virgen y el consumo de agua, energía y recursos naturales.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/0538/220/428/0538220428_2_4_3.jpg",
+    "stock": 32
+  },
+  {
+    "nombre": "Jeans baggy color",
+    "precio": "8149",
+    "descripcion": "Color: Lima. Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/0564/388/520/0564388520_2_4_3.jpg",
+    "stock": 60
+  },
+
+
+
+
+
+
+  {
+    "nombre": "Zapatillas abotinadas combinadas ",
+    "precio": "6460",
+    "descripcion": "Color: Combinado. Zapatillas abotinadas en color blanco. Combinadas con piezas con textura de charol en color negro y rojo.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/1/2/p/2202/960/202/2202960202_2_4_3.jpg",
+    "stock": 60
+  },
+  {
+    "nombre": "Zapatillas deportivas abotinadas combinadas  ",
+    "precio": "6660",
+    "descripcion": "Color: Naranja. STARFIT . PLANTILLA TÉCNICA FLEXIBLE DE ESPUMA COMPUESTA DE POLIURETANO, DISEÑADA PARA OFRECER UN MAYOR CONFORT. Deportivas abotinadas en color negro y naranja. Detalle de chapa en color negro en los cordones.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/1/2/p/2206/960/070//01/2206960070_2_4_3.jpg",
+    "stock": 90
+  },
+  {
+    "nombre": "Zapatillas print  ",
+    "precio": "7110",
+    "descripcion": "Color: Combinado. STARFIT . PLANTILLA TÉCNICA FLEXIBLE DE ESPUMA COMPUESTA DE POLIURETANO, DISEÑADA PARA OFRECER UN MAYOR CONFORT. Zapatillas con print multicolor. Suela blanca y negra.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/1/2/p/2412/960/202/2412960202_2_4_3.jpg",
+    "stock": 150
+  },
+  {
+    "nombre": "Zapatillas combinadas joya",
+    "precio": "2110",
+    "descripcion": "Color: Marrón. STARFIT. PLANTILLA TÉCNICA FLEXIBLE DE ESPUMA COMPUESTA DE POLIURETANO, DISEÑADA PARA OFRECER UN MAYOR CONFORT. Zapatillas combinadas en color cuero y marrón. Detalle de joya en los cordones.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/1/2/p/2474/960/100//02/2474960100_2_4_3.jpg",
+    "stock": 350
+  },
+  {
+    "nombre": "Zapatillas deportivas abotinadas combinadas ",
+    "precio": "6110",
+    "descripcion": "Color: Azul. STARFIT. PLANTILLA TÉCNICA FLEXIBLE DE ESPUMA COMPUESTA DE POLIURETANO, DISEÑADA PARA OFRECER UN MAYOR CONFORT. Deportivas abotinadas en color negro y azul. Detalle de chapa en color negro en los cordones.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/1/2/p/2218/961/009//02/2218961009_2_4_3.jpg",
+    "stock": 130
+  },
+  {
+    "nombre": "Zapatillas multicolor ",
+    "precio": "7330",
+    "descripcion": "Color: Combinado. Zapatillas multicolor. Detalle de picados y pespuntes en color negro.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/1/2/p/2410/960/202/2410960202_2_4_3.jpg",
+    "stock": 200
+  },
+  {
+    "nombre": "Sandalia Rick & Morty x Bershka",
+    "precio": "3130",
+    "descripcion": "Color: Negro. Sandalia tipo pala. Estampado con los personales de Rick & Morty en la pala.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/1/2/p/2800/960/040/2800960040_2_4_3.jpg",
+    "stock": 190
+  },
+  {
+    "nombre": "Sandalia tiras hebillas ",
+    "precio": "6270",
+    "descripcion": "Color: Negro. Sandalia en color negro. Cierre mediante hebillas. Planta tipo anatómica. Suela con track.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/1/2/p/2700/960/040//01/2700960040_2_4_3.jpg",
+    "stock": 240
+  },
+  {
+    "nombre": "Sandalia tiras hebillas pro ",
+    "precio": "8270",
+    "descripcion": "Color: Arena. Sandalia en color arena. Cierre mediante hebillas. Planta tipo anatómica. Suela con track.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/1/2/p/2702/960/107/2702960107_2_4_3.jpg",
+    "stock": 104
+  },
+  {
+    "nombre": "Deportivas combinadas rejilla ",
+    "precio": "10270",
+    "descripcion": "Color: Combinado. STARFIT. PLANTILLA TÉCNICA FLEXIBLE DE ESPUMA COMPUESTA DE POLIURETANO, DISEÑADA PARA OFRECER UN MAYOR CONFORT. Deportivas en color negro. Combinadas con piezas de rejilla y piezas grabadas.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/1/2/p/2302/960/202/2302960202_1_1_3.jpg",
+    "stock": 80
+  },
+  {
+    "nombre": "Deportivas combinadas tejido ",
+    "precio": "11270",
+    "descripcion": "Color: Blanco. STARFIT. PLANTILLA TÉCNICA FLEXIBLE DE ESPUMA COMPUESTA DE POLIURETANO, DISEÑADA PARA OFRECER UN MAYOR CONFORT",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/1/2/p/2310/060/001/2310060001_1_1_3.jpg",
+    "stock": 80
+  },
+  {
+    "nombre": "Zapatillas abotinadas  ",
+    "precio": "8510",
+    "descripcion": "Color: Negro. 100%poliuretano",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/1/2/p/2216/960/040/2216960040_2_4_3.jpg",
+    "stock": 80
+  },
+  {
+    "nombre": "Zapatillas talón color ",
+    "precio": "18510",
+    "descripcion": "Color: Blanco. Zapatillas en color blanco. Talón en color negro. Suela combinada con pieza en color cuero.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/1/2/p/2462/860/001/2462860001_2_4_3.jpg",
+    "stock": 80
+  },
+
+  {
+    "nombre": "Zapatillas XXL",
+    "precio": "20660",
+    "descripcion": "Color: Blanco. STARFIT. PLANTILLA TÉCNICA FLEXIBLE DE ESPUMA COMPUESTA DE POLIURETANO, DISEÑADA PARA OFRECER UN MAYOR CONFORT. Zapatillas con volumen en color blanco. Combinadas con la suela en color caramelo. Cordones anchos. Tipo skate.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/1/2/p/2466/860/001/2466860001_1_1_3.jpg",
+    "stock": 80
+  },
+
+  {
+    "nombre": "Zapatillas combinadas cremallera ",
+    "precio": "21860",
+    "descripcion": "Color: Negro. Zapatilla en color blanco combinadas con negro y rojo. Cremallera en color negro. Detalle de etiqueta en talón y lengua en color rojo.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/1/2/p/2408/960/040/2408960040_2_4_3.jpg",
+    "stock": 80
+  },
+
+  {
+    "nombre": "Zapatillas tricolor ",
+    "precio": "27860",
+    "descripcion": "Color: Combinado. Zapatillas en color blanco, negro y rojo. Detalle de piezas superpuestas.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/1/2/p/2414/961/202//01/2414961202_1_1_3.jpg",
+    "stock": 80
+  },
+  {
+    "nombre": "Zapatillas bandana ",
+    "precio": "22190",
+    "descripcion": "Color: Blanco. Zapatillas en color blanco. Piezas con estampados de bandana y piezas grabadas.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/1/2/p/2452/860/001/2452860001_2_4_3.jpg",
+    "stock": 80
+  },
+  {
+    "nombre": "Zapatillas combinadas cadena ",
+    "precio": "24590",
+    "descripcion": "Color: Naranja.STARFIT. PLANTILLA TÉCNICA FLEXIBLE DE ESPUMA COMPUESTA DE POLIURETANO, DISEÑADA PARA OFRECER UN MAYOR CONFORT. Zapatillas en color naranja y blanco. Detalle de cadena en color naranja.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/1/2/p/2412/060/070//01/2412060070_1_1_3.jpg",
+    "stock": 80
+  },
+
+  {
+    "nombre": "Zapatillas Pokémon",
+    "precio": "7490",
+    "descripcion": "Color: Combinado.STARFIT. PLANTILLA TÉCNICA FLEXIBLE DE ESPUMA COMPUESTA DE POLIURETANO, DISEÑADA PARA OFRECER UN MAYOR CONFORT. Zapatillas combinadas en color amarillo, blanco y negro. Dibujo de Pikachu en los laterales.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/1/2/p/2452/961/202/2452961202_1_1_3.jpg",
+    "stock": 80
+  },
+
+  {
+    "nombre": "Zapatillas básicas ",
+    "precio": "3150",
+    "descripcion": "Color: Blanco. Zapatillas básicas en color blanco. Detalle de chapa en los cordones.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/1/2/p/2400/060/001//01/2400060001_1_1_3.jpg",
+    "stock": 600
+  },
+
+
+
+
+
+  {
+    "nombre": "Cazadora acolchada ligera",
+    "precio": "9130",
+    "descripcion": "Color: Negro. Exterior: CFF: Care for fiber: al menos 30% poliester reciclado + Relleno: Care for fiber: 100% poliester reciclado. Esta fibra se obtiene a partir del reciclaje de plástico PET, como el de las botellas de agua. Transformando este residuo en un nuevo recurso reducimos la producción de materia prima virgen y el consumo de agua, energía y recursos naturales.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/3909/644/800/3909644800_2_4_3.jpg",
+    "stock": 60
+  },
+  {
+    "nombre": "Cazadora bomber cremalleras",
+    "precio": "4270",
+    "descripcion": "Color: Negro. 100%poliéster",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/3911/677/800/3911677800_2_4_3.jpg",
+    "stock": 90
+  },
+  {
+    "nombre": "Cazadora bomber ligera efecto nylon",
+    "precio": "6150",
+    "descripcion": "Color: Blanco roto. 100% poliéster",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/6877/777/251/6877777251_2_4_3.jpg",
+    "stock": 99
+  },
+  {
+    "nombre": "Cazadora bomber ligera varsity",
+    "precio": "4990",
+    "descripcion": "Color: Negro. Care for fiber: al menos 25% poliéster reciclado. Esta fibra se obtiene a partir del reciclaje de plástico PET, como el de las botellas de agua. Transformando este residuo en un nuevo recurso reducimos la producción de materia prima virgen y el consumo de agua, energía y recursos naturales.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/3890/200/800/3890200800_2_4_3.jpg",
+    "stock": 120
+  },
+  {
+    "nombre": "Cazadora efecto nylon print",
+    "precio": "9210",
+    "descripcion": "Color: Negro. 100%poliéster",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/6851/777/800/6851777800_2_4_3.jpg",
+    "stock": 50
+  },
+  {
+    "nombre": "Chaleco capucha acolchado",
+    "precio": "5180",
+    "descripcion": "Color: Piedra. Exterior: CFF: Care for fiber: al menos 30% poliester reciclado + Relleno: Care for fiber: 100% poliester reciclado. Esta fibra se obtiene a partir del reciclaje de plástico PET, como el de las botellas de agua. Transformando este residuo en un nuevo recurso reducimos la producción de materia prima virgen y el consumo de agua, energía y recursos naturales.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/6859/644/805/6859644805_2_4_3.jpg",
+    "stock": 140
+  },
+  {
+    "nombre": "Cazadora denim oversize",
+    "precio": "6310",
+    "descripcion": "Color: Azul lavado. Care for fiber & water: al menos 20% algodón reciclado. La producción de esta fibra recupera residuo de algodón, principalmente de la producción de otras prendas de algodón, reduciendo así la producción de materia prima virgen y el consumo de agua, energía y recursos naturales. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/3859/335/428/3859335428_2_4_3.jpg",
+    "stock": 213
+  },
+  {
+    "nombre": "Cazadora print",
+    "precio": "7100",
+    "descripcion": "Color: Amarillo. 100%poliéster",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/1386/311/300/1386311300_2_4_3.jpg",
+    "stock": 331
+  },
+  {
+    "nombre": "Cazadora bomber acolchada",
+    "precio": "9420",
+    "descripcion": "Color: Negro. 100%poliéster",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/3882/200/800/3882200800_2_4_3.jpg",
+    "stock": 99
+  },
+  {
+    "nombre": "Cazadora denim varsity",
+    "precio": "7820",
+    "descripcion": "Color: Negro. 100% algodon",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/3860/388/800/3860388800_2_4_3.jpg",
+    "stock": 186
+  },
+  {
+    "nombre": "Cazadora print degradado",
+    "precio": "4943",
+    "descripcion": "Color: Amarillo. 100%poliéster",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/3914/085/300/3914085300_2_4_3.jpg",
+    "stock": 221
+  },
+  {
+    "nombre": "Cazadora canguro print",
+    "precio": "8241",
+    "descripcion": "Color: Negro. 100% algodon",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/3881/200/800/3881200800_2_4_3.jpg",
+    "stock": 300
+  },
+  {
+    "nombre": "Cazadora canguro acolchada",
+    "precio": "9154",
+    "descripcion": "Color: Verde. 100% algodon",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/6677/200/500/6677200500_2_4_3.jpg",
+    "stock": 245
+  },
+  {
+    "nombre": "Cazadora racing print espalda",
+    "precio": "9551",
+    "descripcion": "Color: Azul. 100% algodon",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/3887/564/400/3887564400_2_4_3.jpg",
+    "stock": 249
+  },
+  {
+    "nombre": "Cazadora pintura print",
+    "precio": "5831",
+    "descripcion": "Color: Camel. Exterior: Care for water: producido utilizando menos agua + Relleno: 100% poliester reciclado. Exterior: Esta prenda se ha producido utilizando tecnologías que nos ayudan a reducir el consumo de agua en los procesos de tintado y lavado. Relleno: Esta fibra se obtiene a partir del reciclaje de plástico PET, como el de las botellas de agua. Transformando este residuo en un nuevo recurso reducimos la producción de materia prima virgen y el consumo de agua, energía y recursos naturales.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/3891/073/742/3891073742_2_4_3.jpg",
+    "stock": 19
+  },
+
+  {
+    "nombre": "Chaleco algodón multipocket",
+    "precio": "2871",
+    "descripcion": "Color: Blanco roto. 60% algodon, 34% poliéster, 6% elastano",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/3646/019/743/3646019743_2_4_3.jpg",
+    "stock": 65
+  },
+
+  {
+    "nombre": "Cazadora denim color",
+    "precio": "12871",
+    "descripcion": "Color: Marrón. Care for fiber & water: al menos 15% algodón reciclado. El algodón reciclado se produce a partir del residuo de algodón de otras producciones, reduciendo el consumo de algodón virgen y los procesos de obtención de la fibra. Esta prenda se ha producido utilizando tecnologías que nos ayudan a reducir el consumo de agua en los procesos de tintado y lavado.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/0584/335/717/0584335717_2_4_3.jpg",
+    "stock": 87
+  },
+
+  {
+    "nombre": "Chaleco acolchado capucha",
+    "precio": "8151",
+    "descripcion": "Color: Piedra. Exterior: CFF: Care for fiber: al menos 30% poliester reciclado + Relleno: Care for fiber: 100% poliester reciclado. Esta fibra se obtiene a partir del reciclaje de plástico PET, como el de las botellas de agua. Transformando este residuo en un nuevo recurso reducimos la producción de materia prima virgen y el consumo de agua, energía y recursos naturales.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/8404/647/742/8404647742_2_4_3.jpg",
+    "stock": 200
+  },
+
+  {
+    "nombre": "Abrigo trench cuadros",
+    "precio": "18151",
+    "descripcion": "Color: Camel. 67% poliéster, 31% viscosa, 2% elastano",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/1793/168/742/1793168742_2_4_3.jpg",
+    "stock": 160
+  },
+
+  {
+    "nombre": "Abrigo confort",
+    "precio": "20151",
+    "descripcion": "Color: Negro. 100% poliéster",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/6845/310/800/6845310800_2_4_3.jpg",
+    "stock": 200
+  },
+
+
+
+
+
+  
+  {
+    "nombre": "Gorra básica",
+    "precio": "2000",
+    "descripcion": "Color: Verde. 100% algodon",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/4946/423/500/4946423500_1_1_3.jpg",
+    "stock": 500
+  },
+  {
+    "nombre": "Sombrero bucket print",
+    "precio": "2500",
+    "descripcion": "Color: Verde. 100% poliester",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/9888/423/982/9888423982_1_1_3.jpg",
+    "stock": 500
+  },
+  {
+    "nombre": "Gorra bucket",
+    "precio": "2500",
+    "descripcion": "Color: Amarillo. Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/4948/423/312/4948423312_1_1_3.jpg",
+    "stock": 500
+  },
+  {
+    "nombre": "Sombrero bucket pana",
+    "precio": "2500",
+    "descripcion": "Color: Arena. 100%poliéster",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/4955/984/752/4955984752_1_1_3.jpg",
+    "stock": 500
+  },
+  {
+    "nombre": "Gorra bordado contraste",
+    "precio": "2400",
+    "descripcion": "Color: Negro. Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/9896/423/800/9896423800_1_1_3.jpg",
+    "stock": 500
+  },
+  {
+    "nombre": "Sombrero bucket efecto toalla tie-dye",
+    "precio": "2700",
+    "descripcion": "Color: Varios. 100% poliéster",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/9890/984/982/9890984982_1_1_3.jpg",
+    "stock": 500
+  },
+  {
+    "nombre": "Gorro corto básico",
+    "precio": "2000",
+    "descripcion": "Color: Negro. Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/4958/984/800/4958984800_1_1_3.jpg",
+    "stock": 500
+  },
+  {
+    "nombre": "Gafas sol hexagonal",
+    "precio": "1500",
+    "descripcion": "Color: Oro. Protección UV: AV400 CAT 1",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/9876/668/302/9876668302_1_1_3.jpg",
+    "stock": 300
+  },
+  {
+    "nombre": "Gafas sol octogonales",
+    "precio": "1700",
+    "descripcion": "Color: Azul. Protección UV: AV400 CAT1",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/3920/023/400/3920023400_1_1_3.jpg",
+    "stock": 300
+  },
+  {
+    "nombre": "Gafas sol color or",
+    "precio": "1200",
+    "descripcion": "Color: Negro. Protección UV: AV400 CAT 2",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/9878/419/800/9878419800_1_1_3.jpg",
+    "stock": 300
+  },
+  {
+    "nombre": "Gafas sol carey",
+    "precio": "1400",
+    "descripcion": "Color: Verde. Protección UV: AV400 CAT 1",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/9877/419/500/9877419500_1_1_3.jpg",
+    "stock": 300
+  },
+  {
+    "nombre": "Gafas sol color",
+    "precio": "1600",
+    "descripcion": "Color: Naranja. Protección UV: AV400 CAT 1",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/3924/023/615/3924023615_1_1_3.jpg",
+    "stock": 300
+  },
+  {
+    "nombre": "Gafas sol color frai",
+    "precio": "1600",
+    "descripcion": "Color: Negro. Protección UV: AV400 CAT 1",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/3923/668/800/3923668800_1_1_3.jpg",
+    "stock": 300
+  },
+  {
+    "nombre": "Bolso crossbody",
+    "precio": "2000",
+    "descripcion": "Color: Negro. 100%poliéster",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/9810/862/800/9810862800_1_1_3.jpg",
+    "stock": 200
+  },
+  {
+    "nombre": "Mochila mini",
+    "precio": "2300",
+    "descripcion": "Color: Negro. 100%poliéster",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/4828/668/800/4828668800_1_1_3.jpg",
+    "stock": 200
+  },
+  {
+    "nombre": "Riñonera detalle color",
+    "precio": "2000",
+    "descripcion": "Color: Negro/rosa. 100%poliéster",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/4830/668/800/4830668800_1_1_3.jpg",
+    "stock": 200
+  },
+  {
+    "nombre": "Set 3 calcetines rayas",
+    "precio": "500",
+    "descripcion": "Color: Blanco con rayas de colores. 100%poliéster",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/9799/588/250/9799588250_1_1_3.jpg",
+    "stock": 200
+  },
+
+  {
+    "nombre": "Set 3 calcetines grafiti print",
+    "precio": "500",
+    "descripcion": "Color: Varios. Care for fiber: al menos 50% algodón orgánico. Algodón cultivado utilizando fertilizantes y pesticidas naturales. Además, en su cultivo no se utilizan semillas modificadas genéticamente, lo que ayuda a conservar la biodiversidad de las semillas y la fertilidad del suelo.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/9791/588/615/9791588615_1_1_3.jpg",
+    "stock": 200
+  },
+  {
+    "nombre": "Pack 3 pares de calcetines Frosties",
+    "precio": "500",
+    "descripcion": "Color: Varios. Care for fiber: al menos 50% algodón orgánico. Algodón cultivado utilizando fertilizantes y pesticidas naturales. Además, en su cultivo no se utilizan semillas modificadas genéticamente, lo que ayuda a conservar la biodiversidad de las semillas y la fertilidad del suelo.",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/4941/588/800/4941588800_1_1_3.jpg",
+    "stock": 200
+  },
+  {
+    "nombre": "Pack de 3 calcetines casual tie dye",
+    "precio": "500",
+    "descripcion": "Color: Varios.77% algodón, 21% poliamida, 2% elastano",
+    "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/9570/698/800/9570698800_1_1_3.jpg",
+    "stock": 200
+  }
+]
