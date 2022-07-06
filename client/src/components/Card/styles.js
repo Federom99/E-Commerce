@@ -70,7 +70,7 @@ export const Button = styled.div`
     width: 100%;
     height: 40px;
     font-weight: 600;
-    color: ${props => props.theme.colorTextSec};
-    background-color: ${props => props.theme.backgroundElement};
+    color: ${props => props.theme.txtbtn};
+    background-color: ${props => props.theme.bton};
     cursor: pointer;
 `
