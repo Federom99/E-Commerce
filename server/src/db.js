@@ -54,20 +54,3 @@ module.exports = {
   conn: sequelize,     // para importart la conexión { conn } = require('./db.js');
   Op
 };
-
-const productosJSON = JSON.parse(fs.readFileSync(__dirname + '/models/assets/productos.json'));
-
-//Cargar data en la DB
-(async function () {
-  //Por cada producto del JSON, creo una entrada en la database
-  productosJSON.forEach(async p => {
-    await Producto.create({
-      nombre: p.nombre,
-      descripcion: p.descripcion,
-      imagen: p.imagen,
-      precio: parseInt(p.precio),
-      stock: p.stock
-    })
-  })
-  console.log('Productos cargados en la DB')
-}());

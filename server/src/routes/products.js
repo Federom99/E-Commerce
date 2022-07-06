@@ -5,7 +5,16 @@ const router = Router();
 
 router.get('/', async(req, res) => {
 
-    res.send('funca')
+    const productsSearch = await Producto.findAll();
+
+    console.log(productsSearch)
+
+    let productos = productsSearch.map(p => {
+        console.log(p)
+        return p.dataValues
+    })
+
+    res.send(productos)
 
 
 })
