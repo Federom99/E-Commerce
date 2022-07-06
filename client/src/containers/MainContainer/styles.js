@@ -5,4 +5,7 @@ export const Main = styled.main`
     width: 100%;
     min-width: 375px;
     max-width: 1440px;
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    padding-top: 90px;
 `

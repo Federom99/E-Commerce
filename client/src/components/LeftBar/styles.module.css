@@ -1,0 +1,10 @@
+.lista {
+  display: flex;
+}
+.show {
+  display: block;
+  margin-left: 10px;
+}
+.notShow {
+  display: none;
+}
