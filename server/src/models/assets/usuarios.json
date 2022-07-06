@@ -72,7 +72,18 @@
     "telefono": 1100000000,
     "mail": "earancio616@gmail.com",
     "direccion": "CABA",
-    "dni": 4000000,
+    "dni": 8000000,
+    "contraseña": "admin",
+    "isAdmin": true
+  },
+  {
+    "id": "dsI3ZazuBKTyQGJFS9ghRudXCpn9",
+    "nombre": "Alexis",
+    "apellido": "Cortazzi",
+    "telefono": 1100000000,
+    "mail": "alexiscortazzii@gmail.com",
+    "direccion": "Caballito, San Juan",
+    "dni": 9000000,
     "contraseña": "admin",
     "isAdmin": true
   }
