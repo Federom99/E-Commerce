@@ -31,7 +31,7 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-  
+
     contraseña: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -39,6 +39,9 @@ module.exports = (sequelize) => {
     isAdmin: {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
+    },
+    token: {
+      type: DataTypes.STRING,
     },
   });
 };
