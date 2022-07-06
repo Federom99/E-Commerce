@@ -8,6 +8,7 @@ import ShoppingCart from "./pages/Cart";
 import Profile from "./pages/Profile";
 import { GlobalStyle } from "./styles/GlobalStyles";
 import Footer from "./components/Footer";
+import Login from "./pages/login/Login";
 
 function App() {
   const location = useLocation();
@@ -22,6 +23,7 @@ function App() {
         <Route path="/detail/:productId" element={<ProductDetail />} />
         <Route path="/admin/" element={<AdminHub />} />
         <Route path="/newUser" element={<CreateUser />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/cart/" element={<ShoppingCart />} />
         <Route path="/profile/" element={<Profile />} />
       </Routes>
