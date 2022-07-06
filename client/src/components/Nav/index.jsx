@@ -1,16 +1,36 @@
+import { BsFillPersonFill } from "react-icons/bs";
+import { FaShoppingCart } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import style from "./nav.module.css";
+import Search from "./search";
+import { Contenido } from "./style";
 
-export default function NavBar (){
-    return(
-        <div>
-            <ul>
-                <li><NavLink to='/main'>Home</NavLink></li>
-                <li><NavLink to='/admin'>Admin</NavLink></li>
-                <li><NavLink to='/cart'>Cart</NavLink></li>
-                <li><NavLink to='/newUser'>Sign Up</NavLink></li>
-                <li><NavLink to='/profile'>Profile</NavLink></li>
-                
-            </ul>
-        </div>
-    )
+export default function NavBar() {
+  return (
+    <div className={style.full}>
+      <Contenido className={style.container}>
+        <li>
+          <NavLink to="/" style={{ fontSize: "32px" }}>
+            Logo
+          </NavLink>
+        </li>
+        <li className={style.searching}>
+          <Search />
+        </li>
+        <li>
+          <NavLink to="/profile">
+            <BsFillPersonFill />
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/newUser"></NavLink>
+        </li>
+        <li>
+          <NavLink to="/cart">
+            <FaShoppingCart />
+          </NavLink>
+        </li>
+      </Contenido>
+    </div>
+  );
 }
