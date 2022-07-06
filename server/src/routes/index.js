@@ -6,6 +6,7 @@ const router = Router();
 
 const userRouter = require('./user.js')
 const productsRouter = require('./products')
+const productRouter = require('./product.js')
 
 const { Op } = require("../db");
 const {Categoria, Pedido, Producto, ProductosFav, Rating, Usuario} = require("../db");
@@ -18,6 +19,7 @@ const {API_KEY} = process.env;
 
 router.use('/user', userRouter)
 router.use('/products', productsRouter)
+router.use('/product', productRouter)
 
 //TEST DE RUTAS
 router.get("/algo", async (req, res) => {
