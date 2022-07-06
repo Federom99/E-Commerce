@@ -4,7 +4,7 @@ const { Producto } = require("./src/db.js");
 const fs = require("fs");
 
 // Syncing all the models at once.
-conn.sync({ force: false }).then(() => {
+conn.sync({ force: true }).then(() => {
   server.listen(3001, () => {
     console.log("%s listening at 3001");
     const productosJSON = JSON.parse(
