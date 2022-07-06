@@ -6,11 +6,9 @@ const router = Router();
 
 const userRouter = require('./user.js')
 const productsRouter = require('./products')
-
-const { Op } = require("../db");
-const {Categoria, Pedido, Producto, ProductosFav, Rating, Usuario} = require("../db");
-
-const {API_KEY} = process.env;
+const createProductRouter = require("./createProduct")
+const categoryRouter = require("./category")
+const editProductRouter = require("./editProduct")
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
@@ -18,14 +16,9 @@ const {API_KEY} = process.env;
 
 router.use('/user', userRouter)
 router.use('/products', productsRouter)
-
-//TEST DE RUTAS
-router.get("/algo", async (req, res) => {
-    try{
-        const cat = await Categoria.create({"nombre": "REMERA"})
-        res.send("HOLA - "+cat.nombre);
-    }catch(e){console.log(e);}
-})
+router.use("/create/product", createProductRouter)
+router.use("/category", categoryRouter)
+router.use("/edit/product", editProductRouter)
 
 
 module.exports = router;

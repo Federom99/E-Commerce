@@ -28,5 +28,7 @@ module.exports = (sequelize) => {
       defaultValue: "En preparación",
       allowNull: true,
     },
-  });
+  },{
+    timestamps: false
+});
 };
