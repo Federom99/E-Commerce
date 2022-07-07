@@ -31,6 +31,11 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    
+    dni: {
+      type: DataTypes.BIGINT,
+      allowNull: false,
+    },
 
     contraseña: {
       type: DataTypes.STRING,
