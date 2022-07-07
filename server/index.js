@@ -1,6 +1,6 @@
 const server = require("./src/app.js");
 const { conn } = require("./src/db.js");
-const { Producto, Talle, Producto_talle} = require("./src/db.js");
+const { Producto, Talle, Producto_talle, Categoria} = require("./src/db.js");
 const fs = require("fs");
 
 // Syncing all the models at once.
@@ -17,14 +17,30 @@ conn.sync({ force: true }).then(() => {
       Talle.create({
         talle: 'Sin talle'
       })
-      //Por cada producto del JSON, creo una entrada en la database
+
+
+      //Por cada producto del JSON, creo una entrada de su categoria en la DB (si no existe) y, a partir de la categoria, creo el producto para asociarlo con ella.
       productosJSON.forEach(async (p) => {
-        const productoCreado = await Producto.create({
+        const categoria = await Categoria.findOrCreate({
+          where: { nombre: `${p.categoria[0]}` },
+          defaults: { nombre: p.categoria[0] },
+        })
+
+        // const productoCreado = await Producto.create({
+        //   nombre: p.nombre,
+        //   descripcion: p.descripcion,
+        //   imagen: p.imagen,
+        //   precio: parseInt(p.precio),
+        // });
+
+        const productoCreado = await categoria[0].createProducto({
           nombre: p.nombre,
           descripcion: p.descripcion,
           imagen: p.imagen,
           precio: parseInt(p.precio),
         });
+
+
 
         //Si no tengo un talle, lo pongo o lo traigo de la db, de lo contrario, les pongo el talle "Sin talle" que cree antes.
         //En ambos casos, si en el JSON tienen el atributo stock lo asigno en la tabla que relaciona al talle y al producto para

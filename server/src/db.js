@@ -37,7 +37,7 @@ const {Categoria, Pedido, Producto, ProductosFav, Rating, Usuario, Talle, Produc
 
 
 
-Producto.hasOne(Categoria);
+Producto.belongsTo(Categoria);
 Categoria.hasMany(Producto);
 
 Producto.belongsToMany(Pedido, {through: "producto_pedido"});
