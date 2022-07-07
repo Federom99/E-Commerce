@@ -6,6 +6,7 @@ import AdminHub from "./pages/Admin";
 import CreateUser from "./pages/CreateUser";
 import ShoppingCart from "./pages/Cart";
 import Profile from "./pages/Profile";
+import Login from "./pages/Login";
 import { GlobalStyle } from "./styles/GlobalStyles";
 import Footer from "./components/Footer";
 
@@ -21,7 +22,8 @@ function App() {
         <Route exact path="/" element={<MainContainer />} />
         <Route path="/detail/:productId" element={<ProductDetail />} />
         <Route path="/admin/" element={<AdminHub />} />
-        <Route path="/newUser" element={<CreateUser />} />
+        <Route path="/login/" element={<Login />} />
+        <Route path="/register" element={<CreateUser />} />
         <Route path="/cart/" element={<ShoppingCart />} />
         <Route path="/profile/" element={<Profile />} />
       </Routes>
