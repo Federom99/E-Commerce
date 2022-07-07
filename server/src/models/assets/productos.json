@@ -1580,7 +1580,7 @@
     "precio": "9130",
     "descripcion": "Color: Negro. Exterior: CFF: Care for fiber: al menos 30% poliester reciclado + Relleno: Care for fiber: 100% poliester reciclado. Esta fibra se obtiene a partir del reciclaje de plástico PET, como el de las botellas de agua. Transformando este residuo en un nuevo recurso reducimos la producción de materia prima virgen y el consumo de agua, energía y recursos naturales.",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/3909/644/800/3909644800_2_4_3.jpg",
-  "talles": ["S", "M", "L", "XL"],
+  "talle": ["S", "M", "L", "XL"],
   "stock": [30, 25, 18, 10],
     "categoria": ["Abrigo"]
   },
@@ -1589,7 +1589,7 @@
     "precio": "4270",
     "descripcion": "Color: Negro. 100%poliéster",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/3911/677/800/3911677800_2_4_3.jpg",
-  "talles": ["S", "M", "L", "XL"],
+  "talle": ["S", "M", "L", "XL"],
   "stock": [30, 25, 18, 10],
     "categoria": ["Abrigo"]
   },
@@ -1598,7 +1598,7 @@
     "precio": "6150",
     "descripcion": "Color: Blanco roto. 100% poliéster",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/6877/777/251/6877777251_2_4_3.jpg",
-  "talles": ["S", "M", "L", "XL"],
+  "talle": ["S", "M", "L", "XL"],
   "stock": [30, 25, 18, 10],
     "categoria": ["Abrigo"]
   },
@@ -1607,7 +1607,7 @@
     "precio": "4990",
     "descripcion": "Color: Negro. Care for fiber: al menos 25% poliéster reciclado. Esta fibra se obtiene a partir del reciclaje de plástico PET, como el de las botellas de agua. Transformando este residuo en un nuevo recurso reducimos la producción de materia prima virgen y el consumo de agua, energía y recursos naturales.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/3890/200/800/3890200800_2_4_3.jpg",
-    "talles": ["S", "M", "L", "XL"],
+    "talle": ["S", "M", "L", "XL"],
     "stock": [30, 25, 18, 10],
     "categoria": ["Abrigo"]
   },
@@ -1616,7 +1616,7 @@
     "precio": "9210",
     "descripcion": "Color: Negro. 100%poliéster",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/6851/777/800/6851777800_2_4_3.jpg",
-  "talles": ["S", "M", "L", "XL"],
+  "talle": ["S", "M", "L", "XL"],
   "stock": [30, 25, 18, 10],
     "categoria": ["Abrigo"]
   },
@@ -1625,7 +1625,7 @@
     "precio": "5180",
     "descripcion": "Color: Piedra. Exterior: CFF: Care for fiber: al menos 30% poliester reciclado + Relleno: Care for fiber: 100% poliester reciclado. Esta fibra se obtiene a partir del reciclaje de plástico PET, como el de las botellas de agua. Transformando este residuo en un nuevo recurso reducimos la producción de materia prima virgen y el consumo de agua, energía y recursos naturales.",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/6859/644/805/6859644805_2_4_3.jpg",
-    "talles": ["S", "M", "L", "XL"],
+    "talle": ["S", "M", "L", "XL"],
     "stock": [30, 25, 18, 10],
     "categoria": ["Abrigo"]
   },
@@ -1634,7 +1634,7 @@
     "precio": "6310",
     "descripcion": "Color: Azul lavado. Care for fiber & water: al menos 20% algodón reciclado. La producción de esta fibra recupera residuo de algodón, principalmente de la producción de otras prendas de algodón, reduciendo así la producción de materia prima virgen y el consumo de agua, energía y recursos naturales. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/3859/335/428/3859335428_2_4_3.jpg",
-    "talles": ["S", "M", "L", "XL"],
+    "talle": ["S", "M", "L", "XL"],
     "stock": [30, 25, 18, 10],
     "categoria": ["Abrigo"]
   },
@@ -1643,7 +1643,7 @@
     "precio": "7100",
     "descripcion": "Color: Amarillo. 100%poliéster",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/1386/311/300/1386311300_2_4_3.jpg",
-    "talles": ["S", "M", "L", "XL"],
+    "talle": ["S", "M", "L", "XL"],
     "stock": [30, 25, 18, 10],
     "categoria": ["Abrigo"]
   },
@@ -1652,7 +1652,7 @@
     "precio": "9420",
     "descripcion": "Color: Negro. 100%poliéster",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/3882/200/800/3882200800_2_4_3.jpg",
-  "talles": ["S", "M", "L", "XL"],
+  "talle": ["S", "M", "L", "XL"],
   "stock": [30, 25, 18, 10],
     "categoria": ["Abrigo"]
   },
@@ -1661,7 +1661,7 @@
     "precio": "7820",
     "descripcion": "Color: Negro. 100% algodon",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/3860/388/800/3860388800_2_4_3.jpg",
-    "talles": ["S", "M", "L", "XL"],
+    "talle": ["S", "M", "L", "XL"],
     "stock": [30, 25, 18, 10],
     "categoria": ["Abrigo"]
   },
@@ -1670,7 +1670,7 @@
     "precio": "4943",
     "descripcion": "Color: Amarillo. 100%poliéster",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/3914/085/300/3914085300_2_4_3.jpg",
-    "talles": ["S", "M", "L", "XL"],
+    "talle": ["S", "M", "L", "XL"],
     "stock": [30, 25, 18, 10],
     "categoria": ["Abrigo"]
   },
@@ -1679,7 +1679,7 @@
     "precio": "8241",
     "descripcion": "Color: Negro. 100% algodon",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/3881/200/800/3881200800_2_4_3.jpg",
-    "talles": ["S", "M", "L", "XL"],
+    "talle": ["S", "M", "L", "XL"],
     "stock": [30, 25, 18, 10],
     "categoria": ["Abrigo"]
   },
@@ -1688,7 +1688,7 @@
     "precio": "9154",
     "descripcion": "Color: Verde. 100% algodon",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/6677/200/500/6677200500_2_4_3.jpg",
-    "talles": ["S", "M", "L", "XL"],
+    "talle": ["S", "M", "L", "XL"],
     "stock": [30, 25, 18, 10],
     "categoria": ["Abrigo"]
   },
@@ -1697,7 +1697,7 @@
     "precio": "9551",
     "descripcion": "Color: Azul. 100% algodon",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/3887/564/400/3887564400_2_4_3.jpg",
-    "talles": ["S", "M", "L", "XL"],
+    "talle": ["S", "M", "L", "XL"],
     "stock": [30, 25, 18, 10],
     "categoria": ["Abrigo"]
   },
@@ -1706,7 +1706,7 @@
     "precio": "5831",
     "descripcion": "Color: Camel. Exterior: Care for water: producido utilizando menos agua + Relleno: 100% poliester reciclado. Exterior: Esta prenda se ha producido utilizando tecnologías que nos ayudan a reducir el consumo de agua en los procesos de tintado y lavado. Relleno: Esta fibra se obtiene a partir del reciclaje de plástico PET, como el de las botellas de agua. Transformando este residuo en un nuevo recurso reducimos la producción de materia prima virgen y el consumo de agua, energía y recursos naturales.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/3891/073/742/3891073742_2_4_3.jpg",
-  "talles": ["S", "M", "L", "XL"],
+  "talle": ["S", "M", "L", "XL"],
   "stock": [30, 25, 18, 10],
     "categoria": ["Abrigo"]
   },
@@ -1716,7 +1716,7 @@
     "precio": "2871",
     "descripcion": "Color: Blanco roto. 60% algodon, 34% poliéster, 6% elastano",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/3646/019/743/3646019743_2_4_3.jpg",
-  "talles": ["S", "M", "L", "XL"],
+  "talle": ["S", "M", "L", "XL"],
   "stock": [30, 25, 18, 10],
     "categoria": ["Abrigo"]
   },
@@ -1726,7 +1726,7 @@
     "precio": "12871",
     "descripcion": "Color: Marrón. Care for fiber & water: al menos 15% algodón reciclado. El algodón reciclado se produce a partir del residuo de algodón de otras producciones, reduciendo el consumo de algodón virgen y los procesos de obtención de la fibra. Esta prenda se ha producido utilizando tecnologías que nos ayudan a reducir el consumo de agua en los procesos de tintado y lavado.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/0584/335/717/0584335717_2_4_3.jpg",
-  "talles": ["S", "M", "L", "XL"],
+  "talle": ["S", "M", "L", "XL"],
   "stock": [30, 25, 18, 10],
     "categoria": ["Abrigo"]
   },
@@ -1736,7 +1736,7 @@
     "precio": "8151",
     "descripcion": "Color: Piedra. Exterior: CFF: Care for fiber: al menos 30% poliester reciclado + Relleno: Care for fiber: 100% poliester reciclado. Esta fibra se obtiene a partir del reciclaje de plástico PET, como el de las botellas de agua. Transformando este residuo en un nuevo recurso reducimos la producción de materia prima virgen y el consumo de agua, energía y recursos naturales.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/8404/647/742/8404647742_2_4_3.jpg",
-    "talles": ["S", "M", "L", "XL"],
+    "talle": ["S", "M", "L", "XL"],
     "stock": [30, 25, 18, 10],
     "categoria": ["Abrigo"]
   },
@@ -1746,7 +1746,7 @@
     "precio": "18151",
     "descripcion": "Color: Camel. 67% poliéster, 31% viscosa, 2% elastano",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/1793/168/742/1793168742_2_4_3.jpg",
-    "talles": ["S", "M", "L", "XL"],
+    "talle": ["S", "M", "L", "XL"],
     "stock": [30, 25, 18, 10],
     "categoria": ["Abrigo"]
   },
@@ -1756,7 +1756,7 @@
     "precio": "20151",
     "descripcion": "Color: Negro. 100% poliéster",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/6845/310/800/6845310800_2_4_3.jpg",
-    "talles": ["S", "M", "L", "XL"],
+    "talle": ["S", "M", "L", "XL"],
     "stock": [30, 25, 18, 10],
     "categoria": ["Abrigo"]
   },
