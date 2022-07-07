@@ -4,140 +4,450 @@
     "precio": "1120",
     "descripcion": "Color:Verde. Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/8138/443/526/8138443526_2_4_3.jpg",
-    "stock": 90
+  "talle": ["S", "M", "L", "XL"],
+  "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
   },
   {
     "nombre": "Remera manga corta easy fit print",
     "precio": "1190",
     "descripcion": "Color:Negro. Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/3251/130/800//01/3251130800_2_13_1.jpg",
-    "stock": 95
+  "talle": ["S", "M", "L", "XL"],
+  "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
   },
   {
     "nombre": "Remera manga corta extra loose fit print",
     "precio": "2190",
     "descripcion": "Color: Negro. El estampado de la prenda puede variar ligeramente.Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/2696/461/279/2696461279_2_4_1.jpg",
-    "stock": 73
+  "talle": ["S", "M", "L", "XL"],
+  "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
   },
   {
     "nombre": "Remera manga corta boxy fit print arte",
     "precio": "3150",
     "descripcion": "Color: Blanco roto. 100% algodon",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/2824/922/251//02/2824922251_2_13_1.jpg",
-    "stock": 99
+  "talle": ["S", "M", "L", "XL"],
+  "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
   },
   {
     "nombre": "Remera manga corta extra loose deep-dye print",
     "precio": "4120",
     "descripcion": "Color: Blanco roto. 100% algodon",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/2708/458/251/2708458251_2_4_1.jpg",
-    "stock": 50
+  "talle": ["S", "M", "L", "XL"],
+  "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
   },
   {
     "nombre": "Camiseta manga corta tie-dye funny print",
     "precio": "4680",
     "descripcion": "Color: Azul. Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/8138/443/400/8138443400_2_4_3.jpg",
-    "stock": 90
+  "talle": ["S", "M", "L", "XL"],
+  "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
   },
   {
     "nombre": "Camiseta manga corta extra loose",
     "precio": "2650",
     "descripcion": "Color: Verde. 100% algodon",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/2695/880/500/2695880500_2_4_3.jpg",
-    "stock": 500
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
   },
   {
     "nombre": "Camiseta manga corta boxy fit print oriental",
     "precio": "4120",
     "descripcion": "Color: Blacno. 100% algodon",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/8167/538/250/8167538250_2_4_3.jpg",
-    "stock": 316
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
   },
   {
     "nombre": "Camiseta manga corta print animé",
     "precio": "6182",
     "descripcion": "Color: Negro. 100% algodon",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/8137/461/800/8137461800_2_4_3.jpg",
-    "stock": 389
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
   },
   {
     "nombre": "Camiseta sin mangas worker oversize Smiley",
     "precio": "8462",
     "descripcion": "Color: Blanco. Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/8149/130/250//01/8149130250_2_4_3.jpg",
-    "stock": 210
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
   },
   {
     "nombre": "Camiseta manga corta print",
     "precio": "4185",
     "descripcion": "Color: Blanco. 100% algodon",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/8136/461/250//01/8136461250_2_4_3.jpg",
-    "stock": 510
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
   },
   {
     "nombre": "Camiseta manga corta slim fit cuello perkins",
     "precio": "1185",
     "descripcion": "Color: Granate. 97% algodón 3% elastano",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/2834/130/605/2834130605_2_4_3.jpg",
-    "stock": 610
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
   },
   {
     "nombre": "Camiseta manga corta oversize print",
     "precio": "7475",
     "descripcion": "Color: Blanco. 100% algodon",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/2833/922/250/2833922250_2_4_3.jpg",
-    "stock": 370
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
   },
   {
     "nombre": "Camiseta manga corta boxy fit print",
     "precio": "4137",
     "descripcion": "Color: Negro. 100% algodon",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/2741/130/800/2741130800_2_4_3.jpg",
-    "stock": 500
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
   },
   {
     "nombre": "Camiseta manga corta extra loose print",
     "precio": "6317",
     "descripcion": "Color: Blanco. 100% algodon",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/2751/538/250/2751538250_2_4_3.jpg",
-    "stock": 318
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
   },
   {
     "nombre": "Camiseta manga corta oversize deep-dye print",
     "precio": "8317",
     "descripcion": "Color: Morado. Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/2786/461/612/2786461612_2_4_3.jpg",
-    "stock": 50
+  "talle": ["S", "M", "L", "XL"],
+  "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
   },
   {
     "nombre": "Camiseta manga corta regular fit print",
     "precio": "3687",
     "descripcion": "Color: Azul. 100% algodon",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/2753/443/400/2753443400_2_4_3.jpg",
-    "stock": 400
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
   },
   {
     "nombre": "Camiseta manga corta oversize deep-dye",
     "precio": "6237",
     "descripcion": "Color: Amarillo. Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/2788/461/612/2788461612_2_4_3.jpg",
-    "stock": 326
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
   },
   {
     "nombre": "Camiseta polo cuadros",
     "precio": "2000",
     "descripcion": "Color: Blanco y negro. 100% poliéster",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/3390/296/611/3390296611_2_4_3.jpg",
-    "stock": 600
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
   },
   {
     "nombre": "Camiseta manga corta oversize texto",
     "precio": "5160",
     "descripcion": "Color: Beige. Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/2793/240/459/2793240459_2_4_3.jpg",
-    "stock": 260
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
+  },
+  {
+    "nombre": "Remera Cruz Negra",
+    "precio": "1000",
+    "descripcion": "Color: Negro. 100% algodón premium",
+    "imagen": "https://www.mojojeans.com.ar/pub/media/catalog/product/cache/1dfbce65621460b34e8e6ad7a4cda084/_/l/_lr05211_1_1.jpg",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
+  },
+  {
+    "nombre": "Remera Cruz Blanca",
+    "precio": "1000",
+    "descripcion": "Color: Blanco. 100% algodón premium",
+    "imagen": "https://www.mojojeans.com.ar/pub/media/catalog/product/cache/1dfbce65621460b34e8e6ad7a4cda084/_/l/_lr05212_8.jpg",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
+  },
+  {
+    "nombre": "Remera Cruz Gris",
+    "precio": "1000",
+    "descripcion": "Color: Gris. 100% algodón premium",
+    "imagen": "https://www.mojojeans.com.ar/pub/media/catalog/product/cache/1dfbce65621460b34e8e6ad7a4cda084/_/l/_lr05207_2.jpg",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
+  },
+  {
+    "nombre": "Remera Cruz Estampada Blanca",
+    "precio": "2000",
+    "descripcion": "Color: Blanco. 100% algodón premium",
+    "imagen": "https://www.mojojeans.com.ar/pub/media/catalog/product/cache/1dfbce65621460b34e8e6ad7a4cda084/_/l/_lr08462-copia_1.jpg",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
+  },
+  {
+    "nombre": "Remera Cruz Estampada Negra",
+    "precio": "2000",
+    "descripcion": "Color: Negro. 100% algodón premium",
+    "imagen": "https://www.mojojeans.com.ar/pub/media/catalog/product/cache/1dfbce65621460b34e8e6ad7a4cda084/_/l/_lr08470-copia.jpg",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
+  },
+  {
+    "nombre": "Remera Cruz Estampada Rick and Morty",
+    "precio": "2000",
+    "descripcion": "Color: Negro. 100% algodón premium",
+    "imagen": "https://www.mojojeans.com.ar/pub/media/catalog/product/cache/1dfbce65621460b34e8e6ad7a4cda084/_/l/_lr08466-copia_1.jpg",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
+  },
+  {
+    "nombre": "Remera Cruz Estampada Gris",
+    "precio": "2000",
+    "descripcion": "Color: Gris. 100% algodón premium",
+    "imagen": "https://www.mojojeans.com.ar/pub/media/catalog/product/cache/1dfbce65621460b34e8e6ad7a4cda084/_/l/_lr06178_1.jpg",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
+  },
+  {
+    "nombre": "Remera Cruz Estampada Azul",
+    "precio": "2000",
+    "descripcion": "Color: Azulado. 100% algodón premium",
+    "imagen": "https://www.mojojeans.com.ar/pub/media/catalog/product/cache/1dfbce65621460b34e8e6ad7a4cda084/_/l/_lr01400.jpg",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
+  },
+  {
+    "nombre": "Remera Chester Negra",
+    "precio": "1200",
+    "descripcion": "Color: Negro. 100% algodón común",
+    "imagen": "https://www.mojojeans.com.ar/pub/media/catalog/product/cache/1dfbce65621460b34e8e6ad7a4cda084/_/l/_lr08468-copia.jpg",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
+  },
+  {
+    "nombre": "Remera Chester Verde",
+    "precio": "1200",
+    "descripcion": "Color: Verde. 100% algodón común",
+    "imagen": "https://www.mojojeans.com.ar/pub/media/catalog/product/cache/1dfbce65621460b34e8e6ad7a4cda084/_/l/_lr08474-copia.jpg",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
+  },
+  {
+    "nombre": "Remera Chester Celeste",
+    "precio": "1200",
+    "descripcion": "Color: Celeste. 100% algodón común",
+    "imagen": "https://www.mojojeans.com.ar/pub/media/catalog/product/cache/1dfbce65621460b34e8e6ad7a4cda084/_/l/_lr08476-copia.jpg",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
+  },
+  {
+    "nombre": "Remera Chester Roja",
+    "precio": "1200",
+    "descripcion": "Color: Rojo. 100% algodón común",
+    "imagen": "https://www.mojojeans.com.ar/pub/media/catalog/product/cache/1dfbce65621460b34e8e6ad7a4cda084/_/l/_lr08477-copia.jpg",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
+  },
+  {
+    "nombre": "Remera Myke Salmón",
+    "precio": "2200",
+    "descripcion": "Color: Salmón. 100% algodón premium",
+    "imagen": "https://www.mojojeans.com.ar/pub/media/catalog/product/cache/1dfbce65621460b34e8e6ad7a4cda084/_/l/_lr09730_1.jpg",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
+  },
+  {
+    "nombre": "Remera Myke Blanca",
+    "precio": "2200",
+    "descripcion": "Color: Blanco. 100% algodón premium",
+    "imagen": "https://www.mojojeans.com.ar/pub/media/catalog/product/cache/1dfbce65621460b34e8e6ad7a4cda084/_/l/_lr09732_1.jpg",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
+  },
+  {
+    "nombre": "Remera Myke Negra",
+    "precio": "2200",
+    "descripcion": "Color: Negro. 100% algodón premium",
+    "imagen": "https://www.mojojeans.com.ar/pub/media/catalog/product/cache/1dfbce65621460b34e8e6ad7a4cda084/_/l/_lr09733_1_1.jpg",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
+  },
+  {
+    "nombre": "Remera Myke Verde",
+    "precio": "2200",
+    "descripcion": "Color: Verde. 100% algodón premium",
+    "imagen": "https://www.mojojeans.com.ar/pub/media/catalog/product/cache/1dfbce65621460b34e8e6ad7a4cda084/_/l/_lr09735_1.jpg",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
+  },
+  {
+    "nombre": "Remera Myke Gris",
+    "precio": "2200",
+    "descripcion": "Color: Gris. 100% algodón premium",
+    "imagen": "https://www.mojojeans.com.ar/pub/media/catalog/product/cache/1dfbce65621460b34e8e6ad7a4cda084/_/l/_lr09743_1.jpg",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
+  },
+  {
+    "nombre": "Remera Rocker Azul",
+    "precio": "2260",
+    "descripcion": "Color: Azul. 100% algodón premium",
+    "imagen": "https://www.mojojeans.com.ar/pub/media/catalog/product/cache/1dfbce65621460b34e8e6ad7a4cda084/_/l/_lr05198_1_1.jpg",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
+  },
+  {
+    "nombre": "Remera Rocker Negra",
+    "precio": "2260",
+    "descripcion": "Color: Negro. 100% algodón premium",
+    "imagen": "https://www.mojojeans.com.ar/pub/media/catalog/product/cache/1dfbce65621460b34e8e6ad7a4cda084/_/l/_lr05200_2.jpg",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
+  },
+  {
+    "nombre": "Remera Rocker Blanca",
+    "precio": "2260",
+    "descripcion": "Color: Blanco. 100% algodón premium",
+    "imagen": "https://www.mojojeans.com.ar/pub/media/catalog/product/cache/1dfbce65621460b34e8e6ad7a4cda084/_/l/_lr05204_2.jpg",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
+  },
+  {
+    "nombre": "Polo Color Block",
+    "precio": "6130",
+    "descripcion": "Color: Blanco. Polo de cuello solapa con cierre frontal de cremallera. Manga corta. Bajo con aberturas laterales.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/9240/408/401/2/w/850/9240408401_6_1_1.jpg?ts=1645104784595",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
+  },
+  {
+    "nombre": "Polo Estructura Contraste",
+    "precio": "6370",
+    "descripcion": "Color: Azul marino. Polo de cuello solapa con cierre frontal de botonadura. Manga corta acabada en rib combinado a contraste. Bajo con aberturas laterales.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/0526/412/401/2/w/850/0526412401_6_1_1.jpg?ts=1647256505933",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
+  },
+  {
+    "nombre": "Polo Estructura Punto",
+    "precio": "6770",
+    "descripcion": "Color: Negro. Polo tejido en hilatura con mezcla de algodón. Cuello pico con solapa y manga corta. Acabados en rib",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/4566/401/800/2/w/850/4566401800_6_1_1.jpg?ts=1643299589837",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
+  },
+  {
+    "nombre": "Polo Acabado Mercerizado",
+    "precio": "8120",
+    "descripcion": "Color: Rosa palo. Polo confeccionado en tejido de algodón con acabado mercerizado. Cuello solapa con cierre frontal de cremallera. Manga corta. ",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/6462/405/687/2/w/850/6462405687_6_1_1.jpg?ts=1646320535906",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
+  },
+  {
+    "nombre": "Polo Estructura Constrastex",
+    "precio": "6220",
+    "descripcion": "Color: Blanco. Polo de cuello solapa con cierre frontal de botonadura. Manga corta acabada en rib combinado a contraste. Bajo con aberturas laterales. ",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/0526/412/250/2/w/850/0526412250_6_2_1.jpg?ts=1647256518104",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
+  },
+  {
+    "nombre": "Polo Punto Viscosa",
+    "precio": "8150",
+    "descripcion": "Color: Verde azul. Polo de punto tejido en hilatura con mezcla de viscosa. Cuello solapa con cierre de botonadura frontal. Acabados en rib. ",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/4432/405/903/2/w/850/4432405903_6_1_1.jpg?ts=1643706455398",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
+  },
+  {
+    "nombre": "Polo Color Blocker",
+    "precio": "7450",
+    "descripcion": "Color: Azul claro. Polo de cuello solapa con cierre frontal de cremallera. Manga corta. Bajo con aberturas laterales ",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/0526/408/406/2/w/850/0526408406_6_2_1.jpg?ts=1647523455008",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
+  },
+  {
+    "nombre": "Polo Botoner",
+    "precio": "8250",
+    "descripcion": "Color: Negro lavado. Polo de cuello solapa con cierre frontal de botonadura y manga corta.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/3037/401/833/2/w/850/3037401833_6_1_1.jpg?ts=1649256143821",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
+  },
+  {
+    "nombre": "Polo Estructuraxed",
+    "precio": "7310",
+    "descripcion": "Color: Marino. Polo de cuello solapa con cierre de botonadura frontal. Acabados en rib.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/0526/409/401/2/w/850/0526409401_6_1_1.jpg?ts=1651138537362",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
+  },
+  {
+    "nombre": "Polo Jacquard rayas",
+    "precio": "9250",
+    "descripcion": "Color: Marino. Polo de cuello solapa con cierre frontal de botonadura. Manga corta.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/1044/400/401/2/w/850/1044400401_6_1_1.jpg?ts=1646816224062",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [20, 20, 15, 40],
+    "categoria": ["Remeras"]
   },
 
 
@@ -149,144 +459,362 @@
     "precio": "5100",
     "descripcion": "Color: Naranja. Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/2685/623/305/2685623305_2_4_3.jpg",
-    "stock": 120
+      "talle": ["S", "M", "L", "XL"],
+      "stock": [10,15,30,9],
+    "categoria": ["Camisas"]
   },
   {
     "nombre": "Camisa manga corta relaxed fit",
     "precio": "2110",
     "descripcion": "Color: Azul lavado. Care for fiber & water: al menos 75% TENCEL  Lyocell. El TENCEL  se obtiene de madera de bosques gestionados de forma más sostenible y se produce con tecnologías que reutilizan el agua y 99% de los químicos. Esta prenda se ha producido utilizando tecnologías que nos ayudan a reducir el consumo de agua en los procesos de tintado y lavado.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/1524/019/428//01/1524019428_2_4_1.jpg",
-    "stock": 100
+      "talle": ["S", "M", "L", "XL"],
+      "stock": [10,15,30,9],
+    "categoria": ["Camisas"]
   },
   {
     "nombre": "Camisa manga corta relaxed fit 70",
     "precio": "1140",
     "descripcion": "Color: Marrón. 100% viscosa",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/1536/694/700/1536694700_2_4_1.jpg",
-    "stock": 130
+      "talle": ["S", "M", "L", "XL"],
+      "stock": [10,15,30,9],
+    "categoria": ["Camisas"]
   },
   {
     "nombre": "Camisa manga larga regular fit cuello mao",
     "precio": "3180",
     "descripcion": "Color: Negro. Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/1528/019/800/1528019800_2_4_1.jpg",
-    "stock": 130
+      "talle": ["S", "M", "L", "XL"],
+      "stock": [10,15,30,9],
+    "categoria": ["Camisas"]
   },
   {
     "nombre": "Camisa manga corta raya vertical",
     "precio": "780",
     "descripcion": "Color: Verde. Care for fiber: al menos 80% ECOVERO  Viscose. Esta viscosa se obtiene a partir de madera de bosques gestionados de forma más sostenible donde los árboles se cultivan de forma controlada y con programas que garantizan su reforestación. Además, está certificada por la EU Ecolabel por cumplir exigentes estándares medioambientales en su proceso productivo.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/2684/715/500/2684715500_2_4_1.jpg",
-    "stock": 50
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [10,15,30,9],
+    "categoria": ["Camisas"]
   },
   {
     "nombre": "Camisa manga corta relaxed fit print dragón",
     "precio": "3580",
     "descripcion": "Color: Azul. Care for fiber: 100% ECOVERO  Viscose. Esta viscosa se obtiene a partir de madera de bosques gestionados de forma más sostenible donde los árboles se cultivan de forma controlada y con programas que garantizan su reforestación. Además, está certificada por la EU Ecolabel por cumplir exigentes estándares medioambientales en su proceso productivo.",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/6515/557/400/6515557400_2_4_3.jpg",
-    "stock": 502
+      "talle": ["S", "M", "L", "XL"],
+      "stock": [10,15,30,9],
+    "categoria": ["Camisas"]
   },
   {
     "nombre": "Camisa manga corta relaxed fit print palmeras",
     "precio": "4420",
     "descripcion": "Color: Amarillo. 100% viscosa",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/6512/557/300/6512557300_2_4_3.jpg",
-    "stock": 312
+      "talle": ["S", "M", "L", "XL"],
+      "stock": [10,15,30,9],
+    "categoria": ["Camisas"]
   },
   {
     "nombre": "Camisa manga corta relaxed fit",
     "precio": "5420",
     "descripcion": "Color: Verde. Care for fiber & water: al menos 75% TENCEL  Lyocell. El TENCEL  se obtiene de madera de bosques gestionados de forma más sostenible y se produce con tecnologías que reutilizan el agua y 99% de los químicos. Esta prenda se ha producido utilizando tecnologías que nos ayudan a reducir el consumo de agua en los procesos de tintado y lavado.",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/1524/020/819/1524020819_2_4_3.jpg",
-    "stock": 433
+      "talle": ["S", "M", "L", "XL"],
+      "stock": [10,15,30,9],
+    "categoria": ["Camisas"]
   },
   {
     "nombre": "Camisa manga corta relaxed fit print",
     "precio": "5990",
     "descripcion": "Color: Fucsia. 100% viscosa",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/6511/557/630/6511557630_2_4_3.jpg",
-    "stock": 713
+      "talle": ["S", "M", "L", "XL"],
+      "stock": [10,15,30,9],
+    "categoria": ["Camisas"]
   },
   {
     "nombre": "Camisa manga corta relaxed fit multi rayas",
     "precio": "1990",
     "descripcion": "Color: Rojo. Care for fiber: 100% ECOVERO  Viscose. Esta viscosa se obtiene a partir de madera de bosques gestionados de forma más sostenible donde los árboles se cultivan de forma controlada y con programas que garantizan su reforestación. Además, está certificada por la EU Ecolabel por cumplir exigentes estándares medioambientales en su proceso productivo.",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/6505/694/600/6505694600_2_4_3.jpg",
-    "stock": 3
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [10,15,30,9],
+    "categoria": ["Camisas"]
   },
   {
     "nombre": "Camisa manga corta relaxed fit rústica print",
     "precio": "8290",
     "descripcion": "Color: Turquesa. Care for fiber & water: al menos 75% TENCEL  Lyocell. El TENCEL  se obtiene de madera de bosques gestionados de forma más sostenible y se produce con tecnologías que reutilizan el agua y 99% de los químicos. Esta prenda se ha producido utilizando tecnologías que nos ayudan a reducir el consumo de agua en los procesos de tintado y lavado.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/1573/019/518/1573019518_2_4_3.jpg",
-    "stock": 8
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [10,15,30,9],
+    "categoria": ["Camisas"]
   },
   {
     "nombre": "Camisa manga corta print",
     "precio": "890",
     "descripcion": "Color: Blanco/negro. 100% viscosa",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/1561/692/060/1561692060_2_4_3.jpg",
-    "stock": 2
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [10,15,30,9],
+    "categoria": ["Camisas"]
   },
   {
     "nombre": "Camisa manga corta cuello baseball",
     "precio": "999",
     "descripcion": "Color: Negro. Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/1521/019/800/1521019800_2_4_3.jpg",
-    "stock": 28
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [10,15,30,9],
+    "categoria": ["Camisas"]
   },
   {
     "nombre": "Camisa manga corta relaxed fit print fruta",
     "precio": "1200",
     "descripcion": "Color: Mostaza. Care for fiber: al menos 85% ECOVERO  Viscose. Esta viscosa se obtiene a partir de madera de bosques gestionados de forma más sostenible donde los árboles se cultivan de forma controlada y con programas que garantizan su reforestación. Además, está certificada por la EU Ecolabel por cumplir exigentes estándares medioambientales en su proceso productivo.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/1530/557/305/1530557305_2_4_3.jpg",
-    "stock": 450
+      "talle": ["S", "M", "L", "XL"],
+      "stock": [10,15,30,9],
+    "categoria": ["Camisas"]
   },
   {
     "nombre": "Camisa manga corta mesh print",
     "precio": "1260",
     "descripcion": "Color:Negro. 100% poliéster",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/1531/326/800/1531326800_2_4_3.jpg",
-    "stock": 480
+      "talle": ["S", "M", "L", "XL"],
+      "stock": [10,15,30,9],
+    "categoria": ["Camisas"]
   },
   {
     "nombre": "Camisa oversize popelin print",
     "precio": "5130",
     "descripcion": "Color: Verde. Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/1523/557/500/1523557500_2_4_3.jpg",
-    "stock": 101
+      "talle": ["S", "M", "L", "XL"],
+      "stock": [10,15,30,9],
+    "categoria": ["Camisas"]
   },
   {
     "nombre": "Camisa manga corta print flores",
     "precio": "2111",
     "descripcion": "Color:Blanco.45% viscosa, 41% algodón, 14% poliamida",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/1577/557/250/1577557250_2_4_3.jpg",
-    "stock": 336
+      "talle": ["S", "M", "L", "XL"],
+      "stock": [10,15,30,9],
+    "categoria": ["Camisas"]
   },
   {
     "nombre": "Camisa manga corta print tigres",
     "precio": "2111",
     "descripcion": "Color: Azul claro. Care for fiber: 100% ECOVERO  Viscose. Esta viscosa se obtiene a partir de madera de bosques gestionados de forma más sostenible donde los árboles se cultivan de forma controlada y con programas que garantizan su reforestación. Además, está certificada por la EU Ecolabel por cumplir exigentes estándares medioambientales en su proceso productivo.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/1545/557/403/1545557403_2_4_3.jpg",
-    "stock": 436
+      "talle": ["S", "M", "L", "XL"],
+      "stock": [10,15,30,9],
+    "categoria": ["Camisas"]
   },
   {
     "nombre": "Camisa manga corta oversize crochet parches",
     "precio": "3521",
     "descripcion": "Color: Blanco. Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/1539/326/250/1539326250_2_4_3.jpg",
-    "stock": 512
+      "talle": ["S", "M", "L", "XL"],
+      "stock": [10,15,30,9],
+    "categoria": ["Camisas"]
   },
   {
     "nombre": "Camisa denim bicolor",
     "precio": "4621",
     "descripcion": "Color:Azul lavado. 70% algodón, 30% liocel",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/1496/179/428/1496179428_2_4_3.jpg",
-    "stock": 30
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [10,15,30,9],
+    "categoria": ["Camisas"]
+  },
+  {
+    "nombre": "Camisa algodón lino",
+    "precio": "5211",
+    "descripcion": "Color:Beige. Camisa regular fit de cuello italiano y manga larga acabada en puño con botón. Cierre frontal de botonadura.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/5588/113/075/2/w/850/5588113075_6_1_1.jpg?ts=1651575610511",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [10,15,30,9],
+    "categoria": ["Camisas"]
+  },
+  {
+    "nombre": "Camisa Bolsillo Oversize",
+    "precio": "7351",
+    "descripcion": "Color:Blanco. Camisa relaxed fit con cuello italiano y manga larga acabada en puño con botón. Bolsillo plastrón con solapa en pecho. Cierre frontal de botonadura.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/4408/748/250/2/w/850/4408748250_6_2_1.jpg?ts=1645537061166",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [10,15,30,9],
+    "categoria": ["Camisas"]
+  },
+  {
+    "nombre": "Camisa Denim Colored",
+    "precio": "9231",
+    "descripcion": "Color:Violeta. Camisa relaxed fit de cuello abotonado y manga larga acabada en puño con botones. Efecto lavado. Bolsillo frontal de plastrón. Cierre frontal de botonadura.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/6987/460/677/2/w/850/6987460677_6_2_1.jpg?ts=1646734661952",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [10,15,30,9],
+    "categoria": ["Camisas"]
+  },
+  {
+    "nombre": "Camisa Algodón Lyocell",
+    "precio": "7218",
+    "descripcion": "Color:Verde Oscuro. Camisa slim fit confeccionada en tejido con mezcla de algodón y lyocell. Cuello solapa y manga larga acabada en puño con botón. Cierre frontal de botonadura.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/3717/403/501/2/w/850/3717403501_6_1_1.jpg?ts=1645534264123",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [10,15,30,9],
+    "categoria": ["Camisas"]
+  },
+  {
+    "nombre": "Camisa Estructura",
+    "precio": "8413",
+    "descripcion": "Color: Negro. Camisa amplia confeccionada en tejido ligero con estructura. Cuello solapa con cierre de botonadura frontal. Acabados en rib.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/3717/403/501/2/w/850/3717403501_6_1_1.jpg?ts=1645534264123",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [10,15,30,9],
+    "categoria": ["Camisas"]
+  },
+  {
+    "nombre": "Camisa Panita",
+    "precio": "10413",
+    "descripcion": "Color: Verde. Camisa relaxed fit de cuello solapa y manga larga acabada en puño con botón. Bolsillo plastrón en pecho. Cierre frontal de botonadura.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/7446/455/500/2/w/850/7446455500_6_1_1.jpg?ts=1642506212602",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [10,15,30,9],
+    "categoria": ["Camisas"]
+  },
+  {
+    "nombre": "Camisa Relaxeder Fit Rayas",
+    "precio": "11341",
+    "descripcion": "Color: Azul claro. Camisa relaxed fit. Cuello italiano y manga larga acabada en puño con botones. Bolsillo plastrón en pecho. Cierre frontal de botonadura.",
+    "imagen": "https://static.zara.net/photos///2022/I/0/2/p/7545/500/406/2/w/850/7545500406_6_1_1.jpg?ts=1652111242391",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [10,15,30,9],
+    "categoria": ["Camisas"]
+  },
+  {
+    "nombre": "Camisa Rayas Grafitti",
+    "precio": "15210",
+    "descripcion": "Color: Blanco. Camisa relaxed fit de cuello solapa y manga larga acabada en puño con botón. Estampaciones combinadas a contraste en delantero y espalda. Cierre frontal de botonadura",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/6085/421/250/2/w/850/6085421250_6_2_1.jpg?ts=1643734455918",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [10,15,30,9],
+    "categoria": ["Camisas"]
   },
 
-
-
+  {
+    "nombre": "Camisa Cuadros Combinados",
+    "precio": "12166",
+    "descripcion": "Color: Tostado.Camisa relaxed fit. Cuello solapa y manga larga acabada en puño con botón. Cierre frontal de botonadura.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/7446/480/707/2/w/850/7446480707_6_1_1.jpg?ts=1644940297191",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [10,15,30,9],
+    "categoria": ["Camisas"]
+  },
+  {
+    "nombre": "Camisa Cuadros Panax",
+    "precio": "10256",
+    "descripcion": "Color: Rosa. Camisa relaxed fit de cuello solapa y manga larga acabada en puño con botón. Bolsillo de plastrón en pecho. Cierre frontal de botonadura.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/7446/475/620/2/w/850/7446475620_6_1_1.jpg?ts=1642755016305",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [10,15,30,9],
+    "categoria": ["Camisas"]
+  },
+  {
+    "nombre": "Camisa Estructurings",
+    "precio": "10000",
+    "descripcion": "Color: Crudo. Camisa relaxed fit confeccionado en tejido efecto punto. Cuello solapa y manga corta. Bajo con aberturas laterales. Cierre frontal de botonadura.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/7545/282/712/2/w/850/7545282712_6_1_1.jpg?ts=1647444449067",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [10,15,30,9],
+    "categoria": ["Camisas"]
+  },
+  {
+    "nombre": "Camisa Cuadrillos",
+    "precio": "10400",
+    "descripcion": "Color: Morado. Camisa relaxed fit. Cuello solapa y manga larga acabada en puño con botón. Bolsillo plastrón en pecho. Cierre frontal de botonadura.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/7446/471/611/2/w/850/7446471611_6_1_1.jpg?ts=1637688066557",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [10,15,30,9],
+    "categoria": ["Camisas"]
+  },
+  {
+    "nombre": "Camisa Efecto Arrugado",
+    "precio": "11240",
+    "descripcion": "Color: Azul claro. Camisa regular fit confeccionada en tejido de algodón con efecto arrugado. Cuello tira y manga larga acabada en puño con botón. Cierre frontal de botonadura.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/6103/475/400/2/w/850/6103475400_6_1_1.jpg?ts=1649846452470",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [10,15,30,9],
+    "categoria": ["Camisas"]
+  },
+  {
+    "nombre": "Camisa 100% Lino",
+    "precio": "15318",
+    "descripcion": "Color: Natural. Camisa regular fit confeccionada en tejido de lino. Cuello italiano y manga larga acabada en puño con botón. Bolsillo plastrón en pecho. Cierre frontal de botonadura.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/4478/357/052/2/w/850/4478357052_6_1_1.jpg?ts=1648113527836",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [10,15,30,9],
+    "categoria": ["Camisas"]
+  },
+  {
+    "nombre": "Camisa 100% Linononero",
+    "precio": "15318",
+    "descripcion": "Color: Azul marino. Camisa regular fit confeccionada en tejido de lino. Cuello italiano y manga larga acabada en puño con botón. Bolsillo plastrón en pecho. Cierre frontal de botonadura.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/4478/357/052/2/w/850/4478357052_6_1_1.jpg?ts=1648113527836",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [10,15,30,9],
+    "categoria": ["Camisas"]
+  },
+  {
+    "nombre": "Camisa 100% Linoritox",
+    "precio": "15318",
+    "descripcion": "Color: Khaki. Camisa regular fit confeccionada en tejido de lino. Cuello italiano y manga larga acabada en puño con botón. Bolsillo plastrón en pecho. Cierre frontal de botonadura.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/4478/357/052/2/w/850/4478357052_6_1_1.jpg?ts=1648113527836",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [10,15,30,9],
+    "categoria": ["Camisas"]
+  },
+  {
+    "nombre": "Camisa Estampado Lunares",
+    "precio": "19218",
+    "descripcion": "Color: Blanco. Camisa slim fit de cuello italiano y manga larga acabada en puño con botón. Cierre frontal de botonadura.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/7545/483/250/2/w/850/7545483250_6_1_1.jpg?ts=1643101954745",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [10,15,30,9],
+    "categoria": ["Camisas"]
+  },
+  {
+    "nombre": "Camisa Cuadros Franela",
+    "precio": "19218",
+    "descripcion": "Color: Granate. Camisa relaxed fit con cuello solapa y manga larga acabada en puño con botón. Bolsillo plastrón en pecho. Cierre frontal de botonadura.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/4031/668/605/2/w/850/4031668605_6_1_1.jpg?ts=1637914613205",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [10,15,30,9],
+    "categoria": ["Camisas"]
+  },
+  {
+    "nombre": "Camisa Algodón Lino",
+    "precio": "20513",
+    "descripcion": "Color: Rojo. Camisa regular fit confeccionada en tejido con mezcla de algodón y lino. Cuello abotonado y manga larga acabada en puño con botón. Bolsillo plastrón en pecho. Cierre frontal de botonadura.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/4489/965/600/2/w/850/4489965600_6_1_1.jpg?ts=1649065429821",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [10,15,30,9],
+    "categoria": ["Camisas"]
+  },
+  {
+    "nombre": "Camisa Estampado Bandaner",
+    "precio": "26125",
+    "descripcion": "Color: Multicolor. Camisa relaxed fit confeccionada en tejido de algodón. Cuello solapa y manga corta. Cierre frontal de botonadura.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/6917/458/330/2/w/850/6917458330_6_1_1.jpg?ts=1650380958510",
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [10,15,30,9],
+    "categoria": ["Camisas"]
+  },
 
 
 
@@ -295,91 +823,117 @@
     "precio": "5180",
     "descripcion": "Color: Azul. Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/0548/388/400//01/0548388400_2_4_3.jpg",
-    "stock": 140
+    "talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+    "stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
   },
   {
     "nombre": "Jeans loose prtin",
     "precio": "7120",
     "descripcion": "Color: Negro. Care for fiber & water: al menos 20% algodón reciclado. La producción de esta fibra recupera residuo de algodón, principalmente de la producción de otras prendas de algodón, reduciendo así la producción de materia prima virgen y el consumo de agua, energía y recursos naturales. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/0540/179/800/0540179800_2_4_3.jpg",
-    "stock": 100
+    "talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+    "stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
   },
   {
     "nombre": "Pantalon felpa jogger",
     "precio": "8240",
     "descripcion": "Color: Blanco. Care for fiber & water: al menos 25% poliéster reciclado. El poliéster reciclado se produce a partir de plástico PET recuperado, reduciendo el consumo de agua, energía y recursos naturales. Esta prenda se ha producido utilizando tecnologías que nos ayudan a reducir el consumo de agua en los procesos de tintado y lavado.",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/0689/498/812/0689498812_2_4_1.jpg",
-    "stock": 220
+    "talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+    "stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
   },
   {
     "nombre": "Pantalon jogger cargo",
     "precio": "9120",
     "descripcion": "Color: Kaki. 52% algodón, 40% poliéster, 8% poliamida",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/0603/388/505/0603388505_2_4_1.jpg",
-    "stock": 310
+    "talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+    "stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
   },
   {
     "nombre": "Pantalon algodon jogger",
     "precio": "3250",
     "descripcion": "Color: Negro. Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/0604/637/800/0604637800_2_4_1.jpg",
-    "stock": 160
+    "talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+    "stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
   },
   {
     "nombre": "Pantalon jogger felpa print efecto spray multicolor",
     "precio": "2580",
     "descripcion": "Color: Varios. 60% algodón, 40% poliéster",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/0688/461/400/0688461400_2_4_3.jpg",
-    "stock": 230
+    "talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+    "stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
   },
   {
     "nombre": "Bermuda felpa básica",
     "precio": "780",
     "descripcion": "Color: Rosa. Care for fiber & water: al menos 25% poliéster reciclado. El poliéster reciclado se produce a partir de plástico PET recuperado, reduciendo el consumo de agua, energía y recursos naturales. Esta prenda se ha producido utilizando tecnologías que nos ayudan a reducir el consumo de agua en los procesos de tintado y lavado.",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/3228/498/902/3228498902_2_4_3.jpg",
-    "stock": 356
+    "talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+    "stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
   },
   {
     "nombre": "Bermuda denim rotos",
     "precio": "980",
     "descripcion": "Color: Azul lavado. 92% algodón, 5% poliéster, 3% elastano",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/3165/969/428//01/3165969428_2_4_3.jpg",
-    "stock": 287
+    "talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+    "stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
   },
   {
     "nombre": "Bermuda denim rotos print",
     "precio": "1820",
     "descripcion": "Color: Blanco. Care for fiber: al menos 20% algodón reciclado. La producción de esta fibra recupera residuo de algodón, principalmente de la producción de otras prendas de algodón, reduciendo así la producción de materia prima virgen y el consumo de agua, energía y recursos naturales.",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/3175/220/250/3175220250_2_4_3.jpg",
-    "stock": 487
+    "talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+    "stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
   },
   {
     "nombre": "Bermuda denim print smil",
     "precio": "2460",
     "descripcion": "Color: Blanco. 100% algodón",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/1/p/8476/847/250//01/8476847250_2_4_3.jpg",
-    "stock": 124
+    "talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+    "stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
   },
   {
     "nombre": "Pantalón jogger cargo algodón detalle correas",
     "precio": "5210",
     "descripcion": "Color: Kaki. 52% algodón, 40% poliéster, 8% poliamida",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/0606/665/505/0606665505_2_4_3.jpg",
-    "stock": 200
+    "talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+    "stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
   },
   {
     "nombre": "Pantalón jogger slim piqué",
     "precio": "7710",
     "descripcion": "Color: Blanco. Care for fiber & water: al menos 25% poliéster reciclado. El poliéster reciclado se produce a partir de plástico PET recuperado, reduciendo el consumo de agua, energía y recursos naturales. Esta prenda se ha producido utilizando tecnologías que nos ayudan a reducir el consumo de agua en los procesos de tintado y lavado.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/0684/478/250/0684478250_2_4_3.jpg",
-    "stock": 18
+  "talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+  "stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
   },
   {
     "nombre": "Pantalón jogger snaps",
     "precio": "2992",
     "descripcion": "Color: Negro. Care for fiber & water: al menos 25% poliéster reciclado. El poliéster reciclado se produce a partir de plástico PET recuperado, reduciendo el consumo de agua, energía y recursos naturales. Esta prenda se ha producido utilizando tecnologías que nos ayudan a reducir el consumo de agua en los procesos de tintado y lavado.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/0681/498/800/0681498800_2_4_3.jpg",
-    "stock": 50
+  "talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+  "stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
   },
 
   {
@@ -387,7 +941,9 @@
     "precio": "1592",
     "descripcion": "Color: Verde. Care for fiber & water: al menos 25% poliéster reciclado. El poliéster reciclado se produce a partir de plástico PET recuperado, reduciendo el consumo de agua, energía y recursos naturales. Esta prenda se ha producido utilizando tecnologías que nos ayudan a reducir el consumo de agua en los procesos de tintado y lavado.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/0679/498/503//01/0679498503_2_4_3.jpg",
-    "stock": 100
+    "talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+    "stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
   },
 
   {
@@ -395,44 +951,244 @@
     "precio": "7592",
     "descripcion": "Color: Gris. 99% algodón, 1%elastano",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/0535/534/811/0535534811_2_4_3.jpg",
-    "stock": 310
+    "talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+    "stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
   },
   {
     "nombre": "Jeans carpenter print",
     "precio": "4182",
     "descripcion": "Color: Blanco. Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/5454/179/250/5454179250_2_4_3.jpg",
-    "stock": 610
+    "talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+    "stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
   },
   {
     "nombre": "Jeans 90's bicolor",
     "precio": "9682",
     "descripcion": "Color: Azul. Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/0539/969/400/0539969400_2_4_3.jpg",
-    "stock": 5
+"talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+"stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
   },
   {
     "nombre": "Jeans cargo",
     "precio": "5142",
     "descripcion": "Color: Naranja. Care for fiber & water: al menos 15% algodón reciclado. El algodón reciclado se produce a partir del residuo de algodón de otras producciones, reduciendo el consumo de algodón virgen y los procesos de obtención de la fibra. Esta prenda se ha producido utilizando tecnologías que nos ayudan a reducir el consumo de agua en los procesos de tintado y lavado.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/0553/335/615/0553335615_2_4_3.jpg",
-    "stock": 70
+  "talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+  "stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
   },
   {
     "nombre": "Jeans jogger patchwork",
     "precio": "6279",
     "descripcion": "Color: Azul lavado. Care for fiber: al menos 20% algodón reciclado. La producción de esta fibra recupera residuo de algodón, principalmente de la producción de otras prendas de algodón, reduciendo así la producción de materia prima virgen y el consumo de agua, energía y recursos naturales.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/0538/220/428/0538220428_2_4_3.jpg",
-    "stock": 32
+  "talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+  "stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
   },
   {
     "nombre": "Jeans baggy color",
     "precio": "8149",
     "descripcion": "Color: Lima. Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/0564/388/520/0564388520_2_4_3.jpg",
-    "stock": 60
+  "talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+  "stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
   },
-
+  {
+    "nombre": "Bermuda Algodón Lyocell",
+    "precio": "8149",
+    "descripcion": "Color: Índigo. Bermuda confeccionada en tejido fluido con mezcla de algodón y lyocell. Cintura elástica ajustable con cordón. Bolsillos frontales y detalle de bolsillo plastrón en espalda. Efecto lavado.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/5072/400/405/2/w/850/5072400405_6_1_1.jpg?ts=1648113582296",
+  "talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+  "stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
+  },
+  {
+    "nombre": "Bermuda Algodón Colorined",
+    "precio": "5319",
+    "descripcion": "Color: Crudo. Bermudas confeccionadas en tejido de algodón con elasticidad. Cinco bolsillos. Cierre frontal con cremallera y botón.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/9252/321/712/2/w/850/9252321712_6_1_1.jpg?ts=1645691277278",
+  "talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+  "stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
+  },
+  {
+    "nombre": "Bermuda Denim Rotos Pespuntes",
+    "precio": "7258",
+    "descripcion": "Color: Blanco. Bermuda con cinco bolsillos. Lavado efecto rotos con pespuntes en perneras. Cierre frontal con cremallera y botón",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/5585/466/250/2/w/850/5585466250_6_1_1.jpg?ts=1648541430908",
+  "talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+  "stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
+  },
+  {
+    "nombre": "Bermuda Punto Jacquard Faes",
+    "precio": "17254",
+    "descripcion": "Color: Negro. Bermuda de punto tejido en hilatura de algodón. Cintura elástica ajustable con cordón. Bolsillos frontales. Detalle de jacquard gráfico © Faes combinado a contraste en toda la prenda",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/2632/421/800/2/w/850/2632421800_6_1_1.jpg?ts=1649846416108",
+  "talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+  "stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
+  },
+  {
+    "nombre": "Bermuda Punto Jacquard Faes",
+    "precio": "17254",
+    "descripcion": "Color: Negro. Bermuda de punto tejido en hilatura de algodón. Cintura elástica ajustable con cordón. Bolsillos frontales. Detalle de jacquard gráfico © Faes combinado a contraste en toda la prenda",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/2632/421/800/2/w/850/2632421800_6_1_1.jpg?ts=1649846416108",
+  "talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+  "stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
+  },
+  {
+    "nombre": "Bermuda Cargo  Faes",
+    "precio": "7152",
+    "descripcion": "Color: Carbón. Bermuda confeccionada en tejido técnico. Cintura elástica ajustable con cordón. Bolsillos laterales y detalle de bolsillo de vivo en espalda. Aplicación de bolsillo plastrón con solapa en pernera. ",
+    "imagen": "https://static.zara.net/photos///2022/I/0/2/p/1538/325/822/2/w/850/1538325822_6_1_1.jpg?ts=1652095605164",
+  "talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+  "stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
+  },
+  {
+    "nombre": "Bermuda Soft  Estampadin",
+    "precio": "8362",
+    "descripcion": "Color: Khaki. Bermuda de cintura elástica ajustable con cordón. Bolsillos frontales y detalle de bolsillo en espalda. Estampación combinada a contraste en pernera. Efecto lavado. ",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/5862/491/505/2/w/850/5862491505_6_1_1.jpg?ts=1642506557310",
+  "talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+  "stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
+  },
+  {
+    "nombre": "Shorts Rhuigi",
+    "precio": "8362",
+    "descripcion": "Color: Khaki. Shorts confeccionados en tejido técnico. Cintura elástica ajustable con cordón. Bolsillos laterales y detalle de bolsillo plastrón en espalda. Estampación de logos x Rhuigi combinados a contraste en delantero y espalda. ",
+    "imagen": "https://static.zara.net/photos///2022/I/0/2/p/1538/324/711/2/w/850/1538324711_6_1_1.jpg?ts=1652095615823",
+  "talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+  "stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
+  },
+  {
+    "nombre": "Bermuda Violetiña",
+    "precio": "6113",
+    "descripcion": "Color: Violeta. Bermuda tejida en hilatura con mezcla de viscosa. Cintura elástica ajustable con cordón. Bolsillos frontales ",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/0632/401/439/2/w/850/0632401439_6_1_1.jpg?ts=1645446448814",
+  "talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+  "stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
+  },
+  {
+    "nombre": "Bermuda Color Norm",
+    "precio": "4236",
+    "descripcion": "Color: Marino. Bermudas confeccionadas en tejido de algodón con elasticidad. Cinco bolsillos. Cierre frontal con cremallera y botón.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/9252/321/401/2/w/850/9252321401_6_1_1.jpg?ts=1645691277956",
+  "talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+  "stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
+  },
+  {
+    "nombre": "Bermuda Estampado Abstracto",
+    "precio": "7229",
+    "descripcion": "Color: Blanco y negro. Bermuda confeccionada en tejido de algodón. Cintura elástica ajustable con cordón interior. Bolsillos laterales y detalle de bolsillo de vivo en espalda.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/4164/407/800/2/w/850/4164407800_6_1_1.jpg?ts=1645104830574",
+  "talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+  "stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
+  },
+  {
+    "nombre": "Bermuda Estructura Jogger",
+    "precio": "7369",
+    "descripcion": "Color: Verde. Bermuda de cintura elástica ajustable con cordón. Bolsillos laterales y detalle de bolsillo en espalda.",
+    "imagen": "https://static.zara.net/photos///2022/I/0/2/p/8062/315/500/2/w/850/8062315500_6_1_1.jpg?ts=1654676550087",
+  "talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+  "stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
+  },
+  {
+    "nombre": "Bermuda Pliegues ",
+    "precio": "7369",
+    "descripcion": "Color: Azul. Bermuda confeccionado en tejido de algodón. Cintura con detalle de pliegues frontales. Bolsillos y cerillero con solapa en delantero. Detalle de bolsillos de doble vivo en espalda. Cierre frontal con cremallera y botón.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/6917/447/400/2/w/850/6917447400_6_1_1.jpg?ts=1649059711343",
+  "talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+  "stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
+  },
+  {
+    "nombre": "Pantalón Easy ",
+    "precio": "17569",
+    "descripcion": "Color: Azul claro. Pantalón relaxed fit de cintura elástica ajustable con cordón. Bolsillos frontales y detalle de bolsillos de vivo en espalda. Efecto lavado.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/1538/413/406/2/w/850/1538413406_6_1_1.jpg?ts=1649693590311",
+  "talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+  "stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
+  },
+  {
+    "nombre": "Jeans Striter ",
+    "precio": "10269",
+    "descripcion": "Color: Chocolate. Jeans straight fit. Cinco bolsillos. Efecto lavado. Cierre frontal con botones.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/9632/400/717/2/w/850/9632400717_6_1_1.jpg?ts=1638266329132",
+  "talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+  "stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
+  },
+  {
+    "nombre": "Jeans Wide fiter ",
+    "precio": "17142",
+    "descripcion": "Color: Amarillo. Jeans wide fit. Bolsillos en delantero y detalle de bolsillos de plastrón en espalda. Efecto lavado. Cierre frontal con cremallera y botón.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/2553/420/300/2/w/850/2553420300_6_1_1.jpg?ts=1648114293907",
+  "talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+  "stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
+  },
+  {
+    "nombre": "Pantalón Pana Acid ",
+    "precio": "19542",
+    "descripcion": "Color: Verde claro. Pantalón relaxed fit de cintura elástica ajustable con cordón. Bolsillos frontales y detalle de bolsillo de vivo en espalda. Bajo acabado en puño con elástico.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/1538/402/526/2/w/850/1538402526_6_1_1.jpg?ts=1642154472737",
+  "talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+  "stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
+  },
+  {
+    "nombre": "Pantalón Cintura Jogger ",
+    "precio": "12542",
+    "descripcion": "Color: Verde Negro. Pantalón slim fit de cintura elástica ajustable con cordón. Bolsillos de vivo en delantero. Estampaciones combinadas a contraste en toda la prenda. Bajo acabado con elástico.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/4164/401/800/2/w/850/4164401800_6_1_1.jpg?ts=1643358259303",
+  "talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+  "stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
+  },
+  {
+    "nombre": "Pantalón Pata De Gallo ",
+    "precio": "19212",
+    "descripcion": "Color: Arena. Pantalón confeccionado en tejido de estructura elástica y confortable. Cintura elástica regulable con cordón. Bolsillos delanteros en cadera, y detalle de bolsillos de vivo en espalda.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/6861/402/711/2/w/850/6861402711_6_1_1.jpg?ts=1645117779714",
+  "talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+  "stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
+  },
+  {
+    "nombre": "Pantalón Cargo Texto ",
+    "precio": "19212",
+    "descripcion": "Color: Negro. Pantalón slim fit de cintura elástica ajustable con cordón. Bolsillos frontales. Aplicación de bolsillos plastrón con solapa en perneras. Bajo ajustable con tira adherente.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/4164/403/800/2/w/850/4164403800_6_1_1.jpg?ts=1645013858686",
+  "talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+  "stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
+  },
+  {
+    "nombre": "Pantalón Jogger Gráfico ",
+    "precio": "29612",
+    "descripcion": "Color: Antracita oscuro. Pantalón jogger de cintura elástica ajustable con cordón. Bolsillos de vivo frontales y detalle de bolsillo plastrón en espalda. Estampaciones combinadas a contraste en perneras. Bajo acabado en puño con elástico.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/0962/408/898/2/w/850/0962408898_6_1_1.jpg?ts=1644570552349",
+  "talle": [38,40,42,44,46,48,50,52,54,56,58,60],
+  "stock": [30,30,30,50,40,30,20,25,30,20,15,10],
+    "categoria": ["Pantalones"]
+  },
 
 
 
@@ -443,91 +1199,117 @@
     "precio": "6460",
     "descripcion": "Color: Combinado. Zapatillas abotinadas en color blanco. Combinadas con piezas con textura de charol en color negro y rojo.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/1/2/p/2202/960/202/2202960202_2_4_3.jpg",
-    "stock": 60
+  "talle": [38,39,40,41,42,43],
+  "stock": [30,45,46,26,22,15],
+    "categoria": ["Calzado"]
   },
   {
     "nombre": "Zapatillas deportivas abotinadas combinadas  ",
     "precio": "6660",
     "descripcion": "Color: Naranja. STARFIT . PLANTILLA TÉCNICA FLEXIBLE DE ESPUMA COMPUESTA DE POLIURETANO, DISEÑADA PARA OFRECER UN MAYOR CONFORT. Deportivas abotinadas en color negro y naranja. Detalle de chapa en color negro en los cordones.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/1/2/p/2206/960/070//01/2206960070_2_4_3.jpg",
-    "stock": 90
+  "talle": [38,39,40,41,42,43],
+  "stock": [30,45,46,26,22,15],
+    "categoria": ["Calzado"]
   },
   {
     "nombre": "Zapatillas print  ",
     "precio": "7110",
     "descripcion": "Color: Combinado. STARFIT . PLANTILLA TÉCNICA FLEXIBLE DE ESPUMA COMPUESTA DE POLIURETANO, DISEÑADA PARA OFRECER UN MAYOR CONFORT. Zapatillas con print multicolor. Suela blanca y negra.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/1/2/p/2412/960/202/2412960202_2_4_3.jpg",
-    "stock": 150
+    "talle": [38,39,40,41,42,43],
+    "stock": [30,45,46,26,22,15],
+    "categoria": ["Calzado"]
   },
   {
     "nombre": "Zapatillas combinadas joya",
     "precio": "2110",
     "descripcion": "Color: Marrón. STARFIT. PLANTILLA TÉCNICA FLEXIBLE DE ESPUMA COMPUESTA DE POLIURETANO, DISEÑADA PARA OFRECER UN MAYOR CONFORT. Zapatillas combinadas en color cuero y marrón. Detalle de joya en los cordones.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/1/2/p/2474/960/100//02/2474960100_2_4_3.jpg",
-    "stock": 350
+    "talle": [38,39,40,41,42,43],
+    "stock": [30,45,46,26,22,15],
+    "categoria": ["Calzado"]
   },
   {
     "nombre": "Zapatillas deportivas abotinadas combinadas ",
     "precio": "6110",
     "descripcion": "Color: Azul. STARFIT. PLANTILLA TÉCNICA FLEXIBLE DE ESPUMA COMPUESTA DE POLIURETANO, DISEÑADA PARA OFRECER UN MAYOR CONFORT. Deportivas abotinadas en color negro y azul. Detalle de chapa en color negro en los cordones.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/1/2/p/2218/961/009//02/2218961009_2_4_3.jpg",
-    "stock": 130
+    "talle": [38,39,40,41,42,43],
+    "stock": [30,45,46,26,22,15],
+    "categoria": ["Calzado"]
   },
   {
     "nombre": "Zapatillas multicolor ",
     "precio": "7330",
     "descripcion": "Color: Combinado. Zapatillas multicolor. Detalle de picados y pespuntes en color negro.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/1/2/p/2410/960/202/2410960202_2_4_3.jpg",
-    "stock": 200
+    "talle": [38,39,40,41,42,43],
+    "stock": [30,45,46,26,22,15],
+    "categoria": ["Calzado"]
   },
   {
     "nombre": "Sandalia Rick & Morty x Bershka",
     "precio": "3130",
     "descripcion": "Color: Negro. Sandalia tipo pala. Estampado con los personales de Rick & Morty en la pala.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/1/2/p/2800/960/040/2800960040_2_4_3.jpg",
-    "stock": 190
+    "talle": [38,39,40,41,42,43],
+    "stock": [30,45,46,26,22,15],
+    "categoria": ["Calzado"]
   },
   {
     "nombre": "Sandalia tiras hebillas ",
     "precio": "6270",
     "descripcion": "Color: Negro. Sandalia en color negro. Cierre mediante hebillas. Planta tipo anatómica. Suela con track.",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/1/2/p/2700/960/040//01/2700960040_2_4_3.jpg",
-    "stock": 240
+    "talle": [38,39,40,41,42,43],
+    "stock": [30,45,46,26,22,15],
+    "categoria": ["Calzado"]
   },
   {
     "nombre": "Sandalia tiras hebillas pro ",
     "precio": "8270",
     "descripcion": "Color: Arena. Sandalia en color arena. Cierre mediante hebillas. Planta tipo anatómica. Suela con track.",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/1/2/p/2702/960/107/2702960107_2_4_3.jpg",
-    "stock": 104
+    "talle": [38,39,40,41,42,43],
+    "stock": [30,45,46,26,22,15],
+    "categoria": ["Calzado"]
   },
   {
     "nombre": "Deportivas combinadas rejilla ",
     "precio": "10270",
     "descripcion": "Color: Combinado. STARFIT. PLANTILLA TÉCNICA FLEXIBLE DE ESPUMA COMPUESTA DE POLIURETANO, DISEÑADA PARA OFRECER UN MAYOR CONFORT. Deportivas en color negro. Combinadas con piezas de rejilla y piezas grabadas.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/1/2/p/2302/960/202/2302960202_1_1_3.jpg",
-    "stock": 80
+  "talle": [38,39,40,41,42,43],
+  "stock": [30,45,46,26,22,15],
+    "categoria": ["Calzado"]
   },
   {
     "nombre": "Deportivas combinadas tejido ",
     "precio": "11270",
     "descripcion": "Color: Blanco. STARFIT. PLANTILLA TÉCNICA FLEXIBLE DE ESPUMA COMPUESTA DE POLIURETANO, DISEÑADA PARA OFRECER UN MAYOR CONFORT",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/1/2/p/2310/060/001/2310060001_1_1_3.jpg",
-    "stock": 80
+  "talle": [38,39,40,41,42,43],
+  "stock": [30,45,46,26,22,15],
+    "categoria": ["Calzado"]
   },
   {
     "nombre": "Zapatillas abotinadas  ",
     "precio": "8510",
     "descripcion": "Color: Negro. 100%poliuretano",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/1/2/p/2216/960/040/2216960040_2_4_3.jpg",
-    "stock": 80
+  "talle": [38,39,40,41,42,43],
+  "stock": [30,45,46,26,22,15],
+    "categoria": ["Calzado"]
   },
   {
     "nombre": "Zapatillas talón color ",
     "precio": "18510",
     "descripcion": "Color: Blanco. Zapatillas en color blanco. Talón en color negro. Suela combinada con pieza en color cuero.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/1/2/p/2462/860/001/2462860001_2_4_3.jpg",
-    "stock": 80
+  "talle": [38,39,40,41,42,43],
+  "stock": [30,45,46,26,22,15],
+    "categoria": ["Calzado"]
   },
 
   {
@@ -535,7 +1317,9 @@
     "precio": "20660",
     "descripcion": "Color: Blanco. STARFIT. PLANTILLA TÉCNICA FLEXIBLE DE ESPUMA COMPUESTA DE POLIURETANO, DISEÑADA PARA OFRECER UN MAYOR CONFORT. Zapatillas con volumen en color blanco. Combinadas con la suela en color caramelo. Cordones anchos. Tipo skate.",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/1/2/p/2466/860/001/2466860001_1_1_3.jpg",
-    "stock": 80
+  "talle": [38,39,40,41,42,43],
+  "stock": [30,45,46,26,22,15],
+    "categoria": ["Calzado"]
   },
 
   {
@@ -543,7 +1327,9 @@
     "precio": "21860",
     "descripcion": "Color: Negro. Zapatilla en color blanco combinadas con negro y rojo. Cremallera en color negro. Detalle de etiqueta en talón y lengua en color rojo.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/1/2/p/2408/960/040/2408960040_2_4_3.jpg",
-    "stock": 80
+  "talle": [38,39,40,41,42,43],
+  "stock": [30,45,46,26,22,15],
+    "categoria": ["Calzado"]
   },
 
   {
@@ -551,21 +1337,27 @@
     "precio": "27860",
     "descripcion": "Color: Combinado. Zapatillas en color blanco, negro y rojo. Detalle de piezas superpuestas.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/1/2/p/2414/961/202//01/2414961202_1_1_3.jpg",
-    "stock": 80
+  "talle": [38,39,40,41,42,43],
+  "stock": [30,45,46,26,22,15],
+    "categoria": ["Calzado"]
   },
   {
     "nombre": "Zapatillas bandana ",
     "precio": "22190",
     "descripcion": "Color: Blanco. Zapatillas en color blanco. Piezas con estampados de bandana y piezas grabadas.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/1/2/p/2452/860/001/2452860001_2_4_3.jpg",
-    "stock": 80
+  "talle": [38,39,40,41,42,43],
+  "stock": [30,45,46,26,22,15],
+    "categoria": ["Calzado"]
   },
   {
     "nombre": "Zapatillas combinadas cadena ",
     "precio": "24590",
     "descripcion": "Color: Naranja.STARFIT. PLANTILLA TÉCNICA FLEXIBLE DE ESPUMA COMPUESTA DE POLIURETANO, DISEÑADA PARA OFRECER UN MAYOR CONFORT. Zapatillas en color naranja y blanco. Detalle de cadena en color naranja.",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/1/2/p/2412/060/070//01/2412060070_1_1_3.jpg",
-    "stock": 80
+  "talle": [38,39,40,41,42,43],
+  "stock": [30,45,46,26,22,15],
+    "categoria": ["Calzado"]
   },
 
   {
@@ -573,7 +1365,9 @@
     "precio": "7490",
     "descripcion": "Color: Combinado.STARFIT. PLANTILLA TÉCNICA FLEXIBLE DE ESPUMA COMPUESTA DE POLIURETANO, DISEÑADA PARA OFRECER UN MAYOR CONFORT. Zapatillas combinadas en color amarillo, blanco y negro. Dibujo de Pikachu en los laterales.",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/1/2/p/2452/961/202/2452961202_1_1_3.jpg",
-    "stock": 80
+  "talle": [38,39,40,41,42,43],
+  "stock": [30,45,46,26,22,15],
+    "categoria": ["Calzado"]
   },
 
   {
@@ -581,7 +1375,200 @@
     "precio": "3150",
     "descripcion": "Color: Blanco. Zapatillas básicas en color blanco. Detalle de chapa en los cordones.",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/1/2/p/2400/060/001//01/2400060001_1_1_3.jpg",
-    "stock": 600
+    "talle": [38,39,40,41,42,43],
+    "stock": [30,45,46,26,22,15],
+    "categoria": ["Calzado"]
+  },
+  {
+    "nombre": "Zapatillas Running ",
+    "precio": "9550",
+    "descripcion": "Color: Multicolor. Zapatilla deportiva tipo running. Combinación de materiales y colores en el corte. Cordonera con siete pasados. Suela volumen con combinación de colores y piso dentado estilo track.",
+    "imagen": "https://static.zara.net/photos///2022/I/1/2/p/2313/920/202/2/w/850/2313920202_6_1_1.jpg?ts=1651590027403",
+    "talle": [38,39,40,41,42,43],
+    "stock": [30,45,46,26,22,15],
+    "categoria": ["Calzado"]
+  },
+  {
+    "nombre": "Zapatillas Running Multipiezas ",
+    "precio": "10215",
+    "descripcion": "Color: Multicolor. Zapatilla deportiva tipo running. Superposición de materiales en el corte con diferentes textura. Cordonera con cuatro pasados. Suela con volumen compuesta por varias piezas y combinación de materiales.",
+    "imagen": "https://static.zara.net/photos///2022/V/1/2/p/2311/920/107/2/w/850/2311920107_6_2_1.jpg?ts=1643719658402",
+    "talle": [38,39,40,41,42,43],
+    "stock": [30,45,46,26,22,15],
+    "categoria": ["Calzado"]
+  },
+  {
+    "nombre": " Zapatillas Bamba Minimal",
+    "precio": "10215",
+    "descripcion": "Color: Negro. Zapatilla deportiva tipo bamba. Disponible en varios colores. Cordonera con siete pasados. Detalle de superposición de piezas en el corte y tirador en la talonera. Suela de color blanco.",
+    "imagen": "https://static.zara.net/photos///2021/I/1/2/p/2237/720/040/2/w/850/2237720040_6_2_1.jpg?ts=1628779196987",
+    "talle": [38,39,40,41,42,43],
+    "stock": [30,45,46,26,22,15],
+    "categoria": ["Calzado"]
+  },
+  {
+    "nombre": " Zapatillas Bamba Combinada",
+    "precio": "11615",
+    "descripcion": "Color: Multicolor. Zapatilla deportiva tipo bamba. Combinación de colores y materiales en el corte con partes en piel con acabado serraje. Cordonera con siete pasados. Suela blanca con algo de volumen.",
+    "imagen": "https://static.zara.net/photos///2021/I/1/2/p/2244/820/202/2/w/850/2244820202_6_2_1.jpg?ts=1627995293036",
+    "talle": [38,39,40,41,42,43],
+    "stock": [30,45,46,26,22,15],
+    "categoria": ["Calzado"]
+  },
+  {
+    "nombre": " Zapatillas Deportivo Tejido",
+    "precio": "30155",
+    "descripcion": "Color: Fluorescente. Zapatilla deportiva botín. Fabricado con tejido tipo knit. Corte envolvente de una sola pieza. Suela volumen con diseño irregular y multipiezas en combinación de colores.",
+    "imagen": "https://static.zara.net/photos///2022/I/1/2/p/2120/920/405/2/w/850/2120920405_6_2_1.jpg?ts=1649666270283",
+    "talle": [38,39,40,41,42,43],
+    "stock": [30,45,46,26,22,15],
+    "categoria": ["Calzado"]
+  },
+  {
+    "nombre": " Zapatillas Running Colored",
+    "precio": "33615",
+    "descripcion": "Color: Arena. Zapatilla deportiva tipo running. Corte envolvente, simulando construcción calcetín. Combinación de materiales en el corte. Cordonera con tres pasados. Suela volumen con diseño irregular y multipiezas.",
+    "imagen": "https://static.zara.net/photos///2022/I/1/2/p/2322/920/107/2/w/850/2322920107_6_2_1.jpg?ts=1652775412610",
+    "talle": [38,39,40,41,42,43],
+    "stock": [30,45,46,26,22,15],
+    "categoria": ["Calzado"]
+  },
+  {
+    "nombre": " Zapatillas Running Cremallera",
+    "precio": "15565",
+    "descripcion": "Color: Multicolor. Zapatilla deportiva tipo running. Combinación de materiales y colores en el corte. Cordonera semioculta con cinco pasados. Cuenta con cremallera en el lateral exterior y tirador en la parte trasera. Suela volumen con diseño irregular.",
+    "imagen": "https://static.zara.net/photos///2022/V/1/2/p/2300/920/202/2/w/850/2300920202_6_2_1.jpg?ts=1641921311925",
+    "talle": [38,39,40,41,42,43],
+    "stock": [30,45,46,26,22,15],
+    "categoria": ["Calzado"]
+  },
+  {
+    "nombre": " Zapatillas Deportivas M",
+    "precio": "26315",
+    "descripcion": "Color: Multicolor. Zapatilla deportiva con combinación de materiales y colores en el corte. Cordonera con siete pasados. Suela de volumen con diseño irregular y combinación de colores. Diseño de inspiración retro.",
+    "imagen": "https://static.zara.net/photos///2022/V/1/2/p/2238/920/202/2/w/850/2238920202_6_2_1.jpg?ts=1647440989264",
+    "talle": [38,39,40,41,42,43],
+    "stock": [30,45,46,26,22,15],
+    "categoria": ["Calzado"]
+  },
+  {
+    "nombre": " Zueco Volumen",
+    "precio": "8245",
+    "descripcion": "Color: Azul. Zueco cerrado fabricado en un solo corte con tecnologia jetfoam que brinda ligereza y comfort. Plantilla interior textil.",
+    "imagen": "https://static.zara.net/photos///2021/I/1/2/p/2750/820/009/2/w/850/2750820009_6_2_1.jpg?ts=1635873751866",
+    "talle": [38,39,40,41,42,43],
+    "stock": [30,45,46,26,22,15],
+    "categoria": ["Calzado"]
+  },
+
+  {
+    "nombre": " Pala Geométrica",
+    "precio": "8625",
+    "descripcion": "Color: Amarillo. Sandalia tipo chancla. Suela de goma con volumen y tira ancha con relieve en el empeine.",
+    "imagen": "https://static.zara.net/photos///2022/V/1/2/p/2705/921/090/2/w/850/2705921090_6_2_1.jpg?ts=1639060489499",
+    "talle": [38,39,40,41,42,43],
+    "stock": [30,45,46,26,22,15],
+    "categoria": ["Calzado"]
+  },
+  {
+    "nombre": " Alpargata Combinada P",
+    "precio": "9155",
+    "descripcion": "Color: Arena. Alpargatas tipo espardeñas. Corte combinado de piel y tejido de algodón con patrón a rayas. Suela forrada de yute.",
+    "imagen": "https://static.zara.net/photos///2022/V/1/2/p/2721/920/107/2/w/850/2721920107_6_2_1.jpg?ts=1645102613480",
+    "talle": [38,39,40,41,42,43],
+    "stock": [30,45,46,26,22,15],
+    "categoria": ["Calzado"]
+  },
+  {
+    "nombre": " Pala Geométricax",
+    "precio": "8625",
+    "descripcion": "Color: Amarillo. Sandalia tipo chancla. Suela de goma con volumen y tira ancha con relieve en el empeine.",
+    "imagen": "https://static.zara.net/photos///2022/V/1/2/p/2705/921/500/2/w/850/2705921500_6_2_1.jpg?ts=1639060489718",
+    "talle": [38,39,40,41,42,43],
+    "stock": [30,45,46,26,22,15],
+    "categoria": ["Calzado"]
+  },
+  {
+    "nombre": " Zapatilla Alcolchada",
+    "precio": "4225",
+    "descripcion": "Color: Negro. Zapatilla acolchada plegable. Disponible en varios colores. Plantilla interior acolchada extra comodidad. Dispone de tiradores para ajustar calce. Bolsa para trasporte.",
+    "imagen": "https://static.zara.net/photos///contents/cm/media-transformations/joinlife-ctx/joinlife-large.svg?ts=1611919362013",
+    "talle": [38,39,40,41,42,43],
+    "stock": [30,45,46,26,22,15],
+    "categoria": ["Calzado"]
+  },
+  {
+    "nombre": " Zapatilla Alcolchada",
+    "precio": "4225",
+    "descripcion": "Color: Negro. Zapatilla acolchada plegable. Disponible en varios colores. Plantilla interior acolchada extra comodidad. Dispone de tiradores para ajustar calce. Bolsa para trasporte.",
+    "imagen": "https://static.zara.net/photos///contents/cm/media-transformations/joinlife-ctx/joinlife-large.svg?ts=1611919362013",
+    "talle": [38,39,40,41,42,43],
+    "stock": [30,45,46,26,22,15],
+    "categoria": ["Calzado"]
+  },
+
+  {
+    "nombre": " Zapato Formal Monk",
+    "precio": "31425",
+    "descripcion": "Color: Negro. Zapato tipo monk. Color negro. Cierre con una hebilla metálica. Horma en semi-punta. Estilo clasico.",
+    "imagen": "https://static.zara.net/photos///2021/I/1/2/p/2423/820/040/2/w/850/2423820040_6_2_1.jpg?ts=1629108512908",
+    "talle": [38,39,40,41,42,43],
+    "stock": [10,5,8,12,3,7],
+    "categoria": ["Calzado"]
+  },
+  {
+    "nombre": " Zapato Formal Blucher",
+    "precio": "33425",
+    "descripcion": "Color: Marrón. Zapato tipo blucher. Fabricado en piel. Color marrón. Cordonera con cinco pasados. Plantilla en piel. Suela de color marrón. Horma redonda.",
+    "imagen": "https://static.zara.net/photos///2022/V/1/2/p/2425/920/100/2/w/850/2425920100_6_2_1.jpg?ts=1649420083511",
+    "talle": [38,39,40,41,42,43],
+    "stock": [10,5,8,12,3,7],
+    "categoria": ["Calzado"]
+  },
+  {
+    "nombre": " Zapato Formal C",
+    "precio": "32425",
+    "descripcion": "Color: Marrón. Zapato sport tipo blucher. Cordonera con cuatro pasados. Suela a contraste en color hueso.",
+    "imagen": "https://static.zara.net/photos///2021/I/1/2/p/2514/821/105/2/w/850/2514821105_6_2_1.jpg?ts=1632990968826",
+    "talle": [38,39,40,41,42,43],
+    "stock": [10,5,8,12,3,7],
+    "categoria": ["Calzado"]
+  },
+  {
+    "nombre": " Mocasín Náutico",
+    "precio": "33525",
+    "descripcion": "Color: Beige. Mocasín tipo naútico. Detalle de pespunte en el corte y el empeine a modo de bordón. Cordonera con cuatro pasados. Suela volumen color hueso con bandeleta.",
+    "imagen": "https://static.zara.net/photos///2022/I/1/2/p/2659/920/102/2/w/850/2659920102_6_2_1.jpg?ts=1649666495772",
+    "talle": [38,39,40,41,42,43],
+    "stock": [10,5,8,12,3,7],
+    "categoria": ["Calzado"]
+  },
+  {
+    "nombre": " Mocasín Driver",
+    "precio": "35125",
+    "descripcion": "Color: Azulón. Mocasines estilo driver. Corte en piel. Detalle de borlas en el empeine. Piso de goma.",
+    "imagen": "https://static.zara.net/photos///2022/I/1/2/p/2660/920/018/2/w/850/2660920018_6_2_1.jpg?ts=1649666532101",
+    "talle": [38,39,40,41,42,43],
+    "stock": [10,5,8,12,3,7],
+    "categoria": ["Calzado"]
+  },
+  {
+    "nombre": " Náutico Piel",
+    "precio": "25425",
+    "descripcion": "Color: Beige. Zapato sport tipo náutico. Corte en piel. Cordonera con tres pasados. Detalle de costuras visibles. Piso volumen color caramelo con acabado dentado.",
+    "imagen": "https://static.zara.net/photos///2022/V/1/2/p/2503/921/102/2/w/850/2503921102_6_2_1.jpg?ts=1642611252030",
+    "talle": [38,39,40,41,42,43],
+    "stock": [10,5,8,12,3,7],
+    "categoria": ["Calzado"]
+  },
+  {
+    "nombre": " Zapato Casuale",
+    "precio": "22311",
+    "descripcion": "Color: Marrón. Zapato sport con cordones. Construcción soft. Corte liso. Cordonera con cinco pasados. Detalle de cerco en color marron con pespuntes a contraste de color. Suela a contraste con detalle de grabado en el talón.",
+    "imagen": "https://static.zara.net/photos///2022/V/1/2/p/2502/920/105/2/w/850/2502920105_6_1_1.jpg?ts=1637853938241",
+    "talle": [38,39,40,41,42,43],
+    "stock": [10,5,8,12,3,7],
+    "categoria": ["Calzado"]
   },
 
 
@@ -593,105 +1580,135 @@
     "precio": "9130",
     "descripcion": "Color: Negro. Exterior: CFF: Care for fiber: al menos 30% poliester reciclado + Relleno: Care for fiber: 100% poliester reciclado. Esta fibra se obtiene a partir del reciclaje de plástico PET, como el de las botellas de agua. Transformando este residuo en un nuevo recurso reducimos la producción de materia prima virgen y el consumo de agua, energía y recursos naturales.",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/3909/644/800/3909644800_2_4_3.jpg",
-    "stock": 60
+  "talle": ["S", "M", "L", "XL"],
+  "stock": [30, 25, 18, 10],
+    "categoria": ["Abrigo"]
   },
   {
     "nombre": "Cazadora bomber cremalleras",
     "precio": "4270",
     "descripcion": "Color: Negro. 100%poliéster",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/3911/677/800/3911677800_2_4_3.jpg",
-    "stock": 90
+  "talle": ["S", "M", "L", "XL"],
+  "stock": [30, 25, 18, 10],
+    "categoria": ["Abrigo"]
   },
   {
     "nombre": "Cazadora bomber ligera efecto nylon",
     "precio": "6150",
     "descripcion": "Color: Blanco roto. 100% poliéster",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/6877/777/251/6877777251_2_4_3.jpg",
-    "stock": 99
+  "talle": ["S", "M", "L", "XL"],
+  "stock": [30, 25, 18, 10],
+    "categoria": ["Abrigo"]
   },
   {
     "nombre": "Cazadora bomber ligera varsity",
     "precio": "4990",
     "descripcion": "Color: Negro. Care for fiber: al menos 25% poliéster reciclado. Esta fibra se obtiene a partir del reciclaje de plástico PET, como el de las botellas de agua. Transformando este residuo en un nuevo recurso reducimos la producción de materia prima virgen y el consumo de agua, energía y recursos naturales.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/3890/200/800/3890200800_2_4_3.jpg",
-    "stock": 120
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [30, 25, 18, 10],
+    "categoria": ["Abrigo"]
   },
   {
     "nombre": "Cazadora efecto nylon print",
     "precio": "9210",
     "descripcion": "Color: Negro. 100%poliéster",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/6851/777/800/6851777800_2_4_3.jpg",
-    "stock": 50
+  "talle": ["S", "M", "L", "XL"],
+  "stock": [30, 25, 18, 10],
+    "categoria": ["Abrigo"]
   },
   {
     "nombre": "Chaleco capucha acolchado",
     "precio": "5180",
     "descripcion": "Color: Piedra. Exterior: CFF: Care for fiber: al menos 30% poliester reciclado + Relleno: Care for fiber: 100% poliester reciclado. Esta fibra se obtiene a partir del reciclaje de plástico PET, como el de las botellas de agua. Transformando este residuo en un nuevo recurso reducimos la producción de materia prima virgen y el consumo de agua, energía y recursos naturales.",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/6859/644/805/6859644805_2_4_3.jpg",
-    "stock": 140
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [30, 25, 18, 10],
+    "categoria": ["Abrigo"]
   },
   {
     "nombre": "Cazadora denim oversize",
     "precio": "6310",
     "descripcion": "Color: Azul lavado. Care for fiber & water: al menos 20% algodón reciclado. La producción de esta fibra recupera residuo de algodón, principalmente de la producción de otras prendas de algodón, reduciendo así la producción de materia prima virgen y el consumo de agua, energía y recursos naturales. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/3859/335/428/3859335428_2_4_3.jpg",
-    "stock": 213
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [30, 25, 18, 10],
+    "categoria": ["Abrigo"]
   },
   {
     "nombre": "Cazadora print",
     "precio": "7100",
     "descripcion": "Color: Amarillo. 100%poliéster",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/1386/311/300/1386311300_2_4_3.jpg",
-    "stock": 331
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [30, 25, 18, 10],
+    "categoria": ["Abrigo"]
   },
   {
     "nombre": "Cazadora bomber acolchada",
     "precio": "9420",
     "descripcion": "Color: Negro. 100%poliéster",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/3882/200/800/3882200800_2_4_3.jpg",
-    "stock": 99
+  "talle": ["S", "M", "L", "XL"],
+  "stock": [30, 25, 18, 10],
+    "categoria": ["Abrigo"]
   },
   {
     "nombre": "Cazadora denim varsity",
     "precio": "7820",
     "descripcion": "Color: Negro. 100% algodon",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/3860/388/800/3860388800_2_4_3.jpg",
-    "stock": 186
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [30, 25, 18, 10],
+    "categoria": ["Abrigo"]
   },
   {
     "nombre": "Cazadora print degradado",
     "precio": "4943",
     "descripcion": "Color: Amarillo. 100%poliéster",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/3914/085/300/3914085300_2_4_3.jpg",
-    "stock": 221
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [30, 25, 18, 10],
+    "categoria": ["Abrigo"]
   },
   {
     "nombre": "Cazadora canguro print",
     "precio": "8241",
     "descripcion": "Color: Negro. 100% algodon",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/3881/200/800/3881200800_2_4_3.jpg",
-    "stock": 300
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [30, 25, 18, 10],
+    "categoria": ["Abrigo"]
   },
   {
     "nombre": "Cazadora canguro acolchada",
     "precio": "9154",
     "descripcion": "Color: Verde. 100% algodon",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/6677/200/500/6677200500_2_4_3.jpg",
-    "stock": 245
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [30, 25, 18, 10],
+    "categoria": ["Abrigo"]
   },
   {
     "nombre": "Cazadora racing print espalda",
     "precio": "9551",
     "descripcion": "Color: Azul. 100% algodon",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/3887/564/400/3887564400_2_4_3.jpg",
-    "stock": 249
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [30, 25, 18, 10],
+    "categoria": ["Abrigo"]
   },
   {
     "nombre": "Cazadora pintura print",
     "precio": "5831",
     "descripcion": "Color: Camel. Exterior: Care for water: producido utilizando menos agua + Relleno: 100% poliester reciclado. Exterior: Esta prenda se ha producido utilizando tecnologías que nos ayudan a reducir el consumo de agua en los procesos de tintado y lavado. Relleno: Esta fibra se obtiene a partir del reciclaje de plástico PET, como el de las botellas de agua. Transformando este residuo en un nuevo recurso reducimos la producción de materia prima virgen y el consumo de agua, energía y recursos naturales.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/3891/073/742/3891073742_2_4_3.jpg",
-    "stock": 19
+  "talle": ["S", "M", "L", "XL"],
+  "stock": [30, 25, 18, 10],
+    "categoria": ["Abrigo"]
   },
 
   {
@@ -699,7 +1716,9 @@
     "precio": "2871",
     "descripcion": "Color: Blanco roto. 60% algodon, 34% poliéster, 6% elastano",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/3646/019/743/3646019743_2_4_3.jpg",
-    "stock": 65
+  "talle": ["S", "M", "L", "XL"],
+  "stock": [30, 25, 18, 10],
+    "categoria": ["Abrigo"]
   },
 
   {
@@ -707,7 +1726,9 @@
     "precio": "12871",
     "descripcion": "Color: Marrón. Care for fiber & water: al menos 15% algodón reciclado. El algodón reciclado se produce a partir del residuo de algodón de otras producciones, reduciendo el consumo de algodón virgen y los procesos de obtención de la fibra. Esta prenda se ha producido utilizando tecnologías que nos ayudan a reducir el consumo de agua en los procesos de tintado y lavado.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/0584/335/717/0584335717_2_4_3.jpg",
-    "stock": 87
+  "talle": ["S", "M", "L", "XL"],
+  "stock": [30, 25, 18, 10],
+    "categoria": ["Abrigo"]
   },
 
   {
@@ -715,7 +1736,9 @@
     "precio": "8151",
     "descripcion": "Color: Piedra. Exterior: CFF: Care for fiber: al menos 30% poliester reciclado + Relleno: Care for fiber: 100% poliester reciclado. Esta fibra se obtiene a partir del reciclaje de plástico PET, como el de las botellas de agua. Transformando este residuo en un nuevo recurso reducimos la producción de materia prima virgen y el consumo de agua, energía y recursos naturales.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/8404/647/742/8404647742_2_4_3.jpg",
-    "stock": 200
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [30, 25, 18, 10],
+    "categoria": ["Abrigo"]
   },
 
   {
@@ -723,7 +1746,9 @@
     "precio": "18151",
     "descripcion": "Color: Camel. 67% poliéster, 31% viscosa, 2% elastano",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/1793/168/742/1793168742_2_4_3.jpg",
-    "stock": 160
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [30, 25, 18, 10],
+    "categoria": ["Abrigo"]
   },
 
   {
@@ -731,132 +1756,329 @@
     "precio": "20151",
     "descripcion": "Color: Negro. 100% poliéster",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/6845/310/800/6845310800_2_4_3.jpg",
-    "stock": 200
+    "talle": ["S", "M", "L", "XL"],
+    "stock": [30, 25, 18, 10],
+    "categoria": ["Abrigo"]
+  },
+  {
+    "nombre": "Jersey Perlado",
+    "precio": "12451",
+    "descripcion": "Color: Tostado. Jersey amplio de cuello redondo y manga larga. Acabados en rib.",
+    "imagen": "https://static.zara.net/photos///2021/I/0/2/p/3284/320/704/2/w/850/3284320704_6_1_1.jpg?ts=1630482441451",
+    "talles": ["S", "M", "L", "XL"],
+    "stock": [30, 25, 18, 10],
+    "categoria": ["Abrigo"]
+  },
+  {
+    "nombre": "Jersey John Lennon",
+    "precio": "29351",
+    "descripcion": "Color: Blanco roto. Jersey tejido en hilatura de algodón. Cuello redondo y manga larga. Bordado frontal Imagine  Yoko Ono Lennon. Aplicación de parche bordado en espalda. Acabados en rib.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/1277/403/251/2/w/850/1277403251_6_1_1.jpg?ts=1643101961046",
+    "talles": ["S", "M", "L", "XL"],
+    "stock": [30, 25, 18, 10],
+    "categoria": ["Abrigo"]
+  },
+  {
+    "nombre": "Jersey Crochet",
+    "precio": "12121",
+    "descripcion": "Color: Marino. Jersey tejido en hilatura de algodón. Cuello redondo y manga larga. Acabados en rib.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/3991/400/401/2/w/850/3991400401_6_1_1.jpg?ts=1646814839892",
+    "talles": ["S", "M", "L", "XL"],
+    "stock": [30, 25, 18, 10],
+    "categoria": ["Abrigo"]
+  },
+  {
+    "nombre": "Jersey Punto B",
+    "precio": "15357",
+    "descripcion": "Color: Blanco. Jersey amplio de cuello redondo y manga larga. Acabados en rib",
+    "imagen": "https://static.zara.net/photos///2021/I/0/2/p/3284/320/251/2/w/850/3284320251_6_2_1.jpg?ts=1630481831583",
+    "talles": ["S", "M", "L", "XL"],
+    "stock": [30, 25, 18, 10],
+    "categoria": ["Abrigo"]
+  },
+  {
+    "nombre": "Jersey Cuello P",
+    "precio": "12417",
+    "descripcion": "Color: Hielo. Jersey con cuello perkins y manga larga. Acabados en rib.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/1/p/2632/403/805/2/w/850/2632403805_6_1_1.jpg?ts=1640075714216",
+    "talles": ["S", "M", "L", "XL"],
+    "stock": [30, 25, 18, 10],
+    "categoria": ["Abrigo"]
+  },
+  {
+    "nombre": "Jersey Básico ",
+    "precio": "10111",
+    "descripcion": "Color: Gris. Jersey ligero de corte recto con cuello redondo y manga larga. Acabados en rib.",
+    "imagen": "https://static.zara.net/photos///2021/I/0/2/p/0693/340/801/2/w/850/0693340801_6_1_1.jpg?ts=1627920197058",
+    "talles": ["S", "M", "L", "XL"],
+    "stock": [30, 25, 18, 10],
+    "categoria": ["Abrigo"]
+  },
+  {
+    "nombre": "Jersey Geométrico ",
+    "precio": "16321",
+    "descripcion": "Color: Azulón. Jersey amplio de cuello redondo y manga larga. Acabados en rib.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/5755/400/420/2/w/850/5755400420_6_1_1.jpg?ts=1639654536358",
+    "talles": ["S", "M", "L", "XL"],
+    "stock": [30, 25, 18, 10],
+    "categoria": ["Abrigo"]
+  },
+  {
+    "nombre": "Jersey Roto ",
+    "precio": "20221",
+    "descripcion": "Color: Piedra. Jersey tejido en hilatura de algodón, Cuello redondo y manga larga. Desagujado efecto rotos. Acabados en rib.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/6771/403/806/2/w/850/6771403806_6_1_1.jpg?ts=1641382004287",
+    "talles": ["S", "M", "L", "XL"],
+    "stock": [30, 25, 18, 10],
+    "categoria": ["Abrigo"]
+  },
+  {
+    "nombre": "Jersey Roto BL ",
+    "precio": "22222",
+    "descripcion": "Color: Negro. Jersey tejido en hilatura de algodón, Cuello redondo y manga larga. Desagujado efecto rotos. Acabados en rib.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/6771/403/800/2/w/850/6771403800_6_1_1.jpg?ts=1641381851024",
+    "talles": ["S", "M", "L", "XL"],
+    "stock": [30, 25, 18, 10],
+    "categoria": ["Abrigo"]
+  },
+  {
+    "nombre": "Jersey Soft ",
+    "precio": "20547",
+    "descripcion": "Color: Lavanda. Jersey amplio de cuello redondo y manga larga. Acabados en rib.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/0632/300/439/2/w/850/0632300439_6_1_1.jpg?ts=1643890520158",
+    "talles": ["S", "M", "L", "XL"],
+    "stock": [30, 25, 18, 10],
+    "categoria": ["Abrigo"]
+  },
+  {
+    "nombre": "Cárdigan Jacquad ",
+    "precio": "29315",
+    "descripcion": "Color: Negro/Crudo. Cárdigan de cuello pico y manga larga. Acabados en rib. Cierre frontal de botonadura.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/9598/401/093/2/w/850/9598401093_6_1_1.jpg?ts=1639488619657",
+    "talles": ["S", "M", "L", "XL"],
+    "stock": [30, 25, 18, 10],
+    "categoria": ["Abrigo"]
+  },
+  {
+    "nombre": "Polo Punta T ",
+    "precio": "29725",
+    "descripcion": "Color: Amarillo. Polo tejido en hilatura con mezcla de algodón. Cuello solapa con cierre frontal de botonadura. Manga larga. Acabados en rib.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/1528/408/300/2/w/850/1528408300_6_1_1.jpg?ts=1646236205577",
+    "talles": ["S", "M", "L", "XL"],
+    "stock": [30, 25, 18, 10],
+    "categoria": ["Abrigo"]
+  },
+  {
+    "nombre": "Cazadora Doble F ",
+    "precio": "39935",
+    "descripcion": "Color: Negro. Cazadora confeccionada en tejido efecto piel con el interior acabado en borreguillo combinado a contraste. Cuello solapa con detalle de trabilla. Manga larga acabada en puño con vuelta. Bolsillos frontales de vivo.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/6318/321/800/2/w/850/6318321800_6_1_1.jpg?ts=1641225915668",
+    "talles": ["S", "M", "L", "XL"],
+    "stock": [30, 25, 18, 10],
+    "categoria": ["Abrigo"]
+  },
+  {
+    "nombre": "Cazadora Parches ",
+    "precio": "33315",
+    "descripcion": "Color: Negro. Cazadora confeccionada en tejido técnico. Cuello subido con capucha ajustable y manga larga acabada en puño elástico ajustable con tira adherente. Aplicación de parches y bordados combinados a contraste en toda la prenda.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/3427/401/800/2/w/850/3427401800_6_1_1.jpg?ts=1645028468662",
+    "talles": ["S", "M", "L", "XL"],
+    "stock": [30, 25, 18, 10],
+    "categoria": ["Abrigo"]
+  },
+  {
+    "nombre": "Cazadora CC ",
+    "precio": "38292",
+    "descripcion": "Color: Marino. Cazadora ligera de cuello subido con capucha desplegable en su interior. Bolsillos de vivo en cadera. Bajo ajustable en laterales con elástico. Cierre frontal de cremallera combinado a contraste.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/4302/466/401/2/w/850/4302466401_6_1_1.jpg?ts=1646734702751",
+    "talles": ["S", "M", "L", "XL"],
+    "stock": [30, 25, 18, 10],
+    "categoria": ["Abrigo"]
+  },
+  {
+    "nombre": "Cazadora Bomber ",
+    "precio": "31230",
+    "descripcion": "Color: Rojo. Cazadora varsity confeccionada en tejido efecto ante. Bolsillos de vivo en cadera y detalle de bolsillo en interior. Aplicación de parche combinado a contraste en delantero. Acabados en rib. Cierre frontal con cremallera.",
+    "imagen": "https://static.zara.net/photos///2022/I/0/2/p/0706/470/600/2/w/850/0706470600_6_1_1.jpg?ts=1654078051351",
+    "talles": ["S", "M", "L", "XL"],
+    "stock": [30, 25, 18, 10],
+    "categoria": ["Abrigo"]
+  },
+  {
+    "nombre": "Cazadora Bomber E ",
+    "precio": "31230",
+    "descripcion": "Color: Verde. Cazadora de cuello acabado en rib. Manga larga. Bolsillos de plastrón con solapa en pecho. Bajo acabado elástico. Cierre frontal con cremallera.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/8288/400/500/2/w/850/8288400500_6_1_1.jpg?ts=1641820122812",
+    "talles": ["S", "M", "L", "XL"],
+    "stock": [30, 25, 18, 10],
+    "categoria": ["Abrigo"]
+  },
+  {
+    "nombre": "Cazadora Bomber EPA ",
+    "precio": "31290",
+    "descripcion": "Color: Gris. Cazadora bomber de cuello en rib y manga larga acabada en puño elástico. Bolsillos de vivo en cadera. Bajo elástico. Cierre frontal con cremallera.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/0706/420/802/2/w/850/0706420802_6_1_1.jpg?ts=1637309314432",
+    "talles": ["S", "M", "L", "XL"],
+    "stock": [30, 25, 18, 10],
+    "categoria": ["Abrigo"]
+  },
+  {
+    "nombre": "Cazadora Rayas Cap ",
+    "precio": "26310",
+    "descripcion": "Color: Multicolor. Cazadora ligera de cuello con capucha ajustable. Manga larga acabada en puño con elástico. Bolsillos de plastrón con solapa en cadera. Bajo ajustable con cordón. Cierre frontal de cremallera.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/0706/436/330/2/w/850/0706436330_6_1_1.jpg?ts=1646734717908",
+    "talles": ["S", "M", "L", "XL"],
+    "stock": [30, 25, 18, 10],
+    "categoria": ["Abrigo"]
+  },
+  {
+    "nombre": "Cazadora Alcolchada CF ",
+    "precio": "46310",
+    "descripcion": "Color: Naranja. Cazadora acolchada de cuello subido y manga larga acabada en puño con elástico. Bolsillos de vivo en cadera y detalle de bolsillo interior. Bajo ajustable con elástico en laterales. Cierre frontal con cremallera oculta por solapa.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/3918/312/615/2/w/850/3918312615_6_1_1.jpg?ts=1640793326444",
+    "talles": ["S", "M", "L", "XL"],
+    "stock": [18, 10, 12, 5],
+    "categoria": ["Abrigo"]
   },
 
 
 
 
-
-  
   {
     "nombre": "Gorra básica",
     "precio": "2000",
     "descripcion": "Color: Verde. 100% algodon",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/4946/423/500/4946423500_1_1_3.jpg",
-    "stock": 500
+    "stock": 500,
+    "categoria": ["Accesorios"]
   },
   {
     "nombre": "Sombrero bucket print",
     "precio": "2500",
     "descripcion": "Color: Verde. 100% poliester",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/9888/423/982/9888423982_1_1_3.jpg",
-    "stock": 500
+    "stock": 500,
+   "categoria": ["Accesorios"]
   },
   {
     "nombre": "Gorra bucket",
     "precio": "2500",
     "descripcion": "Color: Amarillo. Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/4948/423/312/4948423312_1_1_3.jpg",
-    "stock": 500
+    "stock": 500,
+    "categoria": ["Accesorios"]
   },
   {
     "nombre": "Sombrero bucket pana",
     "precio": "2500",
     "descripcion": "Color: Arena. 100%poliéster",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/4955/984/752/4955984752_1_1_3.jpg",
-    "stock": 500
+    "stock": 500,
+   "categoria": ["Accesorios"] 
   },
   {
     "nombre": "Gorra bordado contraste",
     "precio": "2400",
     "descripcion": "Color: Negro. Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/9896/423/800/9896423800_1_1_3.jpg",
-    "stock": 500
+    "stock": 500,
+    "categoria": ["Accesorios"]
   },
   {
     "nombre": "Sombrero bucket efecto toalla tie-dye",
     "precio": "2700",
     "descripcion": "Color: Varios. 100% poliéster",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/9890/984/982/9890984982_1_1_3.jpg",
-    "stock": 500
+    "stock": 500,
+    "categoria": ["Accesorios"]
   },
   {
     "nombre": "Gorro corto básico",
     "precio": "2000",
     "descripcion": "Color: Negro. Care for water: producido utilizando menos agua. El uso de ciclos cerrados que permiten reutilizar el agua o de tecnologías como las máquinas de baja relación de baño o el tintado en masa nos ayudan a reducir el consumo de agua en los procesos de tintado o lavado de las prendas.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/4958/984/800/4958984800_1_1_3.jpg",
-    "stock": 500
+    "stock": 500,
+    "categoria": ["Accesorios"]
   },
   {
     "nombre": "Gafas sol hexagonal",
     "precio": "1500",
     "descripcion": "Color: Oro. Protección UV: AV400 CAT 1",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/9876/668/302/9876668302_1_1_3.jpg",
-    "stock": 300
+    "stock": 300,
+    "categoria": ["Accesorios"]
   },
   {
     "nombre": "Gafas sol octogonales",
     "precio": "1700",
     "descripcion": "Color: Azul. Protección UV: AV400 CAT1",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/3920/023/400/3920023400_1_1_3.jpg",
-    "stock": 300
+    "stock": 300,
+    "categoria": ["Accesorios"]
   },
   {
     "nombre": "Gafas sol color or",
     "precio": "1200",
     "descripcion": "Color: Negro. Protección UV: AV400 CAT 2",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/9878/419/800/9878419800_1_1_3.jpg",
-    "stock": 300
+    "stock": 300,
+    "categoria": ["Accesorios"]
   },
   {
     "nombre": "Gafas sol carey",
     "precio": "1400",
     "descripcion": "Color: Verde. Protección UV: AV400 CAT 1",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/9877/419/500/9877419500_1_1_3.jpg",
-    "stock": 300
+    "stock": 300,
+    "categoria": ["Accesorios"]
   },
   {
     "nombre": "Gafas sol color",
     "precio": "1600",
     "descripcion": "Color: Naranja. Protección UV: AV400 CAT 1",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/3924/023/615/3924023615_1_1_3.jpg",
-    "stock": 300
+    "stock": 300,
+    "categoria": ["Accesorios"]
   },
   {
     "nombre": "Gafas sol color frai",
     "precio": "1600",
     "descripcion": "Color: Negro. Protección UV: AV400 CAT 1",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/3923/668/800/3923668800_1_1_3.jpg",
-    "stock": 300
+    "stock": 300,
+    "categoria": ["Accesorios"]
   },
   {
     "nombre": "Bolso crossbody",
     "precio": "2000",
     "descripcion": "Color: Negro. 100%poliéster",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/9810/862/800/9810862800_1_1_3.jpg",
-    "stock": 200
+    "stock": 200,
+    "categoria": ["Accesorios"]
   },
   {
     "nombre": "Mochila mini",
     "precio": "2300",
     "descripcion": "Color: Negro. 100%poliéster",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/4828/668/800/4828668800_1_1_3.jpg",
-    "stock": 200
+    "stock": 200,
+    "categoria": ["Accesorios"]
   },
   {
     "nombre": "Riñonera detalle color",
     "precio": "2000",
     "descripcion": "Color: Negro/rosa. 100%poliéster",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/4830/668/800/4830668800_1_1_3.jpg",
-    "stock": 200
+    "stock": 200,
+    "categoria": ["Accesorios"]
   },
   {
     "nombre": "Set 3 calcetines rayas",
     "precio": "500",
     "descripcion": "Color: Blanco con rayas de colores. 100%poliéster",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/9799/588/250/9799588250_1_1_3.jpg",
-    "stock": 200
+    "stock": 200,
+    "categoria": ["Accesorios"]
   },
 
   {
@@ -864,20 +2086,183 @@
     "precio": "500",
     "descripcion": "Color: Varios. Care for fiber: al menos 50% algodón orgánico. Algodón cultivado utilizando fertilizantes y pesticidas naturales. Además, en su cultivo no se utilizan semillas modificadas genéticamente, lo que ayuda a conservar la biodiversidad de las semillas y la fertilidad del suelo.",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/9791/588/615/9791588615_1_1_3.jpg",
-    "stock": 200
+    "stock": 200,
+    "categoria": ["Accesorios"]
   },
   {
     "nombre": "Pack 3 pares de calcetines Frosties",
     "precio": "500",
     "descripcion": "Color: Varios. Care for fiber: al menos 50% algodón orgánico. Algodón cultivado utilizando fertilizantes y pesticidas naturales. Además, en su cultivo no se utilizan semillas modificadas genéticamente, lo que ayuda a conservar la biodiversidad de las semillas y la fertilidad del suelo.",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/4941/588/800/4941588800_1_1_3.jpg",
-    "stock": 200
+    "stock": 200,
+    "categoria": ["Accesorios"]
+  },
+  {
+    "nombre": "Gorro Corto",
+    "precio": "600",
+    "descripcion": "Color: Fucsia. Gorro confeccionado en algodón con elasticidad. Acabado con vuelta.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/9065/329/630/2/w/850/9065329630_6_1_1.jpg?ts=1641210014448",
+    "stock": 200,
+    "categoria": ["Accesorios"]
+  },
+  {
+    "nombre": "Gorro Corto V",
+    "precio": "600",
+    "descripcion": "Color: Verde. Gorro confeccionado en algodón con elasticidad. Acabado con vuelta.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/9065/329/630/2/w/850/9065329630_6_1_1.jpg?ts=1641210014448",
+    "stock": 200,
+    "categoria": ["Accesorios"]
+  },
+  {
+    "nombre": "Sombrero BC",
+    "precio": "900",
+    "descripcion": "Color: Crudo. Sombrero confeccionado en paja trenzada. Copa con bandana combinada a contraste. Ala ancha.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/3306/400/712/2/w/850/3306400712_6_1_1.jpg?ts=1651073641213",
+    "stock": 200,
+    "categoria": ["Accesorios"]
+  },
+  {
+    "nombre": "Sombrero Bucket",
+    "precio": "1000",
+    "descripcion": "Color: Azul fluor. Sombrero confeccionado en tejido técnico combinados a contraste. Ajuste con elástico.",
+    "imagen": "https://static.zara.net/photos///2022/I/0/2/p/3920/422/415/2/w/850/3920422415_6_1_1.jpg?ts=1652182700879",
+    "stock": 200,
+    "categoria": ["Accesorios"]
+  },
+  {
+    "nombre": "Sombrero Trenzado",
+    "precio": "400",
+    "descripcion": "Color: Crudo. Sombrero de rafia trenzada. Ala ancha con acabado irregular.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/3920/420/712/2/w/850/3920420712_6_1_1.jpg?ts=1652427873239",
+    "stock": 200,
+    "categoria": ["Accesorios"]
+  },
+  {
+    "nombre": "Sombrero Bucketero",
+    "precio": "900",
+    "descripcion": "Color: Crudo. Sombrero confeccionado en tejido técnico combinados a contraste. Ajuste con elástico.",
+    "imagen": "https://static.zara.net/photos///2022/I/0/2/p/3920/422/712/2/w/850/3920422712_6_1_1.jpg?ts=1652182699706",
+    "stock": 200,
+    "categoria": ["Accesorios"]
+  },
+  {
+    "nombre": "Gorro CWD",
+    "precio": "600",
+    "descripcion": "Color: Arena. Gorro ajustable acabado con vuelta.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/9065/494/718/2/w/850/9065494718_6_1_1.jpg?ts=1651154798698",
+    "stock": 200,
+    "categoria": ["Accesorios"]
+  },
+  {
+    "nombre": "Sombrero Faes",
+    "precio": "1200",
+    "descripcion": "Color: Negro/Blanco. Sombrero de ala ancha con detalle de pespuntes. Estampado combinado a contraste de gráficos Faes.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/1/p/9065/482/800/2/w/850/9065482800_6_1_1.jpg?ts=1649868142824",
+    "stock": 200,
+    "categoria": ["Accesorios"]
+  },
+  {
+    "nombre": "Cinturón Trenzado",
+    "precio": "600",
+    "descripcion": "Color: Cuero. Cinturón confeccionado en piel. Cierre con hebilla metálica y pasador.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/2823/406/702/2/w/850/2823406702_6_1_1.jpg?ts=1646820312288",
+    "stock": 200,
+    "categoria": ["Accesorios"]
+  },
+  {
+    "nombre": "Cinturón Trenzado EL",
+    "precio": "800",
+    "descripcion": "Color: Marino. Cinturón elástico con cierre de hebilla metálica.",
+    "imagen": "https://static.zara.net/photos///2021/I/0/2/p/2823/302/401/2/w/850/2823302401_6_1_1.jpg?ts=1629298754723",
+    "stock": 200,
+    "categoria": ["Accesorios"]
+  },
+  {
+    "nombre": "Cinturón Básico",
+    "precio": "300",
+    "descripcion": "Color: Negro. Cinturón de piel con cierre de hebilla metálica y pasador.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/2823/400/800/2/w/850/2823400800_6_1_1.jpg?ts=1638206664620",
+    "stock": 200,
+    "categoria": ["Accesorios"]
+  },
+  {
+    "nombre": "Calcetín ETD",
+    "precio": "200",
+    "descripcion": "Color: Verde fluor. Calcetines tejidos en hilatura con mezcla de algodón. Acabados en rib.",
+    "imagen": "https://static.zara.net/photos///2022/I/0/2/p/0348/313/509/2/w/850/0348313509_6_2_1.jpg?ts=1654076715976",
+    "stock": 200,
+    "categoria": ["Accesorios"]
+  },
+  {
+    "nombre": "Calcetín Bandas",
+    "precio": "200",
+    "descripcion": "Color: Blanco roto. Calcetines tejidos en rib elástico con jacquard x Rhuigi combinado a contraste.",
+    "imagen": "https://static.zara.net/photos///2022/I/0/2/p/0348/302/251/2/w/850/0348302251_6_1_1.jpg?ts=1652182701222",
+    "stock": 200,
+    "categoria": ["Accesorios"]
+  },
+  {
+    "nombre": "Calcetín Bandaserin",
+    "precio": "200",
+    "descripcion": "Color: Marino. Calcetines en rib. Bandas combinada a contraste.",
+    "imagen": "https://static.zara.net/photos///2022/I/0/2/p/0348/302/251/2/w/850/0348302251_6_1_1.jpg?ts=1652182701222",
+    "stock": 200,
+    "categoria": ["Accesorios"]
+  },
+  {
+    "nombre": "Calcetín ETDWQ",
+    "precio": "200",
+    "descripcion": "Color: Rosa lavado. Calcetines tejidos en hilatura con mezcla de algodón. Acabados en rib.",
+    "imagen": "https://static.zara.net/photos///2022/I/0/2/p/0348/313/633/2/w/850/0348313633_6_2_1.jpg?ts=1654076735539",
+    "stock": 200,
+    "categoria": ["Accesorios"]
+  },
+  {
+    "nombre": "Pulsera Escorpión",
+    "precio": "700",
+    "descripcion": "Color: Dorado. Pulsera formada por eslabones metálicos combinados con placa grabada. Cierre con mosquetón.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/1124/300/303/2/w/850/1124300303_6_1_1.jpg?ts=1652265369685",
+    "stock": 200,
+    "categoria": ["Accesorios"]
+  },
+  {
+    "nombre": "Cadena Colgante",
+    "precio": "700",
+    "descripcion": "Color: Dorado. Cadena metálica con detalle de colgante grabado combinado a tono. Cierre con mosquetón.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/1124/301/303/2/w/850/1124301303_6_1_1.jpg?ts=1652265380713",
+    "stock": 200,
+    "categoria": ["Accesorios"]
+  },
+  {
+    "nombre": "Pack Pendientes",
+    "precio": "400",
+    "descripcion": "Color: Plata. Pack de pendientes asimétricos con cierre de rosca.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/1012/417/808/2/w/850/1012417808_6_1_1.jpg?ts=1651073643997",
+    "stock": 40,
+    "categoria": ["Accesorios"]
+  },
+  {
+    "nombre": "Pulsera Eslabones",
+    "precio": "800",
+    "descripcion": "Color: Plata. Pulsera metálica de eslabones articulados. Detalle de colgante grabado. Cierre con mosquetón.",
+    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/1012/417/808/2/w/850/1012417808_6_1_1.jpg?ts=1651073643997",
+    "stock": 40,
+    "categoria": ["Accesorios"]
+  },
+  {
+    "nombre": "Billetera",
+    "precio": "500",
+    "descripcion": "Color: Natural. Tarjetero liso con clip. Tiene tres posiciones para tarjetas, una en cada lateral y la tercera central con tirador para poder extraer las tarjetas. Dispone de clip metalico para billetes.",
+    "imagen": "https://static.zara.net/photos///2021/I/1/2/p/3818/820/111/2/w/850/3818820111_6_1_1.jpg?ts=1633076024079",
+    "stock": 15,
+    "categoria": ["Accesorios"]
   },
   {
     "nombre": "Pack de 3 calcetines casual tie dye",
     "precio": "500",
     "descripcion": "Color: Varios.77% algodón, 21% poliamida, 2% elastano",
     "imagen": "https://static.bershka.net/4/photos2/2022/V/0/2/p/9570/698/800/9570698800_1_1_3.jpg",
-    "stock": 200
+    "stock": 200,
+    "categoria": ["Accesorios"]
   }
 ]

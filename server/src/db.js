@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { Sequelize, Op } = require('sequelize');
+const { Sequelize, Op, DataTypes } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
 const {
@@ -31,10 +31,12 @@ sequelize.models = Object.fromEntries(capsEntries);
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
 // const {} = sequelize.models;
-const {Categoria, Pedido, Producto, ProductosFav, Rating, Usuario } = sequelize.models;
+const {Categoria, Pedido, Producto, ProductosFav, Rating, Usuario, Talle, Producto_talle } = sequelize.models;
 // Aca vendrian las relaciones
-// Product.hasMany(Reviews);
-Producto.hasOne(Categoria);
+// Producto.hasMany(Reviews);
+
+
+Producto.belongsTo(Categoria);
 Categoria.hasMany(Producto);
 
 Producto.belongsToMany(Pedido, {through: "producto_pedido"});
@@ -46,6 +48,8 @@ Pedido.hasOne(Usuario);
 ProductosFav.belongsToMany(Usuario, {through: "producto_fav_usuario"});
 Usuario.belongsToMany(ProductosFav, {through: "producto_fav_usuario"});
 
+Producto.belongsToMany(Talle, {through: Producto_talle})
+Talle.belongsToMany(Producto, {through: Producto_talle})
 
 
 
