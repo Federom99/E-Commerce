@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 import { FaStar } from "react-icons/fa";
-import { useState } from 'react';
+import { useState } from "react";
 
 import {
-  Main, 
+  Main,
   Div,
   ImageContainer,
   Image,
@@ -15,38 +15,37 @@ import {
   Description,
   Size,
   Button,
-  Review
- } from './styles'
+  Review,
+} from "./styles";
 
 const colors = {
   orange: "#FFBA5A",
-  grey: "#a9a9a9"
-  
+  grey: "#a9a9a9",
 };
 
 const ProductDetail = () => {
   const [currentValue, setCurrentValue] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
 
-  const stars = Array(5).fill(0)
+  const stars = Array(5).fill(0);
 
-  const handleClick = value => {
-    setCurrentValue(value)
-  }
+  const handleClick = (value) => {
+    setCurrentValue(value);
+  };
 
-  const handleMouseOver = newHoverValue => {
-    setHoverValue(newHoverValue)
+  const handleMouseOver = (newHoverValue) => {
+    setHoverValue(newHoverValue);
   };
 
   const handleMouseLeave = () => {
-    setHoverValue(undefined)
-  }
+    setHoverValue(undefined);
+  };
 
   return (
     <Main>
       <Div>
         <ImageContainer>
-          <Image src='https://static.bershka.net/4/photos2/2022/V/0/1/p/0156/168/800/0156168800_2_4_1.jpg?t=1648213728518'/>
+          <Image src="https://static.bershka.net/4/photos2/2022/V/0/1/p/0156/168/800/0156168800_2_4_1.jpg?t=1648213728518" />
         </ImageContainer>
         <InfoContainer>
           <H2>Pantalón wide leg bolsillos</H2>
@@ -60,13 +59,17 @@ const ProductDetail = () => {
                   onClick={() => handleClick(index + 1)}
                   onMouseOver={() => handleMouseOver(index + 1)}
                   onMouseLeave={handleMouseLeave}
-                  color={(hoverValue || currentValue) > index ? colors.orange : colors.grey}
+                  color={
+                    (hoverValue || currentValue) > index
+                      ? colors.orange
+                      : colors.grey
+                  }
                   style={{
                     marginRight: 10,
-                    cursor: "pointer"
+                    cursor: "pointer",
                   }}
                 />
-              )
+              );
             })}
           </Stars>
           <SizeInfo>
@@ -75,18 +78,16 @@ const ProductDetail = () => {
             <Size>L</Size>
             <Size>XL</Size>
           </SizeInfo>
-          <Description >
+          <Description>
             Pantalon Pantalon Pantalon Pantalon Pantalon Pantalon Pantalon
           </Description>
           <Button>Add to cart</Button>
-          <Review placeholder='Enter a review of the product'></Review>
+          <Review placeholder="Enter a review of the product"></Review>
           <p>Falta button para enviar review</p>
         </InfoContainer>
       </Div>
-
     </Main>
-  )
-}
+  );
+};
 
-export default ProductDetail
-
+export default ProductDetail;

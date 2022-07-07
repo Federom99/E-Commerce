@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Main = styled.main`
+    padding-top: 120px;
     padding: 1rem;
     min-width: 375px;
     max-width: 1440px;
