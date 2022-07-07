@@ -5,7 +5,7 @@ const fs = require("fs");
 
 // Syncing all the models at once.
 // Seteado en force: true para que sea facil debuggear.
-conn.sync({ force: false }).then(() => {
+conn.sync({ force: true }).then(() => {
   server.listen(3001, () => {
     console.log("%s listening at 3001");
     const productosJSON = JSON.parse(
