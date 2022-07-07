@@ -26,13 +26,6 @@ conn.sync({ force: true }).then(() => {
           defaults: { nombre: p.categoria[0] },
         })
 
-        // const productoCreado = await Producto.create({
-        //   nombre: p.nombre,
-        //   descripcion: p.descripcion,
-        //   imagen: p.imagen,
-        //   precio: parseInt(p.precio),
-        // });
-
         const productoCreado = await categoria[0].createProducto({
           nombre: p.nombre,
           descripcion: p.descripcion,
