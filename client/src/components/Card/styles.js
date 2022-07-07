@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Popup from 'reactjs-popup';
 
 export const DIV = styled.div`
     padding: 1rem 1.5rem;
@@ -12,6 +13,14 @@ export const DIV = styled.div`
     &:hover{
         box-shadow: 0px 0px 2px #595959;
     }
+`
+export const StyledPopup = styled(Popup)`
+&-content{
+    /* background: rgb(255,255,255); */
+}
+&-overlay{
+    background: rgba(0, 0, 0, 0.7);
+}
 `
 
 export const ContainerImage = styled.div`
