@@ -130,3 +130,9 @@
 .searching {
   width: 500px;
 }
+
+.logo {
+  max-width: 300px;
+  height: 70px;
+  fill: aqua;
+}

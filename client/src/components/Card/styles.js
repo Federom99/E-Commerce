@@ -50,10 +50,11 @@ export const Select = styled.select`
     height: 40px;
     font-weight: 500;
     font-family: inherit;
-    color: ${props => props.theme.colorTextSec};
+    color: ${props => props.theme.colorTalla};
+    font-weight: bold;
     border: none;
     border-radius: 5px;
-    background-color: ${props => props.theme.backgroundElement};
+    background-color: ${props => props.theme.btnTalla};
 `
 
 export const P = styled.p`

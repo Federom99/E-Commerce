@@ -33,8 +33,7 @@ sequelize.models = Object.fromEntries(capsEntries);
 // const {} = sequelize.models;
 const {Categoria, Pedido, Producto, ProductosFav, Rating, Usuario, Talle, Producto_talle } = sequelize.models;
 // Aca vendrian las relaciones
-// Product.hasMany(Reviews);
-
+// Producto.hasMany(Reviews);
 
 
 Producto.belongsTo(Categoria);

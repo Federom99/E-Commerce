@@ -6,6 +6,7 @@ flex-direction: column;
 align-items: center;
 `
 export const Header = styled.header`
+    margin-top:100px;
 `
 
 export const Title = styled.h2`
