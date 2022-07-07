@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import style from "./nav.module.css";
 import Search from "./search";
 import { Contenido } from "./style";
+import logo from "../../../assets/Logo.svg";
 
 export default function NavBar() {
   return (
@@ -11,7 +12,7 @@ export default function NavBar() {
       <Contenido className={style.container}>
         <li>
           <NavLink to="/" style={{ fontSize: "32px" }}>
-            Logo
+            <img src={logo} className={style.logo} alt="logo" />
           </NavLink>
         </li>
         <li className={style.searching}>
