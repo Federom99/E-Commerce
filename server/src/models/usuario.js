@@ -31,7 +31,7 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-  
+
     contraseña: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -40,7 +40,10 @@ module.exports = (sequelize) => {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
     },
-  },{
+    token: {
+      type: DataTypes.STRING,
+    },{
     timestamps: false
-});
+  }
+  });
 };
