@@ -11,7 +11,7 @@ const router = Router();
 router.post("/register", register);
 router.post("/login", authentication);
 
-router.get('/:id', async (req, res) => {
+router.get('/profile/:id', async (req, res) => {
   let {id} = req.params
   
   //Parseo el id
