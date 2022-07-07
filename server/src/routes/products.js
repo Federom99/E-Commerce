@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { Producto } = require("../db.js");
+const { Producto, Talle, Categoria } = require("../db.js");
 const {Op} = require('sequelize')
 
 const router = Router();
@@ -19,7 +19,8 @@ router.get('/', async(req, res) => {
             nombre:{
                 [Op.iLike]: `%${name}%`,
             }
-        }
+        },
+        include: [Talle, Categoria]
     });
 
     //Los mapeo para que no se vea la informacion innecesaria de sequelize
