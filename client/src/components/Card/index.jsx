@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Popup from 'reactjs-popup';
+import AddPopUp from '../PopUp';
 
 import { 
     DIV, 
@@ -14,6 +16,14 @@ import {
 } from './styles'
 
 const Card = () => {
+    const [open , setOpen ] = useState(false);
+
+    const closeModal = ()=>setOpen(false);
+    
+    const add = () =>{
+        //dispatch al carrito
+        setOpen(isOpen=>!isOpen)
+    }
   return (
     <DIV>
         <ContainerImage>
@@ -28,7 +38,10 @@ const Card = () => {
                     </Select>
                     <P>$ 35.00 USD</P>
                 </PriceSize>
-                <Button>Add to card</Button>
+                <Button onClick={add}>Add to card</Button>
+                <Popup open={open} closeOnDocumentClick onClose={closeModal}>
+                    <AddPopUp listPrice={35} close={closeModal}/>
+                </Popup>
             </div>
         </InfoContainer>
     </DIV>
