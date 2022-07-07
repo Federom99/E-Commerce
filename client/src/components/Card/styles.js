@@ -8,6 +8,7 @@ export const DIV = styled.div`
     border-radius: 5px;
     background-color: ${props => props.theme.background};
     overflow: hidden;
+    cursor: pointer;
     &:hover{
         box-shadow: 0px 0px 2px #595959;
     }
