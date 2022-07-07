@@ -1,10 +1,14 @@
 import { useState } from "react"
+import { useDispatch } from "react-redux"
+import { modifyCart, removeCart } from "../../redux/actions"
 import { MainDiv , Div , Header , Main , Detail , Options , Button , List , Li , Img , Close , IncDiv } from "./styles"
 
 
-export default function AddPopUp ({ nombre , img , precio , close }){
+export default function AddPopUp ({ id , nombre , img , precio , close }){
 let [amount , setAmount] = useState(1)
 const [price , setPrice] = useState(precio)  //Pasaria precio por props
+
+const dispatch = useDispatch()
 
 const incAmount = ()=>{
     setAmount(amount+1)
@@ -18,7 +22,16 @@ const decAmount = ()=>{
     }
 }
 const addMore = ()=>{
-    //dispatch al carrito para añadir mas
+    let newOrder={
+        id,
+        amount,
+    }
+    dispatch(modifyCart(newOrder))
+    alert(`${amount} items agregados al carrito`)
+}
+const deleteCartItem = ()=>{
+    dispatch(removeCart(id))
+    close()
 }
 const formatPrice = (price) =>{
     return new Intl.NumberFormat("es-AR").format(price)
@@ -58,7 +71,7 @@ return(
                             </IncDiv>
                             <h4>Se añadirán {amount} prendas</h4>
                             <h4>Subtotal: ${formatPrice(price)}</h4>
-                            <button>Añadir</button>
+                            <button onClick={addMore}>Añadir</button>
                         </Div>
                     </Li>
                     <Li>
@@ -68,7 +81,7 @@ return(
                         <h4 onClick={close}>Seguir comprando</h4>
                     </Li>
                     <Li>
-                        <h4>Cancelar</h4>
+                        <h4 onClick={deleteCartItem}>Cancelar compra</h4>
                     </Li>
                 </List>
                 
