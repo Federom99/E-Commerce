@@ -8,3 +8,8 @@ export const getProducts = () => {
         }
     }
 }
+
+export const orderByCategoryName = (category) => ({
+    type: 'ORDER_BY_CATEGORY',
+    payload: category
+})
