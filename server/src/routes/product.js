@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { Producto } = require("../db.js");
+const { Producto, Talle } = require("../db.js");
 
 const router = Router();
 
@@ -9,7 +9,7 @@ router.get("/:id", async (req, res) => {
   const parsedId = parseInt(id)
 
   if(!parsedId && parsedId !== 0) return res.status(200).send({ Error: "El id debe ser un numero." });
-  const product = await Producto.findByPk(parsedId);
+  const product = await Producto.findByPk(parsedId, {include: Talle});
   if (product) return res.status(200).send(product);
   else return res.status(200).send({ Error: "Ese producto no existe." });
 });
