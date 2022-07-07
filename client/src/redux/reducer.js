@@ -1,11 +1,12 @@
-
-
-const initialState = {};
+const initialState = {
+    products: [],
+    product: {}
+};
 
 const rootReducer = (state=initialState,action)=>{
     switch(action.type){
-        case 'action':
-            return state;
+        case 'GET_PRODUCTS':
+            return {...state, products: action.payload};
         default:
             return state
     }
