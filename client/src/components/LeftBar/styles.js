@@ -22,6 +22,17 @@ export const CategoriesContainer = styled.ul`
     height: 230px;
     list-style: none;
 `
+const animCat = keyframes`
+    0% {
+        opacity: 0;
+        transform: translateX(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0.7rem);
+    }
+`;
 
 export const Category = styled.li`
     display: flex;
@@ -29,6 +40,9 @@ export const Category = styled.li`
     align-items: center;
     height: 2rem;
     cursor: pointer;
+    &:hover {
+        animation: ${animCat} 1s ease 0s 1 normal forwards;
+    }
 `
 const anim = keyframes`
     0% {
