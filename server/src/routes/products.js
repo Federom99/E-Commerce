@@ -6,10 +6,16 @@ const router = Router();
 
 router.get('/:page', async(req, res) => {
 
-    const {name} = req.query
+    /*const {name} = req.query
     let {page} = req.params
     page = parseInt(page)
-    const paginated = 25
+    const paginated = 25*/
+    
+    //provisional
+    const {name} = req.query
+    let page = 1;
+    page = parseInt(page)
+    const paginated = 250;
 
     //En caso de que me pidan una pagina menor o igual a 0 o que no sea un stream, mando un error.
     if(page <= 0 || !page) return res.status(400).send({Error: 'Las paginas deben ser números que empiezan desde el 1.'})
