@@ -5,7 +5,8 @@ const { comparePassword, hashPassword } = require("../helpers/hashPassword.js");
 const register = async (req, res) => {
   //Sacamos los datos necesarios del body del request
   console.log(req.body);
-  const { nombre, apellido, telefono, mail, direccion, contraseña } = req.body;
+  const { nombre, apellido, telefono, mail, direccion, contraseña, dni } =
+    req.body;
 
   //Si alguno no existe, mandamos un error
   if (!nombre || !apellido || !mail || !direccion || !contraseña)
@@ -23,6 +24,7 @@ const register = async (req, res) => {
   //Creamos el usuario en la db
   try {
     const createUser = await Usuario.create({
+      dni: dni ? dni : (Math.round(Math.random() * 100)),
       nombre: nombre,
       apellido: apellido,
       mail: mail,
@@ -37,12 +39,10 @@ const register = async (req, res) => {
     //Cuando lo creamos, almacenamos los valores de la promesa de su creacion en la db y lo mandamos
     const createdUser = createUser.dataValues;
 
-    return res
-      .status(201)
-      .json({
-        msg: "Account created succesfully!",
-        user: { nombre, apellido },
-      });
+    return res.status(201).json({
+      msg: "Account created succesfully!",
+      user: { nombre, apellido },
+    });
     //Si pasa algo raro, mandamos un error y lo consologeamos
   } catch (e) {
     console.log(e);

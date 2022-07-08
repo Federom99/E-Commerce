@@ -1,9 +1,8 @@
-
-
-
 import styled from "styled-components";
 export const Div = styled.div`
+    height: 100vh;
     display:flow-root;
+    padding-top: 40px;
     margin-bottom:20px;
 `
 
