@@ -1,9 +1,10 @@
-import { ADD_CART, MODIFY_CART, REMOVE_CART } from "./actionTypes";
+import { ADD_CART, MODIFY_CART, PRICE_CART, PRICE_REMOVE_CART, REMOVE_CART } from "./actionTypes";
 
 const initialState = {
     products: [],
     product: {},
-    shoppingCart: []
+    shoppingCart: [],
+    priceCart:[]
 };
 
 const rootReducer = (state=initialState,action)=>{
@@ -26,6 +27,23 @@ const rootReducer = (state=initialState,action)=>{
                 ...state,
                 shoppingCart:state.shoppingCart.filter(p=>p.id!==action.payload)
             };
+        case PRICE_CART:
+            if (state.priceCart.find(p=>p.id===action.payload.id)){
+                let position= state.priceCart.findIndex(p=>p.id===action.payload.id)
+                state.priceCart[position].price= action.payload.price
+                return{
+                    ...state
+                }
+            }            
+            return{
+                ...state,
+                priceCart:[...state.priceCart, action.payload]
+            }
+        case PRICE_REMOVE_CART:
+            return{
+                ...state,
+                priceCart:state.priceCart.filter(p=>p.id!==action.payload)
+            }
         default:
             return state
     }

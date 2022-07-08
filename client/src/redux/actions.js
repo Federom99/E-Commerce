@@ -1,4 +1,4 @@
-import { ADD_CART, MODIFY_CART, REMOVE_CART } from "./actionTypes"
+import { ADD_CART, MODIFY_CART, PRICE_CART, PRICE_REMOVE_CART, REMOVE_CART } from "./actionTypes"
 
 export const getProducts = () => {
     return async function(dispatch){
@@ -31,3 +31,17 @@ export const removeCart = (productId)=>{
         payload:productId,
     }
 };
+
+export const addPriceCart = (price,id) =>{
+    return{
+        type:PRICE_CART,
+        payload:{price,id},
+    }
+}
+
+export const removePriceCart = (id)=>{
+    return{
+        type:PRICE_REMOVE_CART,
+        payload:id,
+    }
+}
