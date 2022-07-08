@@ -124,7 +124,7 @@ function Search({ data }) {
         </div>
 
         <div className={style.searchbar_right}>
-          <svg
+          {/* <svg
             className={style.voice_search}
             role="button"
             xmlns="http://www.w3.org/2000/svg"
@@ -143,7 +143,7 @@ function Search({ data }) {
               fill="#ea4335"
               d="m12 16.93a4.97 5.25 0 0 1 -3.54 -1.55l-1.41 1.49c1.26 1.34 3.02 2.13 4.95 2.13 3.87 0 6.99-2.92 6.99-7h-1.99c0 2.92-2.24 4.93-5 4.93z"
             ></path>
-          </svg>
+          </svg> */}
         </div>
       </div>
     </div>
