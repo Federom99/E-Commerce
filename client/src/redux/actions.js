@@ -8,6 +8,10 @@ export const getProducts = () => {
     }
 }
 
+export const orderByCategoryName = (category) => ({
+    type: 'ORDER_BY_CATEGORY',
+    payload: category
+})
 export const getProduct = (productId) => {
     return async function (dispatch){
         const response = await fetch(`http://localhost:3001/product/${productId}`)
