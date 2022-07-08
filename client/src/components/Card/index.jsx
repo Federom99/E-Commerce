@@ -17,7 +17,7 @@ import {
   P,
 } from "./styles";
 
-const Card = ({ id, nombre, imagen, descripcion, precio }) => {
+const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
   let navigate = useNavigate();
@@ -49,7 +49,9 @@ const Card = ({ id, nombre, imagen, descripcion, precio }) => {
         <div>
           <PriceSize>
             <Select>
-              <option>Talla</option>
+              {talles.map(talle => (
+                <option>{talle.talle}</option>
+              ))}
             </Select>
             <P>$ {formatPrice}</P>
           </PriceSize>
