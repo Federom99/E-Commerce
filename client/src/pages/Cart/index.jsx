@@ -1,7 +1,9 @@
+import ShoppingCart from "../../containers/CartContainer"
+
 export default function Cart() {
   return (
     <div style={{ paddingTop: "140px" }}>
-      <h1>Shopping cart</h1>
+      <ShoppingCart />
     </div>
   );
 }

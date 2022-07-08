@@ -1,12 +1,13 @@
 import styled from "styled-components";
-export const MainDiv = styled.div`
-    background-color:yellow;
+export const MainDiv = styled.div`    
     width:900px;
-    heigth:auto;
+    background-color: ${props => props.theme.background};
+    height:auto;
     display:flex;
     flex-direction:column;
     align-items: center;
     position:relative;
+
 `
 export const Div = styled.div`
 

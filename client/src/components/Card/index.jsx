@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import Popup from 'reactjs-popup';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../redux/actions';
 import AddPopUp from '../PopUp';
 import {useNavigate} from "react-router-dom"
 
@@ -11,14 +12,36 @@ import {
     PriceSize,
     Button,
     H2,
+    StyledPopup,
     ExtraInfo,
     Select,
     P
 } from './styles'
 
-const Card = ({ nombre, imagen, precio, id }) => {
+
+const Card = ({ id , nombre, imagen, descripcion, precio }) => {
+    const [ open , setOpen ] = useState(false);
+    const dispatch = useDispatch();
     let navigate = useNavigate()
 
+
+    
+    const closeModal = () => setOpen(false);
+
+    const add = () => {
+        //dispatch al carrito
+        let order = {
+            id,
+            nombre,
+            descripcion,
+            imagen,
+            precio,
+            cantidad: 1,
+        }
+        dispatch(addToCart(order))
+        setOpen(isOpen => !isOpen);
+    };
+    
     const formatPrice = new Intl.NumberFormat("es-AR").format(precio)
     return (
         <DIV onClick={() => navigate(`/detail/${id}`)}>
@@ -34,7 +57,13 @@ const Card = ({ nombre, imagen, precio, id }) => {
                         </Select>
                         <P>$ {formatPrice}</P>
                     </PriceSize>
-                    <Button>Add to card</Button>
+                    <Button onClick={add}>Add to card</Button>
+                    <StyledPopup
+                        open={open} closeOnDocumentClick onClose={closeModal}
+                    >
+                        <AddPopUp id={id} nombre={nombre} img={imagen} precio={precio} close={closeModal}/>
+
+                    </StyledPopup>
                 </div>
             </InfoContainer>
         </DIV>
