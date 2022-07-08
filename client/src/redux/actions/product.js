@@ -1,3 +1,4 @@
+import axios from 'axios';
 import {
   GET_PRODUCTS_BEGIN,
   GET_PRODUCTS_FAIL,
@@ -88,3 +89,11 @@ export const fetchProductFailure = (error) => ({
   type: GET_PRODUCT_FAIL,
   payload: { error },
 });
+
+export const postProduct = (payload) => {
+  return async function(){
+      console.log(payload)
+      var json = await axios.post("http://localhost:3001/create/product/",payload)
+      return json;
+  }
+};

@@ -67,6 +67,10 @@ export default function productReducer(state = initialState, action) {
         error: action.payload.error,
         product: {},
       };
+    case 'POST_PRODUCT':
+      return {
+        ...state,
+      }
     default:
       return state;
   }

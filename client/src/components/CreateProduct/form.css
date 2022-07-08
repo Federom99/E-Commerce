@@ -1,0 +1,41 @@
+.formulario {
+    padding: 15px;
+    width: 250px;
+    height: auto;
+    border: 1px solid gray;
+    margin-bottom: 20px;
+}
+
+.formulario label {
+    display: block;
+    font-size: 19px;
+    padding-top: 7px;
+    padding-bottom: 5px;
+}
+
+.formulario input {
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+}
+
+.formulario button {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 15px;
+    width: 70px;
+    padding: 5px;
+    font-size: 18px;
+    color: white;
+    background-color: #1877f2;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #1877f2;
+}
+
+.errors {
+    color: red;
+    margin-top: 10px;
+    font-weight: 700;
+}
