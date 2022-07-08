@@ -19,14 +19,14 @@ export default function NavBar({ products }) {
         <li className={style.searching}>
           <Search data={data} />
         </li>
-        <li>
+        {/* <li>
           <NavLink to="/profile">
             <BsFillPersonFill />
           </NavLink>
         </li>
         <li className={style.icons}>
           <NavLink to="/newUser"></NavLink>
-        </li>
+        </li> */}
         <li className={style.icons}>
           <NavLink to="/cart">
             <FaShoppingCart />
