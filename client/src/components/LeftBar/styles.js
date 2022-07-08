@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { keyframes} from "styled-components";
 
 // export const LeftBarContainer = styled.div.attrs(props =>({
 //     entro: props.entro
@@ -26,14 +27,27 @@ export const Category = styled.li`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1.05rem;
+    height: 2rem;
     cursor: pointer;
 `
+const anim = keyframes`
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+`;
 
 export const Name = styled.span`
     display: none;
     text-align: right;
+    margin: 0;
     ${CategoriesContainer}:hover &{
         display: inline-block;
+        animation: ${anim} 1s ease 0s 1 normal forwards;
     }
 `

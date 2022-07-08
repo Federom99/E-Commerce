@@ -1,4 +1,4 @@
-import { FaTshirt } from "react-icons/fa";
+import { FaTshirt, FaLayerGroup} from "react-icons/fa";
 import { RiShirtFill } from "react-icons/ri";
 import { GiArmoredPants, GiPirateCoat, GiRunningShoe } from "react-icons/gi";
 import { BsSmartwatch } from "react-icons/bs";
@@ -23,6 +23,10 @@ function LeftBar() {
 
   return (
     <CategoriesContainer>
+      <Category onClick={() => handleCategory("Todos")}>
+        <FaLayerGroup />
+        <Name>Todos</Name>
+      </Category>
       <Category onClick={() => handleCategory("Remeras")}>
         <FaTshirt />
         <Name>Remeras</Name>
@@ -47,6 +51,7 @@ function LeftBar() {
         <BsSmartwatch />
         <Name>Accesorios</Name>
       </Category>
+      
     </CategoriesContainer>
   );
 }

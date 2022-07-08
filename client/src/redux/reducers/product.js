@@ -42,6 +42,7 @@ export default function productReducer(state = initialState, action) {
       };
     case ORDER_BY_CATEGORY:
       const payload = action.payload;
+      if(payload === "Todos") return {...state, products: [...state.allProducts]};
       return {
         ...state,
         products: [...state.allProducts].filter(
