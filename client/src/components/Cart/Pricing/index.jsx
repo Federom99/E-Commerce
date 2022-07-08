@@ -8,7 +8,7 @@ export default function Pricing (){
         
         <div>
            <h2>
-            Final price: $ NOMESALE
+            Final price: $ 100
            </h2>
         </div>
     )
