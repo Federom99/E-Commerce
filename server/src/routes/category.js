@@ -5,11 +5,10 @@ const {Op} = require('sequelize')
 const router = Router();
 
 router.post('/', async(req, res) => {
-    const categorias = ["REMERA", "CAMISA", "PANTALON", "CALZADO", "ABRIGO", "ACCESORIO"];
-    categorias.map(async (c)=> {
-        let cat = await Categoria.create({"nombre": c});
-    })
-    res.status(200).send("Categorías añadidas con exito");
+    const {categoria} = req.body;
+    let cat = await Categoria.create({"nombre": categoria});
+
+    res.status(200).send("Categoría añadida con exito");
 })
 
 
