@@ -6,10 +6,10 @@ import Pricing from "../../components/Cart/Pricing";
 import { List, Li } from "./styles";
 
 export default function ShoppingCart() {
-  const shoppingCart = useSelector((store) => store.shoppingCart);
+  const shoppingCart = useSelector((store) => store.cart.shoppingCart);
   return (
     <div>
-      {shoppingCart ? (
+      { shoppingCart && shoppingCart.length ? (
         <List>
           <Li>
             <Header amount={shoppingCart.length} />
