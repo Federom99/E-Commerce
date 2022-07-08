@@ -30,6 +30,7 @@ export default function productReducer(state = initialState, action) {
         ...state,
         loading: false,
         products: action.payload.products,
+        allProducts: action.payload.products
       };
 
     case GET_PRODUCTS_FAIL:
@@ -41,7 +42,6 @@ export default function productReducer(state = initialState, action) {
       };
     case ORDER_BY_CATEGORY:
       const payload = action.payload;
-      state.allProducts = state.products;
       return {
         ...state,
         products: [...state.allProducts].filter(
