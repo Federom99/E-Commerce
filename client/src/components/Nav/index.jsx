@@ -6,27 +6,28 @@ import Search from "./search";
 import { Contenido } from "./style";
 import logo from "../../../assets/Logo.svg";
 
-export default function NavBar() {
+export default function NavBar({ products }) {
+  let data = products.map((a) => a.nombre);
   return (
     <div className={style.full}>
       <Contenido className={style.container}>
         <li>
-          <NavLink to="/" style={{ fontSize: "32px" }}>
+          <NavLink to="/">
             <img src={logo} className={style.logo} alt="logo" />
           </NavLink>
         </li>
         <li className={style.searching}>
-          <Search />
+          <Search data={data} />
         </li>
         <li>
           <NavLink to="/profile">
             <BsFillPersonFill />
           </NavLink>
         </li>
-        <li>
+        <li className={style.icons}>
           <NavLink to="/newUser"></NavLink>
         </li>
-        <li>
+        <li className={style.icons}>
           <NavLink to="/cart">
             <FaShoppingCart />
           </NavLink>

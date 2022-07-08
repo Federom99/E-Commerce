@@ -1,10 +1,9 @@
 import { useEffect } from "react";
 import { FaStar } from "react-icons/fa";
 import { useState } from "react";
-import {useSelector, useDispatch} from "react-redux"
+import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 
-import { getProduct } from "../../redux/actions";
 import {
   Main,
   Div,
@@ -20,6 +19,8 @@ import {
   Button,
   Review,
 } from "./styles";
+import { getProduct } from "../../redux/actions/product";
+import Loading from "../../components/Loader";
 
 const colors = {
   orange: "#FFBA5A",
@@ -44,18 +45,29 @@ const ProductDetail = () => {
     setHoverValue(undefined);
   };
 
-  let dispatch = useDispatch()
+  let dispatch = useDispatch();
 
-  let product = useSelector(state => state.product)
-
-  let {productId} = useParams()
-
+  let product = useSelector((state) => state.product.product);
+  console.log(product);
+  let loading = useSelector((state) => state.product.loading);
+  let error = useSelector((state) => state.product.error);
+  let { productId } = useParams();
   useEffect(() => {
-    dispatch(getProduct(productId))
-  }, [])
+    if (productId !== undefined) {
+      dispatch(getProduct(productId));
+    }
+  }, [productId]);
 
-  const formatPrice = new Intl.NumberFormat("es-AR").format(product.precio)
+  if (error) return <div>Error! {error.message}</div>;
+  if (loading)
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
 
+  const formatPrice = new Intl.NumberFormat("es-AR").format(product.precio);
+  console.log(product);
   return (
     <Main>
       <Div>
@@ -88,15 +100,12 @@ const ProductDetail = () => {
             })}
           </Stars>
           <SizeInfo>
-            {(product.categorium.nombre !== "Accesorios") && product.talles?.map(talle => {
-              return (
-                <Size key={talle.id}>{talle.talle}</Size>
-              )
-            })}
+            {product.categorium?.nombre !== "Accesorios" &&
+              product.talles?.map((talle) => {
+                return <Size key={talle.id}>{talle.talle}</Size>;
+              })}
           </SizeInfo>
-          <Description>
-            {product.descripcion}
-          </Description>
+          <Description>{product.descripcion}</Description>
           <Button>Add to cart</Button>
           <Review placeholder="Enter a review of the product"></Review>
           <Button>Send review</Button>
