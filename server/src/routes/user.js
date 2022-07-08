@@ -2,6 +2,7 @@ const { Router } = require("express");
 const {
   authentication,
   register,
+  getUsers,
 } = require("../controllers/user.controller.js");
 
 const {Usuario} = require('../db')
@@ -10,6 +11,7 @@ const router = Router();
 
 router.post("/register", register);
 router.post("/login", authentication);
+router.get("/", getUsers)
 
 router.get('/profile/:id', async (req, res) => {
   let {id} = req.params

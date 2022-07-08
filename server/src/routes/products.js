@@ -23,6 +23,7 @@ router.get('/:page', async(req, res) => {
     const query = {include: [Talle, Categoria], offset: paginated*(page-1), limit: paginated, distinct: true, order: ['id']}
 
     //Si no me pasan name por query, traigo todos los productos.
+
     if(!name) productsSearch = await Producto.findAndCountAll(query);
     //Si me lo pasan, traigo los productos que tengan un nombre parecido.
     else productsSearch = await Producto.findAndCountAll({
@@ -32,7 +33,7 @@ router.get('/:page', async(req, res) => {
                 [Op.iLike]: `%${name}%`,
             }
         },
-        
+
     });
 
     //Cuento todos los productos que existan se haya pasado un parametro o no y el número de páginas
