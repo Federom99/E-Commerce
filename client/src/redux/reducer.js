@@ -1,16 +1,18 @@
 import { ADD_CART, MODIFY_CART, PRICE_CART, PRICE_REMOVE_CART, REMOVE_CART } from "./actionTypes";
 
 const initialState = {
+    allProducts: [],
     products: [],
     product: {},
     shoppingCart: [],
-    priceCart:[]
+    priceCart:[],
+    category: ""
 };
 
 const rootReducer = (state=initialState,action)=>{
     switch(action.type){
         case 'GET_PRODUCTS':
-            return {...state, products: action.payload};
+            return {...state, products: action.payload, allProducts: action.payload};
         case ADD_CART:
             return{
                 ...state,
@@ -43,7 +45,15 @@ const rootReducer = (state=initialState,action)=>{
             return{
                 ...state,
                 priceCart:state.priceCart.filter(p=>p.id!==action.payload)
+            }  
+        case 'ORDER_BY_CATEGORY':
+            const payload = action.payload
+            return {
+                ...state,
+                products: [...state.allProducts].filter(product => product.categorium.nombre === payload)
             }
+        case 'GET_PRODUCT':
+            return {...state, product: action.payload}
         default:
             return state
     }

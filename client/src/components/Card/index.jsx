@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../redux/actions';
 import AddPopUp from '../PopUp';
+import {useNavigate} from "react-router-dom"
 
 import { 
     DIV, 
@@ -17,9 +18,12 @@ import {
     P
 } from './styles'
 
+
 const Card = ({ id , nombre, imagen, descripcion, precio }) => {
     const [ open , setOpen ] = useState(false);
     const dispatch = useDispatch();
+    let navigate = useNavigate()
+
 
     
     const closeModal = () => setOpen(false);
@@ -40,7 +44,7 @@ const Card = ({ id , nombre, imagen, descripcion, precio }) => {
     
     const formatPrice = new Intl.NumberFormat("es-AR").format(precio)
     return (
-        <DIV>
+        <DIV onClick={() => navigate(`/detail/${id}`)}>
             <ContainerImage>
                 <Image src={imagen}/>
             </ContainerImage>

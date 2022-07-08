@@ -4,6 +4,7 @@ const { comparePassword, hashPassword } = require("../helpers/hashPassword.js");
 
 const register = async (req, res) => {
   //Sacamos los datos necesarios del body del request
+  console.log(req.body);
   const { nombre, apellido, telefono, mail, direccion, contraseña } = req.body;
 
   //Si alguno no existe, mandamos un error
@@ -36,7 +37,12 @@ const register = async (req, res) => {
     //Cuando lo creamos, almacenamos los valores de la promesa de su creacion en la db y lo mandamos
     const createdUser = createUser.dataValues;
 
-    res.status(201).send(createdUser);
+    return res
+      .status(201)
+      .json({
+        msg: "Account created succesfully!",
+        user: { nombre, apellido },
+      });
     //Si pasa algo raro, mandamos un error y lo consologeamos
   } catch (e) {
     console.log(e);
@@ -70,4 +76,13 @@ const authentication = async (req, res) => {
   }
 };
 
-module.exports = { register, authentication };
+const getUsers = async (req, res) => {
+  try {
+    const users = await Usuario.findAll();
+    res.json(users);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+module.exports = { register, authentication, getUsers };
