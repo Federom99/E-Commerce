@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Popup from 'reactjs-popup';
 import AddPopUp from '../PopUp';
+import {useNavigate} from "react-router-dom"
 
 import { 
     DIV, 
@@ -15,11 +16,12 @@ import {
     P
 } from './styles'
 
-const Card = ({ nombre, imagen, precio }) => {
+const Card = ({ nombre, imagen, precio, id }) => {
+    let navigate = useNavigate()
 
     const formatPrice = new Intl.NumberFormat("es-AR").format(precio)
     return (
-        <DIV>
+        <DIV onClick={() => navigate(`/detail/${id}`)}>
             <ContainerImage>
                 <Image src={imagen}/>
             </ContainerImage>

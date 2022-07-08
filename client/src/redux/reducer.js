@@ -15,6 +15,9 @@ const rootReducer = (state=initialState,action)=>{
                 ...state,
                 products: [...state.allProducts].filter(product => product.categorium.nombre === payload)
             }
+            return {...state, products: action.payload};
+        case 'GET_PRODUCT':
+            return {...state, product: action.payload}
         default:
             return state
     }
