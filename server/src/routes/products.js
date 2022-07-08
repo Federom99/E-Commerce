@@ -4,7 +4,8 @@ const {Op} = require('sequelize')
 
 const router = Router();
 
-router.get('/:page', async(req, res) => {
+router.get('/', async(req, res) => {
+//router.get('/:page', async(req, res) => {
 
     /*const {name} = req.query
     let {page} = req.params
