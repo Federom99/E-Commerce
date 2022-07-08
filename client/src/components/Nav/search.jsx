@@ -1,8 +1,95 @@
-import React from "react";
+import React, { useState } from "react";
 import { BsSearch } from "react-icons/bs";
+import { useDispatch } from "react-redux";
+import { getProducts } from "../../redux/actions/product";
 import style from "./nav.module.css";
+import { Liauto, Ulauto } from "./style";
 
-function Search() {
+function Search({ data }) {
+  const dispatch = useDispatch();
+  const [suggestions, setSuggestions] = useState([]); // igual que el filtered
+  const [suggestionIndex, setSuggestionIndex] = useState(0);
+  const [suggestionsActive, setSuggestionsActive] = useState(false); // showSuggestions
+  const [value, setValue] = useState("");
+
+  const handleChange = (e) => {
+    const query = e.target.value;
+    setValue(query);
+    if (query.length > 1) {
+      const filterSuggestions = data.filter(
+        (suggestion) =>
+          suggestion.toLowerCase().indexOf(query.toLowerCase()) > -1
+      );
+      setValue(e.target.value);
+      setSuggestions(filterSuggestions);
+      setSuggestionIndex(0);
+      setSuggestionsActive(true);
+    } else {
+      setSuggestionsActive(false);
+    }
+  };
+
+  const handleClick = (e) => {
+    setSuggestions([]);
+    setValue(e.target.innerText);
+    setSuggestionIndex(0);
+    setSuggestionsActive(false);
+  };
+
+  const handleKeyDown = (e) => {
+    // Se presiona la flecha arriba
+    if (e.KeyCode === 38) {
+      if (suggestionIndex === 0) {
+        return;
+      }
+      setSuggestionIndex(suggestionIndex - 1);
+    }
+    //  Se presiona la flecha abajo
+    else if (e.KeyCode === 40) {
+      if (suggestionIndex - 1 === suggestions.length) {
+        return;
+      }
+      setSuggestionIndex(suggestionIndex + 1);
+    }
+    // Se presiona la tecla enter
+    else if (e.KeyCode === 13) {
+      setValue(suggestions[suggestionIndex]);
+      setSuggestionIndex(0);
+      setSuggestionsActive(false);
+    }
+  };
+
+  const Suggestions = () => {
+    return suggestions.length ? (
+      <Ulauto>
+        {suggestions.map((suggestion, index) => {
+          const result = index === suggestionIndex ? true : false;
+          return (
+            <Liauto result={result} key={suggestion} onClick={handleClick}>
+              {suggestion}
+            </Liauto>
+          );
+        })}
+      </Ulauto>
+    ) : (
+      <div>
+        <span
+          role="img"
+          aria-label="tear emoji"
+          style={{ position: "relative" }}
+        >
+          😪
+        </span>{" "}
+        <em>Lo Siento no hay sugerencias! </em>
+      </div>
+    );
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(getProducts({ name: e.target.value }));
+  };
+
   return (
     <div className={style.searchbar}>
       <div className={style.searchbar_wrapper}>
@@ -16,17 +103,24 @@ function Search() {
 
         <div className={style.searchbar_center}>
           <div className={style.searchbar_input_spacer}></div>
-          <input
-            type="text"
-            className={style.searchbar_input}
-            maxLength="2048"
-            name="q"
-            autoCapitalize="off"
-            autoComplete="off"
-            title="Search"
-            role="combobox"
-            placeholder="Search Google"
-          />
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              className={style.searchbar_input}
+              maxLength="2048"
+              name="q"
+              autoCapitalize="off"
+              autoComplete="off"
+              title="Search"
+              role="combobox"
+              placeholder="Buscar ..."
+              value={value}
+              onChange={handleChange}
+              onKeyDown={handleKeyDown}
+            />
+          </form>
+
+          {suggestionsActive && value && <Suggestions />}
         </div>
 
         <div className={style.searchbar_right}>

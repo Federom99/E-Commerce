@@ -5,11 +5,11 @@ import CardsContainer from "../CardsContainer";
 import LeftBar from "../../components/LeftBar";
 import Footer from "../../components/Footer";
 
-const MainContainer = () => {
+const MainContainer = ({ products }) => {
   return (
     <Main>
       <LeftBar />
-      <CardsContainer />
+      <CardsContainer products={products} />
     </Main>
   );
 };
