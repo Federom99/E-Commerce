@@ -159,6 +159,7 @@ export const Button = styled.button`
 `
 
 export const Review = styled.textarea`
+    margin-bottom: 1rem;
     padding: 1rem;
     height: 100px;
     border-radius: 5px;
