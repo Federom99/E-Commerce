@@ -1,7 +1,10 @@
-import React from "react";
+import { useEffect } from "react";
 import { FaStar } from "react-icons/fa";
 import { useState } from "react";
+import {useSelector, useDispatch} from "react-redux"
+import { useParams } from "react-router-dom";
 
+import { getProduct } from "../../redux/actions";
 import {
   Main,
   Div,
@@ -41,15 +44,27 @@ const ProductDetail = () => {
     setHoverValue(undefined);
   };
 
+  let dispatch = useDispatch()
+
+  let product = useSelector(state => state.product)
+
+  let {productId} = useParams()
+
+  useEffect(() => {
+    dispatch(getProduct(productId))
+  }, [])
+
+  const formatPrice = new Intl.NumberFormat("es-AR").format(product.precio)
+
   return (
     <Main>
       <Div>
         <ImageContainer>
-          <Image src="https://static.bershka.net/4/photos2/2022/V/0/1/p/0156/168/800/0156168800_2_4_1.jpg?t=1648213728518" />
+          <Image src={product?.imagen} />
         </ImageContainer>
         <InfoContainer>
-          <H2>Pantalón wide leg bolsillos</H2>
-          <P stock={8}>$ 35.00 USD</P>
+          <H2>{product?.nombre}</H2>
+          <P stock={8}>{formatPrice}</P>
           <Stars>
             {stars.map((_, index) => {
               return (
@@ -73,17 +88,18 @@ const ProductDetail = () => {
             })}
           </Stars>
           <SizeInfo>
-            <Size>S</Size>
-            <Size>M</Size>
-            <Size>L</Size>
-            <Size>XL</Size>
+            {(product.categorium.nombre !== "Accesorios") && product.talles?.map(talle => {
+              return (
+                <Size key={talle.id}>{talle.talle}</Size>
+              )
+            })}
           </SizeInfo>
           <Description>
-            Pantalon Pantalon Pantalon Pantalon Pantalon Pantalon Pantalon
+            {product.descripcion}
           </Description>
           <Button>Add to cart</Button>
           <Review placeholder="Enter a review of the product"></Review>
-          <p>Falta button para enviar review</p>
+          <Button>Send review</Button>
         </InfoContainer>
       </Div>
     </Main>

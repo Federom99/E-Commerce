@@ -1,13 +1,24 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux"
+
 import Card from "../../components/Card";
 import { Section } from "./styles";
+import { getProducts } from '../../redux/actions';
 
 export default function CardContainer() {
-  const breeds = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+
+  const dispatch = useDispatch()
+
+  const products = useSelector(state => state.products)
+
+  useEffect(() => {
+    dispatch(getProducts())
+  }, [])
 
   return (
     <Section>
-      {breeds.map((breed) => (
-        <Card key={breed} />
+      {products?.map((product) => (
+        <Card key={product.id} {...product} />
       ))}
     </Section>
   );

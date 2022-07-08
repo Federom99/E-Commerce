@@ -1,6 +1,8 @@
 const server = require("./src/app.js");
 const { conn } = require("./src/db.js");
-const { Producto, Talle, Producto_talle, Categoria} = require("./src/db.js");
+
+const { Producto, Talle, Producto_talle, Categoria, Usuario} = require("./src/db.js");
+
 const fs = require("fs");
 
 // Syncing all the models at once.
@@ -32,7 +34,6 @@ conn.sync({ force: true }).then(() => {
           imagen: p.imagen,
           precio: parseInt(p.precio),
         });
-
 
 
         //Si no tengo un talle, lo pongo o lo traigo de la db, de lo contrario, les pongo el talle "Sin talle" que cree antes.
