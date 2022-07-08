@@ -13,6 +13,8 @@ const productRouter = require("./product.js");
 const favoritosRouter = require("./favoritos");
 const actualizarPedidoRouter = require("./cambiarEstadoPedido");
 const userToAdminRouter = require('./userToAdmin');
+const deleteProductRouter = require('./deleteProduct');
+const deleteCategoryRouter = require('./deleteCategory');
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
@@ -26,5 +28,7 @@ router.use("/product", productRouter);
 router.use("/favoritos/wishlist", favoritosRouter);
 router.use("/admin/pedido", actualizarPedidoRouter);
 router.use('/admin/usuario', userToAdminRouter);
+router.use('/product/delete', deleteProductRouter);
+router.use('/category/delete', deleteCategoryRouter);
 
 module.exports = router;
