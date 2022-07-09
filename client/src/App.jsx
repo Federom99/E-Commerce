@@ -16,6 +16,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import NoMatch from "./pages/NoMatch";
 import { getProducts } from "./redux/actions/product";
+import CreateProduct from "./components/CreateProduct"; 
 
 function App() {
   const location = useLocation();
@@ -52,6 +53,7 @@ function App() {
         <Route path="/cart/" element={<ShoppingCart />} />
         <Route path="/profile/" element={<Profile />} />
         <Route path="*" element={<NoMatch />} />
+        <Route path="/CreateProduct" element={<CreateProduct />} /> 
       </Routes>
       <Footer />
     </div>

@@ -25,10 +25,10 @@ export default function Form({ submit }) {
         nombre: "",
         descripcion: "",
         imagen: "",
-        talle: "",
+        talle: [],
         precio: "",
         stock: "",
-        categoria: "",
+        categoria: [],
     })
 
     function handleChange(e) {
@@ -54,10 +54,10 @@ export default function Form({ submit }) {
             nombre: "",
             descripcion: "",
             imagen: "",
-            talle: "",
+            talle: [],
             precio: "",
             stock: "",
-            categoria: "",
+            categoria: [],
         })
     }
 
