@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import Card from "../../components/Card";
 import { getProducts } from "../../redux/actions/product";
 import { BTN, Section } from "./styles";
+import { useDispatch } from "react-redux";
 
 export default function CardContainer({ products }) {
 
