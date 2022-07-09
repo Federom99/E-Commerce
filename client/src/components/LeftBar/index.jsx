@@ -17,7 +17,7 @@ import {
   FilterTitle
 } from "./styles";
 
-function LeftBar() {
+function LeftBar({resetPagina}) {
   const [category, setCategory] = useState("");
   const [orderByValue, setOrderByValue] = useState("");
   const [input, setInput] = useState({orden: "A-Z"});
@@ -26,6 +26,8 @@ function LeftBar() {
 
   useEffect(() => {
     if (category) dispatch(orderByCategoryName(category));
+    resetPagina(1);
+    setInput({orden: "A-Z"});
   }, [category]);
 
   useEffect(() => {
@@ -34,6 +36,8 @@ function LeftBar() {
 
   function handleCategory(category) {
     setCategory(category);
+    resetPagina(1);
+    setInput({orden: "A-Z"});
   }
 
   function changeOrderBy(e){
