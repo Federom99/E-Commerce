@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { modifyCart, removeCart } from "../../redux/actions/cart";
+import { Link } from "react-router-dom" 
 
 import {
   MainDiv,
@@ -15,9 +16,10 @@ import {
   Img,
   Close,
   IncDiv,
+  Text
 } from "./styles";
 
-export default function AddPopUp({ id, nombre, img, precio, close }) {
+export default function AddPopUp({ id, nombre, img, precio, close , talle}) {
   let [amount, setAmount] = useState(1);
   const [price, setPrice] = useState(precio); //Pasaria precio por props
 
@@ -51,7 +53,9 @@ export default function AddPopUp({ id, nombre, img, precio, close }) {
   return (
     <MainDiv>
       <Header>
-        <h2>{nombre} añadido al carrito</h2>
+        {
+          talle.current ==='Sin talle' ? (<h2>{nombre} añadido al carrito</h2>) : (<h2>{nombre} talle:{talle.current} añadido al carrito</h2>)
+        }      
         <Close onClick={close}>x</Close>
       </Header>
       <Main>
@@ -88,13 +92,13 @@ export default function AddPopUp({ id, nombre, img, precio, close }) {
               </Div>
             </Li>
             <Li>
-              <Button>Ir al carrito</Button>
+              <Link to="/cart"><Button>Ir al carrito</Button></Link>
             </Li>
             <Li>
-              <h4 onClick={close}>Seguir comprando</h4>
+              <Text onClick={close}>Seguir comprando</Text>
             </Li>
             <Li>
-              <h4 onClick={deleteCartItem}>Cancelar compra</h4>
+              <Text onClick={deleteCartItem}>Eliminar item</Text>
             </Li>
           </List>
         </Options>

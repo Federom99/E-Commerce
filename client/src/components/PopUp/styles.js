@@ -56,3 +56,6 @@ export const Button = styled.button`
 export const IncDiv = styled.div`
     display:flex;
 `
+export const Text = styled.h4`
+    text-decoration: underline;
+`
