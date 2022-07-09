@@ -6,6 +6,7 @@ import {
   GET_PRODUCT_FAIL,
   GET_PRODUCT_SUCCESS,
   ORDER_BY_CATEGORY,
+  ORDER_BY
 } from "./actionTypes";
 
 export const getProducts = (search) => {
@@ -55,6 +56,11 @@ export const orderByCategoryName = (category) => ({
   type: ORDER_BY_CATEGORY,
   payload: category,
 });
+
+export const orderBy = (value) => ({
+    type: ORDER_BY,
+    payload: value
+})
 
 export const getProduct = (productId) => {
   return async function (dispatch) {
