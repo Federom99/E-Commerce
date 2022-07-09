@@ -1,9 +1,9 @@
+import { useDispatch } from "react-redux";
 import Card from "../../components/Card";
 import { getProducts } from "../../redux/actions/product";
 import { BTN, Section } from "./styles";
 
 export default function CardContainer({ products }) {
-
   const dispatch = useDispatch();
   let btn;
   if (products.length === 1) {
