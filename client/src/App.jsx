@@ -24,7 +24,6 @@ function App() {
   const error = useSelector((state) => state.product.error);
   const loading = useSelector((state) => state.product.loading);
   const products = useSelector((state) => state.product.products);
-  console.log(products);
   useEffect(() => {
     dispatch(getProducts());
   }, []);
