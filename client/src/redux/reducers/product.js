@@ -31,8 +31,16 @@ export default function productReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        products: action.payload.products,
-        allProducts: action.payload.products,
+        products: action.payload.products.sort((a, b) => {
+          if(a.nombre.trim().toLowerCase() > b.nombre.trim().toLowerCase()) return 1;
+          if(a.nombre.trim().toLowerCase() < b.nombre.trim().toLowerCase()) return -1;
+          return 0;
+        }),
+        allProducts: action.payload.products.sort((a, b) => {
+          if(a.nombre.trim().toLowerCase() > b.nombre.trim().toLowerCase()) return 1;
+          if(a.nombre.trim().toLowerCase() < b.nombre.trim().toLowerCase()) return -1;
+          return 0;
+        }),
       };
 
     case GET_PRODUCTS_FAIL:
@@ -43,6 +51,7 @@ export default function productReducer(state = initialState, action) {
         products: [],
       };
     case ORDER_BY_CATEGORY:
+      console.log(state);
       const payload = action.payload;
       if(payload === "Todos") return {...state, products: [...state.allProducts]};
       return {
@@ -56,7 +65,7 @@ export default function productReducer(state = initialState, action) {
         return {
           ...state,
           products: [...state.products].sort((a, b) => {
-            return (a.nombre.toLowerCase() > b.nombre.toLowerCase() ? 1 : -1 )
+            return (a.nombre.trim().toLowerCase() > b.nombre.trim().toLowerCase() ? 1 : -1 )
           })
         }
       }
@@ -64,11 +73,11 @@ export default function productReducer(state = initialState, action) {
         return {
           ...state,
           products: [...state.products].sort((a, b) => {
-            return (a.nombre.toLowerCase() < b.nombre.toLowerCase() ? 1 : -1 )
+            return (a.nombre.trim().toLowerCase() < b.nombre.trim().toLowerCase() ? 1 : -1 )
           })
         }
       }
-      if(action.payload === 'MayorMenor'){
+      if(action.payload === 'Precio Desc'){
         return {
           ...state,
           products: [...state.products].sort((a, b) => {
@@ -78,7 +87,7 @@ export default function productReducer(state = initialState, action) {
           })
         }
       }
-      if(action.payload === 'MenorMayor'){
+      if(action.payload === 'Precio Asc'){
         return {
           ...state,
           products: [...state.products].sort((a, b) => {
