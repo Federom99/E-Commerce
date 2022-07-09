@@ -26,11 +26,12 @@ export default function productReducer(state = initialState, action) {
         error: null,
       };
     case GET_PRODUCTS_SUCCESS:
+      // let full = state.products; // se se quiere un estado anterior
       return {
         ...state,
         loading: false,
         products: action.payload.products,
-        allProducts: action.payload.products
+        allProducts: action.payload.products,
       };
 
     case GET_PRODUCTS_FAIL:

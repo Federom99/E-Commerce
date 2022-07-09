@@ -4,7 +4,6 @@ import Card from "../../components/Card";
 import { Section } from "./styles";
 
 export default function CardContainer({ products }) {
-  console.log(products);
   return (
     <Section>
       {products?.map((product) => (

@@ -48,7 +48,6 @@ const ProductDetail = () => {
   let dispatch = useDispatch();
 
   let product = useSelector((state) => state.product.product);
-  console.log(product);
   let loading = useSelector((state) => state.product.loading);
   let error = useSelector((state) => state.product.error);
   let { productId } = useParams();

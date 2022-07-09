@@ -8,23 +8,35 @@ export const Contenido = styled.ul`
   }
 `;
 
+export const Image = styled.img`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+`;
+
 export const Liauto = styled.li`
+  display: flex;
+  align-items: center;
   padding: 0.5rem;
-  background-color: ${(props) => props.result && "#c0c0c0"};
+  background-color: ${(props) => props.result === "true" && "#c0c0c0"};
   backdrop-filter: blur(7px);
-  color: ${(props) => props.result && "black"};
-  cursor: ${(props) => props.result && "pointer"};
-  font-weight: ${(props) => props.result && "700"};
+  color: ${(props) => props.result === "true" && "black"};
+  cursor: ${(props) => props.result === "true" && "pointer"};
+  font-weight: ${(props) => props.result === "true" && "700"};
   &:hover {
     background-color: "black";
     color: "#c0c0c0";
     cursor: pointer;
     font-weight: 700;
   }
+  & p {
+    margin-left: 8px;
+  }
 `;
 
 export const Ulauto = styled.ul`
   position: relative;
+  z-index: 4;
   top: 4px;
   border: 1px solid grey;
   border-top-width: 0;
