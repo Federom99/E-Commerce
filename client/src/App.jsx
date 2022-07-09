@@ -16,6 +16,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import NoMatch from "./pages/NoMatch";
 import { getProducts } from "./redux/actions/product";
+import { ErrorContainer } from "./styles/appStyle";
 
 function App() {
   const location = useLocation();
@@ -28,7 +29,21 @@ function App() {
     dispatch(getProducts());
   }, []);
 
-  if (error) return <div>Error! {error.message}</div>;
+  useEffect(() => {
+    if (error) {
+      setTimeout(() => dispatch(getProducts()), 1000);
+    }
+  }, [error]);
+
+  if (error) {
+    return (
+      <div>
+        <GlobalStyle />
+        <NavBar products={products} />
+        <ErrorContainer>Error! {error.message}</ErrorContainer>
+      </div>
+    );
+  }
   if (loading)
     return (
       <div>

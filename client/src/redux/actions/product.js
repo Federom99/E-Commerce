@@ -12,19 +12,15 @@ import {
 export const getProducts = (search) => {
   return async (dispatch) => {
     dispatch(fetchProductsBegin());
-
     try {
       const url = new URL("http://localhost:3001/products");
-      const params = new URLSearchParams(url.search);
-      let response = await fetch(url);
       if (search) {
+        const params = new URLSearchParams(url.search);
         const { name } = search;
         params.set("name", name);
         if (params) url.search = params;
-      } else {
-        response = await fetch(url);
       }
-
+      const response = await fetch(url);
       const res = await handleErrors(response);
       const json = await res.json();
       return dispatch(fetchProductsSuccess(json.productos));

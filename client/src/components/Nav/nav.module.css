@@ -73,7 +73,7 @@
 }
 
 .searchbar_center {
-  display: flex;
+  /* display: flex; */
   flex: 1;
   flex-wrap: wrap;
 }

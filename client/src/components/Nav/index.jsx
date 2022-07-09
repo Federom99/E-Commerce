@@ -7,7 +7,7 @@ import { Contenido } from "./style";
 import logo from "../../../assets/Logo.svg";
 
 export default function NavBar({ products }) {
-  let data = products.map((a) => a.nombre);
+  let data = products.map((a) => ({ nombre: a.nombre, im: a.imagen }));
   return (
     <div className={style.full}>
       <Contenido className={style.container}>
