@@ -50,7 +50,7 @@ const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
           <PriceSize>
             <Select>
               {talles.map(talle => (
-                <option>{talle.talle}</option>
+                <option key={talle.id}>{talle.talle}</option>
               ))}
             </Select>
             <P>$ {formatPrice}</P>

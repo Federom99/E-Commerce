@@ -7,6 +7,7 @@ export const REMOVE_CART = "REMOVE_CART";
 export const PRICE_CART = "PRICE_CART";
 export const PRICE_REMOVE_CART = "PRICE_REMOVE_CART";
 export const ORDER_BY_CATEGORY = "ORDER_BY_CATEGORY";
+export const ORDER_BY = "ORDER_BY"
 export const GET_PRODUCT_BEGIN = "GET_PRODUCT";
 export const GET_PRODUCT_SUCCESS = "GET_PRODUCT_SUCCESS";
 export const GET_PRODUCT_FAIL = "GET_PRODUCT_FAIL";
