@@ -17,6 +17,9 @@ const deleteProductRouter = require('./deleteProduct');
 const deleteCategoryRouter = require('./deleteCategory');
 const cargarProductDbRouter = require('./product-DB');
 const cargarUserDbRouter = require('./user-DB');
+const getCategories = require("./getCategories");
+const getTalles = require("./getTalles");
+
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
@@ -34,5 +37,7 @@ router.use('/product/delete', deleteProductRouter);
 router.use('/category/delete', deleteCategoryRouter);
 router.use('/admin/crearorigen', cargarProductDbRouter);
 router.use('/admin/crearusuarios', cargarUserDbRouter);
+router.use("/categories", getCategories);
+router.use("/talles", getTalles)
 
 module.exports = router;

@@ -17,7 +17,7 @@ export default function Pricing ({alert}){
            <h2>
             Precio final: $ {price}
            </h2>
-           <button>Terminar compra</button>
+           {/* <button>Terminar compra</button> */}
         </Div>
     )
 }

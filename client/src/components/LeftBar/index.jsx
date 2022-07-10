@@ -4,25 +4,30 @@ import { GiArmoredPants, GiPirateCoat, GiRunningShoe } from "react-icons/gi";
 import { BsSmartwatch } from "react-icons/bs";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import {BsArrowDownUp} from "react-icons/bs";
 
-import { orderByCategoryName, orderBy } from "../../redux/actions/product";
+import { orderByCategoryName, orderBy, getProducts } from "../../redux/actions/product";
 import { 
   CategoriesContainer, 
   Category, 
   Name, 
   ProductFilterContainer,
   Select,
-  Option
+  Option,
+  FilterTitle
 } from "./styles";
 
-function LeftBar() {
+function LeftBar({resetPagina}) {
   const [category, setCategory] = useState("");
-  const [orderByValue, setOrderByValue] = useState("")
+  const [orderByValue, setOrderByValue] = useState("");
+  const [input, setInput] = useState({orden: "A-Z"});
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (category) dispatch(orderByCategoryName(category));
+    resetPagina(1);
+    setInput({orden: "A-Z"});
   }, [category]);
 
   useEffect(() => {
@@ -31,6 +36,13 @@ function LeftBar() {
 
   function handleCategory(category) {
     setCategory(category);
+    resetPagina(1);
+    setInput({orden: "A-Z"});
+  }
+
+  function changeOrderBy(e){
+    setOrderByValue(e.target.value);
+    setInput(e.target.value);
   }
 
   return (
@@ -66,12 +78,13 @@ function LeftBar() {
           <Name>Accesorios</Name>
         </Category>
       </CategoriesContainer>
-      <Select onChange={(e) => setOrderByValue(e.target.value)}>
-        <Option disabled>Ordernar</Option>
-        <Option value='MayorMenor'>Mayor precio</Option>
-        <Option value='MenorMayor'>Menor Precio</Option>
-        <Option value='A-Z'>Nombre (A-Z)</Option>
-        <Option value='Z-A'>Nombre (Z-A)</Option>
+      <FilterTitle>Filtrar</FilterTitle>
+      <BsArrowDownUp />
+      <Select onChange={(e) => changeOrderBy(e)} value={input.orden}>
+        <Option>Precio Asc</Option>
+        <Option>Precio Desc</Option>
+        <Option>A-Z</Option>
+        <Option>Z-A</Option>
       </Select>
     </ProductFilterContainer>
   );
