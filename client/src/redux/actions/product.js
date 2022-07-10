@@ -8,6 +8,7 @@ import {
   GET_PRODUCT_SUCCESS,
   ORDER_BY_CATEGORY,
   ORDER_BY,
+  DELETE_PRODUCT,
   GET_CATEGORIES,
   GET_TALLES,
   GET_PRODUCTS_BEGIN_SEARCH,
@@ -106,6 +107,12 @@ export const postProduct = (payload) => {
       return json;
   }
 };
+
+export const deleteProduct = ()=>{
+  return{
+    type: DELETE_PRODUCT
+  }
+}
 
 export const getCategories = () => async dispatch => {
   const {data} = await axios.get(`${URL_SERVER}/categories`);

@@ -15,6 +15,7 @@ import {
   ExtraInfo,
   Select,
   P,
+  ImgLink
 } from "./styles";
 
 const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
@@ -45,15 +46,14 @@ const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
     size.current = event.target.value
   }
 
-
   const formatPrice = new Intl.NumberFormat("es-AR").format(precio);
   return (
     <DIV>
       <ContainerImage>
-        <Image src={imagen} />
+        <ImgLink to={`/detail/${id}`}><Image src={imagen} /></ImgLink>
       </ContainerImage>
       <InfoContainer>
-        <H2 onClick={() => navigate(`/detail/${id}`)}>{nombre}</H2>
+        <H2 to={`/detail/${id}`}>{nombre}</H2>
         <div>
           <PriceSize>
             <Select onChange={handleChange}>

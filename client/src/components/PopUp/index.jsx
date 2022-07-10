@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { modifyCart, removeCart } from "../../redux/actions/cart";
-import { Link } from "react-router-dom" 
 
 import {
   MainDiv,
@@ -11,37 +10,53 @@ import {
   Detail,
   Options,
   Button,
-  List,
-  Li,
+  Closing,
   Img,
   Close,
   IncDiv,
-  Text
+  Text,
+  Amount,
+  DecButton,
+  IncButton,
+  Ok,
+  AddMore,
+  LinkButton,
+  Trash,
 } from "./styles";
 
 export default function AddPopUp({ id, nombre, img, precio, close , talle}) {
-  let [amount, setAmount] = useState(1);
-  const [price, setPrice] = useState(precio); //Pasaria precio por props
+  const [pedido, setpedido] = useState({
+    cantidad: 1,
+    precio: precio,
+  })
 
   const dispatch = useDispatch();
 
   const incAmount = () => {
-    setAmount(amount + 1);
-    setPrice((amount + 1) * precio);
+    setpedido({
+      ...pedido,
+      cantidad:pedido.cantidad+1,
+      precio:((pedido.cantidad+1)*precio)
+    })
   };
-  const decAmount = () => {
-    if (amount > 1) {
-      setAmount(amount - 1);
-      setPrice((amount - 1) * precio);
+  const decAmount = () => {    
+    if (pedido.cantidad > 1) {
+      setpedido({
+        ...pedido,
+        cantidad:pedido.cantidad-1,
+        precio:((pedido.cantidad-1)*precio)
+      })
     }
   };
   const addMore = () => {
+    let amount= pedido.cantidad
     let newOrder = {
       id,
       amount,
     };
     dispatch(modifyCart(newOrder));
-    alert(`${amount} items agregados al carrito`);
+    alert(`${amount} items extra agregados al carrito`);
+    close();
   };
   const deleteCartItem = () => {
     dispatch(removeCart(id));
@@ -54,55 +69,38 @@ export default function AddPopUp({ id, nombre, img, precio, close , talle}) {
     <MainDiv>
       <Header>
         {
-          talle.current ==='Sin talle' ? (<h2>{nombre} añadido al carrito</h2>) : (<h2>{nombre} talle:{talle.current} añadido al carrito</h2>)
+          talle.current ==='Sin talle' ? (<h2> <Ok /> {nombre} añadido al carrito </h2>) : (<h2><Ok /> {nombre} talle:{talle.current} añadido al carrito</h2>)
         }      
-        <Close onClick={close}>x</Close>
       </Header>
       <Main>
         <Img src={`${img}`} />
-        {/* <Detail>
-                <List>
-                    <Li>Pantalon wide leg con bolsillos</Li>
-                    <Li>Descripcion</Li>
-                    <Li>Talle: XL L M S </Li>
-                    <Li>Rating o estrellas</Li>
-                </List>
-            </Detail> */}
+        <Detail>
+          {
+            talle.current !== 'Sin talle' ? (<h4>Talle: {talle.current}</h4>) : null
+          }
+          <h3>Subtotal: ${formatPrice(precio)}</h3>
+          
+          <Button onClick={deleteCartItem}>Eliminar item <Trash/></Button>
+        </Detail>
         <Options>
-          <List>
-            <Li>
-              <div>
-                <p> Se añadió el item al carrito</p>
-              </div>
-            </Li>
-            <Li>
-              <h3>Subtotal: ${formatPrice(precio)}</h3>
-            </Li>
-            <Li>
-              <Div>
                 <h3>Desea añadir más?</h3>
                 <IncDiv>
-                  <button onClick={decAmount}>-</button>
-                  <p>{amount}</p>
-                  <button onClick={incAmount}>+</button>
+                  <DecButton onClick={decAmount} size="lg"/>
+                  <Amount>{pedido.cantidad}</Amount>
+                  <IncButton onClick={incAmount} size="lg"/>
                 </IncDiv>
-                <h4>Se añadirán {amount} prendas</h4>
-                <h4>Subtotal: ${formatPrice(price)}</h4>
-                <button onClick={addMore}>Añadir</button>
-              </Div>
-            </Li>
-            <Li>
-              <Link to="/cart"><Button>Ir al carrito</Button></Link>
-            </Li>
-            <Li>
-              <Text onClick={close}>Seguir comprando</Text>
-            </Li>
-            <Li>
-              <Text onClick={deleteCartItem}>Eliminar item</Text>
-            </Li>
-          </List>
+                {
+                  pedido.cantidad >1 ? (<h4>Se agregarán {pedido.cantidad} prendas</h4>) : (<h4>Se agregará 1 prenda</h4>)
+                }
+                
+                <h4>Subtotal: ${formatPrice(pedido.precio+precio)}</h4>
+                <Button onClick={addMore}>Añadir <AddMore/></Button>
         </Options>
       </Main>
+        <Closing>
+          <LinkButton to="/cart">Ir al carrito</LinkButton>
+          <Button onClick={close}>Seguir comprando</Button>
+        </Closing>
     </MainDiv>
   );
 }

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Popup from 'reactjs-popup';
-
+import { Link } from "react-router-dom";
 export const DIV = styled.div`
     padding: 1rem 1.5rem;
     max-width: 335px;
@@ -37,11 +37,16 @@ export const InfoContainer = styled.div`
     padding: 1rem;
 `
 
-export const H2 = styled.div`
+export const H2 = styled(Link)`
+    text-decoration: none;
     color: ${props => props.theme.colorTextPri};
     font-size: 1.3rem;
     font-weight: 400;
 `
+export const ImgLink = styled(Link)`
+    text-decoration: none;
+`
+
 
 export const ExtraInfo = styled.div`
     

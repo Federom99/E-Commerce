@@ -18,5 +18,5 @@ export const Li = styled.li`
 
 `
 export const Ord = styled.main`
-    border-style: solid;
+    border: 1px solid rgba(255, 255, 255, 0.18);
 `
