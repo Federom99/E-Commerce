@@ -11,7 +11,7 @@ export const CategoriesContainer = styled.ul`
 `
 const animCat = keyframes`
     0% {
-        opacity: 0;
+        opacity: 1;
         transform: translateX(0);
     }
 
@@ -29,6 +29,7 @@ export const Category = styled.li`
     cursor: pointer;
     &:hover {
         animation: ${animCat} 1s ease 0s 1 normal forwards;
+        color:#4D5656;
     }
 `
 const anim = keyframes`
@@ -55,10 +56,17 @@ export const Name = styled.span`
 
 export const Select = styled.select`
     width: 120px;
-    height: 40px;
+    height: 20px;
     border-radius: 5px;
 `
 
 export const Option = styled.option`
     font-size: 1rem;
+`
+export const FilterTitle = styled.span`
+    display: inline-block;
+    text-align: right;
+    margin-bottom: 0.5rem;
+    padding-right: 1rem;
+    margin-top: 1rem;
 `
