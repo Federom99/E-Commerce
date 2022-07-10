@@ -7,7 +7,8 @@ import {
   GET_PRODUCT_FAIL,
   GET_PRODUCT_SUCCESS,
   ORDER_BY_CATEGORY,
-  ORDER_BY
+  ORDER_BY,
+  DELETE_PRODUCT
 } from "./actionTypes";
 
 export const getProducts = (search) => {
@@ -99,3 +100,8 @@ export const postProduct = (payload) => {
       return json;
   }
 };
+export const deleteProduct = ()=>{
+  return{
+    type: DELETE_PRODUCT
+  }
+}

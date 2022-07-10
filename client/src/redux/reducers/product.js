@@ -6,7 +6,8 @@ import {
   GET_PRODUCT_FAIL,
   GET_PRODUCT_SUCCESS,
   ORDER_BY_CATEGORY,
-  ORDER_BY
+  ORDER_BY,
+  DELETE_PRODUCT
 } from "../actions/actionTypes";
 
 const initialState = {
@@ -110,6 +111,11 @@ export default function productReducer(state = initialState, action) {
     case 'POST_PRODUCT':
       return {
         ...state,
+      }
+    case DELETE_PRODUCT:
+      return{
+        ...state,
+        product:{}
       }
     default:
       return state;
