@@ -3,13 +3,13 @@ import { useSelector } from "react-redux";
 import Header from "../../components/Cart/Header";
 import OrderList from "../../components/Cart/List";
 import Pricing from "../../components/Cart/Pricing";
-import { List, Li , Error} from "./styles";
+import { List, Li , Error , Div } from "./styles";
 
 export default function ShoppingCart() {
   const shoppingCart = useSelector((store) => store.cart.shoppingCart);
   const [alert,setAlert] = useState(1)
   return (
-    <div>
+    <Div>
       { shoppingCart && shoppingCart.length ? (
         <List>
           <Li>
@@ -25,6 +25,6 @@ export default function ShoppingCart() {
       ) : (
         <Error>No hay items en su carrito</Error>
       )}
-    </div>
+    </Div>
   );
 }
