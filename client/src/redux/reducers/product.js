@@ -6,7 +6,12 @@ import {
   GET_PRODUCT_FAIL,
   GET_PRODUCT_SUCCESS,
   ORDER_BY_CATEGORY,
-  ORDER_BY
+  ORDER_BY,
+  GET_CATEGORIES,
+  GET_TALLES,
+  GET_PRODUCTS_BEGIN_SEARCH,
+  GET_PRODUCTS_SUCCESS_SEARCH,
+  GET_PRODUCTS_FAIL_SEARCH
 } from "../actions/actionTypes";
 
 const initialState = {
@@ -16,6 +21,8 @@ const initialState = {
   product: {},
   loading: false,
   error: null,
+  allCategories: [],
+  allTalles: []
 };
 
 export default function productReducer(state = initialState, action) {
@@ -51,7 +58,6 @@ export default function productReducer(state = initialState, action) {
         products: [],
       };
     case ORDER_BY_CATEGORY:
-      console.log(state);
       const payload = action.payload;
       if(payload === "Todos") return {...state, products: [...state.allProducts]};
       return {
@@ -120,6 +126,39 @@ export default function productReducer(state = initialState, action) {
       return {
         ...state,
       }
+    case GET_CATEGORIES:
+      return{
+        ...state,
+        allCategories: action.payload
+      }
+    case GET_TALLES:
+        action.payload.shift();
+        return{
+          ...state,
+          allTalles: action.payload
+        }
+    case GET_PRODUCTS_BEGIN_SEARCH:
+      return {
+        ...state,
+        loading: true,
+        error: null,
+      };
+    case GET_PRODUCTS_SUCCESS_SEARCH:
+      // let full = state.products; // se se quiere un estado anterior
+      console.log(action.payload)
+      return {
+        ...state,
+        loading: false,
+        products: action.payload.products
+      };
+
+    case GET_PRODUCTS_FAIL_SEARCH:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.error,
+        products: [],
+      };
     default:
       return state;
   }
