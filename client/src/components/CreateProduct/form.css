@@ -1,6 +1,6 @@
 .formulario {
     padding: 15px;
-    width: 250px;
+    width: 450px;
     height: auto;
     border: 1px solid gray;
     margin-bottom: 20px;
@@ -38,4 +38,42 @@
     color: red;
     margin-top: 10px;
     font-weight: 700;
+}
+
+#botonBloqueado{
+    background-color: gray;
+    border: none;
+    cursor:default;
+}
+
+#selectCat{
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+}
+
+#checkLabel{
+    display: grid;
+    font-size: 10px;
+    width:50px;
+    /* background-color: #1877f2; */
+    grid-template-columns: repeat(2,1fr);
+}
+
+#checkContainer{
+    /* background-color: red; */
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    flex-direction: column;
+}
+
+#inputTalle{
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: 1rem;
+}
+
+#spanTalle{
+    margin-left: 1rem;
+    font-size: 0.7rem;
 }

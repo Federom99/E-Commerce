@@ -1,18 +1,20 @@
 import ReactDOM from "react-dom/client";
 import React, { useEffect, useRef, useState } from "react";
 import { BsSearch } from "react-icons/bs";
-import { useDispatch } from "react-redux";
-import { getProducts } from "../../redux/actions/product";
+import { useDispatch, useSelector } from "react-redux";
+import { getProductsSearch } from "../../redux/actions/product";
 import style from "./nav.module.css";
 import { Image, Liauto, Ulauto } from "./style";
 
-function Search({ data }) {
-  console.log(data);
+function Search() {
   const dispatch = useDispatch();
   const [suggestions, setSuggestions] = useState([]); // igual que el filtered
   const [suggestionIndex, setSuggestionIndex] = useState(0);
   const [suggestionsActive, setSuggestionsActive] = useState(false); // showSuggestions
   const [value, setValue] = useState("");
+  const data = useSelector(state => state.product.allProducts);
+  //console.log(data);
+
 
   const handleChange = (e) => {
     const query = e.target.value;
@@ -69,7 +71,7 @@ function Search({ data }) {
           const result = index === suggestionIndex ? "true" : "false";
           return (
             <Liauto result={result} key={suggestion.id} onClick={handleClick}>
-              <Image src={suggestion.im} />
+              <Image src={suggestion.imagen} />
               <p>{suggestion.nombre}</p>
             </Liauto>
           );
@@ -93,7 +95,7 @@ function Search({ data }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (value !== "") dispatch(getProducts({ name: value }));
+    if (value !== "") dispatch(getProductsSearch({ name: value }));
   };
 
   return (

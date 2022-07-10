@@ -7,9 +7,9 @@ export default function CardContainer({ products }) {
 
   const dispatch = useDispatch();
   let btn;
-  if (products.length === 1) {
-    btn = <BTN onClick={() => dispatch(getProducts())}>Regresar</BTN>;
-  }
+  // if (products.length === 1) {
+  //   btn = <BTN onClick={() => dispatch(getProducts())}>Regresar</BTN>;
+  // }
 
   return (
     <Section>

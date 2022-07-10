@@ -15,6 +15,8 @@ const actualizarPedidoRouter = require("./cambiarEstadoPedido");
 const userToAdminRouter = require('./userToAdmin');
 const deleteProductRouter = require('./deleteProduct');
 const deleteCategoryRouter = require('./deleteCategory');
+const getCategories = require("./getCategories");
+const getTalles = require("./getTalles");
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
@@ -30,5 +32,7 @@ router.use("/admin/pedido", actualizarPedidoRouter);
 router.use('/admin/usuario', userToAdminRouter);
 router.use('/product/delete', deleteProductRouter);
 router.use('/category/delete', deleteCategoryRouter);
+router.use("/categories", getCategories);
+router.use("/talles", getTalles)
 
 module.exports = router;
