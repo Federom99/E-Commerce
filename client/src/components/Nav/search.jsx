@@ -2,7 +2,7 @@ import ReactDOM from "react-dom/client";
 import React, { useEffect, useRef, useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts } from "../../redux/actions/product";
+import { getProductsSearch } from "../../redux/actions/product";
 import style from "./nav.module.css";
 import { Image, Liauto, Ulauto } from "./style";
 
@@ -13,7 +13,7 @@ function Search() {
   const [suggestionsActive, setSuggestionsActive] = useState(false); // showSuggestions
   const [value, setValue] = useState("");
   const data = useSelector(state => state.product.allProducts);
-  console.log(data);
+  //console.log(data);
 
 
   const handleChange = (e) => {
@@ -95,7 +95,7 @@ function Search() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (value !== "") dispatch(getProducts({ name: value }));
+    if (value !== "") dispatch(getProductsSearch({ name: value }));
   };
 
   return (
