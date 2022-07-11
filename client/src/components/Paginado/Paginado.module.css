@@ -79,7 +79,7 @@
 .principio:hover,
 .final:hover {
   color: #fff;
-  background-color: #f01f1f;
+  background-color: black;
 }
 
 .paginaActual {
@@ -99,5 +99,5 @@
   align-items: center;
   padding: 15px;
   color: #fff;
-  background-color: #f01f1f;
+  background-color: black;
 }
