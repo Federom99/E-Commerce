@@ -6,7 +6,13 @@ import {
   GET_PRODUCT_FAIL,
   GET_PRODUCT_SUCCESS,
   ORDER_BY_CATEGORY,
-  ORDER_BY
+  ORDER_BY,
+  DELETE_PRODUCT,
+  GET_CATEGORIES,
+  GET_TALLES,
+  GET_PRODUCTS_BEGIN_SEARCH,
+  GET_PRODUCTS_SUCCESS_SEARCH,
+  GET_PRODUCTS_FAIL_SEARCH,
 } from "../actions/actionTypes";
 
 const initialState = {
@@ -16,6 +22,8 @@ const initialState = {
   product: {},
   loading: false,
   error: null,
+  allCategories: [],
+  allTalles: []
 };
 
 export default function productReducer(state = initialState, action) {
@@ -31,8 +39,16 @@ export default function productReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        products: action.payload.products,
-        allProducts: action.payload.products,
+        products: action.payload.products.sort((a, b) => {
+          if(a.nombre.trim().toLowerCase() > b.nombre.trim().toLowerCase()) return 1;
+          if(a.nombre.trim().toLowerCase() < b.nombre.trim().toLowerCase()) return -1;
+          return 0;
+        }),
+        allProducts: action.payload.products.sort((a, b) => {
+          if(a.nombre.trim().toLowerCase() > b.nombre.trim().toLowerCase()) return 1;
+          if(a.nombre.trim().toLowerCase() < b.nombre.trim().toLowerCase()) return -1;
+          return 0;
+        }),
       };
 
     case GET_PRODUCTS_FAIL:
@@ -56,7 +72,7 @@ export default function productReducer(state = initialState, action) {
         return {
           ...state,
           products: [...state.products].sort((a, b) => {
-            return (a.nombre.toLowerCase() > b.nombre.toLowerCase() ? 1 : -1 )
+            return (a.nombre.trim().toLowerCase() > b.nombre.trim().toLowerCase() ? 1 : -1 )
           })
         }
       }
@@ -64,11 +80,11 @@ export default function productReducer(state = initialState, action) {
         return {
           ...state,
           products: [...state.products].sort((a, b) => {
-            return (a.nombre.toLowerCase() < b.nombre.toLowerCase() ? 1 : -1 )
+            return (a.nombre.trim().toLowerCase() < b.nombre.trim().toLowerCase() ? 1 : -1 )
           })
         }
       }
-      if(action.payload === 'MayorMenor'){
+      if(action.payload === 'Precio Desc'){
         return {
           ...state,
           products: [...state.products].sort((a, b) => {
@@ -78,7 +94,7 @@ export default function productReducer(state = initialState, action) {
           })
         }
       }
-      if(action.payload === 'MenorMayor'){
+      if(action.payload === 'Precio Asc'){
         return {
           ...state,
           products: [...state.products].sort((a, b) => {
@@ -111,6 +127,44 @@ export default function productReducer(state = initialState, action) {
       return {
         ...state,
       }
+    case DELETE_PRODUCT:
+      return{
+        ...state,
+        product:{}
+      }
+    case GET_CATEGORIES:
+      return{
+        ...state,
+        allCategories: action.payload
+      }
+    case GET_TALLES:
+        action.payload.shift();
+        return{
+          ...state,
+          allTalles: action.payload
+        }
+    case GET_PRODUCTS_BEGIN_SEARCH:
+      return {
+        ...state,
+        loading: true,
+        error: null,
+      };
+    case GET_PRODUCTS_SUCCESS_SEARCH:
+      // let full = state.products; // se se quiere un estado anterior
+      console.log(action.payload)
+      return {
+        ...state,
+        loading: false,
+        products: action.payload.products
+      };
+
+    case GET_PRODUCTS_FAIL_SEARCH:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.error,
+        products: [],
+      };
     default:
       return state;
   }

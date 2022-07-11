@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 
+export const Div = styled.div`
+    margin-bottom:50px;
+`
 export const List = styled.ul`
     list-style: none;
     display: flex;

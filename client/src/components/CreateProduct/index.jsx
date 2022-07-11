@@ -7,8 +7,9 @@ export default function CreateProduct () {
     const dispatch = useDispatch()
 
     function submit ( product ) {
-        dispatch(postProduct(product))
-        alert("Producto Creado !")
+        dispatch(postProduct(product));
+        alert("Producto Creado !");
+        console.log(product);
     }
 
     return (
