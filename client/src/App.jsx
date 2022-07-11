@@ -16,7 +16,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import NoMatch from "./pages/NoMatch";
 import { getProducts } from "./redux/actions/product";
-import CreateProduct from "./components/CreateProduct"; 
+import { ErrorContainer } from "./styles/appStyle";
+import CreateProduct from "./components/CreateProduct";
 
 function App() {
   const location = useLocation();
@@ -25,12 +26,25 @@ function App() {
   const error = useSelector((state) => state.product.error);
   const loading = useSelector((state) => state.product.loading);
   const products = useSelector((state) => state.product.products);
-  console.log(products);
   useEffect(() => {
     dispatch(getProducts());
   }, []);
 
-  if (error) return <div>Error! {error.message}</div>;
+  useEffect(() => {
+    if (error) {
+      setTimeout(() => dispatch(getProducts()), 1000);
+    }
+  }, [error]);
+
+  if (error) {
+    return (
+      <div>
+        <GlobalStyle />
+        <NavBar products={products} />
+        <ErrorContainer>Error! {error.message}</ErrorContainer>
+      </div>
+    );
+  }
   if (loading)
     return (
       <div>
@@ -52,8 +66,8 @@ function App() {
         <Route path="/newUser" element={<CreateUser />} />
         <Route path="/cart/" element={<ShoppingCart />} />
         <Route path="/profile/" element={<Profile />} />
+        <Route path="/createProduct" element={<CreateProduct />} />
         <Route path="*" element={<NoMatch />} />
-        <Route path="/CreateProduct" element={<CreateProduct />} /> 
       </Routes>
       <Footer />
     </div>
