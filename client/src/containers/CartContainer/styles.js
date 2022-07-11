@@ -1,12 +1,19 @@
 import styled from 'styled-components';
 
+export const Div = styled.div`
+    margin-bottom:50px;
+`
 export const List = styled.ul`
+    list-style: none;
     display: flex;
     flex-direction: column;
-    list-style: none;
-    width: inherit;
-    align-items: center;
+    justify-content: center;
+   
 `
 export const Li = styled.li`
-
+    width: inherit;
+    position: relative;
+`
+export const Error = styled.h1`
+    text-align: center;
 `

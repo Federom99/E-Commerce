@@ -10,36 +10,53 @@ import {
   Detail,
   Options,
   Button,
-  List,
-  Li,
+  Closing,
   Img,
   Close,
   IncDiv,
+  Text,
+  Amount,
+  DecButton,
+  IncButton,
+  Ok,
+  AddMore,
+  LinkButton,
+  Trash,
 } from "./styles";
 
-export default function AddPopUp({ id, nombre, img, precio, close }) {
-  let [amount, setAmount] = useState(1);
-  const [price, setPrice] = useState(precio); //Pasaria precio por props
+export default function AddPopUp({ id, nombre, img, precio, close , talle}) {
+  const [pedido, setpedido] = useState({
+    cantidad: 1,
+    precio: precio,
+  })
 
   const dispatch = useDispatch();
 
   const incAmount = () => {
-    setAmount(amount + 1);
-    setPrice((amount + 1) * precio);
+    setpedido({
+      ...pedido,
+      cantidad:pedido.cantidad+1,
+      precio:((pedido.cantidad+1)*precio)
+    })
   };
-  const decAmount = () => {
-    if (amount > 1) {
-      setAmount(amount - 1);
-      setPrice((amount - 1) * precio);
+  const decAmount = () => {    
+    if (pedido.cantidad > 1) {
+      setpedido({
+        ...pedido,
+        cantidad:pedido.cantidad-1,
+        precio:((pedido.cantidad-1)*precio)
+      })
     }
   };
   const addMore = () => {
+    let amount= pedido.cantidad
     let newOrder = {
       id,
       amount,
     };
     dispatch(modifyCart(newOrder));
-    alert(`${amount} items agregados al carrito`);
+    alert(`${amount} items extra agregados al carrito`);
+    close();
   };
   const deleteCartItem = () => {
     dispatch(removeCart(id));
@@ -51,54 +68,39 @@ export default function AddPopUp({ id, nombre, img, precio, close }) {
   return (
     <MainDiv>
       <Header>
-        <h2>{nombre} añadido al carrito</h2>
-        <Close onClick={close}>x</Close>
+        {
+          talle.current ==='Sin talle' ? (<h2> <Ok /> {nombre} añadido al carrito </h2>) : (<h2><Ok /> {nombre} talle:{talle.current} añadido al carrito</h2>)
+        }      
       </Header>
       <Main>
         <Img src={`${img}`} />
-        {/* <Detail>
-                <List>
-                    <Li>Pantalon wide leg con bolsillos</Li>
-                    <Li>Descripcion</Li>
-                    <Li>Talle: XL L M S </Li>
-                    <Li>Rating o estrellas</Li>
-                </List>
-            </Detail> */}
+        <Detail>
+          {
+            talle.current !== 'Sin talle' ? (<h4>Talle: {talle.current}</h4>) : null
+          }
+          <h3>Subtotal: ${formatPrice(precio)}</h3>
+          
+          <Button onClick={deleteCartItem}>Eliminar item <Trash/></Button>
+        </Detail>
         <Options>
-          <List>
-            <Li>
-              <div>
-                <p> Se añadió el item al carrito</p>
-              </div>
-            </Li>
-            <Li>
-              <h3>Subtotal: ${formatPrice(precio)}</h3>
-            </Li>
-            <Li>
-              <Div>
                 <h3>Desea añadir más?</h3>
                 <IncDiv>
-                  <button onClick={decAmount}>-</button>
-                  <p>{amount}</p>
-                  <button onClick={incAmount}>+</button>
+                  <DecButton onClick={decAmount} size="lg"/>
+                  <Amount>{pedido.cantidad}</Amount>
+                  <IncButton onClick={incAmount} size="lg"/>
                 </IncDiv>
-                <h4>Se añadirán {amount} prendas</h4>
-                <h4>Subtotal: ${formatPrice(price)}</h4>
-                <button onClick={addMore}>Añadir</button>
-              </Div>
-            </Li>
-            <Li>
-              <Button>Ir al carrito</Button>
-            </Li>
-            <Li>
-              <h4 onClick={close}>Seguir comprando</h4>
-            </Li>
-            <Li>
-              <h4 onClick={deleteCartItem}>Cancelar compra</h4>
-            </Li>
-          </List>
+                {
+                  pedido.cantidad >1 ? (<h4>Se agregarán {pedido.cantidad} prendas</h4>) : (<h4>Se agregará 1 prenda</h4>)
+                }
+                
+                <h4>Subtotal: ${formatPrice(pedido.precio+precio)}</h4>
+                <Button onClick={addMore}>Añadir <AddMore/></Button>
         </Options>
       </Main>
+        <Closing>
+          <LinkButton to="/cart">Ir al carrito</LinkButton>
+          <Button onClick={close}>Seguir comprando</Button>
+        </Closing>
     </MainDiv>
   );
 }

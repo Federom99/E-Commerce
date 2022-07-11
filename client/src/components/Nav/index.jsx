@@ -5,9 +5,10 @@ import style from "./nav.module.css";
 import Search from "./search";
 import { Contenido } from "./style";
 import logo from "../../../assets/Logo.svg";
+import {RiAddBoxFill} from "react-icons/ri"
 
 export default function NavBar({ products }) {
-  let data = products.map((a) => a.nombre);
+  let data = products.map((a) => ({ nombre: a.nombre, im: a.imagen }));
   return (
     <div className={style.full}>
       <Contenido className={style.container}>
@@ -30,6 +31,11 @@ export default function NavBar({ products }) {
         <li className={style.icons}>
           <NavLink to="/cart">
             <FaShoppingCart />
+          </NavLink>
+        </li>
+        <li className={style.icons}>
+          <NavLink to="/createProduct">
+            <RiAddBoxFill />
           </NavLink>
         </li>
       </Contenido>

@@ -19,7 +19,8 @@ import {
   Button,
   Review,
 } from "./styles";
-import { getProduct } from "../../redux/actions/product";
+import { getProduct , deleteProduct } from "../../redux/actions/product";
+import {addToCart} from "../../redux/actions/cart"
 import Loading from "../../components/Loader";
 
 const colors = {
@@ -30,12 +31,16 @@ const colors = {
 const ProductDetail = () => {
   const [currentValue, setCurrentValue] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
-
+  let size = ''
   const stars = Array(5).fill(0);
 
   const handleClick = (value) => {
     setCurrentValue(value);
   };
+  
+  const defineSize = (event)=>{
+    size=event.target.innerHTML;
+  }
 
   const handleMouseOver = (newHoverValue) => {
     setHoverValue(newHoverValue);
@@ -48,7 +53,6 @@ const ProductDetail = () => {
   let dispatch = useDispatch();
 
   let product = useSelector((state) => state.product.product);
-  console.log(product);
   let loading = useSelector((state) => state.product.loading);
   let error = useSelector((state) => state.product.error);
   let { productId } = useParams();
@@ -56,7 +60,26 @@ const ProductDetail = () => {
     if (productId !== undefined) {
       dispatch(getProduct(productId));
     }
+    return()=>{
+      dispatch(deleteProduct())
+    }
   }, [productId]);
+
+  const addCart = ()=>{
+    if(product.categorium?.nombre ==="Accesorios"){
+      size="Sin talle";
+    };
+    let order = {
+      ...product,
+      talle:size,
+      cantidad:1
+    };
+    if (order.talle){
+      dispatch(addToCart(order));
+      alert("Agregado al carrito");
+    }
+    else alert("Seleccione un talle");
+  }
 
   if (error) return <div>Error! {error.message}</div>;
   if (loading)
@@ -76,8 +99,8 @@ const ProductDetail = () => {
         </ImageContainer>
         <InfoContainer>
           <H2>{product?.nombre}</H2>
-          <P stock={8}>{formatPrice}</P>
-          <Stars>
+          <P stock={8}>Precio: $ {formatPrice}</P>
+          {/* <Stars>
             {stars.map((_, index) => {
               return (
                 <FaStar
@@ -98,16 +121,16 @@ const ProductDetail = () => {
                 />
               );
             })}
-          </Stars>
+          </Stars> */}
           <SizeInfo>
             {product.categorium?.nombre !== "Accesorios" &&
               product.talles?.map((talle) => {
-                return <Size key={talle.id}>{talle.talle}</Size>;
+                return <Size onClick={defineSize} key={talle.id}>{talle.talle}</Size>;
               })}
           </SizeInfo>
           <Description>{product.descripcion}</Description>
-          <Button>Add to cart</Button>
-          <Review placeholder="Enter a review of the product"></Review>
+          <Button onClick={addCart}>Add to cart</Button>
+          {/* <Review placeholder="Enter a review of the product"></Review> */}
           <Button>Send review</Button>
         </InfoContainer>
       </Div>

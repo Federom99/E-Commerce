@@ -1,32 +1,32 @@
-import React, { useState } from "react";
+import ReactDOM from "react-dom/client";
+import React, { useEffect, useRef, useState } from "react";
 import { BsSearch } from "react-icons/bs";
-import { useDispatch } from "react-redux";
-import { getProducts } from "../../redux/actions/product";
+import { useDispatch, useSelector } from "react-redux";
+import { getProductsSearch } from "../../redux/actions/product";
 import style from "./nav.module.css";
-import { Liauto, Ulauto } from "./style";
+import { Image, Liauto, Ulauto } from "./style";
 
-function Search({ data }) {
+function Search() {
   const dispatch = useDispatch();
   const [suggestions, setSuggestions] = useState([]); // igual que el filtered
   const [suggestionIndex, setSuggestionIndex] = useState(0);
   const [suggestionsActive, setSuggestionsActive] = useState(false); // showSuggestions
   const [value, setValue] = useState("");
+  const data = useSelector(state => state.product.allProducts);
+  //console.log(data);
+
 
   const handleChange = (e) => {
     const query = e.target.value;
-    setValue(query);
-    if (query.length > 1) {
-      const filterSuggestions = data.filter(
-        (suggestion) =>
-          suggestion.toLowerCase().indexOf(query.toLowerCase()) > -1
-      );
-      setValue(e.target.value);
-      setSuggestions(filterSuggestions);
-      setSuggestionIndex(0);
-      setSuggestionsActive(true);
-    } else {
-      setSuggestionsActive(false);
-    }
+
+    const filterSuggestions = data.filter(
+      (suggestion) =>
+        suggestion.nombre.toLowerCase().indexOf(query.toLowerCase()) > -1
+    );
+    setValue(e.target.value);
+    setSuggestions(filterSuggestions);
+    setSuggestionIndex(0);
+    setSuggestionsActive(true);
   };
 
   const handleClick = (e) => {
@@ -34,6 +34,8 @@ function Search({ data }) {
     setValue(e.target.innerText);
     setSuggestionIndex(0);
     setSuggestionsActive(false);
+    const input = document.querySelector("input");
+    input.focus();
   };
 
   const handleKeyDown = (e) => {
@@ -56,38 +58,44 @@ function Search({ data }) {
       setValue(suggestions[suggestionIndex]);
       setSuggestionIndex(0);
       setSuggestionsActive(false);
+      const input = document.querySelector("input");
+      input.focus();
     }
   };
 
   const Suggestions = () => {
-    return suggestions.length ? (
+    // suggestions.length ?
+    return (
       <Ulauto>
         {suggestions.map((suggestion, index) => {
-          const result = index === suggestionIndex ? true : false;
+          const result = index === suggestionIndex ? "true" : "false";
           return (
-            <Liauto result={result} key={suggestion} onClick={handleClick}>
-              {suggestion}
+            <Liauto result={result} key={suggestion.id} onClick={handleClick}>
+              <Image src={suggestion.imagen} />
+              <p>{suggestion.nombre}</p>
             </Liauto>
           );
         })}
       </Ulauto>
-    ) : (
-      <div>
-        <span
-          role="img"
-          aria-label="tear emoji"
-          style={{ position: "relative" }}
-        >
-          😪
-        </span>{" "}
-        <em>Lo Siento no hay sugerencias! </em>
-      </div>
     );
+    // : (
+    //   <div>
+    //     <span
+    //       role="img"
+    //       aria-label="tear emoji"
+    //       style={{ position: "relative" }}
+    //     >
+    //       😪
+    //     </span>{" "}
+    //     <em>Lo Siento no hay sugerencias! </em>
+    //   </div>
+    // );
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(getProducts({ name: e.target.value }));
+
+    if (value !== "") dispatch(getProductsSearch({ name: value }));
   };
 
   return (
@@ -107,20 +115,19 @@ function Search({ data }) {
             <input
               type="text"
               className={style.searchbar_input}
-              maxLength="2048"
-              name="q"
-              autoCapitalize="off"
-              autoComplete="off"
-              title="Search"
-              role="combobox"
+              // maxLength="2048"
+              // name="q"
+              // autoCapitalize="off"
+              // autoComplete="off"
+              // title="Search"
+              // role="combobox"
               placeholder="Buscar ..."
               value={value}
               onChange={handleChange}
               onKeyDown={handleKeyDown}
             />
+            {suggestionsActive && value && <Suggestions />}
           </form>
-
-          {suggestionsActive && value && <Suggestions />}
         </div>
 
         <div className={style.searchbar_right}>

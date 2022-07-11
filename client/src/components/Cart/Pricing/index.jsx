@@ -1,15 +1,23 @@
 import { useEffect, useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
+import { Div } from "./styles";
 
-
-
-export default function Pricing (){
-    return(
-        
-        <div>
+export default function Pricing ({alert}){
+    const [price,setPrice]=useState()
+    const store = useSelector(store=>store.cart.priceCart)
+    useEffect(()=>{
+        let acum = 0 ;
+        store.forEach(p=>{
+            acum=acum+p.price            
+        })
+        setPrice(acum)
+    },[alert])
+    return(        
+        <Div>
            <h2>
-            Final price: $ 100
+            Precio final: $ {price}
            </h2>
-        </div>
+           {/* <button>Terminar compra</button> */}
+        </Div>
     )
 }

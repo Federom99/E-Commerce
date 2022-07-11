@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import AddPopUp from "../PopUp";
 import { useNavigate } from "react-router-dom";
@@ -15,10 +15,12 @@ import {
   ExtraInfo,
   Select,
   P,
+  ImgLink
 } from "./styles";
 
 const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
   const [open, setOpen] = useState(false);
+  const size = useRef(talles[0].talle)
   const dispatch = useDispatch();
   let navigate = useNavigate();
 
@@ -26,31 +28,37 @@ const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
 
   const add = () => {
     //dispatch al carrito
+    let talle = size.current
     let order = {
       id,
       nombre,
       descripcion,
       imagen,
       precio,
+      talle,
       cantidad: 1,
     };
     dispatch(addToCart(order));
     setOpen((isOpen) => !isOpen);
   };
 
+  const handleChange = (event)=>{
+    size.current = event.target.value
+  }
+
   const formatPrice = new Intl.NumberFormat("es-AR").format(precio);
   return (
     <DIV>
       <ContainerImage>
-        <Image src={imagen} />
+        <ImgLink to={`/detail/${id}`}><Image src={imagen} /></ImgLink>
       </ContainerImage>
       <InfoContainer>
-        <H2 onClick={() => navigate(`/detail/${id}`)}>{nombre}</H2>
+        <H2 to={`/detail/${id}`}>{nombre}</H2>
         <div>
           <PriceSize>
-            <Select>
-              {talles.map(talle => (
-                <option>{talle.talle}</option>
+            <Select onChange={handleChange}>
+              {talles.map((talle, i) => (
+                <option key={i} value={talle.talle}>{talle.talle}</option>
               ))}
             </Select>
             <P>$ {formatPrice}</P>
@@ -62,6 +70,7 @@ const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
               nombre={nombre}
               img={imagen}
               precio={precio}
+              talle={size}
               close={closeModal}
             />
           </StyledPopup>
