@@ -63,7 +63,6 @@ function App() {
         <Route path="/admin/" element={<AdminHub />} />
         <Route path="/login/" element={<Login />} />
         <Route path="/register" element={<CreateUser />} />
-        <Route path="/newUser" element={<CreateUser />} />
         <Route path="/cart/" element={<ShoppingCart />} />
         <Route path="/profile/" element={<Profile />} />
         <Route path="/createProduct" element={<CreateProduct />} />

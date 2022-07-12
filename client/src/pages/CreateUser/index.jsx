@@ -77,6 +77,7 @@ export default function NewUser() {
             direccion: newUser.adress,
           }
         );
+        console.log(data);
 
         setAlert({ msg: data.msg, type: "success" });
 
