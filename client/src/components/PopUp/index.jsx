@@ -61,7 +61,8 @@ export default function AddPopUp({ id, nombre, img, precio, close , talle}) {
     close();
   };
   const deleteCartItem = () => {
-    dispatch(removeCart(id));
+    let size = talle.current
+    dispatch(removeCart(id,size));
     close();
   };
   const formatPrice = (price) => {

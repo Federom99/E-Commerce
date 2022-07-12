@@ -20,10 +20,13 @@ export const modifyCart = (details) => {
   };
 };
 
-export const removeCart = (productId) => {
+export const removeCart = (id,size) => {
   return {
     type: REMOVE_CART,
-    payload: productId,
+    payload: {
+      id,
+      size
+    },
   };
 };
 

@@ -37,9 +37,12 @@ export default function cartReducer(state = initialState, action) {
         } 
       }
     case REMOVE_CART:
+      for (let i=0;i<state.shoppingCart.length;i++){
+        if (state.shoppingCart[i].id===action.payload.id && state.shoppingCart[i].talle === action.payload.size)
+        state.shoppingCart.splice(i,1)
+      }
       return {
-        ...state,
-        shoppingCart: state.shoppingCart.filter((p) => p.id !== action.payload),
+        ...state,        
       };
     case PRICE_CART:
       if (state.priceCart.find((p) => p.id === action.payload.id)) {
