@@ -44,24 +44,28 @@ export default function cartReducer(state = initialState, action) {
       return {
         ...state,        
       };
+    
     case PRICE_CART:
-      if (state.priceCart.find((p) => p.id === action.payload.id)) {
-        let position = state.priceCart.findIndex(
-          (p) => p.id === action.payload.id
-        );
-        state.priceCart[position].price = action.payload.price;
-        return {
-          ...state,
-        };
+      for (let i=0;i<state.priceCart.length;i++){
+        if (state.priceCart[i].id === action.payload.id && state.priceCart[i].talle === action.payload.talle){
+          state.priceCart[i].price = action.payload.price
+          return{
+            ...state
+          }
+        }
       }
+
       return {
         ...state,
         priceCart: [...state.priceCart, action.payload],
       };
     case PRICE_REMOVE_CART:
+      for (let i=0;i<state.priceCart.length;i++){
+        if (state.priceCart[i].id===action.payload.id && state.priceCart[i].talle === action.payload.size)      
+        state.priceCart.splice(i,1)
+      }
       return {
-        ...state,
-        priceCart: state.priceCart.filter((p) => p.id !== action.payload),
+        ...state,        
       };
     default:
       return state;
