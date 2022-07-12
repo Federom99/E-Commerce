@@ -14,10 +14,19 @@ const initialState = {
 export default function cartReducer(state = initialState, action) {
   switch (action.type) {
     case ADD_CART:
+      for (let i=0;i<state.shoppingCart.length;i++){
+        if (state.shoppingCart[i].id === action.payload.id && state.shoppingCart[i].talle === action.payload.talle){
+          state.shoppingCart[i].cantidad += 1
+          return{
+            ...state
+          }
+        }
+      }
       return {
         ...state,
         shoppingCart: [...state.shoppingCart, action.payload],
-      };
+      };    
+
     case MODIFY_CART:
       let position = state.shoppingCart.findIndex(
         (p) => p.id === action.payload.id
