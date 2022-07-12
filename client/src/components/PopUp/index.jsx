@@ -50,9 +50,11 @@ export default function AddPopUp({ id, nombre, img, precio, close , talle}) {
   };
   const addMore = () => {
     let amount= pedido.cantidad
+    let size = talle.current
     let newOrder = {
       id,
-      amount,
+      size,
+      amount
     };
     dispatch(modifyCart(newOrder));
     alert(`${amount} items extra agregados al carrito`);

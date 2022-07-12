@@ -28,13 +28,14 @@ export default function cartReducer(state = initialState, action) {
       };    
 
     case MODIFY_CART:
-      let position = state.shoppingCart.findIndex(
-        (p) => p.id === action.payload.id
-      );
-      state.shoppingCart[position].cantidad += action.payload.amount;
-      return {
-        ...state,
-      };
+      for (let i=0;i<state.shoppingCart.length;i++){
+        if (state.shoppingCart[i].id === action.payload.id && state.shoppingCart[i].size === action.payload.talle){
+          state.shoppingCart[i].cantidad += action.payload.amount
+          return{
+            ...state
+          }
+        } 
+      }
     case REMOVE_CART:
       return {
         ...state,
