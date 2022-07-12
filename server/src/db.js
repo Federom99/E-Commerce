@@ -46,6 +46,11 @@ Usuario.hasMany(Pedido);
 Pedido.hasOne(Usuario);
 
 
+Rating.belongsTo(Producto);
+Producto.hasMany(Rating);
+Rating.belongsTo(Usuario);
+Usuario.hasMany(Rating);
+
 ProductosFav.belongsToMany(Usuario, {through: "producto_fav_usuario"});
 Usuario.belongsToMany(ProductosFav, {through: "producto_fav_usuario"});
 
