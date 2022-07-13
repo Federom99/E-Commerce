@@ -7,6 +7,7 @@ const { comparePassword, hashPassword } = require("../helpers/hashPassword.js");
 const register = async (req, res) => {
   //Sacamos los datos necesarios del body del request
   console.log(req.body);
+  console.log(req.body);
   const { nombre, apellido, telefono, mail, direccion, contraseña, dni } =
     req.body;
 
@@ -26,7 +27,7 @@ const register = async (req, res) => {
   //Creamos el usuario en la db
   try {
     const createUser = await Usuario.create({
-      dni: dni ? dni : 0,
+      dni: dni ? dni : Math.round(Math.random() * 100),
       nombre: nombre,
       apellido: apellido,
       mail: mail,
@@ -65,6 +66,7 @@ const register = async (req, res) => {
 };
 
 const authentication = async (req, res) => {
+  console.log(req.body);
   const { mail, contraseña } = req.body;
 
   const user = await Usuario.findOne({
@@ -82,6 +84,8 @@ const authentication = async (req, res) => {
       userId: user.id,
       name: user.nombre,
       email: user.mail,
+      token: user.token,
+      isAdmin: user.isAdmin,
       confirmado: user.confirmado,
       token: generarJWT(),
     });
