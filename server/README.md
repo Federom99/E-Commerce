@@ -11,3 +11,90 @@ DB_HOST=localhost
 También hay que tener creada una base de datos con el nombre eccomerce
 
 
+## ENDPOINTS
+
+POST /category. Recibe por body:
+
+```json
+{
+    "categoria": "nombreDeCategoria"
+}
+```
+
+DELETE /category/delete/:id. Elimina la categoria según el id pasado por parámetro.
+
+DELETE /product/:id. Elimina el producto según el id pasado por parámetro.
+
+DELETE /ratings/:id. Elimina la review según el id pasado por parámetro.
+
+DELETE /usuario/:id. Elimina el usuario según el id pasado por parámetro.
+
+GET /categories/. Devuelve un objeto con un array de las categorías.
+
+GET /pedido/:id. Devuelve un pedido según el id recibido por parámetros.
+
+GET /pedidos. Devuelve todos los pedidos.
+
+GET /pedidos/user/:id. Devuelve todos los pedidos del user pasado por id.
+
+GET /rating. Devuelve todos los ratings.
+
+GET /ratings/:productId. Devuelve todos los rating del producto pasado por id.
+
+GET /usuario/ratings/:usuarioId. Devuelve todos los ratings de un usuario pasado por id.
+
+GET /talles. Devuelve todos los talles existentes.
+
+POST /rating/:productoId. Recibe por body: 
+
+```json
+{
+    "puntaje": 3, //Numero del 1 al 5
+    "titulo": "Titulo de ejemplo",
+    "comentario": "Comentario de ejemplo",
+    "usuarioId": "Qff78AeOAWdMJH1pIrWX5Dn40Xv2"
+}
+```
+
+GET /product/:id. Trae un objeto del producto pasado por parámetro con sus talles, categoria y stocks correspondientes.
+
+GET /products. Trae un objeto con todos los productos en la DB.
+
+POST /user/register. Recibe por body:
+
+```json
+{
+    "nombre": "nombre",
+    "apellido": "apellido",
+    "telefono": 94928439538,
+    "mail": "ejemplo@xd.com",
+    "direccion": "calle real 191",
+    "contraseña": "123",
+    "dni": 3498238949
+}
+```
+
+POST /user/login. Recibe por body:
+
+```json
+{
+    "mail": "asd@gmail.com",
+    "contraseña": "123"
+}
+```
+
+GET /users. Trae la lista de todos los usuarios.
+
+
+Faltan por documentar las rutas de los siguientes archivos (no entendi bien como funcionaban así que porfa fijense los que las hicieron y documentenlas en este readme.):
+
+<ul>
+    <li>cambiarEstadoPedido.js</li>
+    <li>createPedido.js</li>
+    <li>editProduct.js</li>
+    <li>favoritos.js</li>
+    <li>product-DB.js</li>
+    <li>user-DB.js</li>
+    <li>userToAdmin</li>
+
+</ul>
