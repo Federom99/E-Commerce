@@ -8,6 +8,8 @@ module.exports = (sequelize) => {
       allowNull: false,
       primaryKey: true,
     },
-  stock: DataTypes.INTEGER
+  stock: {
+    type: DataTypes.INTEGER,
+  }
 }, { timestamps: false });
 }
