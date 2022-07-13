@@ -12,8 +12,12 @@ import {
   List,
   Button,
 } from "./styles";
+import { useDispatch } from "react-redux";
+import { register } from "../../redux/actions/autenticacion";
 
 export default function NewUser() {
+  const dispatch = useDispatch();
+  // const
   const [newUser, setNewUser] = useState({});
   const [errors, setErrors] = useState({});
   const [alert, setAlert] = useState({});
@@ -66,29 +70,37 @@ export default function NewUser() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (!Object.keys(errors).length && Object.keys(newUser).length) {
-      try {
-        const { data } = await axios.post(
-          "http://localhost:3001/user/register",
-          {
-            nombre: newUser.name,
-            apellido: newUser.lastname,
-            mail: newUser.email,
-            contraseña: newUser.password,
-            direccion: newUser.adress,
-          }
-        );
-        console.log(data);
+      // try {
+      //   const { data } = await axios.post(
+      //     "http://localhost:3001/user/register",
+      //     {
+      //       nombre: newUser.name,
+      //       apellido: newUser.lastname,
+      //       mail: newUser.email,
+      //       contraseña: newUser.password,
+      //       direccion: newUser.adress,
+      //     }
+      //   );
+      //   console.log(data);
 
-        setAlert({ msg: data.msg, type: "success" });
-
-        event.target[0].value = "";
-        event.target[1].value = "";
-        event.target[2].value = "";
-        event.target[3].value = "";
-        event.target[4].value = "";
-      } catch (error) {
-        setAlert({ msg: error.response.data.msg, type: "error" });
-      }
+      //   setAlert({ msg: data.msg, type: "success" });
+      // } catch (error) {
+      //   setAlert({ msg: error.response.data.msg, type: "error" });
+      // }
+      dispatch(
+        register({
+          nombre: newUser.name,
+          apellido: newUser.lastname,
+          mail: newUser.email,
+          contraseña: newUser.password,
+          direccion: newUser.adress,
+        })
+      );
+      event.target[0].value = "";
+      event.target[1].value = "";
+      event.target[2].value = "";
+      event.target[3].value = "";
+      event.target[4].value = "";
     } else {
       setAlert({ msg: "All fields are required", type: "error" });
     }

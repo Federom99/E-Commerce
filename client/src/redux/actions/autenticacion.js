@@ -1,27 +1,53 @@
-import AuthServices from "../../services/auth-services";
 import {
+  LOGIN_BEGIN,
   LOGIN_FAIL,
   LOGIN_SUCCESS,
   LOGOUT,
+  REGISTER_BEGINS,
   REGISTER_FAIL,
   REGISTER_SUCCESS,
 } from "./actionTypes";
-import { handleErrors } from "./product";
+
+const API_URL = "http://localhost:3001/user/";
 
 export const register = (data) => async (dispatch) => {
+  dispatch(fetchRegisterBegin());
   try {
-    const response = await AuthServices.register({ ...data });
-    const res = await handleErrors(response);
-    const res_1 = res.json();
-    return dispatch(fetchRegisterSuccess(res_1.data));
+    const response = await fetch(API_URL + "register", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    console.log(response);
+    //
+    const res_1 = await response.json();
+    const res = await handleErrorsRegister(response, res_1);
+    console.log(res_1);
+    return dispatch(fetchRegisterSuccess(res.data));
   } catch (error) {
-    dispatch(fetchRegisterFailure(error));
+    return dispatch(fetchRegisterFailure(error));
   }
 };
 
-export const fetchRegisterSuccess = (user) => ({
+// Handle HTTP errors since fetch won't.
+function handleErrorsRegister(response, rest) {
+  console.log(response);
+  if (response.status === 400) {
+    throw rest.msg;
+  }
+  return response;
+}
+
+export const fetchRegisterBegin = (user) => ({
+  type: REGISTER_BEGINS,
+});
+
+export const fetchRegisterSuccess = (msg) => ({
   type: REGISTER_SUCCESS,
-  payload: { user },
+  payload: { msg },
 });
 
 export const fetchRegisterFailure = (error) => ({
@@ -30,15 +56,37 @@ export const fetchRegisterFailure = (error) => ({
 });
 
 export const login = (data) => async (dispatch) => {
+  dispatch(fetchloginBegin());
   try {
-    const response = await AuthServices.register({ ...data });
-    const res = await handleErrors(response);
-    const res_1 = res.json();
-    return dispatch(fetchloginSuccess(res_1.data));
+    const response = await fetch(API_URL + "login", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    const rest = await response.json();
+    const res = await handleErrors(response, rest);
+    if (res.token) localStorage.setItem("user", JSON.stringify(res));
+    return dispatch(fetchloginSuccess(res));
   } catch (error) {
-    dispatch(fetchloginFailure(error));
+    return dispatch(fetchloginFailure(error));
   }
 };
+
+// Handle HTTP errors since fetch won't.
+function handleErrors(response, rest) {
+  if (response.status === 400) {
+    throw rest.msg;
+  }
+  return rest;
+}
+
+export const fetchloginBegin = () => ({
+  type: LOGIN_BEGIN,
+});
 
 export const fetchloginSuccess = (user) => ({
   type: LOGIN_SUCCESS,
@@ -51,7 +99,7 @@ export const fetchloginFailure = (error) => ({
 });
 
 export const logout = () => (dispatch) => {
-  AuthServices.logout();
+  localStorage.removeItem("user");
 
   dispatch({ type: LOGOUT });
 };

@@ -1,31 +1,33 @@
-import { Route, Routes, useLocation } from "react-router-dom";
-import MainContainer from "./containers/MainContainer";
+import { Route, Routes } from "react-router-dom";
 import NavBar from "./components/Nav";
-import ProductDetail from "./pages/Detail";
+import MainContainer from "./containers/MainContainer";
 import AdminHub from "./pages/Admin";
-import CreateUser from "./pages/CreateUser";
 import ShoppingCart from "./pages/Cart";
+import CreateUser from "./pages/CreateUser";
+import ProductDetail from "./pages/Detail";
 import Profile from "./pages/Profile";
 
 import Login from "./pages/Login";
 
-import { GlobalStyle } from "./styles/GlobalStyles";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import CreateProduct from "./components/CreateProduct";
 import Footer from "./components/Footer";
 import Loading from "./components/Loader";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import Confirmacion from "./pages/Confirmacion";
 import NoMatch from "./pages/NoMatch";
 import { getProducts } from "./redux/actions/product";
 import { ErrorContainer } from "./styles/appStyle";
-import CreateProduct from "./components/CreateProduct";
+import { GlobalStyle } from "./styles/GlobalStyles";
 
 function App() {
-  const location = useLocation();
+  // const location = useLocation();
   const dispatch = useDispatch();
 
   const error = useSelector((state) => state.product.error);
   const loading = useSelector((state) => state.product.loading);
   const products = useSelector((state) => state.product.products);
+
   useEffect(() => {
     dispatch(getProducts());
   }, []);
@@ -66,6 +68,8 @@ function App() {
         <Route path="/cart/" element={<ShoppingCart />} />
         <Route path="/profile/" element={<Profile />} />
         <Route path="/createProduct" element={<CreateProduct />} />
+        <Route path="/confirmacion/:id" element={<Confirmacion />} />
+        <Route path="/admin" element={<AdminHub />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
       <Footer />

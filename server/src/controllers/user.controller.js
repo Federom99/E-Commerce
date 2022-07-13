@@ -5,6 +5,7 @@ const { comparePassword, hashPassword } = require("../helpers/hashPassword.js");
 const register = async (req, res) => {
   //Sacamos los datos necesarios del body del request
   console.log(req.body);
+  console.log(req.body);
   const { nombre, apellido, telefono, mail, direccion, contraseña, dni } =
     req.body;
 
@@ -24,7 +25,7 @@ const register = async (req, res) => {
   //Creamos el usuario en la db
   try {
     const createUser = await Usuario.create({
-      dni: dni ? dni : (Math.round(Math.random() * 100)),
+      dni: dni ? dni : Math.round(Math.random() * 100),
       nombre: nombre,
       apellido: apellido,
       mail: mail,
@@ -41,7 +42,7 @@ const register = async (req, res) => {
 
     return res.status(201).json({
       msg: "Account created succesfully!",
-      user: { nombre, apellido },
+      user: { nombre, apellido, token: createdUser.token },
     });
     //Si pasa algo raro, mandamos un error y lo consologeamos
   } catch (e) {
@@ -51,6 +52,7 @@ const register = async (req, res) => {
 };
 
 const authentication = async (req, res) => {
+  console.log(req.body);
   const { mail, contraseña } = req.body;
 
   const user = await Usuario.findOne({
@@ -69,6 +71,7 @@ const authentication = async (req, res) => {
       name: user.nombre,
       email: user.mail,
       token: user.token,
+      isAdmin: user.isAdmin,
     });
   } else {
     const error = new Error("The password is not correct");

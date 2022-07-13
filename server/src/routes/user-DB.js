@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const { Usuario } = require("../db.js");
+const usuariosDB = require("../models/assets/usuarios.json");
 
 const router = Router();
 
