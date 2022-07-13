@@ -127,6 +127,10 @@ export default function productReducer(state = initialState, action) {
       return {
         ...state,
       }
+    case 'POST_FAVORITE':
+      return {
+        ...state,
+      }  
     case DELETE_PRODUCT:
       return{
         ...state,

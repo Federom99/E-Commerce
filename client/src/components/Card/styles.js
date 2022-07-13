@@ -90,3 +90,20 @@ export const Button = styled.div`
     background-color: ${props => props.theme.bton};
     cursor: pointer;
 `
+
+export const Favorite = styled.button`
+    color:red;
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    svg {
+        width: 100%;
+        height: 100%;
+    }
+    &:hover{
+        color: black;
+    }
+`
+

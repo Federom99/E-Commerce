@@ -108,6 +108,14 @@ export const postProduct = (payload) => {
   }
 };
 
+export const postFavorite = (payload) => {
+  return async function(){
+      console.log(payload)
+      var json = await axios.post(`${URL_SERVER}/create/favoritos`,payload)
+      return json;
+  }
+};
+
 export const deleteProduct = ()=>{
   return{
     type: DELETE_PRODUCT
