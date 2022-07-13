@@ -11,6 +11,7 @@ const categoryRouter = require("./category");
 const editProductRouter = require("./editProduct");
 const productRouter = require("./product.js");
 const favoritosRouter = require("./favoritos");
+const createFavoritos = require("./createFavoritos")
 const actualizarPedidoRouter = require("./cambiarEstadoPedido");
 const userToAdminRouter = require("./userToAdmin");
 const deleteProductRouter = require("./deleteProduct");
@@ -44,6 +45,7 @@ router.use("/category", categoryRouter);
 router.use("/edit/product", editProductRouter);
 router.use("/product", productRouter);
 router.use("/favoritos/wishlist", favoritosRouter);
+router.use("/create/favoritos", createFavoritos);
 router.use("/admin/pedido", actualizarPedidoRouter);
 router.use("/admin/usuario", userToAdminRouter);
 router.use("/product/delete", deleteProductRouter);

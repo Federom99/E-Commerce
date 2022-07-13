@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import AddPopUp from "../PopUp";
 import { useNavigate } from "react-router-dom";
 import { addToCart } from "../../redux/actions/cart";
+import { postFavorite } from '../../redux/actions/product';
 import {
   DIV,
   ContainerImage,
@@ -67,7 +68,7 @@ const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
 
   };
 
-  const handleChange = (event)=>{
+  const handleChange = (event) => {
     size.current = event.target.value
   }
 
@@ -81,7 +82,7 @@ const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
         <H2 to={`/detail/${id}`}>{nombre}</H2>
         <div>
           <PriceSize>
-            <Select onChange={handleChange}>
+            <Select onChange={ () => handleChange(id)}>
               {talles.map((talle, i) => (
                 <option key={i} value={talle.talle}>{talle.talle}</option>
               ))}

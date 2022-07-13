@@ -18,7 +18,14 @@ import Confirmacion from "./pages/Confirmacion";
 import NoMatch from "./pages/NoMatch";
 import { getProducts } from "./redux/actions/product";
 import { ErrorContainer } from "./styles/appStyle";
+import CreateProduct from "./components/CreateProduct";
+import DahboardAdmin from "./components/DashboardAdmin";
+import Users from "./pages/Admin/users";
+import Products from "./pages/Admin/products";
+import Sales from "./pages/Admin/sales";
+
 import { GlobalStyle } from "./styles/GlobalStyles";
+
 
 function App() {
   // const location = useLocation();
@@ -71,6 +78,7 @@ function App() {
         <Route path="/confirmacion/:id" element={<Confirmacion />} />
         <Route path="/admin" element={<AdminHub />} />
         <Route path="*" element={<NoMatch />} />
+        <Route path="/admin/dashboard/*" element={<DahboardAdmin />} />
       </Routes>
       <Footer />
     </div>
