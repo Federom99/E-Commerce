@@ -17,6 +17,7 @@ import {
   P,
   ImgLink
 } from "./styles";
+import axios from 'axios';
 
 const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
   const [open, setOpen] = useState(false);
@@ -26,9 +27,23 @@ const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
 
   const closeModal = () => setOpen(false);
 
-  const add = () => {
-    //dispatch al carrito
+  const checkStock = async (cantidad = 1) =>{
     let talle = size.current
+    // busco index talle
+    const product = await axios.get(`http://localhost:3001/product/${id}`);
+    if (talle==='Sin talle'){
+      if (product.data.talles[0].producto_talle.stock >= cantidad ) return true
+      else return false
+    }
+    else{
+      const index = await product.data.talles.findIndex(p=> p.talle === talle) 
+      if (product.data.talles[index].producto_talle.stock >= cantidad ) return true
+      else return false
+    }
+  }
+  const add = async() => {
+    let talle = size.current
+    //dispatch al carrito
     let order = {
       id,
       nombre,
@@ -38,8 +53,20 @@ const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
       talle,
       cantidad: 1,
     };
-    dispatch(addToCart(order));
-    setOpen((isOpen) => !isOpen);
+    // const product = await axios.get(`http://localhost:3001/product/${id}`);
+    // const index = await product.data.talles.findIndex(p=> p.talle === talle) 
+    // console.log(product.data.talles[index].producto_talle.stock)
+    const check = await checkStock()
+    if (check){
+      //restar stock
+      dispatch(addToCart(order))
+      setOpen (isOpen=>!isOpen)
+    }
+    else {
+      if (talle === 'Sin talle') alert (`No hay stock de ${nombre}`)
+      else alert (`No hay stock de ${nombre} en talle ${talle}`)
+    }
+
   };
 
   const handleChange = (event)=>{
