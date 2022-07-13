@@ -1,4 +1,6 @@
 const { Usuario } = require("../db.js");
+const { emailRegistro } = require("../helpers/emails.js");
+const { generarJWT } = require("../helpers/generarJWT.js");
 const generarTokenID = require("../helpers/generarTokenID.js");
 const { comparePassword, hashPassword } = require("../helpers/hashPassword.js");
 
@@ -24,7 +26,7 @@ const register = async (req, res) => {
   //Creamos el usuario en la db
   try {
     const createUser = await Usuario.create({
-      dni: dni ? dni : (Math.round(Math.random() * 100)),
+      dni: dni ? dni : 0,
       nombre: nombre,
       apellido: apellido,
       mail: mail,
@@ -39,9 +41,21 @@ const register = async (req, res) => {
     //Cuando lo creamos, almacenamos los valores de la promesa de su creacion en la db y lo mandamos
     const createdUser = createUser.dataValues;
 
+    emailRegistro({
+      email: createdUser.mail,
+      name: createUser.nombre,
+      token: createdUser.token,
+    });
+
     return res.status(201).json({
       msg: "Account created succesfully!",
-      user: { nombre, apellido },
+      user: {
+        nombre,
+        apellido,
+        isAdmin: createdUser.isAdmin,
+        token: createdUser.token,
+        confirmado: createdUser.confirmado,
+      },
     });
     //Si pasa algo raro, mandamos un error y lo consologeamos
   } catch (e) {
@@ -68,7 +82,8 @@ const authentication = async (req, res) => {
       userId: user.id,
       name: user.nombre,
       email: user.mail,
-      token: user.token,
+      confirmado: user.confirmado,
+      token: generarJWT(),
     });
   } else {
     const error = new Error("The password is not correct");
@@ -85,4 +100,26 @@ const getUsers = async (req, res) => {
   }
 };
 
-module.exports = { register, authentication, getUsers };
+const confirmarCuenta = async (req, res) => {
+  try {
+    const { token } = req.params;
+    const usuarioConfirmar = await Usuario.findOne({
+      where: { token },
+    });
+
+    if (!usuarioConfirmar) {
+      const error = new Error("Token is not valid");
+      return res.status(400).json({ error: error.message });
+    }
+
+    usuarioConfirmar.confirmado = true;
+    usuarioConfirmar.token = "";
+    await usuarioConfirmar.save();
+
+    return res.json({ msg: "User Confirmed Succesfully!" });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+module.exports = { register, authentication, getUsers, confirmarCuenta };
