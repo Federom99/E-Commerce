@@ -85,16 +85,23 @@ POST /user/login. Recibe por body:
 
 GET /users. Trae la lista de todos los usuarios.
 
+PUT /admin/usuario/:id.  Recibe por body las prop. Y basicamente es modificar el isAdmin de false a true. Pero si o si se tienen que pasar todas las props de user por body.
+El .save() da la capacidad de modificar una instancia después de que se haya instanciado, pero antes de que se almacene en la base de datos.
+
+PUT /admin/pedido/:id. Basicamente lo mismo que el anterior. Es para cambiar el "estado" que tiene un default value de en preparcion.
+
+POST /admin/crearorigen/. Aca se cargan los productos en la db con el metodo bulkCreate. Esto lo que hace es cargarlos masivamente y rápido
+
+POST /admin/crearusuarios/. Lo mismo que el de arriba
+
+
+
 
 Faltan por documentar las rutas de los siguientes archivos (no entendi bien como funcionaban así que porfa fijense los que las hicieron y documentenlas en este readme.):
 
 <ul>
-    <li>cambiarEstadoPedido.js</li>
+    
     <li>createPedido.js</li>
     <li>editProduct.js</li>
     <li>favoritos.js</li>
-    <li>product-DB.js</li>
-    <li>user-DB.js</li>
-    <li>userToAdmin</li>
-
 </ul>
