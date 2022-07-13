@@ -86,5 +86,16 @@
     "dni": 9000000,
     "contraseña": "admin",
     "isAdmin": true
+  },
+  {
+    "id": "sjaksjkasjaksj9ajskajskajs9",
+    "nombre": "No Admin",
+    "apellido": "Cortazzi",
+    "telefono": 1100000000,
+    "mail": "impropio@gmail.com",
+    "direccion": "Caballito, San Juan",
+    "dni": 9000000,
+    "contraseña": "admin",
+    "isAdmin": false
   }
 ]

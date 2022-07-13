@@ -9,6 +9,8 @@ import {
 const initialState = {
   shoppingCart: [],
   priceCart: [],
+  loading: false,
+  error: null,
 };
 
 export default function cartReducer(state = initialState, action) {

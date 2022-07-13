@@ -20,6 +20,8 @@ const cargarProductDbRouter = require("./product-DB");
 const cargarUserDbRouter = require("./user-DB");
 const getCategories = require("./getCategories");
 const getTalles = require("./getTalles");
+
+const stockRouter = require('./stock')
 const getPedidosRouter = require("./getPedidos");
 const getPedidoUser = require("./getPedidoUser");
 const getPedidoId = require("./getPedidoId");
@@ -31,6 +33,8 @@ const postRating = require('./postRating');
 const deletleReview = require("./deleteReview");
 const getRatingUserID = require("./getRatingUserID");
 const deleteUser = require("./deleteUser");
+const deletePedido = require('./deletePedido');
+
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
@@ -49,17 +53,19 @@ router.use("/category/delete", deleteCategoryRouter);
 router.use("/admin/crearorigen", cargarProductDbRouter);
 router.use("/admin/crearusuarios", cargarUserDbRouter);
 router.use("/categories", getCategories);
+router.use("/stock", stockRouter)
 router.use("/talles", getTalles);
 router.use("/pedidos", getPedidosRouter);
 router.use("/pedidos/user", getPedidoUser);
 router.use("/pedido", getPedidoId);
 router.use("/pedido/crear", createPedido);
-router.use('ratings', getRating);
+router.use('/rating', getRating);
 router.use("/ratings", getRatingProduct);
 router.use("/usuario/ratings", getRatingUser);
 router.use('/ratings/crear', postRating);
 router.use("/ratings", deletleReview);
 router.use("/ratings/usuario", getRatingUserID);
 router.use("/usuario", deleteUser);
+router.use('/pedido', deletePedido);
 
 module.exports = router;
