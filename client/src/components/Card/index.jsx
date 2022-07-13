@@ -29,7 +29,6 @@ const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
 
   const checkStock = async (cantidad = 1) =>{
     let talle = size.current
-    // busco index talle
     const product = await axios.get(`http://localhost:3001/product/${id}`);
     if (talle==='Sin talle'){
       if (product.data.talles[0].producto_talle.stock >= cantidad ) return true
@@ -41,6 +40,7 @@ const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
       else return false
     }
   }
+
   const add = async() => {
     let talle = size.current
     //dispatch al carrito
@@ -53,12 +53,10 @@ const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
       talle,
       cantidad: 1,
     };
-    // const product = await axios.get(`http://localhost:3001/product/${id}`);
-    // const index = await product.data.talles.findIndex(p=> p.talle === talle) 
-    // console.log(product.data.talles[index].producto_talle.stock)
+
     const check = await checkStock()
     if (check){
-      //restar stock
+      //restar stock      
       dispatch(addToCart(order))
       setOpen (isOpen=>!isOpen)
     }
@@ -99,6 +97,7 @@ const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
               precio={precio}
               talle={size}
               close={closeModal}
+              checkStock={checkStock}
             />
           </StyledPopup>
         </div>

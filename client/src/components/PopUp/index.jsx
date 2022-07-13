@@ -24,7 +24,7 @@ import {
   Trash,
 } from "./styles";
 
-export default function AddPopUp({ id, nombre, img, precio, close , talle}) {
+export default function AddPopUp({ id, nombre, img, precio, close , talle , checkStock}) {
   const [pedido, setpedido] = useState({
     cantidad: 1,
     precio: precio,
@@ -48,15 +48,19 @@ export default function AddPopUp({ id, nombre, img, precio, close , talle}) {
       })
     }
   };
-  const addMore = () => {
+  const addMore = async() => {
     let amount= pedido.cantidad
-    let newOrder = {
-      id,
-      amount,
-    };
-    dispatch(modifyCart(newOrder));
-    alert(`${amount} items extra agregados al carrito`);
-    close();
+    let check = await checkStock(amount)
+    if (check){
+      let newOrder = {
+        id,
+        amount,
+      };
+      dispatch(modifyCart(newOrder));
+      alert(`${amount} items extra agregados al carrito`);
+      close();
+    }
+    else alert(`No hay suficiente stock`)
   };
   const deleteCartItem = () => {
     dispatch(removeCart(id));
