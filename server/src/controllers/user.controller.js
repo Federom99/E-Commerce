@@ -82,6 +82,7 @@ const authentication = async (req, res) => {
       userId: user.id,
       name: user.nombre,
       email: user.mail,
+      confirmado: user.confirmado,
       token: generarJWT(),
     });
   } else {
@@ -113,9 +114,9 @@ const confirmarCuenta = async (req, res) => {
 
     usuarioConfirmar.confirmado = true;
     usuarioConfirmar.token = "";
-    await usuarioConfirmar.save()
-    
-    return res.json({msg: "User Confirmed Succesfully!"});
+    await usuarioConfirmar.save();
+
+    return res.json({ msg: "User Confirmed Succesfully!" });
   } catch (error) {
     console.log(error);
   }
