@@ -56,7 +56,7 @@ router.use("/pedidos", getPedidosRouter);
 router.use("/pedidos/user", getPedidoUser);
 router.use("/pedido", getPedidoId);
 router.use("/pedido/crear", createPedido);
-router.use('ratings', getRating);
+router.use('/rating', getRating);
 router.use("/ratings", getRatingProduct);
 router.use("/usuario/ratings", getRatingUser);
 router.use('/ratings/crear', postRating);
