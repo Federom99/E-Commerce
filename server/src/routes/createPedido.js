@@ -13,7 +13,7 @@ router.post("/:idUsuario", async (req, res) => {
       pago_total,
       direccion_de_envio,
       estado,
-      idProductos, //tiene que llegar un array de obj {id:1,cantidad:1}
+      idProductos,
     } = req.body;
     const pedido = await Pedido.create({
       fecha: fecha,

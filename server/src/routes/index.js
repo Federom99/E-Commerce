@@ -30,6 +30,7 @@ const postRating = require('./postRating');
 const deletleReview = require("./deleteReview");
 const getRatingUserID = require("./getRatingUserID");
 const deleteUser = require("./deleteUser");
+const deletePedido = require('./deletePedido');
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
@@ -59,5 +60,6 @@ router.use('/ratings/crear', postRating);
 router.use("/ratings", deletleReview);
 router.use("/ratings/usuario", getRatingUserID);
 router.use("/usuario", deleteUser);
+router.use('/pedido', deletePedido);
 
 module.exports = router;
