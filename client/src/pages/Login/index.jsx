@@ -13,11 +13,18 @@ import {
   Form,
   Blist,
 } from "./styles";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../../redux/actions/autenticacion";
+import Loading from "../../components/Loader";
+
 export default function Login() {
-  const [email, setEmail] = useState("");
+  const [mail, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [alert, setAlert] = useState({});
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const error = useSelector((state) => state.auth.error);
+  const loading = useSelector((state) => state.auth.loading);
 
   useEffect(() => {
     const userSession = localStorage.getItem("token");
@@ -29,25 +36,40 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if ([email, password].includes("")) {
+    if ([mail, password].includes("")) {
       setAlert({ msg: "All fields are required", type: "error" });
       return;
     }
 
-    try {
-      const { data } = await axios.post("http://localhost:3001/user/login", {
-        mail: email,
-        contraseña: password,
-      });
+    // try {
+    //   const { data } = await axios.post("http://localhost:3001/user/login", {
+    //     mail: email,
+    //     contraseña: password,
+    //   });
 
-      localStorage.setItem("token", data.token);
+    //   localStorage.setItem("token", data.token);
+    //   navigate("/");
+    // } catch (error) {
+    //   setAlert({ msg: error.response.data.msg, type: "error" });
+    // }
+    dispatch(login({ mail, contraseña: password })).then(() => {
       navigate("/");
-    } catch (error) {
-      setAlert({ msg: error.response.data.msg, type: "error" });
-    }
+      window.location.reload();
+    });
   };
 
-  const { msg } = alert;
+  // const { msg } = alert;
+  // let content;
+  // if (error) {
+  //   content = <div>{error}</div>;
+  // }
+  // if (loading) {
+  //   content = (
+  //     <div>
+  //       <Loading />
+  //     </div>
+  //   );
+  // }
 
   return (
     <Div>
@@ -63,7 +85,7 @@ export default function Login() {
                 <Input
                   placeholder="e-mail"
                   type="text"
-                  name="email"
+                  name="mail"
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </li>
@@ -99,7 +121,7 @@ export default function Login() {
                 borderRadius: 5,
               }}
             >
-              {msg}
+              {/* {content} */}
             </p>
           )}
         </InputDiv>

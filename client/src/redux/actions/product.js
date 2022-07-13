@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 import {
   GET_PRODUCTS_BEGIN,
   GET_PRODUCTS_FAIL,
@@ -13,10 +13,10 @@ import {
   GET_TALLES,
   GET_PRODUCTS_BEGIN_SEARCH,
   GET_PRODUCTS_SUCCESS_SEARCH,
-  GET_PRODUCTS_FAIL_SEARCH
+  GET_PRODUCTS_FAIL_SEARCH,
 } from "./actionTypes";
 
-const URL_SERVER = "http://localhost:3001"
+const URL_SERVER = "http://localhost:3001";
 
 export const getProducts = (search) => {
   return async (dispatch) => {
@@ -40,7 +40,7 @@ export const getProducts = (search) => {
 };
 
 // Handle HTTP errors since fetch won't.
-function handleErrors(response) {
+export function handleErrors(response) {
   if (!response.ok) {
     throw Error(response.statusText);
   }
@@ -67,16 +67,14 @@ export const orderByCategoryName = (category) => ({
 });
 
 export const orderBy = (value) => ({
-    type: ORDER_BY,
-    payload: value
-})
+  type: ORDER_BY,
+  payload: value,
+});
 
 export const getProduct = (productId) => {
   return async function (dispatch) {
     try {
-      const response = await fetch(
-        `${URL_SERVER}/product/${productId}`
-      );
+      const response = await fetch(`${URL_SERVER}/product/${productId}`);
       const data = await response.json();
       console.log(data);
       dispatch(fetchProductSuccess(data));
@@ -101,29 +99,28 @@ export const fetchProductFailure = (error) => ({
 });
 
 export const postProduct = (payload) => {
-  return async function(){
-      console.log(payload)
-      var json = await axios.post(`${URL_SERVER}/create/product`,payload)
-      return json;
-  }
+  return async function () {
+    console.log(payload);
+    var json = await axios.post(`${URL_SERVER}/create/product`, payload);
+    return json;
+  };
 };
 
-export const deleteProduct = ()=>{
-  return{
-    type: DELETE_PRODUCT
-  }
-}
-
-export const getCategories = () => async dispatch => {
-  const {data} = await axios.get(`${URL_SERVER}/categories`);
-  return dispatch({type: GET_CATEGORIES, payload: data});
+export const deleteProduct = () => {
+  return {
+    type: DELETE_PRODUCT,
+  };
 };
 
-export const getTalles = () => async dispatch => {
-  const {data} = await axios.get(`${URL_SERVER}/talles`);
-  return dispatch({type: GET_TALLES, payload: data});
+export const getCategories = () => async (dispatch) => {
+  const { data } = await axios.get(`${URL_SERVER}/categories`);
+  return dispatch({ type: GET_CATEGORIES, payload: data });
 };
 
+export const getTalles = () => async (dispatch) => {
+  const { data } = await axios.get(`${URL_SERVER}/talles`);
+  return dispatch({ type: GET_TALLES, payload: data });
+};
 
 //Agregado lo mismo que cuando carga al principio, pero para cuando busca.
 export const getProductsSearch = (search) => {
@@ -146,7 +143,6 @@ export const getProductsSearch = (search) => {
     }
   };
 };
-
 
 export const fetchProductsBeginSearch = () => ({
   type: GET_PRODUCTS_BEGIN_SEARCH,
