@@ -1,77 +1,80 @@
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
-  ADD_CART,
-  MODIFY_CART,
-  PRICE_CART,
-  PRICE_REMOVE_CART,
-  REMOVE_CART,
-} from "../actions/actionTypes";
+  addOrder,
+  removeCart,
+  removeOrder,
+} from "../../../redux/actions/cart";
 
-const initialState = {
-  shoppingCart: [],
-  order: [],
-  loading: false,
-  error: null,
-};
+import { List, Img, Li , Text , Amount, Button , Div , CloseButton} from "./styles";
 
-export default function cartReducer(state = initialState, action) {
-  switch (action.type) {
-     case ADD_CART:      
-      for (let i=0;i<state.shoppingCart.length;i++){
-        if (state.shoppingCart[i].id === action.payload.id && state.shoppingCart[i].talle === action.payload.talle){
-          state.shoppingCart[i].cantidad += 1
-          return{
-            ...state
-          }
-        }
-      }
-      return {
-        ...state,
-        shoppingCart: [...state.shoppingCart, action.payload],
-      };    
+export default function OrderItem({ item }) {
+  const [productOrder,setOrder] = useState({
+    id: item.id,
+    talle: item.talle,
+    cantidad: item.cantidad,
+    subtotal:(item.precio*item.cantidad)
+  })
 
-    case MODIFY_CART:
-      console.log(action.payload)
-      for (let i=0;i<state.shoppingCart.length;i++){
-        if (state.shoppingCart[i].id === action.payload.id && state.shoppingCart[i].talle === action.payload.size){
-          state.shoppingCart[i].cantidad += action.payload.amount
-          return{
-            ...state
-          }
-        } 
-      }
-    case REMOVE_CART:
-      for (let i=0;i<state.shoppingCart.length;i++){
-        if (state.shoppingCart[i].id===action.payload.id && state.shoppingCart[i].talle === action.payload.size)
-        state.shoppingCart.splice(i,1)
-      }
-      return {
-        ...state,        
-      };
-    
-    case PRICE_CART:
-      for (let i=0;i<state.order.length;i++){
-        if (state.order[i].id === action.payload.id && state.order[i].talle === action.payload.talle){
-          state.order[i] = action.payload
-          return{
-            ...state
-          }
-        }
-        
-      }
-      return {
-        ...state,
-        order: [...state.order,action.payload],
-      };
-    case PRICE_REMOVE_CART:
-      for (let i=0;i<state.order.length;i++){
-        if (state.order[i].id === action.payload.id && state.order[i].talle === action.payload.size){
-          state.order.splice(i,1)
-        }
-      }
-      return {
-        ...state,        
-      };
-    default:
-      return state;
-  }
+
+  const shoppingCart = useSelector(state=>state.cart.shoppingCart)
+
+  const dispatch = useDispatch();
+  
+  useEffect(()=>{
+    dispatch(addOrder(productOrder))
+  },[productOrder,shoppingCart])
+
+
+  const incAmount = ()=>{
+    setOrder({
+      ...productOrder,
+      cantidad:productOrder.cantidad+1,
+      subtotal:item.precio*(productOrder.cantidad+1)
+    })}
+  const decAmount = () => {
+    if (productOrder.cantidad > 1) {
+      setOrder({
+        ...productOrder,
+        cantidad:productOrder.cantidad-1,
+        subtotal:item.precio*(productOrder.cantidad-1)
+      })
+    }
+  };
+  const removeItem = () => {
+
+    dispatch(removeCart(item.id,item.talle))
+    dispatch(removeOrder(item.id,item.talle));
+
+  };
+  return (
+    <Div>
+      <CloseButton onClick={removeItem}>X</CloseButton>
+      <List>
+        <Li>
+          <Img src={`${item.imagen}`} alt={`Imagen de ${item.nombre}`} />
+        </Li>
+        <Li>
+          <Text>
+            <h3>{item.nombre}</h3>
+            {item.talle !=='Sin talle' ? (<h4>Talle: {item.talle}</h4>) : null }
+            <h5>{item.descripcion}</h5>
+          </Text>
+        </Li>
+        <Li>
+          <h3>${item.precio}</h3>
+        </Li>
+        <Li>
+          <Amount>
+            <Button onClick={decAmount}>-</Button>
+            <p>{productOrder.cantidad}</p>
+            <Button onClick={incAmount}>+</Button>
+          </Amount>
+        </Li>
+        <Li>
+          <h3>${productOrder.subtotal}</h3>
+        </Li>
+      </List>
+    </Div>
+  );
 }
