@@ -6,6 +6,9 @@ Para que la api funcione es necesario crear un archivo .env de la siguiente form
 DB_USER=usuariodepostgres
 DB_PASSWORD=passwordDePostgres
 DB_HOST=localhost
+
+JWT_SECRET=palabraSecret
+COOKIE_SECRET=asK9USD8SFZASLDlpfkqaefrekigdxkicauqLSDKFE
 ```
 
 También hay que tener creada una base de datos con el nombre eccomerce
