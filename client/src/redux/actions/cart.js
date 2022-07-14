@@ -20,29 +20,23 @@ export const modifyCart = (details) => {
   };
 };
 
-export const removeCart = (id,size) => {
+export const removeCart = (productId) => {
   return {
     type: REMOVE_CART,
-    payload: {
-      id,
-      size: size
-    },
+    payload: productId,
   };
 };
 
-export const addPriceCart = (price, id , talle) => {
+export const addPriceCart = (price, id) => {
   return {
     type: PRICE_CART,
-    payload: { price, id , talle},
+    payload: { price, id },
   };
 };
 
-export const removePriceCart = (id,talle) => {
+export const removePriceCart = (id) => {
   return {
     type: PRICE_REMOVE_CART,
-    payload: {
-    id,
-    size:talle
-  }
+    payload: id,
   };
 };
