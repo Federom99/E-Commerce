@@ -18,7 +18,6 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-  
     direccion_de_envio: {
       type: DataTypes.JSON,
       allowNull: false,
