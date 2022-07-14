@@ -14,7 +14,6 @@ import { useDispatch, useSelector } from "react-redux";
 import CreateProduct from "./components/CreateProduct";
 import Footer from "./components/Footer";
 import Loading from "./components/Loader";
-import Confirmacion from "./pages/Confirmacion";
 import NoMatch from "./pages/NoMatch";
 import { getProducts } from "./redux/actions/product";
 import { ErrorContainer } from "./styles/appStyle";
@@ -22,7 +21,7 @@ import DahboardAdmin from "./components/DashboardAdmin";
 import Users from "./pages/Admin/users";
 import Products from "./pages/Admin/products";
 import Sales from "./pages/Admin/sales";
-
+import Confirmacion from "./pages/Confirmacion";
 import { GlobalStyle } from "./styles/GlobalStyles";
 import { clearMsg } from "./redux/actions/autenticacion";
 

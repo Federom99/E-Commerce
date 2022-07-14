@@ -82,6 +82,7 @@ export default function NewUser() {
             direccion: newUser.adress,
           }
         );
+        
         setAlert({ msg: data.msg, type: "success" });
         event.target[0].value = "";
         event.target[1].value = "";
