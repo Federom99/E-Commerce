@@ -64,8 +64,8 @@ const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
     else {
       if (talle === 'Sin talle') alert (`No hay stock de ${nombre}`)
       else alert (`No hay stock de ${nombre} en talle ${talle}`)
-
-
+    }
+  }
   const handleChange = (event) => {
     size.current = event.target.value;
   };
