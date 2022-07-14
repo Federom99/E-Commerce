@@ -14,12 +14,12 @@ export default function OrderItem({ item , setAlert}) {
     subtotal:(item.precio*item.cantidad)
   })
 
-  const store = useSelector(state=>state.cart.priceCart)
+  const store = useSelector(state=>state.cart.priceCart.length  )
   const dispatch = useDispatch();
 
   useEffect(() => {
     //envia modificacion de precios al carrito y alerta para el total
-    dispatch(addPriceCart(priceCart.subtotal, item.id));
+    dispatch(addPriceCart(priceCart.subtotal, item.id , item.talle));
     setAlert(alert=>alert+1)
   }, [priceCart , store]);
 
@@ -40,8 +40,9 @@ export default function OrderItem({ item , setAlert}) {
     }
   };
   const removeItem = () => {
-    dispatch(removeCart(item.id));
-    dispatch(removePriceCart(item.id));
+
+    dispatch(removeCart(item.id,item.talle));
+    dispatch(removePriceCart(item.id,item.talle));
   };
   return (
     <Div>

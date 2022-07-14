@@ -50,20 +50,19 @@ export default function AddPopUp({ id, nombre, img, precio, close , talle , chec
   };
   const addMore = async() => {
     let amount= pedido.cantidad
-    let check = await checkStock(amount)
-    if (check){
-      let newOrder = {
-        id,
-        amount,
-      };
-      dispatch(modifyCart(newOrder));
-      alert(`${amount} items extra agregados al carrito`);
-      close();
-    }
-    else alert(`No hay suficiente stock`)
+    let size = talle.current
+    let newOrder = {
+      id,
+      size,
+      amount
+    };
+    dispatch(modifyCart(newOrder));
+    alert(`${amount} items extra agregados al carrito`);
+    close();
   };
   const deleteCartItem = () => {
-    dispatch(removeCart(id));
+    let size = talle.current
+    dispatch(removeCart(id,size));
     close();
   };
   const formatPrice = (price) => {
