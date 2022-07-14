@@ -83,7 +83,8 @@ conn.sync({ force: true }).then(() => {
           direccion: u.direccion,
           dni: u.dni,
           contraseña: await hashPassword(u.contraseña),
-          isAdmin: u.isAdmin
+          isAdmin: u.isAdmin,
+          confirmado: true
         })
 
       })
