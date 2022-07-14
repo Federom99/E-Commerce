@@ -3,7 +3,7 @@ import { FaStar } from "react-icons/fa";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-
+import axios from "axios";
 import {
   Main,
   Div,
@@ -35,12 +35,13 @@ const ProductDetail = () => {
   let size = ''
   const stars = Array(5).fill(0);
 
+
   const handleClick = (value) => {
     setCurrentValue(value);
   };
   
   const defineSize = (event)=>{
-    size=event.target.innerHTML;
+    setSize(event.target.innerHTML)
   }
 
   const handleMouseOver = (newHoverValue) => {
@@ -57,6 +58,7 @@ const ProductDetail = () => {
   let loading = useSelector((state) => state.product.loading);
   let error = useSelector((state) => state.product.error);
   let { productId } = useParams();
+
   // useEffect(() => {
   //   if (productId !== undefined) {
   //     dispatch(getProduct(productId));
@@ -76,9 +78,39 @@ const ProductDetail = () => {
     }
   },[])
 
-  const addCart = ()=>{
+  const checkStock = async (cantidad = 1) =>{
+    let talle = size
+    const product = await axios.get(`http://localhost:3001/product/${productId}`);
+    if (talle==='Sin talle'){
+      if (product.data.talles[0].producto_talle.stock >= cantidad ) return true
+      else return false
+    }
+    else{
+      const index = await product.data.talles.findIndex(p=> p.talle === talle) 
+      if (product.data.talles[index].producto_talle.stock >= cantidad ) return true
+      else return false
+    }
+  }
+
+  useEffect(()=>{
+    if (Object.keys(product).length){
+      if (product.categorium.nombre === 'Accesorios'){
+        setSize("Sin talle")
+        setStock(product.talles[0].producto_talle.stock)
+      } 
+    }
+  },[product])
+
+  useEffect(()=>{
+    if (Object.keys(product).length && product.categorium.nombre !== 'Accesorios' && size){
+      let index = product.talles.findIndex(p=>p.talle === size)
+      setStock(product.talles[index].producto_talle.stock)
+    }    
+  },[size])
+
+  const addCart = async ()=>{
     if(product.categorium?.nombre ==="Accesorios"){
-      size="Sin talle";
+      setSize("Sin talle");
     };
     let order = {
       ...product,
@@ -86,8 +118,13 @@ const ProductDetail = () => {
       cantidad:1
     };
     if (order.talle){
-      dispatch(addToCart(order));
-      alert("Agregado al carrito");
+      const check = await checkStock()
+      if (check){
+        dispatch(addToCart(order));
+        alert("Agregado al carrito");
+      } else{
+        alert(`No hay stock `)
+      }
     }
     else alert("Seleccione un talle");
   }
@@ -110,7 +147,10 @@ const ProductDetail = () => {
         </ImageContainer>
         <InfoContainer>
           <H2>{product?.nombre}</H2>
-          <P stock={8}>Precio: $ {formatPrice}</P>
+          {
+            size ? ( <P stock={stock}>Precio: $ {formatPrice}</P> ) : null
+          }
+          
           {/* <Stars>
             {stars.map((_, index) => {
               return (

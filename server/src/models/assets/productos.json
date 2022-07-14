@@ -68,7 +68,7 @@
     "descripcion": "Color: Blacno. 100% algodon",
     "imagen": "https://static.bershka.net/4/photos2/2022/I/0/2/p/8167/538/250/8167538250_2_4_3.jpg",
     "talle": ["S", "M", "L", "XL"],
-    "stock": [20, 20, 15, 40],
+    "stock": [0, 20, 15, 40],
     "categoria": ["Remeras"]
   },
   {
@@ -2254,7 +2254,7 @@
     "precio": "500",
     "descripcion": "Color: Natural. Tarjetero liso con clip. Tiene tres posiciones para tarjetas, una en cada lateral y la tercera central con tirador para poder extraer las tarjetas. Dispone de clip metalico para billetes.",
     "imagen": "https://static.zara.net/photos///2021/I/1/2/p/3818/820/111/2/w/850/3818820111_6_1_1.jpg?ts=1633076024079",
-    "stock": 15,
+    "stock": 0,
     "categoria": ["Accesorios"]
   },
   {
