@@ -25,19 +25,19 @@ export const removeCart = (id,size) => {
     type: REMOVE_CART,
     payload: {
       id,
-      size: size
+      size,
     },
   };
 };
 
-export const addPriceCart = (price, id , talle) => {
+export const addOrder = (order) => {
   return {
     type: PRICE_CART,
-    payload: { price, id , talle},
+    payload: order,
   };
 };
 
-export const removePriceCart = (id,talle) => {
+export const removeOrder = (id,talle) => {
   return {
     type: PRICE_REMOVE_CART,
     payload: {

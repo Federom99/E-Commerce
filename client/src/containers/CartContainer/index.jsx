@@ -1,25 +1,49 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import Header from "../../components/Cart/Header";
-import OrderList from "../../components/Cart/List";
-import Pricing from "../../components/Cart/Pricing";
-import { List, Li , Error , Div } from "./styles";
-
+import { List, Li , Error , Div , Header , CatList , Main, PriceSection} from "./styles";
+import OrderItem from '../../components/Cart/OrderItem'
 export default function ShoppingCart() {
-  const shoppingCart = useSelector((store) => store.cart.shoppingCart);
+  const [shoppingCart,order] = useSelector((store) => [store.cart.shoppingCart,store.cart.order]);
   const [alert,setAlert] = useState(1)
+  const [amount,setAmount] = useState(shoppingCart.length)
+  // const [price , setPrice] = useState(0)
+  
+  useEffect(()=>{
+    setAmount(shoppingCart.length)
+  },[shoppingCart.length])
+
+  
+  const price = order.reduce((prev,compra)=> prev+compra.subtotal,0)
   return (
     <Div>
+ 
       { shoppingCart && shoppingCart.length ? (
         <List>
           <Li>
-            <Header cantidad={shoppingCart.length} />
+            <Header>
+              {
+                  amount >1 ? <h1> Finalizar compra de {amount} productos </h1> : <h1> Finalizar compra </h1>
+              }
+            </Header>
           </Li>
           <Li>
-            <OrderList shoppingCart={shoppingCart} setAlert={setAlert} />
+            <section>
+              <CatList>
+                <Li><h2>Producto</h2></Li>
+                <Li><h2>Descripcion</h2></Li>
+                <Li><h2>Precio unitario</h2> </Li>
+                <Li><h2>Cantidad</h2></Li>
+                <Li><h2>Subtotal</h2></Li>
+              </CatList>
+            </section>
+            <Main>
+              {
+              shoppingCart.map(item=><OrderItem item={item}/>)
+              }
+            </Main>            
           </Li>
           <Li>
-            <Pricing alert={alert}/>
+            <PriceSection>Precio final: ${price}</PriceSection>
           </Li>
         </List>
       ) : (

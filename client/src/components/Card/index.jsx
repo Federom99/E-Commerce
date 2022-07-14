@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import AddPopUp from "../PopUp";
 import { useNavigate } from "react-router-dom";
 import { addToCart } from "../../redux/actions/cart";
-import { postFavorite } from '../../redux/actions/product';
+// import { postFavorite } from '../../redux/actions/product';
 import {
   DIV,
   ContainerImage,
@@ -56,8 +56,7 @@ const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
     };
 
     const check = await checkStock()
-    if (check){
-      //restar stock      
+    if (check){      
       dispatch(addToCart(order))
       setOpen (isOpen=>!isOpen)
     }
@@ -82,7 +81,7 @@ const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
         <H2 to={`/detail/${id}`}>{nombre}</H2>
         <div>
           <PriceSize>
-            <Select onChange={ () => handleChange(id)}>
+            <Select onChange={handleChange}>
               {talles.map((talle, i) => (
                 <option key={i} value={talle.talle}>{talle.talle}</option>
               ))}

@@ -31,8 +31,10 @@ const colors = {
 const ProductDetail = () => {
   const [currentValue, setCurrentValue] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
-  const [isLoading , setIsLoading] = useState(true)
-  let size = ''
+  const [size , setSize] = useState('');
+  const [stock , setStock] = useState(0);
+  const [isLoading , setIsLoading] = useState(true);
+  
   const stars = Array(5).fill(0);
 
 
@@ -59,19 +61,17 @@ const ProductDetail = () => {
   let error = useSelector((state) => state.product.error);
   let { productId } = useParams();
 
-  // useEffect(() => {
-  //   if (productId !== undefined) {
-  //     dispatch(getProduct(productId));
-  //   }
-  // }, [productId]);
-
-  useEffect (()=>{
+  
+  useEffect(()=>{
     if (!Object.keys(product).length){
       dispatch(getProduct(productId))
     }
-    if (Object.keys(product).length) setIsLoading(false)
+    else {
+      setTimeout(()=>{
+        setIsLoading(false)
+      },1000)
+    }
   },[product])
-
   useEffect(()=>{
     return ()=>{
       dispatch(deleteProduct())
