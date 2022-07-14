@@ -17,7 +17,7 @@ import Loading from "./components/Loader";
 import NoMatch from "./pages/NoMatch";
 import { getProducts } from "./redux/actions/product";
 import { ErrorContainer } from "./styles/appStyle";
-import DahboardAdmin from "./components/DashboardAdmin";
+import DashboardAdmin from "./components/DashboardAdmin";
 import Users from "./pages/Admin/users";
 import Products from "./pages/Admin/products";
 import Sales from "./pages/Admin/sales";

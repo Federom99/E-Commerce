@@ -1,4 +1,5 @@
 import DataTable from 'react-data-table-component';
+import './products.css'
 
 const tablaUsuarios = [
     {
@@ -91,30 +92,39 @@ const tablaUsuarios = [
     }
   ]
 
+  function alerta2 ( nombre ) {
+  alert(nombre)
+}
+
 const columnas = [
    { 
-    name: 'ID',
-    selector: 'id',
-    sortable: true
-   },
-   { 
     name: 'Nombre',
-    selector: 'nombre',
+    selector: row => `${ row.nombre }`,
     sortable: true
    },
    { 
     name: 'Apellido',
-    selector: 'apellido',
+    selector: row => `${ row.apellido }`,
     sortable: true
    },
    { 
     name: 'Mail',
-    selector: 'mail',
+    selector: row => `${ row.mail }`,
     sortable: true
    },
    { 
     name: 'Telefono',
-    selector: 'telefono',
+    selector: row => `${ row.telefono }`,
+    sortable: true
+   },
+   { 
+    name: 'Admin',
+    selector: row => row.isAdmin == true ? 'SI' : 'NO',
+    sortable: true
+   },
+   { 
+    name: 'Acciones',
+    selector: row => <button className='user' onClick={ () => alerta2(row.nombre + " " + row.apellido)}>Editar</button>,
     sortable: true
    },
 ]
