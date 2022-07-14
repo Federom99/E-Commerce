@@ -25,10 +25,10 @@ export default function Login() {
   const dispatch = useDispatch();
   const error = useSelector((state) => state.auth.error);
   const loading = useSelector((state) => state.auth.loading);
-  const user = useSelector((state) => state.auth.user);
 
   useEffect(() => {
-    if (user) {
+    const userSession = localStorage.getItem("user");
+    if (userSession) {
       navigate("/");
     }
   }, []);
@@ -40,10 +40,7 @@ export default function Login() {
       setAlert({ msg: "All fields are required", type: "error" });
       return;
     }
-    dispatch(login({ mail, contraseña: password })).then(() => {
-      navigate("/");
-      window.location.reload();
-    });
+    dispatch(login({ mail, contraseña: password }));
   };
 
   let content;
