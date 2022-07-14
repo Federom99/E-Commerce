@@ -1,9 +1,10 @@
 const server = require("./src/app.js");
 const { conn } = require("./src/db.js");
 
-const { Producto, Talle, Producto_talle, Categoria, Usuario} = require("./src/db.js");
+const { Producto, Talle, Producto_talle, Categoria, Usuario, Pedido, Compra} = require("./src/db.js");
 
 const fs = require("fs");
+const { hashPassword } = require("./src/helpers/hashPassword.js");
 
 // Syncing all the models at once.
 // Seteado en force: true para que sea facil debuggear.
@@ -58,6 +59,62 @@ conn.sync({ force: true }).then(() => {
         p.stock ? await Producto_talle.update({stock: p.stock}, {where: {id: talleAgregado[0].dataValues.id}}) : await Producto_talle.update({stock: 0}, {where: {id: talleAgregado[0].dataValues.id}})
       }
       });
+
+
+      //Agarro los usuarios del JSON
+      const usuariosJSON = JSON.parse(
+        fs.readFileSync(__dirname + "/src/models/assets/usuarios.json")
+      );
+
+      const users = []
+
+      //Por cada usuario del JSON, creo un usuario en la DB con su data (encriptando la pass).
+      usuariosJSON.forEach(async (u) => {
+
+        //Pongo su id en un array
+        users.push(u.id)
+
+        await Usuario.create({
+          id: u.id,
+          nombre: u.nombre,
+          apellido: u.apellido,
+          telefono: u.telefono,
+          mail: u.mail,
+          direccion: u.direccion,
+          dni: u.dni,
+          contraseña: await hashPassword(u.contraseña),
+          isAdmin: u.isAdmin
+        })
+
+      })
+
+      //Saco los pedidos del json
+      const pedidosJSON = JSON.parse(
+        fs.readFileSync(__dirname + "/src/models/assets/pedidos.json")
+      );
+
+      pedidosJSON.forEach(async (p, i) => {
+
+        const pedido = await Pedido.create({
+          fecha: p.fecha,
+          pago_total: p.pago_total,
+          direccion_de_envio: p.direccion_de_envio,
+          estado: p.estado
+        })
+
+        p.idProductos.forEach(async (id) => {
+          const productoDelPedido = await Producto.findByPk(id)
+          await pedido.addProducto(productoDelPedido)
+        })
+
+        //Agarro un user random de la db y le asigno el pedido
+        const randomUser = await Usuario.findOne({where: {
+          id: users[Math.floor(Math.random()*users.length)]
+        }})
+
+        await randomUser.addPedido(pedido)
+
+      })
     }
     )();
   });
