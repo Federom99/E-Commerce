@@ -78,14 +78,19 @@ const authentication = async (req, res) => {
   }
 
   if (await comparePassword(contraseña, user.contraseña)) {
-    req.session.userId = user.id;
+
+    // req.session.userId = user.id; No me figuraba el userId cuando lo consologeaba así que lo cambié por un jwt
+
+    const token = generarJWT(user.id)
+
+    res.cookie('jwt', token)
 
     return res.status(200).json({
       name: user.nombre,
       email: user.mail,
       isAdmin: user.isAdmin,
       confirmado: user.confirmado,
-      token: generarJWT(),
+      token: token,
     });
   } else {
     const error = new Error("The password is not correct");
