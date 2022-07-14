@@ -76,12 +76,12 @@ const tablaPedidos = [
 const columnas = [
     { 
      name: 'Fecha',
-     selector: 'fecha',
+     selector: row => `${ row.fecha }`,
      sortable: true
     },
     { 
      name: 'Monto',
-     selector: 'pago_total',
+     selector: row => `${ row.pago_total }`,
      sortable: true
     },
     { 
@@ -96,12 +96,12 @@ const columnas = [
     },
     { 
      name: 'Estado',
-     selector: 'estado',
+     selector: row => `${ row.estado }`,
      sortable: true
     },
     { 
      name: 'ID Productos',
-     selector: 'idProductos',
+     selector: row => `${ row.idProductos }`,
      sortable: true
     },
  ]

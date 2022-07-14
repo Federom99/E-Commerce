@@ -14,12 +14,11 @@ import { useDispatch, useSelector } from "react-redux";
 import CreateProduct from "./components/CreateProduct";
 import Footer from "./components/Footer";
 import Loading from "./components/Loader";
-import Confirmacion from "./pages/Confirmacion";
+
 import NoMatch from "./pages/NoMatch";
 import { getProducts } from "./redux/actions/product";
 import { ErrorContainer } from "./styles/appStyle";
-import CreateProduct from "./components/CreateProduct";
-import DahboardAdmin from "./components/DashboardAdmin";
+import DashboardAdmin from "./components/DashboardAdmin";
 import Users from "./pages/Admin/users";
 import Products from "./pages/Admin/products";
 import Sales from "./pages/Admin/sales";
@@ -75,10 +74,10 @@ function App() {
         <Route path="/cart/" element={<ShoppingCart />} />
         <Route path="/profile/" element={<Profile />} />
         <Route path="/createProduct" element={<CreateProduct />} />
-        <Route path="/confirmacion/:id" element={<Confirmacion />} />
+        {/* <Route path="/confirmacion/:id" element={<Confirmacion />} /> */}
         <Route path="/admin" element={<AdminHub />} />
         <Route path="*" element={<NoMatch />} />
-        <Route path="/admin/dashboard/*" element={<DahboardAdmin />} />
+        <Route path="/admin/dashboard/*" element={<DashboardAdmin />} />
       </Routes>
       <Footer />
     </div>
