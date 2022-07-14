@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import NavBar from "./components/Nav";
 import MainContainer from "./containers/MainContainer";
 import AdminHub from "./pages/Admin";
@@ -9,12 +9,11 @@ import Profile from "./pages/Profile";
 
 import Login from "./pages/Login";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CreateProduct from "./components/CreateProduct";
 import Footer from "./components/Footer";
 import Loading from "./components/Loader";
-
 import NoMatch from "./pages/NoMatch";
 import { getProducts } from "./redux/actions/product";
 import { ErrorContainer } from "./styles/appStyle";
@@ -22,21 +21,31 @@ import DashboardAdmin from "./components/DashboardAdmin";
 import Users from "./pages/Admin/users";
 import Products from "./pages/Admin/products";
 import Sales from "./pages/Admin/sales";
-
+import Confirmacion from "./pages/Confirmacion";
 import { GlobalStyle } from "./styles/GlobalStyles";
+import { clearMsg } from "./redux/actions/autenticacion";
 
+function handleErrors(response, rest) {
+  if (response.status === 400) {
+    throw rest.name;
+  }
+  return rest;
+}
 
 function App() {
-  // const location = useLocation();
-  const dispatch = useDispatch();
-
   const error = useSelector((state) => state.product.error);
   const loading = useSelector((state) => state.product.loading);
   const products = useSelector((state) => state.product.products);
+  const dispatch = useDispatch();
+  let location = useLocation();
 
   useEffect(() => {
     dispatch(getProducts());
   }, []);
+
+  useEffect(() => {
+    dispatch(clearMsg());
+  }, [location]);
 
   useEffect(() => {
     if (error) {
@@ -55,9 +64,9 @@ function App() {
   }
   if (loading)
     return (
-      <div>
+      <ErrorContainer>
         <Loading />
-      </div>
+      </ErrorContainer>
     );
 
   return (
@@ -74,10 +83,10 @@ function App() {
         <Route path="/cart/" element={<ShoppingCart />} />
         <Route path="/profile/" element={<Profile />} />
         <Route path="/createProduct" element={<CreateProduct />} />
-        {/* <Route path="/confirmacion/:id" element={<Confirmacion />} /> */}
+        <Route path="/confirmar/:id" element={<Confirmacion />} />
         <Route path="/admin" element={<AdminHub />} />
+        <Route path="/admin/dashboard/*" element={<DahboardAdmin />} />
         <Route path="*" element={<NoMatch />} />
-        <Route path="/admin/dashboard/*" element={<DashboardAdmin />} />
       </Routes>
       <Footer />
     </div>

@@ -1,11 +1,9 @@
 import {
+  CLEAR_MESSAGE,
   LOGIN_BEGIN,
   LOGIN_FAIL,
   LOGIN_SUCCESS,
   LOGOUT,
-  REGISTER_BEGINS,
-  REGISTER_FAIL,
-  REGISTER_SUCCESS,
 } from "../actions/actionTypes";
 
 const user = JSON.parse(localStorage.getItem("user"));
@@ -18,30 +16,6 @@ export default function (state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {
-    case REGISTER_BEGINS:
-      return {
-        ...state,
-        isLoggedIn: false,
-        loading: true,
-        error: null,
-        msg: null,
-      };
-    case REGISTER_SUCCESS:
-      console.log(payload);
-      return {
-        ...state,
-        isLoggedIn: true,
-        loading: false,
-        error: null,
-      };
-    case REGISTER_FAIL:
-      return {
-        ...state,
-        isLoggedIn: false,
-        loading: false,
-        error: payload.error,
-        msg: null,
-      };
     case LOGIN_BEGIN:
       return {
         ...state,
@@ -67,6 +41,13 @@ export default function (state = initialState, action) {
         user: null,
         loading: false,
         error: payload.error,
+        msg: null,
+      };
+
+    case CLEAR_MESSAGE:
+      return {
+        ...state,
+        error: null,
         msg: null,
       };
     case LOGOUT:

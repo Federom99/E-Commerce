@@ -39,23 +39,20 @@ const {Categoria, Pedido, Producto, ProductosFav, Rating, Usuario, Talle, Produc
 Producto.belongsTo(Categoria);
 Categoria.hasMany(Producto);
 
-Producto.belongsToMany(Pedido, {through: "producto_pedido"});
-Pedido.belongsToMany(Producto, {through: "producto_pedido"});
-
 Usuario.hasMany(Pedido);
-Pedido.hasOne(Usuario);
+Pedido.belongsTo(Usuario, { through: Compra });
 
+Producto.belongsToMany(Pedido, { through: Compra });
+Pedido.belongsToMany(Producto, { through: Compra });
 
 Rating.belongsTo(Producto);
 Producto.hasMany(Rating);
+
 Rating.belongsTo(Usuario);
 Usuario.hasMany(Rating);
 
 ProductosFav.belongsToMany(Usuario, {through: "producto_fav_usuario"});
 Usuario.belongsToMany(ProductosFav, {through: "producto_fav_usuario"});
-
-Producto.belongsToMany(Pedido, { through: Compra });
-Pedido.belongsToMany(Producto, { through: Compra });
 
 Producto.belongsToMany(Talle, {through: Producto_talle})
 Talle.belongsToMany(Producto, {through: Producto_talle})
