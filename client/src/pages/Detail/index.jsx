@@ -31,10 +31,11 @@ const colors = {
 const ProductDetail = () => {
   const [currentValue, setCurrentValue] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
+
   const [size , setSize] = useState('');
   const [stock , setStock] = useState(0);
   const [isLoading , setIsLoading] = useState(true);
-  
+
   const stars = Array(5).fill(0);
 
 
@@ -61,7 +62,6 @@ const ProductDetail = () => {
   let error = useSelector((state) => state.product.error);
   let { productId } = useParams();
 
-  
   useEffect(()=>{
     if (!Object.keys(product).length){
       dispatch(getProduct(productId))
@@ -74,9 +74,10 @@ const ProductDetail = () => {
   },[product])
   useEffect(()=>{
     return ()=>{
+
       dispatch(deleteProduct())
     }
-  },[])
+  }, [productId]);
 
   const checkStock = async (cantidad = 1) =>{
     let talle = size
@@ -130,7 +131,7 @@ const ProductDetail = () => {
   }
 
   if (error) return <div>Error! {error.message}</div>;
-  if (isLoading)
+  if (loading)
     return (
       <div>
         <Loading />
@@ -180,7 +181,7 @@ const ProductDetail = () => {
               })}
           </SizeInfo>
           <Description>{product.descripcion}</Description>
-          <Button onClick={addCart}>Añadir al carrito</Button>
+          <Button onClick={addCart}>Add to cart</Button>
           {/* <Review placeholder="Enter a review of the product"></Review> */}
           <Button>Send review</Button>
         </InfoContainer>

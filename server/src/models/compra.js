@@ -11,11 +11,11 @@ module.exports = (sequelize) => {
       allowNull: false,
       primaryKey: true,
     },
-    cantidad: {
-      type: DataTypes.INTEGER,
-      defaultValue: 1,
-      allowNull: true,
-      primaryKey: true,
-    },
+    // cantidad: {
+    //   type: DataTypes.INTEGER,
+    //   defaultValue: 1,
+    //   allowNull: true,
+    //   primaryKey: true,
+    // },
   });
 };

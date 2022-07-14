@@ -4,6 +4,10 @@ const {
   register,
   getUsers,
   confirmarCuenta,
+  salir,
+  olvidePassword,
+  comprobarToken,
+  nuevoPassword,
 } = require("../controllers/user.controller.js");
 
 const { Usuario } = require("../db");
@@ -13,6 +17,10 @@ const router = Router();
 router.post("/register", register);
 router.post("/login", authentication);
 router.get("/confirmar/:token", confirmarCuenta);
+router.post("/salir", salir);
+router.post("/olvide-password", olvidePassword);
+router.get("/olvide-password/:token", comprobarToken);
+router.post("/olvide-password/:token", nuevoPassword);
 router.get("/", getUsers);
 
 router.get("/profile/:id", async (req, res) => {

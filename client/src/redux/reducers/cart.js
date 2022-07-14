@@ -15,7 +15,7 @@ const initialState = {
 
 export default function cartReducer(state = initialState, action) {
   switch (action.type) {
-    case ADD_CART:      
+     case ADD_CART:      
       for (let i=0;i<state.shoppingCart.length;i++){
         if (state.shoppingCart[i].id === action.payload.id && state.shoppingCart[i].talle === action.payload.talle){
           state.shoppingCart[i].cantidad += 1

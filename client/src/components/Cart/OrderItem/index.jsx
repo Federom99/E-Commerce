@@ -16,18 +16,27 @@ export default function OrderItem({ item }) {
     subtotal:(item.precio*item.cantidad)
   })
 
+
   const shoppingCart = useSelector(state=>state.cart.shoppingCart)
+
   const dispatch = useDispatch();
   
   useEffect(()=>{
     dispatch(addOrder(productOrder))
   },[productOrder,shoppingCart])
 
+
   const incAmount = ()=>{
     setOrder({
       ...productOrder,
       cantidad:productOrder.cantidad+1,
       subtotal:item.precio*(productOrder.cantidad+1)
+
+  const incAmount = () => {
+    setPriceCart({
+      ...priceCart,
+      cantidad:priceCart.cantidad+1,
+      subtotal:item.precio*(priceCart.cantidad+1)
     })
   }
 
@@ -41,8 +50,10 @@ export default function OrderItem({ item }) {
     }
   };
   const removeItem = () => {
+
     dispatch(removeCart(item.id,item.talle))
     dispatch(removeOrder(item.id,item.talle));
+
   };
   return (
     <Div>
