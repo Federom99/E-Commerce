@@ -1,0 +1,24 @@
+.nuevo {
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 18px;
+    color: white;
+    background-color: #1877f2;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #1877f2;
+}
+
+.nuevo:hover{
+    background-color: #1666cf;
+}
+
+.user {
+    padding: 7px;
+    font-size: 15px;
+    color: white;
+    background-color: #1877f2;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #1877f2;
+}

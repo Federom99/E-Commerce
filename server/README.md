@@ -6,6 +6,9 @@ Para que la api funcione es necesario crear un archivo .env de la siguiente form
 DB_USER=usuariodepostgres
 DB_PASSWORD=passwordDePostgres
 DB_HOST=localhost
+
+JWT_SECRET=palabraSecret
+COOKIE_SECRET=asK9USD8SFZASLDlpfkqaefrekigdxkicauqLSDKFE
 ```
 
 También hay que tener creada una base de datos con el nombre eccomerce
@@ -93,6 +96,15 @@ PUT /admin/pedido/:id. Basicamente lo mismo que el anterior. Es para cambiar el 
 POST /admin/crearorigen/. Aca se cargan los productos en la db con el metodo bulkCreate. Esto lo que hace es cargarlos masivamente y rápido
 
 POST /admin/crearusuarios/. Lo mismo que el de arriba
+
+PUT /stock/:productId. Recibe el id del producto y por body recibe:
+
+```json
+{
+    "talle": "XL", //Nombre del talle
+    "stock": 3 //Nuevo stock
+}
+```
 
 
 
