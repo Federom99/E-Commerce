@@ -31,15 +31,7 @@ export default function OrderItem({ item }) {
       ...productOrder,
       cantidad:productOrder.cantidad+1,
       subtotal:item.precio*(productOrder.cantidad+1)
-
-  const incAmount = () => {
-    setPriceCart({
-      ...priceCart,
-      cantidad:priceCart.cantidad+1,
-      subtotal:item.precio*(priceCart.cantidad+1)
-    })
-  }
-
+    })}
   const decAmount = () => {
     if (productOrder.cantidad > 1) {
       setOrder({
