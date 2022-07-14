@@ -34,10 +34,13 @@ const deletleReview = require("./deleteReview");
 const getRatingUserID = require("./getRatingUserID");
 const deleteUser = require("./deleteUser");
 const deletePedido = require('./deletePedido');
+<<<<<<< HEAD
 const confirmarCompra = require('./confirmarCompra');
 const productoDespachado = require('./productoDespachado');
 const productoLlegando = require('./productoLlegando');
 const compraEntregada = require('./compraEntregada');
+=======
+>>>>>>> 8e8d34f5dd574e48f7427f4470b081ae78ff03ef
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
