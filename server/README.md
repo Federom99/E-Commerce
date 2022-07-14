@@ -94,6 +94,15 @@ POST /admin/crearorigen/. Aca se cargan los productos en la db con el metodo bul
 
 POST /admin/crearusuarios/. Lo mismo que el de arriba
 
+PUT /stock/:productId. Recibe el id del producto y por body recibe:
+
+```json
+{
+    "talle": "XL", //Nombre del talle
+    "stock": 3 //Nuevo stock
+}
+```
+
 
 
 
