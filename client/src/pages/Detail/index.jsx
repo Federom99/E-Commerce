@@ -31,8 +31,8 @@ const colors = {
 const ProductDetail = () => {
   const [currentValue, setCurrentValue] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
-  const [size , setSize] = useState('')
-  const [stock , setStock] = useState(0)
+  const [isLoading , setIsLoading] = useState(true)
+  let size = ''
   const stars = Array(5).fill(0);
 
 
@@ -58,12 +58,25 @@ const ProductDetail = () => {
   let loading = useSelector((state) => state.product.loading);
   let error = useSelector((state) => state.product.error);
   let { productId } = useParams();
-  useEffect(() => {
-      dispatch(getProduct(productId));
-    return()=>{
+
+  // useEffect(() => {
+  //   if (productId !== undefined) {
+  //     dispatch(getProduct(productId));
+  //   }
+  // }, [productId]);
+
+  useEffect (()=>{
+    if (!Object.keys(product).length){
+      dispatch(getProduct(productId))
+    }
+    if (Object.keys(product).length) setIsLoading(false)
+  },[product])
+
+  useEffect(()=>{
+    return ()=>{
       dispatch(deleteProduct())
     }
-  }, [productId]);
+  },[])
 
   const checkStock = async (cantidad = 1) =>{
     let talle = size
@@ -117,7 +130,7 @@ const ProductDetail = () => {
   }
 
   if (error) return <div>Error! {error.message}</div>;
-  if (loading)
+  if (isLoading)
     return (
       <div>
         <Loading />
@@ -167,7 +180,7 @@ const ProductDetail = () => {
               })}
           </SizeInfo>
           <Description>{product.descripcion}</Description>
-          <Button onClick={addCart}>Add to cart</Button>
+          <Button onClick={addCart}>Añadir al carrito</Button>
           {/* <Review placeholder="Enter a review of the product"></Review> */}
           <Button>Send review</Button>
         </InfoContainer>
