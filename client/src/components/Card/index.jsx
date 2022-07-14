@@ -56,16 +56,15 @@ const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
       cantidad: 1,
     };
 
-    const check = await checkStock();
-    if (check) {
-      //restar stock
-      dispatch(addToCart(order));
-      setOpen((isOpen) => !isOpen);
-    } else {
-      if (talle === "Sin talle") alert(`No hay stock de ${nombre}`);
-      else alert(`No hay stock de ${nombre} en talle ${talle}`);
+    const check = await checkStock()
+    if (check){      
+      dispatch(addToCart(order))
+      setOpen (isOpen=>!isOpen)
     }
-  };
+    else {
+      if (talle === 'Sin talle') alert (`No hay stock de ${nombre}`)
+      else alert (`No hay stock de ${nombre} en talle ${talle}`)
+
 
   const handleChange = (event) => {
     size.current = event.target.value;
@@ -83,7 +82,8 @@ const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
         <H2 to={`/detail/${id}`}>{nombre}</H2>
         <div>
           <PriceSize>
-            <Select onChange={() => handleChange(id)}>
+
+            <Select onChange={handleChange}>
               {talles.map((talle, i) => (
                 <option key={i} value={talle.talle}>
                   {talle.talle}
