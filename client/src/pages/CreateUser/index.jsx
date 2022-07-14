@@ -70,32 +70,24 @@ export default function NewUser() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (!Object.keys(errors).length && Object.keys(newUser).length) {
-      // try {
-      //   const { data } = await axios.post(
-      //     "http://localhost:3001/user/register",
-      //     {
-      //       nombre: newUser.name,
-      //       apellido: newUser.lastname,
-      //       mail: newUser.email,
-      //       contraseña: newUser.password,
-      //       direccion: newUser.adress,
-      //     }
-      //   );
-      //   console.log(data);
+      try {
+        const { data } = await axios.post(
+          "http://localhost:3001/user/register",
+          {
+            nombre: newUser.name,
+            apellido: newUser.lastname,
+            mail: newUser.email,
+            contraseña: newUser.password,
+            direccion: newUser.adress,
+          }
+        );
+        console.log(data);
 
-      //   setAlert({ msg: data.msg, type: "success" });
-      // } catch (error) {
-      //   setAlert({ msg: error.response.data.msg, type: "error" });
-      // }
-      dispatch(
-        register({
-          nombre: newUser.name,
-          apellido: newUser.lastname,
-          mail: newUser.email,
-          contraseña: newUser.password,
-          direccion: newUser.adress,
-        })
-      );
+        setAlert({ msg: data.msg, type: "success" });
+      } catch (error) {
+        setAlert({ msg: error.response.data.msg, type: "error" });
+      }
+
       event.target[0].value = "";
       event.target[1].value = "";
       event.target[2].value = "";

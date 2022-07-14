@@ -1,13 +1,11 @@
 const { Usuario } = require("../db.js");
-const { emailRegistro } = require("../helpers/emails.js");
+const { emailRegistro, emailOlvidePassword } = require("../helpers/emails.js");
 const { generarJWT } = require("../helpers/generarJWT.js");
 const generarTokenID = require("../helpers/generarTokenID.js");
 const { comparePassword, hashPassword } = require("../helpers/hashPassword.js");
 
 const register = async (req, res) => {
   //Sacamos los datos necesarios del body del request
-  console.log(req.body);
-  console.log(req.body);
   const { nombre, apellido, telefono, mail, direccion, contraseña, dni } =
     req.body;
 
@@ -120,10 +118,95 @@ const confirmarCuenta = async (req, res) => {
     usuarioConfirmar.token = "";
     await usuarioConfirmar.save();
 
-    return res.json({ msg: "User Confirmed Succesfully!" });
+    return res.json({
+      msg: "User Confirmed Succesfully!",
+      user: { confirmado: usuarioConfirmar.confirmado },
+    });
   } catch (error) {
     console.log(error);
   }
 };
 
-module.exports = { register, authentication, getUsers, confirmarCuenta };
+const olvidePassword = async (req, res) => {
+  const { email } = req.body;
+
+  const mail = email;
+  const userExists = await Usuario.findOne({
+    where: { mail },
+  });
+
+  if (!userExists) {
+    const error = new Error(`The user with email ${mail} not exists`);
+    return res.status(400).json({ msg: error.message });
+  }
+
+  try {
+    userExists.token = generarTokenID();
+    await userExists.save();
+
+    emailOlvidePassword({
+      email: userExists.mail,
+      name: userExists.nombre,
+      token: userExists.token,
+    });
+
+    return res.json({
+      msg: `Hemos enviado un email a ${userExists.mail} con las instrucciones`,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const comprobarToken = async (req, res) => {
+  const { token } = req.params;
+
+  const userToken = await Usuario.findOne({
+    where: { token },
+  });
+
+  if (userToken) {
+    res.json({ tokenValid: true, msg: "Token valido" });
+  } else {
+    const error = new Error("El token solicitado no es valido");
+    return res.status(404).json({ msg: error.message });
+  }
+};
+
+const nuevoPassword = async (req, res) => {
+  const { token } = req.params;
+  const { password } = req.body;
+
+  if (!password) {
+    const error = new Error("Password solicitada no ingresada");
+    return res.status(400).json({ msg: error.message });
+  }
+
+  const user = await Usuario.findOne({
+    where: { token },
+  });
+
+  if (user) {
+    user.contraseña = await hashPassword(password);
+    user.token = "";
+    try {
+      await user.save();
+      return res.json({ msg: "Password cambiado correctamente" });
+    } catch (error) {
+      console.log(error);
+    }
+  } else {
+    const error = new Error("Token no valido");
+    return res.status(404).json({ msg: error.message });
+  }
+};
+
+module.exports = {
+  register,
+  authentication,
+  getUsers,
+  confirmarCuenta,
+  olvidePassword,
+  comprobarToken,
+  nuevoPassword,
+};
