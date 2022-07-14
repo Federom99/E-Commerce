@@ -25,11 +25,11 @@ export default function Login() {
   const dispatch = useDispatch();
   const error = useSelector((state) => state.auth.error);
   const loading = useSelector((state) => state.auth.loading);
+  const user = useSelector((state) => state.auth.user);
 
   useEffect(() => {
-    const userSession = localStorage.getItem("token");
-    if (userSession) {
-      navigate("/");
+    if (user) {
+      // navigate("/");
     }
   }, []);
 
@@ -40,36 +40,23 @@ export default function Login() {
       setAlert({ msg: "All fields are required", type: "error" });
       return;
     }
-
-    // try {
-    //   const { data } = await axios.post("http://localhost:3001/user/login", {
-    //     mail: email,
-    //     contraseña: password,
-    //   });
-
-    //   localStorage.setItem("token", data.token);
-    //   navigate("/");
-    // } catch (error) {
-    //   setAlert({ msg: error.response.data.msg, type: "error" });
-    // }
     dispatch(login({ mail, contraseña: password })).then(() => {
-      navigate("/");
-      window.location.reload();
+      // navigate("/");
+      // window.location.reload();
     });
   };
 
-  // const { msg } = alert;
-  // let content;
-  // if (error) {
-  //   content = <div>{error}</div>;
-  // }
-  // if (loading) {
-  //   content = (
-  //     <div>
-  //       <Loading />
-  //     </div>
-  //   );
-  // }
+  let content;
+  if (error) {
+    content = <Div>{error}</Div>;
+  }
+  if (loading) {
+    content = (
+      <Div>
+        <Loading />
+      </Div>
+    );
+  }
 
   return (
     <Div>
@@ -108,22 +95,7 @@ export default function Login() {
               </li>
             </Blist>
           </Form>
-
-          {alert.msg && alert.type === "error" && (
-            <p
-              style={{
-                marginTop: 20,
-                fontSize: 13,
-                backgroundColor: "red",
-                color: "#fff",
-                textAlign: "center",
-                padding: 5,
-                borderRadius: 5,
-              }}
-            >
-              {/* {content} */}
-            </p>
-          )}
+          {content}
         </InputDiv>
       </Section>
     </Div>

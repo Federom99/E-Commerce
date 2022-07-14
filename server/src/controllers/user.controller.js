@@ -6,8 +6,6 @@ const { comparePassword, hashPassword } = require("../helpers/hashPassword.js");
 
 const register = async (req, res) => {
   //Sacamos los datos necesarios del body del request
-  console.log(req.body);
-  console.log(req.body);
   const { nombre, apellido, telefono, mail, direccion, contraseña, dni } =
     req.body;
 
@@ -37,8 +35,6 @@ const register = async (req, res) => {
       token: generarTokenID(),
     });
 
-    console.log(createUser);
-
     //Cuando lo creamos, almacenamos los valores de la promesa de su creacion en la db y lo mandamos
     const createdUser = createUser.dataValues;
 
@@ -66,7 +62,6 @@ const register = async (req, res) => {
 };
 
 const authentication = async (req, res) => {
-  console.log(req.body);
   const { mail, contraseña } = req.body;
 
   const user = await Usuario.findOne({
@@ -77,14 +72,17 @@ const authentication = async (req, res) => {
     const error = new Error("This user not exist");
     return res.status(400).json({ msg: error.message });
   }
-  console.log(user);
+  if (!user.confirmado) {
+    const error = new Error("Usuario No Confirmado Por Favor revise su correo");
+    return res.status(400).json({ msg: error.message });
+  }
 
   if (await comparePassword(contraseña, user.contraseña)) {
+    req.session.userId = user.id;
+
     return res.status(200).json({
-      userId: user.id,
       name: user.nombre,
       email: user.mail,
-      token: user.token,
       isAdmin: user.isAdmin,
       confirmado: user.confirmado,
       token: generarJWT(),
@@ -126,4 +124,13 @@ const confirmarCuenta = async (req, res) => {
   }
 };
 
-module.exports = { register, authentication, getUsers, confirmarCuenta };
+const salir = async (req, res) => {
+  try {
+    req.session = null;
+    res.status(200).send("donats!");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+module.exports = { register, authentication, getUsers, confirmarCuenta, salir };

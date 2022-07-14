@@ -7,8 +7,9 @@
     "mail": "federo.15.99@gmail.com",
     "direccion": "Pilo, Córdoba",
     "dni": 41000000,
-    "contraseña": "admin",
-    "isAdmin": true
+    "contraseña": "$2a$10$XZ0ha9cd5ac3Oqx30TNN6ucqYdQn8rRYGF.CSMSpM40JWuY0FrWbS",
+    "isAdmin": true,
+    "confirmado": true
   },
   {
     "id": "9eh7Isj3LsaTgyeND7Zr2LwltwE2",
@@ -18,8 +19,9 @@
     "mail": "joseinvictus273@hotmail.com",
     "direccion": "Piumato Rodriguez, Bogota",
     "dni": 35000000,
-    "contraseña": "admin",
-    "isAdmin": true
+    "contraseña": "$2a$10$XZ0ha9cd5ac3Oqx30TNN6ucqYdQn8rRYGF.CSMSpM40JWuY0FrWbS",
+    "isAdmin": true,
+    "confirmado": true
   },
   {
     "id": "0recbbIV6GZreIlvNMc6wrxpOor1",
@@ -29,8 +31,9 @@
     "mail": "martin._orlando@hotmail.com.ar",
     "direccion": "Somewhere in the CABA",
     "dni": 44000000,
-    "contraseña": "admin",
-    "isAdmin": true
+    "contraseña": "$2a$10$XZ0ha9cd5ac3Oqx30TNN6ucqYdQn8rRYGF.CSMSpM40JWuY0FrWbS",
+    "isAdmin": true,
+    "confirmado": true
   },
   {
     "id": "fIXTjfRP2uYVpW81GoUYIRWABDr2",
@@ -40,8 +43,9 @@
     "mail": "rgzrgzm@gmail.com",
     "direccion": "Nueva Leon, Mexico",
     "dni": 30000000,
-    "contraseña": "admin",
-    "isAdmin": true
+    "contraseña": "$2a$10$XZ0ha9cd5ac3Oqx30TNN6ucqYdQn8rRYGF.CSMSpM40JWuY0FrWbS",
+    "isAdmin": true,
+    "confirmado": true
   },
   {
     "id": "hFLxCkmxGlVFkzPpy7af2b6Eeu02",
@@ -51,8 +55,9 @@
     "mail": "davidstangetz13@gmail.com",
     "direccion": "El centro del país",
     "dni": 39000000,
-    "contraseña": "admin",
-    "isAdmin": true
+    "contraseña": "$2a$10$XZ0ha9cd5ac3Oqx30TNN6ucqYdQn8rRYGF.CSMSpM40JWuY0FrWbS",
+    "isAdmin": true,
+    "confirmado": true
   },
   {
     "id": "1IbHp9pvK6gNLNJOdoBLIPyreq72",
@@ -62,8 +67,9 @@
     "mail": "alanacevedo2001@hotmail.com",
     "direccion": "Buenos aires, La plata",
     "dni": 40000000,
-    "contraseña": "admin",
-    "isAdmin": true
+    "contraseña": "$2a$10$XZ0ha9cd5ac3Oqx30TNN6ucqYdQn8rRYGF.CSMSpM40JWuY0FrWbS",
+    "isAdmin": true,
+    "confirmado": true
   },
   {
     "id": "dsI3ZazuBKTyQGJFS9ghRudXCpn1",
@@ -73,8 +79,9 @@
     "mail": "earancio616@gmail.com",
     "direccion": "CABA",
     "dni": 8000000,
-    "contraseña": "admin",
-    "isAdmin": true
+    "contraseña": "$2a$10$XZ0ha9cd5ac3Oqx30TNN6ucqYdQn8rRYGF.CSMSpM40JWuY0FrWbS",
+    "isAdmin": true,
+    "confirmado": true
   },
   {
     "id": "dsI3ZazuBKTyQGJFS9ghRudXCpn9",
@@ -84,18 +91,20 @@
     "mail": "alexiscortazzii@gmail.com",
     "direccion": "Caballito, San Juan",
     "dni": 9000000,
-    "contraseña": "admin",
-    "isAdmin": true
+    "contraseña": "$2a$10$XZ0ha9cd5ac3Oqx30TNN6ucqYdQn8rRYGF.CSMSpM40JWuY0FrWbS",
+    "isAdmin": true,
+    "confirmado": true
   },
   {
-    "id": "sjaksjkasjaksj9ajskajskajs9",
+    "id": "dsI3ZazuBKTyQGJFS9ghRudXCpn11",
     "nombre": "No Admin",
     "apellido": "Cortazzi",
     "telefono": 1100000000,
     "mail": "impropio@gmail.com",
     "direccion": "Caballito, San Juan",
     "dni": 9000000,
-    "contraseña": "admin",
-    "isAdmin": false
+    "contraseña": "$2a$10$t6grGp0Ey630gcNj9Es6T.g7PnJF6cWdQrp9GB8gc.2yTy3xWSBbu",
+    "isAdmin": false,
+    "confirmado": true
   }
 ]
