@@ -29,7 +29,7 @@ export default function Login() {
 
   useEffect(() => {
     if (user) {
-      // navigate("/");
+      navigate("/");
     }
   }, []);
 
@@ -41,8 +41,8 @@ export default function Login() {
       return;
     }
     dispatch(login({ mail, contraseña: password })).then(() => {
-      // navigate("/");
-      // window.location.reload();
+      navigate("/");
+      window.location.reload();
     });
   };
 
