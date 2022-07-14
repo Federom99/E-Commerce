@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import AddPopUp from "../PopUp";
 import { useNavigate } from "react-router-dom";
 import { addToCart } from "../../redux/actions/cart";
-import { postFavorite } from '../../redux/actions/product';
+// import { postFavorite } from '../../redux/actions/product';
 import {
   DIV,
   ContainerImage,
