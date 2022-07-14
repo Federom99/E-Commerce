@@ -34,10 +34,10 @@ export default function NavBar({ products }) {
     }
   }, [currentUser]);
 
-  console.log(showAdminBoard);
-
   const logOut = () => {
     dispatch(logout());
+    document.cookie =
+      "FOOD-API=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
   };
 
   let content;
@@ -51,7 +51,6 @@ export default function NavBar({ products }) {
       </div>
     );
   }
-
   if (currentUser) {
     content = (
       <>

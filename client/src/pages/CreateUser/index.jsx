@@ -13,12 +13,13 @@ import {
   Button,
 } from "./styles";
 import { useDispatch } from "react-redux";
-import { register } from "../../redux/actions/autenticacion";
+import Loading from "../../components/Loader";
 
 export default function NewUser() {
   const dispatch = useDispatch();
   // const
   const [newUser, setNewUser] = useState({});
+  const [load, setLoad] = useState(false);
   const [errors, setErrors] = useState({});
   const [alert, setAlert] = useState({});
 
@@ -81,18 +82,20 @@ export default function NewUser() {
             direccion: newUser.adress,
           }
         );
-        console.log(data);
-
+        
         setAlert({ msg: data.msg, type: "success" });
+        event.target[0].value = "";
+        event.target[1].value = "";
+        event.target[2].value = "";
+        event.target[3].value = "";
+        event.target[4].value = "";
       } catch (error) {
-        setAlert({ msg: error.response.data.msg, type: "error" });
+        if (error.response.data.msg) {
+          setAlert({ msg: error.response.data.msg, type: "error" });
+        } else {
+          setAlert({ msg: error.message });
+        }
       }
-
-      event.target[0].value = "";
-      event.target[1].value = "";
-      event.target[2].value = "";
-      event.target[3].value = "";
-      event.target[4].value = "";
     } else {
       setAlert({ msg: "All fields are required", type: "error" });
     }

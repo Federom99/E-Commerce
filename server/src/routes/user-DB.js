@@ -12,6 +12,8 @@ router.post("/", async (req, res) => {
     res.status(200).send(producto);
   } catch (error) {
     console.log(error);
+    res.status(400).send(error);
+    req.cookies;
   }
 });
 
