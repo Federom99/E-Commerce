@@ -30,7 +30,7 @@ export default function Products() {
     console.log(products)  
 
     function editar () {
-      setModal(!modal)
+      // setModal(!modal)
     }
 
     function modificar () {
