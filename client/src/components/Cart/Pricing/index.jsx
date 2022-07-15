@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
+import { Link } from "react-router-dom";
 import { Div } from "./styles";
 
 export default function Pricing ({alert}){
@@ -17,7 +18,6 @@ export default function Pricing ({alert}){
            <h2>
             Precio final: $ {price}
            </h2>
-           {/* <button>Terminar compra</button> */}
         </Div>
     )
 }

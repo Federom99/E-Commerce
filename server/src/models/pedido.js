@@ -10,10 +10,6 @@ module.exports = (sequelize) => {
       allowNull: false,
       primaryKey: true,
     },
-    fecha: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    },
     pago_total: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -27,7 +23,13 @@ module.exports = (sequelize) => {
       defaultValue: "En preparación",
       allowNull: true,
     },
+    nroOperacion: {
+      type: DataTypes.BIGINT,
+      // unique: true
+    }
   },{
-    timestamps: false
+    timestamps: true,
+    updatedAt: false,
+    createdAt: 'fecha'
 });
 };

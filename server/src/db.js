@@ -42,8 +42,8 @@ Categoria.hasMany(Producto);
 Usuario.hasMany(Pedido);
 Pedido.belongsTo(Usuario, { through: Compra });
 
-Producto.belongsToMany(Pedido, { through: Compra });
-Pedido.belongsToMany(Producto, { through: Compra });
+Producto.belongsToMany(Pedido, { through: { model: Compra, unique: false}});
+Pedido.belongsToMany(Producto, { through: { model: Compra, unique: false}});
 
 Rating.belongsTo(Producto);
 Producto.hasMany(Rating);

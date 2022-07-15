@@ -34,6 +34,13 @@ const deletleReview = require("./deleteReview");
 const getRatingUserID = require("./getRatingUserID");
 const deleteUser = require("./deleteUser");
 const deletePedido = require('./deletePedido');
+const createPreference = require("./checkout");
+
+const confirmarCompra = require('./confirmarCompra');
+const productoDespachado = require('./productoDespachado');
+const productoLlegando = require('./productoLlegando');
+const compraEntregada = require('./compraEntregada');
+
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
@@ -67,5 +74,10 @@ router.use("/ratings", deletleReview);
 router.use("/ratings/usuario", getRatingUserID);
 router.use("/usuario", deleteUser);
 router.use('/pedido', deletePedido);
+router.use("/create_preference", createPreference);
+router.use('/usuario/confirmacion', confirmarCompra);
+router.use('/admin/despachar', productoDespachado);
+router.use('/admin/correo', productoLlegando);
+router.use('/admin/entrega', compraEntregada);
 
 module.exports = router;

@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import Popup from 'reactjs-popup';
 import { Link } from "react-router-dom";
+import { fadeIn } from "../../styles/animation";
+
 export const DIV = styled.div`
+    ${fadeIn('0.5s')};
     padding: 1rem 1.5rem;
     max-width: 335px;
     height: auto;
@@ -11,7 +14,7 @@ export const DIV = styled.div`
     overflow: hidden;
     cursor: pointer;
     &:hover{
-        box-shadow: 0px 0px 2px #595959;
+        box-shadow: 0 10px 14px rgba(0, 0, 0, .2);
     }
 `
 export const StyledPopup = styled(Popup)`

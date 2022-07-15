@@ -1,47 +1,51 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  addPriceCart,
+  addOrder,
   removeCart,
-  removePriceCart,
+  removeOrder,
 } from "../../../redux/actions/cart";
 
 import { List, Img, Li , Text , Amount, Button , Div , CloseButton} from "./styles";
 
-export default function OrderItem({ item , setAlert}) {
-  const [priceCart,setPriceCart] = useState({
+export default function OrderItem({ item }) {
+  const [productOrder,setOrder] = useState({
+    id: item.id,
+    talle: item.talle,
     cantidad: item.cantidad,
     subtotal:(item.precio*item.cantidad)
   })
 
-  const store = useSelector(state=>state.cart.priceCart)
+
+  const shoppingCart = useSelector(state=>state.cart.shoppingCart)
+
   const dispatch = useDispatch();
+  
+  useEffect(()=>{
+    dispatch(addOrder(productOrder))
+  },[productOrder,shoppingCart])
 
-  useEffect(() => {
-    //envia modificacion de precios al carrito y alerta para el total
-    dispatch(addPriceCart(priceCart.subtotal, item.id));
-    setAlert(alert=>alert+1)
-  }, [priceCart , store]);
 
-  const incAmount = () => {
-    setPriceCart({
-      ...priceCart,
-      cantidad:priceCart.cantidad+1,
-      subtotal:item.precio*(priceCart.cantidad+1)
-    })
-  };
+  const incAmount = ()=>{
+    setOrder({
+      ...productOrder,
+      cantidad:productOrder.cantidad+1,
+      subtotal:item.precio*(productOrder.cantidad+1)
+    })}
   const decAmount = () => {
-    if (priceCart.cantidad > 1) {
-      setPriceCart({
-        ...priceCart,
-        cantidad:priceCart.cantidad-1,
-        subtotal:item.precio*(priceCart.cantidad-1)
+    if (productOrder.cantidad > 1) {
+      setOrder({
+        ...productOrder,
+        cantidad:productOrder.cantidad-1,
+        subtotal:item.precio*(productOrder.cantidad-1)
       })
     }
   };
   const removeItem = () => {
-    dispatch(removeCart(item.id));
-    dispatch(removePriceCart(item.id));
+
+    dispatch(removeCart(item.id,item.talle))
+    dispatch(removeOrder(item.id,item.talle));
+
   };
   return (
     <Div>
@@ -63,12 +67,12 @@ export default function OrderItem({ item , setAlert}) {
         <Li>
           <Amount>
             <Button onClick={decAmount}>-</Button>
-            <p>{priceCart.cantidad}</p>
+            <p>{productOrder.cantidad}</p>
             <Button onClick={incAmount}>+</Button>
           </Amount>
         </Li>
         <Li>
-          <h3>${priceCart.subtotal}</h3>
+          <h3>${productOrder.subtotal}</h3>
         </Li>
       </List>
     </Div>
