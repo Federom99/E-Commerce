@@ -35,3 +35,7 @@ export const GET_USUARIOS_FAIL = "GET_USUARIOS_FAIL";
 export const CLEAR_MESSAGE = "CLEAR_MESSAGE";
 
 export const LOGOUT = "LOGOUT";
+
+export const CHECKOUT = "CHECKOUT";
+export const GUARDAR_DATOS_COMPRADOR = "GUARDAR_DATOS_COMPRADOR";
+export const CREAR_PEDIDO = "CREAR_PEDIDO";

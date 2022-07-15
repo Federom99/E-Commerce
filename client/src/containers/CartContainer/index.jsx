@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { List, Li , Error , Div , Header , CatList , Main, PriceSection} from "./styles";
-import OrderItem from '../../components/Cart/OrderItem'
+import OrderItem from '../../components/Cart/OrderItem';
+import { Link } from "react-router-dom";
 export default function ShoppingCart() {
   const [shoppingCart,order] = useSelector((store) => [store.cart.shoppingCart,store.cart.order]);
   const [alert,setAlert] = useState(1)
@@ -45,6 +46,9 @@ export default function ShoppingCart() {
           <Li>
             <PriceSection>Precio final: ${price}</PriceSection>
           </Li>
+            <Link to="/checkout">
+                  <button>Iniciar compra</button>
+            </Link>
         </List>
       ) : (
         <Error>No hay items en su carrito</Error>

@@ -34,6 +34,7 @@ const deletleReview = require("./deleteReview");
 const getRatingUserID = require("./getRatingUserID");
 const deleteUser = require("./deleteUser");
 const deletePedido = require('./deletePedido');
+const createPreference = require("./checkout");
 
 const confirmarCompra = require('./confirmarCompra');
 const productoDespachado = require('./productoDespachado');
@@ -73,6 +74,7 @@ router.use("/ratings", deletleReview);
 router.use("/ratings/usuario", getRatingUserID);
 router.use("/usuario", deleteUser);
 router.use('/pedido', deletePedido);
+router.use("/create_preference", createPreference);
 router.use('/usuario/confirmacion', confirmarCompra);
 router.use('/admin/despachar', productoDespachado);
 router.use('/admin/correo', productoLlegando);

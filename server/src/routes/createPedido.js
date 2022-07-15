@@ -6,6 +6,21 @@ const router = Router();
 
 router.post("/", async (req, res) => {
   try {
+    const idUser = req.params.idUsuario;
+    const {
+      fecha,
+      pago_total,
+      direccion_de_envio,
+      estado,
+      idProductos,
+      nroOperacion
+    } = req.body;
+    const pedido = await Pedido.create({
+      fecha: fecha,
+      pago_total: pago_total,
+      direccion_de_envio: direccion_de_envio,
+      estado: estado,
+      nroOperacion: nroOperacion
     const decode = await promisify(jwt.verify)(
       req.cookies.jwt,
       process.env.JWT_SECRET
