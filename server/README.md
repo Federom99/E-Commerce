@@ -105,7 +105,19 @@ PUT /stock/:productId. Recibe el id del producto y por body recibe:
     "stock": 3 //Nuevo stock
 }
 ```
-
+PUT /edit/product. El unico dato obligatorio es el id. El resto son opcionales. Solo se pone el valor a cambiar.
+```json
+{
+  "id": 2,
+  "nombre": "Nombre del producto - Actualizado",
+  "descripcion": "Descripcion del producto",
+  "imagen": "URL de la imagen del producto",
+  "talle": ["S", "M", "L", "XL"],
+  "stock": [1111, 222, 333, 444],
+  "categoria": ["Camisas"],
+  "precio": 999
+}
+```
 
 
 
@@ -114,6 +126,5 @@ Faltan por documentar las rutas de los siguientes archivos (no entendi bien como
 <ul>
     
     <li>createPedido.js</li>
-    <li>editProduct.js</li>
     <li>favoritos.js</li>
 </ul>
