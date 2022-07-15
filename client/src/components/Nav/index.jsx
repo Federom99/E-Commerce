@@ -1,6 +1,6 @@
 import { BsFillPersonFill } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import style from "./nav.module.css";
 import Search from "./search";
 import { Contenido } from "./style";
@@ -14,6 +14,7 @@ import { logout } from "../../redux/actions/autenticacion";
 import Loading from "../Loader";
 
 export default function NavBar({ products }) {
+  const navigation = useNavigate();
   const dispatch = useDispatch();
   let data = products.map((a) => ({ nombre: a.nombre, im: a.imagen }));
   const [dropdown, setDropdown] = useState(false);
@@ -36,6 +37,7 @@ export default function NavBar({ products }) {
 
   const logOut = () => {
     dispatch(logout());
+    navigation("/");
     document.cookie =
       "FOOD-API=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
   };

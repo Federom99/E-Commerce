@@ -7,7 +7,7 @@
     "mail": "federo.15.99@gmail.com",
     "direccion": "Pilo, Córdoba",
     "dni": 41000000,
-    "contraseña": "$2a$10$XZ0ha9cd5ac3Oqx30TNN6ucqYdQn8rRYGF.CSMSpM40JWuY0FrWbS",
+    "contraseña": "admin",
     "isAdmin": true,
     "confirmado": true
   },
@@ -19,7 +19,7 @@
     "mail": "joseinvictus273@hotmail.com",
     "direccion": "Piumato Rodriguez, Bogota",
     "dni": 35000000,
-    "contraseña": "$2a$10$XZ0ha9cd5ac3Oqx30TNN6ucqYdQn8rRYGF.CSMSpM40JWuY0FrWbS",
+    "contraseña": "admin",
     "isAdmin": true,
     "confirmado": true
   },
@@ -31,7 +31,7 @@
     "mail": "martin._orlando@hotmail.com.ar",
     "direccion": "Somewhere in the CABA",
     "dni": 44000000,
-    "contraseña": "$2a$10$XZ0ha9cd5ac3Oqx30TNN6ucqYdQn8rRYGF.CSMSpM40JWuY0FrWbS",
+    "contraseña": "admin",
     "isAdmin": true,
     "confirmado": true
   },
@@ -43,7 +43,7 @@
     "mail": "rgzrgzm@gmail.com",
     "direccion": "Nueva Leon, Mexico",
     "dni": 30000000,
-    "contraseña": "$2a$10$XZ0ha9cd5ac3Oqx30TNN6ucqYdQn8rRYGF.CSMSpM40JWuY0FrWbS",
+    "contraseña": "admin",
     "isAdmin": true,
     "confirmado": true
   },
@@ -55,7 +55,7 @@
     "mail": "davidstangetz13@gmail.com",
     "direccion": "El centro del país",
     "dni": 39000000,
-    "contraseña": "$2a$10$XZ0ha9cd5ac3Oqx30TNN6ucqYdQn8rRYGF.CSMSpM40JWuY0FrWbS",
+    "contraseña": "admin",
     "isAdmin": true,
     "confirmado": true
   },
@@ -67,7 +67,7 @@
     "mail": "alanacevedo2001@hotmail.com",
     "direccion": "Buenos aires, La plata",
     "dni": 40000000,
-    "contraseña": "$2a$10$XZ0ha9cd5ac3Oqx30TNN6ucqYdQn8rRYGF.CSMSpM40JWuY0FrWbS",
+    "contraseña": "admin",
     "isAdmin": true,
     "confirmado": true
   },
@@ -79,7 +79,7 @@
     "mail": "earancio616@gmail.com",
     "direccion": "CABA",
     "dni": 8000000,
-    "contraseña": "$2a$10$XZ0ha9cd5ac3Oqx30TNN6ucqYdQn8rRYGF.CSMSpM40JWuY0FrWbS",
+    "contraseña": "admin",
     "isAdmin": true,
     "confirmado": true
   },
@@ -91,7 +91,7 @@
     "mail": "alexiscortazzii@gmail.com",
     "direccion": "Caballito, San Juan",
     "dni": 9000000,
-    "contraseña": "$2a$10$XZ0ha9cd5ac3Oqx30TNN6ucqYdQn8rRYGF.CSMSpM40JWuY0FrWbS",
+    "contraseña": "admin",
     "isAdmin": true,
     "confirmado": true
   },

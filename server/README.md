@@ -6,6 +6,9 @@ Para que la api funcione es necesario crear un archivo .env de la siguiente form
 DB_USER=usuariodepostgres
 DB_PASSWORD=passwordDePostgres
 DB_HOST=localhost
+
+JWT_SECRET=palabraSecret
+COOKIE_SECRET=asK9USD8SFZASLDlpfkqaefrekigdxkicauqLSDKFE
 ```
 
 También hay que tener creada una base de datos con el nombre eccomerce
@@ -103,14 +106,54 @@ PUT /stock/:productId. Recibe el id del producto y por body recibe:
 }
 ```
 
+POST /pedido/crear. Crea un pedido a partir del id del usuario autenticado en el momento. Recibe por body:
+```json
+{
+    "productos": [
+        {
+            "productId": 2,
+            "talleId": 2,
+            "cantidad": 2
+        },
+
+        {
+            "productId": 2,
+            "talleId": 3,
+            "cantidad": 4
+        },
+
+        {
+            "productId": 3,
+            "talleId": 5,
+            "cantidad": 5
+        }
+    ]
+}
+```
+
+PUT /edit/product. El unico dato obligatorio es el id. El resto son opcionales. Solo se pone el valor a cambiar.
+```json
+{
+  "id": 2,
+  "nombre": "Nombre del producto - Actualizado",
+  "descripcion": "Descripcion del producto",
+  "imagen": "URL de la imagen del producto",
+  "talle": ["S", "M", "L", "XL"],
+  "stock": [1111, 222, 333, 444],
+  "categoria": ["Camisas"],
+  "precio": 999
+}
+```
 
 
 
 Faltan por documentar las rutas de los siguientes archivos (no entendi bien como funcionaban así que porfa fijense los que las hicieron y documentenlas en este readme.):
 
 <ul>
+
+    <li>editProduct.js</li>
     
     <li>createPedido.js</li>
-    <li>editProduct.js</li>
+
     <li>favoritos.js</li>
 </ul>

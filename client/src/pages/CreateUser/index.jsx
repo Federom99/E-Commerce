@@ -11,6 +11,7 @@ import {
   Li,
   List,
   Button,
+  ErrorsText
 } from "./styles";
 import { useDispatch } from "react-redux";
 import Loading from "../../components/Loader";
@@ -104,43 +105,47 @@ export default function NewUser() {
   const { msg } = alert;
 
   return (
-    <Div>
+<Div>
       <Header>
-        <Title>Welcome user</Title>
+        <Title>Welcome</Title>
       </Header>
       <Form onSubmit={handleSubmit}>
         <List>
           <Li>
-            <Subtitle>Name</Subtitle>
+            <Subtitle>Name:</Subtitle>
             <Input type="text" name="name" onChange={handleChange}></Input>
-            {errors && errors.name && errors.name}
+            <ErrorsText>{errors && errors.name && errors.name}</ErrorsText>
           </Li>
           <Li>
-            <Subtitle>LastName</Subtitle>
+            <Subtitle>LastName:</Subtitle>
             <Input type="text" name="lastname" onChange={handleChange}></Input>
-            {errors && errors.lastname && errors.lastname}
+            <ErrorsText>
+              {errors && errors.lastname && errors.lastname}
+            </ErrorsText>
           </Li>
           <Li>
-            <Subtitle>Email</Subtitle>
+            <Subtitle>Email:</Subtitle>
             <Input type="text" name="email" onChange={handleChange}></Input>
-            {errors && errors.email && errors.email}
+            <ErrorsText>{errors && errors.email && errors.email}</ErrorsText>
           </Li>
           <Li>
-            <Subtitle>Password</Subtitle>
+            <Subtitle>Password:</Subtitle>
             <Input
               type="password"
               name="password"
               onChange={handleChange}
             ></Input>
-            {errors && errors.password && errors.password}
+            <ErrorsText>
+              {errors && errors.password && errors.password}
+            </ErrorsText>
           </Li>
           <Li>
-            <Subtitle>Adress</Subtitle>
+            <Subtitle>Address:</Subtitle>
             <Input type="text" name="adress" onChange={handleChange}></Input>
-            {errors && errors.adress && errors.adress}
+            <ErrorsText>{errors && errors.adress && errors.adress}</ErrorsText>
           </Li>
         </List>
-        <Button type="submit">Submit</Button>
+        <Button type="submit">Register</Button>
 
         {alert.msg && alert.type === "success" && (
           <div
@@ -165,12 +170,7 @@ export default function NewUser() {
             >
               {msg}
             </p>
-            <button
-              style={{ width: "80%", margin: "0 auto" }}
-              onClick={() => navigate("/login")}
-            >
-              Login
-            </button>
+            <p onClick={() => navigate("/login")} style={{alignSelf: 'center', marginTop: 15, textDecoration: 'underline', fontSize: 18, color: '#2355f5', fontWeight: 'bold'}}>Login </p>
           </div>
         )}
 
@@ -192,6 +192,24 @@ export default function NewUser() {
           </p>
         )}
       </Form>
+      {alert.msg && alert.type === "success" && (
+        <p
+          style={{
+            backgroundColor: "red",
+            paddingBottom: 15,
+            paddingTop: 15,
+            paddingRight: 10,
+            paddingLeft: 10,
+            fontWeight: "bold",
+            color: "white",
+            borderRadius: 5,
+            fontSize: 15,
+            marginBottom: 20,
+          }}
+        >
+          Hemos enviado un email a {newUser.email} para comprobar la cuenta
+        </p>
+      )}
     </Div>
   );
 }

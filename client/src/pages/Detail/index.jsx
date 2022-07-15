@@ -31,8 +31,11 @@ const colors = {
 const ProductDetail = () => {
   const [currentValue, setCurrentValue] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
-  const [size , setSize] = useState('')
-  const [stock , setStock] = useState(0)
+
+  const [size , setSize] = useState('');
+  const [stock , setStock] = useState(0);
+  const [isLoading , setIsLoading] = useState(true);
+
   const stars = Array(5).fill(0);
 
 
@@ -55,12 +58,22 @@ const ProductDetail = () => {
   let dispatch = useDispatch();
 
   let product = useSelector((state) => state.product.product);
-  let loading = useSelector((state) => state.product.loading);
   let error = useSelector((state) => state.product.error);
   let { productId } = useParams();
-  useEffect(() => {
-      dispatch(getProduct(productId));
-    return()=>{
+
+  useEffect(()=>{
+    if (!Object.keys(product).length){
+      dispatch(getProduct(productId))
+    }
+    else {
+      setTimeout(()=>{
+        setIsLoading(false)
+      },1000)
+    }
+  },[product])
+  useEffect(()=>{
+    return ()=>{
+
       dispatch(deleteProduct())
     }
   }, [productId]);
@@ -117,10 +130,10 @@ const ProductDetail = () => {
   }
 
   if (error) return <div>Error! {error.message}</div>;
-  if (loading)
+  if (isLoading)
     return (
       <div>
-        <Loading />
+        <Loading alto={"1000px"}/>
       </div>
     );
 
@@ -169,7 +182,7 @@ const ProductDetail = () => {
           <Description>{product.descripcion}</Description>
           <Button onClick={addCart}>Add to cart</Button>
           {/* <Review placeholder="Enter a review of the product"></Review> */}
-          <Button>Send review</Button>
+          {/* <Button>Send review</Button> */}
         </InfoContainer>
       </Div>
     </Main>
