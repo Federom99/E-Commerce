@@ -24,6 +24,8 @@ import Sales from "./pages/Admin/sales";
 import Confirmacion from "./pages/Confirmacion";
 import { GlobalStyle } from "./styles/GlobalStyles";
 import { clearMsg } from "./redux/actions/autenticacion";
+import ForgotPassword from "./pages/ForgotPasword";
+import ResetPassword from "./pages/ResetPassword";
 
 function handleErrors(response, rest) {
   if (response.status === 400) {
@@ -79,6 +81,8 @@ function App() {
         <Route path="/detail/:productId" element={<ProductDetail />} />
         <Route path="/admin/" element={<AdminHub />} />
         <Route path="/login/" element={<Login />} />
+        <Route path="/olvide-password" element={<ForgotPassword/>} />
+        <Route path="/olvide-password/:token" element={<ResetPassword/>}/>
         <Route path="/register" element={<CreateUser />} />
         <Route path="/cart/" element={<ShoppingCart />} />
         <Route path="/profile/" element={<Profile />} />
