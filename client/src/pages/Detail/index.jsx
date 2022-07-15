@@ -182,7 +182,7 @@ const ProductDetail = () => {
           <Description>{product.descripcion}</Description>
           <Button onClick={addCart}>Add to cart</Button>
           {/* <Review placeholder="Enter a review of the product"></Review> */}
-          <Button>Send review</Button>
+          {/* <Button>Send review</Button> */}
         </InfoContainer>
       </Div>
     </Main>
