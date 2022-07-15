@@ -1,9 +1,9 @@
 import React from "react";
 import { ContainerCradle, Dot, FullContainer } from "./style";
 
-function Loading() {
+function Loading({ alto }) {
   return (
-    <FullContainer>
+    <FullContainer alto={alto}>
       <ContainerCradle>
         <Dot />
         <Dot />

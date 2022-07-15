@@ -20,7 +20,7 @@ export const login = (data) => async (dispatch) => {
       body: JSON.stringify(data),
       credentials: "include",
     });
-
+    debugger;
     const rest = await response.json();
     const res = await handleErrors(response, rest);
 
