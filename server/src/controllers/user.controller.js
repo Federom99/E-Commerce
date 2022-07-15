@@ -166,6 +166,9 @@ const olvidePassword = async (req, res) => {
 
 const salir = async (req, res) => {
   try {
+    res.clearCookie('jwt')
+    res.clearCookie('FOOD-API.sig')
+    res.clearCookie('FOOD-API')
     req.session = null;
     res.status(200).send("donats!");
   } catch (error) {
