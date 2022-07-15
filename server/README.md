@@ -106,14 +106,37 @@ PUT /stock/:productId. Recibe el id del producto y por body recibe:
 }
 ```
 
+POST /pedido/crear. Crea un pedido a partir del id del usuario autenticado en el momento. Recibe por body:
+```json
+{
+    "productos": [
+        {
+            "productId": 2,
+            "talleId": 2,
+            "cantidad": 2
+        },
+
+        {
+            "productId": 2,
+            "talleId": 3,
+            "cantidad": 4
+        },
+
+        {
+            "productId": 3,
+            "talleId": 5,
+            "cantidad": 5
+        }
+    ]
+}
+```
+
 
 
 
 Faltan por documentar las rutas de los siguientes archivos (no entendi bien como funcionaban así que porfa fijense los que las hicieron y documentenlas en este readme.):
 
 <ul>
-    
-    <li>createPedido.js</li>
     <li>editProduct.js</li>
     <li>favoritos.js</li>
 </ul>
