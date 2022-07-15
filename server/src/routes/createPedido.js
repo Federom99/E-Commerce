@@ -48,7 +48,7 @@ router.post("/", async (req, res) => {
       estado: "Aprobado",
     });
 
-
+    //Creo una compra por cada producto
     for(let i = 0; i < productos.length; i++){
       const compra = await Compra.create({
         productoId: productos[i].productId,
@@ -61,6 +61,7 @@ router.post("/", async (req, res) => {
 
     }
 
+    //Busco todas las compras donde el id del pedido sea el que acabo de crear y despues lo mando junto al pedido.
     const compras = await Compra.findAll({
       where: {
         pedidoId: pedido.dataValues.id
