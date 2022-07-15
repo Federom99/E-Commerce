@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Div,
   DivBtn,
@@ -56,43 +56,135 @@ export default function Login() {
   }
 
   return (
-    <Div>
+<Div>
       <Section>
-        <DivBtn>
-          <Google>Sign in with Google</Google>
-          <Gith>Sign in with Github</Gith>
-        </DivBtn>
         <InputDiv>
           <Form onSubmit={handleSubmit}>
-            <List>
-              <li>
-                <Input
-                  placeholder="e-mail"
-                  type="text"
-                  name="mail"
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </li>
-              <li>
-                <Input
-                  placeholder="password"
-                  type="password"
-                  name="password"
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </li>
-            </List>
+            <h2
+              style={{
+                textAlign: "center",
+                fontWeight: "800",
+                color: "#252525",
+              }}
+            >
+              Login
+            </h2>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+              }}
+            >
+              <List>
+                <li style={{ display: "flex", flexDirection: "column" }}>
+                  <label
+                    style={{ color: "#252525", fontWeight: "bold" }}
+                    htmlFor="mail"
+                  >
+                    Email:
+                  </label>
+                  <Input
+                    type="text"
+                    name="mail"
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </li>
+              </List>
+              <List>
+                <li style={{ display: "flex", flexDirection: "column" }}>
+                  <label style={{ color: "#252525", fontWeight: "bold" }}>
+                    Password:
+                  </label>
+                  <Input
+                    type="password"
+                    name="password"
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </li>
+              </List>
+            </div>
+            <div style={{ width: "100%" }}>
+              <button
+                style={{
+                  width: "100%",
+                  padding: 8,
+                  fontSize: 15,
+                  fontWeight: "bold",
+                  borderRadius: 5,
+                  backgroundColor: "blue",
+                  border: "none",
+                  color: "white",
+                  cursor: "pointer",
+                }}
+                type="submit"
+              >
+                Login
+              </button>
+            </div>
 
-            <Blist>
-              <li>
-                <button onClick={() => navigate("/register")}> Sign up</button>
-              </li>
-              <li>
-                <button type="submit">Log in</button>
-              </li>
-            </Blist>
+            {alert.msg && (
+              <p
+                style={{
+                  widith: "100%",
+                  background: "red",
+                  padding: 7,
+                  textAlign: "center",
+                  borderRadius: 5,
+                  color: "#fff",
+                }}
+              >
+                {alert.msg}
+              </p>
+            )}
+
+            <div
+              style={{
+                width: "100%",
+                display: "flex",
+                flexDirection: "column",
+                gap: 5,
+                alignItems: "center",
+              }}
+            >
+              <p>Don't have a account?</p>
+
+              <button
+                style={{
+                  background: "none",
+                  border: "none",
+                  textDecoration: "underline",
+                  color: "blue",
+                  fontSize: 15,
+                }}
+                onClick={() => navigate("/register")}
+              >
+                Create Account
+              </button>
+            </div>
+            <div
+              style={{
+                width: "100%",
+                display: "flex",
+                flexDirection: "column",
+                gap: 5,
+                alignItems: "center",
+              }}
+            >
+              <button
+                style={{
+                  background: "none",
+                  border: "none",
+                  textDecoration: "underline",
+                  color: "blue",
+                  fontSize: 15,
+                }}
+                onClick={() => navigate("/olvide-password")}
+              >
+                I forget my password
+              </button>
+            </div>
           </Form>
-          {content}
         </InputDiv>
       </Section>
     </Div>

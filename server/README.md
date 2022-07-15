@@ -131,12 +131,29 @@ POST /pedido/crear. Crea un pedido a partir del id del usuario autenticado en el
 }
 ```
 
+PUT /edit/product. El unico dato obligatorio es el id. El resto son opcionales. Solo se pone el valor a cambiar.
+```json
+{
+  "id": 2,
+  "nombre": "Nombre del producto - Actualizado",
+  "descripcion": "Descripcion del producto",
+  "imagen": "URL de la imagen del producto",
+  "talle": ["S", "M", "L", "XL"],
+  "stock": [1111, 222, 333, 444],
+  "categoria": ["Camisas"],
+  "precio": 999
+}
+```
 
 
 
 Faltan por documentar las rutas de los siguientes archivos (no entendi bien como funcionaban así que porfa fijense los que las hicieron y documentenlas en este readme.):
 
 <ul>
+
     <li>editProduct.js</li>
+    
+    <li>createPedido.js</li>
+
     <li>favoritos.js</li>
 </ul>
