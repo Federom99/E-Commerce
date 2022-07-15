@@ -51,12 +51,12 @@ export default function cartReducer(state = initialState, action) {
     case PRICE_CART:
       for (let i=0;i<state.order.length;i++){
         if (state.order[i].id === action.payload.id && state.order[i].talle === action.payload.talle){
-          state.order[i] = action.payload
+          state.order[i] = action.payload;
+          state.shoppingCart[i].cantidad = action.payload.cantidad;
           return{
             ...state
           }
-        }
-        
+        }                
       }
       return {
         ...state,
