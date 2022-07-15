@@ -51,6 +51,7 @@ export default function (state = initialState, action) {
         msg: null,
       };
     case LOGOUT:
+      document.cookie = "jwt=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
       return {
         ...state,
         isLoggedIn: false,
