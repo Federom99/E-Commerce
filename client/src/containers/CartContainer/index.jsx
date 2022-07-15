@@ -1,17 +1,23 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { List, Li , Error , Div , Header , CatList , Main, PriceSection} from "./styles";
 import OrderItem from '../../components/Cart/OrderItem';
 import { Link } from "react-router-dom";
+import { setLocalStorage } from "../../redux/actions/cart";
 export default function ShoppingCart() {
-  const [shoppingCart,order] = useSelector((store) => [store.cart.shoppingCart,store.cart.order]);
+  const [cart , shoppingCart,order] = useSelector((store) => [store.cart , store.cart.shoppingCart,store.cart.order]);
   const [alert,setAlert] = useState(1)
   const [amount,setAmount] = useState(shoppingCart.length)
   // const [price , setPrice] = useState(0)
-  
+  const dispatch = useDispatch()
   useEffect(()=>{
     setAmount(shoppingCart.length)
   },[shoppingCart.length])
+  useEffect(()=>{
+    return () =>{
+      dispatch(setLocalStorage(cart))
+    }
+  },[])
 
   
   const price = order.reduce((prev,compra)=> prev+compra.subtotal,0)

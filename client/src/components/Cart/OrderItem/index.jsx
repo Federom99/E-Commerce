@@ -5,6 +5,7 @@ import {
   addOrder,
   removeCart,
   removeOrder,
+  setLocalStorage,
 } from "../../../redux/actions/cart";
 import { List, Img, Li , Text , Amount, Button , Div , CloseButton} from "./styles";
 
@@ -17,7 +18,7 @@ export default function OrderItem({ item }) {
     cantidad: item.cantidad,
     subtotal:(item.precio*item.cantidad)
   })
-  const [shoppingCart ] = useSelector(state=>[state.cart.shoppingCart])
+  const [shoppingCart , cart ] = useSelector(state=>[state.cart.shoppingCart , state.cart])
   const [stock,setStock] = useState(0)
 
   const getStock = async ()=>{
@@ -35,6 +36,7 @@ export default function OrderItem({ item }) {
   
   useEffect(()=>{
     dispatch(addOrder(productOrder))
+    dispatch(setLocalStorage(cart))
   },[productOrder,shoppingCart])
   useEffect(()=>{
     getStock()
@@ -86,8 +88,9 @@ export default function OrderItem({ item }) {
             <Button onClick={decAmount}>-</Button>
             <p>{productOrder.cantidad}</p>
             <Button onClick={incAmount}>+</Button>            
-            {            
-              stock <= productOrder.cantidad ? (<span>Stock maximo</span>) : null
+            {     
+              stock ? stock<=productOrder.cantidad ? (<span>Stock maximo</span>) : null : null
+              // stock <= productOrder.cantidad ? (<span>Stock maximo</span>) : null
             }
           </Amount>
         </Li>
