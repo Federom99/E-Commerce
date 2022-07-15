@@ -51,9 +51,11 @@ export default function AddPopUp({ id, nombre, img, precio, close , talle , chec
   const addMore = async() => {
     let amount= pedido.cantidad
     let check = await checkStock(amount)
+    let size = talle.current
     if (check){
       let newOrder = {
         id,
+        size,
         amount,
       };
       dispatch(modifyCart(newOrder));
@@ -63,7 +65,8 @@ export default function AddPopUp({ id, nombre, img, precio, close , talle , chec
     else alert(`No hay suficiente stock`)
   };
   const deleteCartItem = () => {
-    dispatch(removeCart(id));
+    let size=talle.current
+    dispatch(removeCart(id,size));
     close();
   };
   const formatPrice = (price) => {

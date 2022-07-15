@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const FullContainer = styled.div`
-  min-height: ${(props) => props.alto};
+  height: ${props=>props.alto};
   display: flex;
   justify-content: center;
   align-items: center;
