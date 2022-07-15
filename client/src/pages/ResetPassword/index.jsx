@@ -1,0 +1,63 @@
+import axios from 'axios'
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import { Div, Form, Label, P, Button, Input } from '../ForgotPasword/styles'
+import { useNavigate } from 'react-router-dom'
+
+const ResetPassword = () => {
+
+    const navigate = useNavigate()
+    const {token} = useParams()
+    const [newPassword, setNewPassword] = useState({
+        password: "",
+        validPassword: true,
+    })
+    const [validToken, setValidToken] = useState({
+        tokenValid: false,
+        msg: 'Token invalido'
+    })
+
+    const ChangePassword = async (e) => {
+        e.preventDefault()
+        try {
+            const {data} = await axios.post(`http://localhost:3001/user/olvide-password/${token}`,
+                {password: newPassword} 
+            )
+            setTimeout(() => {
+                navigate("/login")
+            }, 2000)
+        } catch (error) {
+            
+        }
+    }
+
+    useEffect(() => {
+        const checkToken = async () => {
+            const {data} = await axios.get(`http://localhost:3001/user/olvide-password/${token}`)
+            setValidToken(data)
+        }
+
+        checkToken()
+    }, [])
+
+    if(validToken.tokenValid){
+        return (
+        <Div>
+            <Form onSubmit={ChangePassword}>
+                <Label>
+                    <P>Enter a new password</P>
+                    <Input
+                        type='password'
+                        placeholder='Password' 
+                        onChange={(e) => setNewPassword(e.target.value)}
+                    />
+
+                </Label>
+                <Button disabled={newPassword.validPassword}>Change Password</Button>
+            </Form>
+        </Div>
+        )
+    }
+}
+
+export default ResetPassword
