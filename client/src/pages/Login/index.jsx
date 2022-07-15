@@ -41,6 +41,7 @@ export default function Login() {
       return;
     }
     dispatch(login({ mail, contraseña: password }));
+    navigate("/");
   };
 
   let content;
@@ -56,7 +57,7 @@ export default function Login() {
   }
 
   return (
-<Div>
+    <Div>
       <Section>
         <InputDiv>
           <Form onSubmit={handleSubmit}>
@@ -123,7 +124,7 @@ export default function Login() {
               </button>
             </div>
 
-            {alert.msg && (
+            {content && (
               <p
                 style={{
                   widith: "100%",
@@ -134,7 +135,7 @@ export default function Login() {
                   color: "#fff",
                 }}
               >
-                {alert.msg}
+                {content}
               </p>
             )}
 
