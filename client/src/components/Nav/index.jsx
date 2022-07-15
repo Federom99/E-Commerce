@@ -41,6 +41,9 @@ export default function NavBar({ products }) {
     document.cookie =
       "FOOD-API=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
   };
+  const toProfile = ()=>{
+    navigation("/profile")
+  }
 
   let content;
   if (error) {
@@ -56,7 +59,7 @@ export default function NavBar({ products }) {
   if (currentUser) {
     content = (
       <>
-        <li>{currentUser.name}</li>
+        <li onClick={toProfile}>{currentUser.name}</li>
         <li onClick={logOut}>Salir</li>
         {showAdminBoard && (
           <li>
