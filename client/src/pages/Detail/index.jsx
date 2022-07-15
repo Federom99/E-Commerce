@@ -58,7 +58,6 @@ const ProductDetail = () => {
   let dispatch = useDispatch();
 
   let product = useSelector((state) => state.product.product);
-  let loading = useSelector((state) => state.product.loading);
   let error = useSelector((state) => state.product.error);
   let { productId } = useParams();
 
@@ -131,10 +130,10 @@ const ProductDetail = () => {
   }
 
   if (error) return <div>Error! {error.message}</div>;
-  if (loading)
+  if (isLoading)
     return (
       <div>
-        <Loading />
+        <Loading alto={"1000px"}/>
       </div>
     );
 

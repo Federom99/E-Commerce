@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -5,33 +6,49 @@ import {
   removeCart,
   removeOrder,
 } from "../../../redux/actions/cart";
-
 import { List, Img, Li , Text , Amount, Button , Div , CloseButton} from "./styles";
 
 export default function OrderItem({ item }) {
   const [productOrder,setOrder] = useState({
     id: item.id,
+    nombre: item.nombre,
     talle: item.talle,
+    precio: item.precio,
     cantidad: item.cantidad,
     subtotal:(item.precio*item.cantidad)
   })
+  const [shoppingCart ] = useSelector(state=>[state.cart.shoppingCart])
+  const [stock,setStock] = useState(0)
 
-
-  const shoppingCart = useSelector(state=>state.cart.shoppingCart)
-
+  const getStock = async ()=>{
+    const product = await axios.get(`http://localhost:3001/product/${item.id}`)
+    if (item.talle === 'Sin talle'){
+      setStock(product.data.talles[0].producto_talle.stock)
+    }
+    else {
+      const index = product.data.talles.findIndex(p=>p.talle === item.talle);
+      setStock(product.data.talles[index].producto_talle.stock);
+    }
+  }
+  
   const dispatch = useDispatch();
   
   useEffect(()=>{
     dispatch(addOrder(productOrder))
   },[productOrder,shoppingCart])
-
+  useEffect(()=>{
+    getStock()
+  },[])
 
   const incAmount = ()=>{
-    setOrder({
-      ...productOrder,
-      cantidad:productOrder.cantidad+1,
-      subtotal:item.precio*(productOrder.cantidad+1)
-    })}
+      if (productOrder.cantidad<stock){
+      setOrder({
+        ...productOrder,
+        cantidad:productOrder.cantidad+1,
+        subtotal:item.precio*(productOrder.cantidad+1)
+      })
+    }
+  }
   const decAmount = () => {
     if (productOrder.cantidad > 1) {
       setOrder({
@@ -68,7 +85,10 @@ export default function OrderItem({ item }) {
           <Amount>
             <Button onClick={decAmount}>-</Button>
             <p>{productOrder.cantidad}</p>
-            <Button onClick={incAmount}>+</Button>
+            <Button onClick={incAmount}>+</Button>            
+            {            
+              stock <= productOrder.cantidad ? (<span>Stock maximo</span>) : null
+            }
           </Amount>
         </Li>
         <Li>
