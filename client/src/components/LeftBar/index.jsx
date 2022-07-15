@@ -32,6 +32,7 @@ function LeftBar({resetPagina}) {
 
   useEffect(() => {
     if(orderByValue) dispatch(orderBy(orderByValue))
+    resetPagina(1)
   }, [orderByValue])
 
   function handleCategory(category) {
