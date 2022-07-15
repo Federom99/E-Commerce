@@ -13,23 +13,23 @@ function Confirmacion() {
   const { id } = params;
   console.log(id);
 
-  // const pagina = async () => {
-  //   try {
-  //     const url = `http://localhost:3001/user/confirmar/${id}`;
-  //     const result = await fetch(url);
-  //     const res = result.json();
-  //     console.log(res);
-  //     setState({ ...state, load: false });
-  //   } catch (error) {
-  //     setState({ ...state, error });
-  //   }
-  // };
+  const pagina = async () => {
+    try {
+      const url = `http://localhost:3001/user/confirmar/${id}`;
+      const result = await fetch(url);
+      const res = result.json();
+      console.log(res);
+      setState({ ...state, load: false });
+    } catch (error) {
+      setState({ ...state, error });
+    }
+  };
 
   const handleClick = () => {
     navigation("/login");
   };
   useEffect(() => {
-    // pagina();
+    pagina();
   }, [id]);
   let content;
 
