@@ -24,6 +24,8 @@ import Sales from "./pages/Admin/sales";
 import Confirmacion from "./pages/Confirmacion";
 import { GlobalStyle } from "./styles/GlobalStyles";
 import { clearMsg } from "./redux/actions/autenticacion";
+import Checkout from "./pages/Checkout/Checkout";
+import CheckoutSuccess from "./pages/CheckoutSuccess/CheckoutSuccess";
 
 function handleErrors(response, rest) {
   if (response.status === 400) {
@@ -86,6 +88,8 @@ function App() {
         <Route path="/confirmar/:id" element={<Confirmacion />} />
         <Route path="/admin" element={<AdminHub />} />
         <Route path="/admin/dashboard/*" element={<DashboardAdmin />} />
+        <Route path="/checkout/success" element={<CheckoutSuccess />} />
+        <Route path="/checkout" element={<Checkout />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
       <Footer />

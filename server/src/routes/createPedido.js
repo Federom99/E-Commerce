@@ -14,12 +14,14 @@ router.post("/:idUsuario", async (req, res) => {
       direccion_de_envio,
       estado,
       idProductos,
+      nroOperacion
     } = req.body;
     const pedido = await Pedido.create({
       fecha: fecha,
       pago_total: pago_total,
       direccion_de_envio: direccion_de_envio,
       estado: estado,
+      nroOperacion: nroOperacion
     });
     await idProductos.map((p) => {
       Compra.create({

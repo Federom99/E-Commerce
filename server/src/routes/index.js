@@ -34,6 +34,7 @@ const deletleReview = require("./deleteReview");
 const getRatingUserID = require("./getRatingUserID");
 const deleteUser = require("./deleteUser");
 const deletePedido = require('./deletePedido');
+const createPreference = require("./checkout");
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
@@ -67,5 +68,6 @@ router.use("/ratings", deletleReview);
 router.use("/ratings/usuario", getRatingUserID);
 router.use("/usuario", deleteUser);
 router.use('/pedido', deletePedido);
+router.use("/create_preference", createPreference);
 
 module.exports = router;

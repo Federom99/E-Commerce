@@ -27,6 +27,10 @@ module.exports = (sequelize) => {
       defaultValue: "En preparación",
       allowNull: true,
     },
+    nroOperacion: {
+      type: DataTypes.BIGINT,
+      // unique: true
+    }
   },{
     timestamps: false
 });

@@ -1,0 +1,91 @@
+#formulario{
+    /* background-color: red; */
+    height: auto;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.inputYLabel{
+    width: 70%;
+    margin: auto;
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    color: #283747;
+    font-size: 1.1rem;
+}
+
+.inputDatos{
+    /* background-color:whitesmoke; */
+    border-style: solid;
+    border-radius: 0;
+    height: 2rem;
+    width: 17rem;
+    font-family: Arial;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.inputDatosError{
+    background-color:#F5B7B1;
+    border-style: solid;
+    border-color: red;
+    border-radius: 0;
+    height: 2rem;
+    width: 17rem;
+    font-family: Arial;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.indicador{
+    margin: 0;
+    color: red;
+    margin: auto;
+    text-align: center;
+}
+
+.i{
+    color: rgba(10,10,10, 0);
+}
+
+#boton{
+    width: 9rem;
+    height: 2rem;
+    background-color: black;
+    border: none;
+    color:white;
+    font-family: Arial;
+    font-size: 1rem;
+    text-align: center;
+    margin: auto;
+    margin-top: 1rem;
+}
+
+#boton:hover{
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    border-color: black;
+    border-style: solid;
+}
+
+#botonBloqueado{
+    width: 9rem;
+    height: 2rem;
+    background-color: grey;
+    border: none;
+    color:white;
+    font-family: Arial;
+    font-size: 1rem;
+    text-align: center;
+    margin: auto;
+    margin-top: 1rem;
+}
+
+.pagar{
+    margin: auto;
+    margin-top: 1rem;
+}
