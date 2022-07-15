@@ -23,6 +23,7 @@ export default function DahboardAdmin() {
             </div>
             <div className='body'>
             <Routes>
+                    <Route path="/" element={<Users />} />
                     <Route path="users" element={<Users />} />
                     <Route path="products" element={<Products />} />
                     <Route path="sales" element={<Sales />} />

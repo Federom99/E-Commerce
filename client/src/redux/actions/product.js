@@ -106,11 +106,22 @@ export const postProduct = (payload) => {
   };
 };
 
-export const deleteProduct = () => {
-  return {
-    type: DELETE_PRODUCT,
+// export const deleteProduct = () => {
+//   return {
+//     type: DELETE_PRODUCT,
+//   };
+// };
+
+export function deleteProduct(payload) {
+  return async function () {
+    try {
+      const response = await axios.delete(`${URL_SERVER}/product/delete/` + payload);
+      return response;
+    } catch (e) {
+      console.log(e);
+    }
   };
-};
+}
 
 export const getCategories = () => async (dispatch) => {
   const { data } = await axios.get(`${URL_SERVER}/categories`);
