@@ -22,5 +22,5 @@ export const guardarDatosComprador = (datos) => {
 }
 
 export const crearPedido = (pedido) => async dispatch => {
-  const {data} = await axios.post(`${URL_SERVER}/pedido/crear/Qff78AeOAWdMJH1pIrWX5Dn40Xv2`, pedido);
+  const {data} = await axios.post(`${URL_SERVER}/pedido/crear`);
 }
