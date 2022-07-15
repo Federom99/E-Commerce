@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const {Usuario, Producto, Talle, Compra, Pedido } = require("../db.js");
+const {Usuario, Producto, Talle, Compra, Producto_talle } = require("../db.js");
 const { promisify } = require("util");
 const jwt = require("jsonwebtoken");
 const router = Router();
@@ -50,14 +50,24 @@ router.post("/", async (req, res) => {
 
     //Creo una compra por cada producto
     for(let i = 0; i < productos.length; i++){
-      const compra = await Compra.create({
+      await Compra.create({
         productoId: productos[i].productId,
         talleId: productos[i].talleId,
         cantidad: productos[i].cantidad,
         pedidoId: pedido.dataValues.id
       })
 
-      console.log(compra)
+
+      //Resto el stock
+       const productoTalle = await Producto_talle.findOne({where: {
+          productoId: productos[i].productId,
+          talleId: productos[i].talleId
+        }
+      });
+
+      await productoTalle.update({
+        stock: productoTalle.dataValues.stock - productos[i].cantidad
+      })
 
     }
 
