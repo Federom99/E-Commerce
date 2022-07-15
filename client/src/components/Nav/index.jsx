@@ -63,7 +63,7 @@ export default function NavBar({ products }) {
         <li onClick={logOut}>Salir</li>
         {showAdminBoard && (
           <li>
-            <NavLink to="/admin">Admin</NavLink>
+            <NavLink to="/admin/dashboard/">Admin</NavLink>
           </li>
         )}
       </>

@@ -81,7 +81,7 @@ const columnas = [
     },
     { 
      name: 'Monto',
-     selector: row => `${ row.pago_total }`,
+     selector: row => `$ ${ row.pago_total }`,
      sortable: true
     },
     { 
@@ -101,7 +101,7 @@ const columnas = [
     },
     { 
      name: 'ID Productos',
-     selector: row => `${ row.idProductos }`,
+     selector: row => `${ row.idProductos }`, 
      sortable: true
     },
  ]

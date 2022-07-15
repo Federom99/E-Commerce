@@ -2,19 +2,41 @@ import DataTable from 'react-data-table-component';
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from 'react-router-dom';
 import './products.css';
-import { deleteProduct } from '../../redux/actions/product';
+import { deleteProduct, getProducts, postProduct } from '../../redux/actions/product';
+import { useEffect, useState } from "react";
+import Modal from '../../components/Modal/Modal';
+import EditProduct from '../../components/EditProduct';
+import EditForm from '../../components/EditProduct/form';
 
 export default function Products() {
+    const [modal, setModal] = useState(false)
     const dispatch = useDispatch();
+    
 
     function borrar ( id ) {
       dispatch(deleteProduct(id))
       alert("Producto Eliminado !");
       console.log(id);
+      dispatch(getProducts());
     }
 
+    function submit ( product ) {
+      dispatch(postProduct(product));
+      alert("Producto Creado !");
+      console.log(product);
+  }
+
     const products = useSelector((state) => state.product.products);
-    console.log(products)
+    console.log(products)  
+
+    function editar () {
+      // setModal(!modal)
+    }
+
+    function modificar () {
+      console.log("Soy Modificar")
+      setModal(!modal)
+    }
 
     const columnas = [
       { 
@@ -51,11 +73,11 @@ export default function Products() {
         name: 'Borrar',
         selector: row => <button className='user' onClick={ () => borrar(row.id)}>Eliminar</button>,
         sortable: true,
-        grow: 0,
+        grow: 0.1,
        },
        { 
         name: 'Modificar',
-        selector: row => <button className='user'>Editar</button>,
+        selector: row => <button className='user' onClick={ () => editar(row.nombre)}>Editar</button>,
         sortable: true,
         grow: 0,
        },
@@ -68,18 +90,27 @@ export default function Products() {
       selectAllRowsItemText: 'Todos'
   }
 
+    const header = modal === false ? true : false;
+
     return (
         <div>
-            <Link to={"/createProduct"}><button className='nuevo'>Insertar Nuevo Producto</button></Link>
+            <Link to={"/createProduct"}><button className='nuevo'>Crear Nuevo Producto</button></Link>
             <DataTable
             columns={columnas}
             data={products}
             title="Productos"
             pagination
             paginationComponentOptions={paginacionOpciones}
-            fixedHeader
+            fixedHeader={header}
             fixedHeaderScrollHeight="600px"
             />
+            <Modal
+              estado={modal}
+              cambiarEstado={setModal}
+            >
+              <EditForm submit={submit} />
+              <button className='user' onClick={modificar}>Aceptar</button>
+            </Modal>
         </div>
     )
 }
