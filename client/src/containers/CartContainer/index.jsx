@@ -8,6 +8,7 @@ export default function ShoppingCart() {
   const [cart , shoppingCart,order] = useSelector((store) => [store.cart , store.cart.shoppingCart,store.cart.order]);
   const [alert,setAlert] = useState(1)
   const [amount,setAmount] = useState(shoppingCart.length)
+  const { user: currentUser } = useSelector((state) => state.auth);
   // const [price , setPrice] = useState(0)
   const dispatch = useDispatch()
   useEffect(()=>{
@@ -52,9 +53,17 @@ export default function ShoppingCart() {
           <Li>
             <PriceSection>Precio final: ${price}</PriceSection>
           </Li>
-            <Link to="/checkout">
+          {
+            currentUser ? (
+              <Link to="/checkout">
                   <button>Iniciar compra</button>
-            </Link>
+              </Link>
+            ) : (
+              <Link to="/login">
+                  <button>Inicia sesion para comprar</button>
+              </Link>
+            )
+          }
         </List>
       ) : (
         <Error>No hay items en su carrito</Error>

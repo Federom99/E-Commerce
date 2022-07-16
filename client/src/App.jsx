@@ -93,7 +93,7 @@ function App() {
         <Route path="/confirmar/:id" element={<Confirmacion />} />
         <Route path="/admin" element={<AdminHub />} />
         <Route path="/admin/dashboard/*" element={<DashboardAdmin />} />
-        <Route path="/checkout/success" element={<CheckoutSuccess />} />
+        <Route path="/checkout/success/:idPedido" element={<CheckoutSuccess />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>

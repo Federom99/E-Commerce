@@ -46,8 +46,8 @@ export default function Products() {
        grow: 0.2,
       },
       { 
-       name: 'Precio',
-       selector: row => `$ ${ row.precio }`,
+       name: 'Precio $',
+       selector: row => row.precio ,
        sortable: true,
        grow: 0,
       },

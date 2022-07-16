@@ -9,8 +9,9 @@ mercadopago.configure({
 });
 
 router.post("/", (req, res) => {
-    const {carrito, datos} = req.body
+    const {carrito, datos, pedidoGenerado} = req.body
     console.log(req.body)
+    const idPedido = pedidoGenerado.pedido.id;
     const productos = [];
     carrito.map((p) => {
         let item = {
@@ -46,8 +47,8 @@ router.post("/", (req, res) => {
             installments: 12
             },
         back_urls:{
-            success: "http://localhost:3000/checkout/success",
-            failure: "http://localhost:3000/checkout/success",
+            success: "http://localhost:3000/checkout/success/"+idPedido,
+            failure: "http://localhost:3000/checkout/success/"+idPedido,
         },
         auto_return: "approved",
         binary_mode: true,
