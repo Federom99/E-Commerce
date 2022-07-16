@@ -14,7 +14,13 @@ router.post("/", async (req, res) => {
 
     const user = await Usuario.findByPk(id);
 
-    const { productos, direccion_de_envio } = req.body;
+    let { productos, comprador, direccion_de_envio } = req.body;
+
+    if(!direccion_de_envio){
+      direccion_de_envio = comprador.direccion + " - " + comprador.codigoPostal + " - " + comprador.provincia;
+    }
+
+    console.log(req.body);
 
     let total = 0
 
@@ -26,7 +32,7 @@ router.post("/", async (req, res) => {
         include: {
           model: Talle,
           where: {
-            id: productos[i].talleId,
+            talle: productos[i].talle,
           }
         }
       });
@@ -37,22 +43,20 @@ router.post("/", async (req, res) => {
       total += productos[i].cantidad * productoTalle.precio
     }
 
-
     const pedido = await user.createPedido({
       pago_total: total,
       //Si me pasan direccion de envio la pongo, si no uso la del user.
-      direccion_de_envio: direccion_de_envio
-        ? direccion_de_envio
-        : user.direccion,
+      direccion_de_envio: direccion_de_envio,
       //Suponemos que esto se crea justo despues de la pasarela de pago, por lo que estaría aprobado.
-      estado: "Aprobado",
+      estado: "Pendiente de pago",
     });
 
     //Creo una compra por cada producto
     for(let i = 0; i < productos.length; i++){
+      const talle = await Talle.findOne({where: {talle: productos[i].talle}})
       await Compra.create({
         productoId: productos[i].productId,
-        talleId: productos[i].talleId,
+        talleId: talle.id,
         cantidad: productos[i].cantidad,
         pedidoId: pedido.dataValues.id
       })
@@ -61,7 +65,7 @@ router.post("/", async (req, res) => {
       //Resto el stock
        const productoTalle = await Producto_talle.findOne({where: {
           productoId: productos[i].productId,
-          talleId: productos[i].talleId
+          talleId: talle.id
         }
       });
 

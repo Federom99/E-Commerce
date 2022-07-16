@@ -36,46 +36,30 @@ const CheckoutSuccess = () => {
             case "debit_card": datosDePago.medioDePago = "Tarjeta de débito"; break;
             default: datosDePago.medioDePago = "Otro";
         }
-        if(query.status === "approved"){
-            const pedido = {
-                fecha: new Date(),
-                pago_total: 2222,
-                direccion_de_envio: {
-                    direccion: "caca 12",
-                    CP: 4001
-                    },
-                estado: "Aprobado",
-                idProductos: [1],
-                nroOperacion: datosDePago.nroOperacion
-                }
-                dispatch(crearPedido(pedido));
-        }
     }
 
     return(
         <Main>
             <Div>
-                <InfoContainer>
+                <div id={estilos.contenedorDatos}>
                     <H2>Checkout</H2>
-                    <div id={estilos.contenedorDatos}>
-                        <br />
-                        <div className={estilos.datos}>
+                    <br />
+                    <ul id={estilos.lista}>
+                        <li className={estilos.itemLista}>
                             <span className={estilos.items}>Nro. de operacion: </span>
                             <span className={estilos.items}>{datosDePago.nroOperacion}</span>
-                        </div>
-                        <br />
-                        <div className={estilos.datos}>
+                        </li>
+                        <li className={estilos.itemLista}>
                             <span className={estilos.items}>Estado: </span>
                             <span className={estilos.items}>{datosDePago.estado}</span>
-                        </div>
-                        <br />
-                        <div className={estilos.datos}>
+                        </li>
+                        <li className={estilos.itemLista}>
                             <span className={estilos.items}>Método de pago: </span>
                             <span className={estilos.items}>{datosDePago.medioDePago}</span>
-                        </div>
-                        <br />
-                    </div>                 
-                </InfoContainer>
+                        </li>
+                    </ul>
+                    <br />
+                </div>        
             </Div>
         </Main>
     );

@@ -91,6 +91,10 @@ const authentication = async (req, res) => {
       isAdmin: user.isAdmin,
       confirmado: user.confirmado,
       token: token,
+      lastName: user.apellido,
+      phone: user.telefono,
+      address: user.direccion,
+      dni: user.dni,
     });
   } else {
     const error = new Error("The password is not correct");
