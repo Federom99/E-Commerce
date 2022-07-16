@@ -52,6 +52,9 @@ module.exports = (sequelize) => {
       token: {
         type: DataTypes.STRING,
       },
+      carrito: {
+        type: DataTypes.ARRAY(DataTypes.JSON)
+      }
     },
     {
       timestamps: false,
