@@ -8,29 +8,48 @@ import {
 import estilos from "./checkout.module.css";
 import useScript from "./useScript";
 import { useState } from "react";
-import {checkout, crearPedido} from "../../redux/actions/checkout"
+import {checkout, crearPedido, guardarDatosComprador} from "../../redux/actions/checkout"
 
 const Checkout = () => {
     const [input, setInput] = useState({nombre: "", apellido: "", documento: "", direccion: "", codigoPostal: "", provincia: ""});
     const [errores, setErrores] = useState({nombre: "", apellido: "", documento: "", direccion: "", codigoPostal: "", provincia: ""});
     const [botonBloqueado, setBotonBloqueado] = useState("disabled");
+    const [formBloqueado, setFormBloqueado] = useState("");
     const carrito = useSelector(state => state.cart.order);
     const { user: currentUser } = useSelector((state) => state.auth);
     //----------------------------MERCADOPAGO----------------------------------------
     const { MercadoPago } = useScript( "https://sdk.mercadopago.com/js/v2", "MercadoPago");
     const pago = useSelector((state) => state.checkout.checkout);
+    const pedidoGenerado = useSelector(state => state.checkout.pedido);
     const dispatch = useDispatch();
 
-    function onClickHandler(e){
+    async function onClickHandler(e){
         e.preventDefault();
-        dispatch(checkout({carrito, datos:input}));
         setBotonBloqueado("disabled");
+        setFormBloqueado("disabled");
         const pedido = {
             "productos": crearProductosPedido(carrito),
-            "comprador": input
-          }
-        dispatch(crearPedido(pedido));
+            "comprador": input,
+        }
+        let disPedido = await dispatch(crearPedido(pedido));
     }
+
+    useEffect(() => {
+        // console.log(pedidoGenerado);
+        if(pedidoGenerado.hasOwnProperty("pedido")) {
+            dispatch(checkout({carrito, datos:input, pedidoGenerado}));
+            const factura = {
+                "nombre": input.nombre,
+                "apellido": input.apellido,
+                "telefono": currentUser.phone,
+                "mail": currentUser.email,
+                "direccion": input.direccion,
+                "dni": input.documento,
+                "idPedido": pedidoGenerado.pedido.id
+            }
+            dispatch(guardarDatosComprador(factura));
+        }
+    },[pedidoGenerado])
 
     useEffect(() => {
         if(currentUser){
@@ -57,8 +76,8 @@ const Checkout = () => {
     },[pago, MercadoPago]);
      //----------------------------FIN--MERCADOPAGO--------------------------------------
 
-     console.log(pago);
-     console.log(currentUser);
+    //  console.log(carrito);
+    //  console.log(currentUser);
 
      useEffect(
         () => {
@@ -89,7 +108,8 @@ const Checkout = () => {
                                     <label>Nombre</label>
                                     <div>
                                         <input name="nombre" type="text" className={errores.nombre ? estilos.inputDatosError : estilos.inputDatos}
-                                        onChange={onChangeHandler} value={input.nombre}></input>
+                                        onChange={onChangeHandler} value={input.nombre}
+                                        disabled={formBloqueado === "disabled" ? "disabled" : ""}></input>
                                         {errores.nombre ? (<p className={estilos.indicador}>{errores.nombre}</p>) : (<p className={estilos.i}>a</p>)}
                                     </div>
                             </li>
@@ -97,7 +117,8 @@ const Checkout = () => {
                                 <label>Apellido</label>
                                 <div>
                                     <input name="apellido" type="text" className={errores.apellido ? estilos.inputDatosError : estilos.inputDatos}
-                                    onChange={onChangeHandler} value={input.apellido}></input>
+                                    onChange={onChangeHandler} value={input.apellido}
+                                    disabled={formBloqueado === "disabled" ? "disabled" : ""}></input>
                                     {errores.apellido ? (<p className={estilos.indicador}>{errores.apellido}</p>) : (<p className={estilos.i}>a</p>)}
                                 </div>
                             </li>
@@ -105,7 +126,8 @@ const Checkout = () => {
                                 <label>DNI</label>
                                 <div>
                                     <input name="documento" type="number" className={errores.documento ? estilos.inputDatosError : estilos.inputDatos}
-                                    onChange={onChangeHandler} value={input.documento}></input>
+                                    onChange={onChangeHandler} value={input.documento}
+                                    disabled={formBloqueado === "disabled" ? "disabled" : ""}></input>
                                         {errores.documento ? (<p className={estilos.indicador}>{errores.documento}</p>) : (<p className={estilos.i}>a</p>)}
                                 </div>                        
                             </li>
@@ -113,7 +135,8 @@ const Checkout = () => {
                                 <label>Direccion</label>
                                 <div>
                                     <input name="direccion" type="text" className={errores.direccion ? estilos.inputDatosError : estilos.inputDatos}
-                                    onChange={onChangeHandler} value={input.direccion}></input>
+                                    onChange={onChangeHandler} value={input.direccion}
+                                    disabled={formBloqueado === "disabled" ? "disabled" : ""}></input>
                                         {errores.direccion ? (<p className={estilos.indicador}>{errores.direccion}</p>) : (<p className={estilos.i}>a</p>)}
                                 </div>                        
                             </li>
@@ -121,7 +144,8 @@ const Checkout = () => {
                                 <label>Codigo Postal</label>
                                 <div>
                                     <input name="codigoPostal" type="text" className={errores.codigoPostal ? estilos.inputDatosError : estilos.inputDatos}
-                                    onChange={onChangeHandler} value={input.codigoPostal}></input>
+                                    onChange={onChangeHandler} value={input.codigoPostal}
+                                    disabled={formBloqueado === "disabled" ? "disabled" : ""}></input>
                                         {errores.codigoPostal ? (<p className={estilos.indicador}>{errores.codigoPostal}</p>) : (<p className={estilos.i}>a</p>)}
                                 </div>                        
                             </li>
@@ -129,7 +153,8 @@ const Checkout = () => {
                                 <label>Provincia</label>
                                 <div>
                                     <input name="provincia" type="text" className={errores.provincia ? estilos.inputDatosError : estilos.inputDatos}
-                                    onChange={onChangeHandler} value={input.provincia}></input>
+                                    onChange={onChangeHandler} value={input.provincia}
+                                    disabled={formBloqueado === "disabled" ? "disabled" : ""}></input>
                                         {errores.provincia ? (<p className={estilos.indicador}>{errores.provincia}</p>) : (<p className={estilos.i}>a</p>)}
                                 </div>                        
                             </li>

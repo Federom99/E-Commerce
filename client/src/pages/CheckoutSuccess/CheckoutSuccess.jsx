@@ -8,14 +8,16 @@ import {
 } from "./styles";
 import estilos from "./CheckoutSuccess.module.css";
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import queryString from "query-string";
-import { crearPedido } from "../../redux/actions/checkout";
+import { aprobarPedido, crearPedido, getFactura } from "../../redux/actions/checkout";
 
 const CheckoutSuccess = () => {
     const dispatch = useDispatch();
+    const pedido = useSelector(state => state.checkout.pedido);
     const productoCreado = false;
     let {search} = useLocation();
+    let {idPedido} = useParams();
     let query;
     let datosDePago;
     if(search){
@@ -38,6 +40,13 @@ const CheckoutSuccess = () => {
         }
     }
 
+    useEffect(() => {
+        dispatch(getFactura(idPedido));
+        dispatch(aprobarPedido({idPedido, nroOperacion: datosDePago.nroOperacion, estado: datosDePago.estado}));
+    },[]);
+
+    const {datosFactura} = pedido;
+
     return(
         <Main>
             <Div>
@@ -56,6 +65,22 @@ const CheckoutSuccess = () => {
                         <li className={estilos.itemLista}>
                             <span className={estilos.items}>Método de pago: </span>
                             <span className={estilos.items}>{datosDePago.medioDePago}</span>
+                        </li>
+                        <li className={estilos.itemLista}>
+                            <span className={estilos.items}>Nombre: </span>
+                            <span className={estilos.items}>{datosFactura?.nombre+" "+datosFactura?.apellido}</span>
+                        </li>
+                        <li className={estilos.itemLista}>
+                            <span className={estilos.items}>Mail: </span>
+                            <span className={estilos.items}>{datosFactura?.mail}</span>
+                        </li>
+                        <li className={estilos.itemLista}>
+                            <span className={estilos.items}>DNI: </span>
+                            <span className={estilos.items}>{datosFactura?.dni}</span>
+                        </li>
+                        <li className={estilos.itemLista}>
+                            <span className={estilos.items}>Dirección: </span>
+                            <span className={estilos.items}>{datosFactura?.direccion}</span>
                         </li>
                     </ul>
                     <br />
