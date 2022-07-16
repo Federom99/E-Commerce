@@ -6,7 +6,14 @@ import {
   REMOVE_CART,
 } from "../actions/actionTypes";
 
-const initialState = {
+const cart = JSON.parse(localStorage.getItem("cart"))
+const initialState = cart ? {
+  shoppingCart: cart.shoppingCart,
+  order: cart.order,
+  loading:false,
+  error:null,
+} :
+{
   shoppingCart: [],
   order: [],
   loading: false,
@@ -71,6 +78,16 @@ export default function cartReducer(state = initialState, action) {
       return {
         ...state,        
       };
+    case "SET_LOCAL_CART":
+      return{
+        ...state
+      }
+    case "REMOVE_LOCAL_CART":
+      return{
+        ...state,
+        shoppingCart:[],
+        order:[]
+      }
     default:
       return state;
   }

@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/actions/autenticacion";
 import Loading from "../Loader";
+import { clearLocalStorage } from "../../redux/actions/cart";
 
 export default function NavBar({ products }) {
   const navigation = useNavigate();
@@ -37,6 +38,7 @@ export default function NavBar({ products }) {
 
   const logOut = () => {
     dispatch(logout());
+    dispatch(clearLocalStorage())
     navigation("/");
     document.cookie =
       "FOOD-API=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";

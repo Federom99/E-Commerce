@@ -20,7 +20,7 @@ import {
   Review,
 } from "./styles";
 import { getProduct , deleteProduct } from "../../redux/actions/product";
-import {addToCart} from "../../redux/actions/cart"
+import {addToCart, setLocalStorage} from "../../redux/actions/cart"
 import Loading from "../../components/Loader";
 
 const colors = {
@@ -56,12 +56,13 @@ const ProductDetail = () => {
   };
 
   let dispatch = useDispatch();
-
-  let product = useSelector((state) => state.product.product);
-  let error = useSelector((state) => state.product.error);
+  let [cart , product , error] = useSelector ( state => [ state.cart , state.product.product , state.product.error])
+  // let product = useSelector((state) => state.product.product);
+  // let error = useSelector((state) => state.product.error);
   let { productId } = useParams();
 
   useEffect(()=>{
+    window.scrollTo(0,0); 
     if (!Object.keys(product).length){
       dispatch(getProduct(productId))
     }
@@ -73,10 +74,10 @@ const ProductDetail = () => {
   },[product])
   useEffect(()=>{
     return ()=>{
-
+      dispatch(setLocalStorage(cart))
       dispatch(deleteProduct())
     }
-  }, [productId]);
+  }, []);
 
   const checkStock = async (cantidad = 1) =>{
     let talle = size

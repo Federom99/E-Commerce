@@ -1,6 +1,7 @@
+import { useEffect } from "react";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { modifyCart, removeCart } from "../../redux/actions/cart";
+import { useDispatch, useSelector } from "react-redux";
+import { modifyCart, removeCart, setLocalStorage } from "../../redux/actions/cart";
 
 import {
   MainDiv,
@@ -29,9 +30,14 @@ export default function AddPopUp({ id, nombre, img, precio, close , talle , chec
     cantidad: 1,
     precio: precio,
   })
-
+  const cart = useSelector(state=>state.cart)
   const dispatch = useDispatch();
 
+  useEffect(()=>{
+    return ()=>{
+      dispatch(setLocalStorage(cart))
+    }
+  },[])
   const incAmount = () => {
     setpedido({
       ...pedido,
