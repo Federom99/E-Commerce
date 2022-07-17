@@ -65,7 +65,6 @@ export default function Login() {
             <h2
               style={{
                 textAlign: "center",
-                fontWeight: "800",
                 color: "#252525",
               }}
             >

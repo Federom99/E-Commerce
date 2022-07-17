@@ -115,6 +115,15 @@ export default function NewUser() {
         <Title>¡Bienvenido!</Title>
       </Header>
       <Form onSubmit={handleSubmit}>
+        <h2
+              style={{
+                textAlign: "center",
+                color: "#252525",
+                marginBottom: "1rem",
+              }}
+            >
+              Registrarse
+        </h2>
         <List>
           <Li>
             <Subtitle>Nombre:</Subtitle>
