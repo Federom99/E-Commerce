@@ -192,7 +192,7 @@ const ProductDetail = () => {
               })}
           </SizeInfo>
           <Description>{product.descripcion}</Description>
-          <Button onClick={addCart}>Add to cart</Button>
+          <Button onClick={addCart}>Agregar al carrito</Button>
           {/* <Review placeholder="Enter a review of the product"></Review> */}
           {/* <Button>Send review</Button> */}
         </InfoContainer>
