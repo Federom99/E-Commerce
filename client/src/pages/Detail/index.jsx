@@ -141,7 +141,7 @@ const ProductDetail = () => {
     );
 
   const formatPrice = new Intl.NumberFormat("es-AR").format(product.precio);
-  console.log(product);
+  // console.log(product);
   return (
     <Main>
       <ToastContainer position= "top-center"

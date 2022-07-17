@@ -45,10 +45,15 @@ export const Image = styled.img`
 `;
 
 export const InfoContainer = styled.div`
+/* background-color: blue; */
   padding: 1rem;
   max-width: 500px;
   margin-top: 1rem;
-  margin-left: 2rem;
+  margin-left: 4rem;
+  border-radius: 1rem;
+  -webkit-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 0.5);
+  -moz-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 0.5);
+  box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 0.5);
   @media (min-width: 850px) {
     display: flex;
     flex-direction: column;
@@ -60,17 +65,22 @@ export const H2 = styled.div`
   color: ${(props) => props.theme.colorTextPri};
   font-size: 1.3rem;
   font-weight: 600;
+  margin: auto;
   margin-bottom: 1rem;
 `;
 
 export const P = styled.p`
   position: relative;
+  margin: auto;
   margin-bottom: 1rem;
   font-weight: 600;
   color: ${(props) => props.theme.colorTextPri};
+  text-align: center;
   &::after {
-    position: absolute;
-    content: "stock: ${(props) => props.stock}";
+    text-align: center;
+    margin: auto;
+    margin-top: 0.5rem;
+    content: "Stock: ${(props) => props.stock}";
     display: block;
     font-weight: 400;
     font-size: 0.85rem;
@@ -86,6 +96,7 @@ export const Stars = styled.div`
 
 export const SizeInfo = styled.ul`
   display: flex;
+  justify-content: space-between;
   margin-bottom: 1rem;
   list-style: none;
 `;
@@ -94,7 +105,8 @@ export const Size = styled.li`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 1rem;
+  margin: auto;
+  /* margin-right: 1rem; */
   width: 40px;
   height: 40px;
   border: 1px solid ${(props) => props.theme.colorTextSec};
