@@ -30,13 +30,11 @@ export const List = styled.ul`
 export const Blist = styled(List)`
   flex-direction: row;
   justify-content: space-between;
-
 `;
 export const Gith = styled(Google)``;
 
 export const InputDiv = styled.div``;
 export const Form = styled.form`
-  height: 450px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -50,9 +48,9 @@ export const Form = styled.form`
   box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
 `;
 export const Input = styled.input`
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    border: 1px solid #999;
-    outline: none;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #999;
+  outline: none;
 `;
