@@ -3,6 +3,7 @@ import { keyframes} from "styled-components";
 
 export const ProductFilterContainer = styled.div`
     padding: 1rem;
+    /* background-color: red; */
 `
 
 export const CategoriesContainer = styled.ul`
@@ -56,17 +57,28 @@ export const Name = styled.span`
 
 export const Select = styled.select`
     width: 120px;
-    height: 20px;
-    border-radius: 5px;
+    height: 2rem;
+    // border-radius: 5px;
+    border-width: 2px;
+    
 `
 
 export const Option = styled.option`
     font-size: 1rem;
+    height: 2rem;
+    text-align: center;
 `
 export const FilterTitle = styled.span`
-    display: inline-block;
-    text-align: right;
-    margin-bottom: 0.5rem;
-    padding-right: 1rem;
-    margin-top: 1rem;
+    font-size: 1rem;
+    text-align: center;
 `
+
+export const DivFilterTitle = styled.div`
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+    /* background-color: red; */
+    width: 100%;
+`;
