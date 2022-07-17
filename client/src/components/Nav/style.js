@@ -1,9 +1,27 @@
 import styled from "styled-components";
+import { keyframes } from "styled-components";
+
+const anim = keyframes `
+    0%,
+    50%,
+    100% {
+      opacity: 0.9;
+    }
+
+    25%,
+    75% {
+      opacity: 0.1;
+    }
+`;
 
 export const Contenido = styled.ul`
   & li {
     & a {
       color: ${(props) => props.theme.colorTextPri};
+    }
+    &:hover {
+      cursor: pointer;
+      animation: ${anim} 4s linear 0s infinite normal forwards;
     }
   }
 `;
