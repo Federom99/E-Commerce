@@ -11,6 +11,7 @@ export const Header = styled.header`
 `;
 
 export const Title = styled.h2`
+  margin-top: 30px;
   font-size: 28px;
   font-weight: 600;
 `;
@@ -20,14 +21,15 @@ export const ErrorsText = styled.p`
 `
 
 export const Form = styled.form`
-  margin-top: 15px;
-  margin-bottom: 40px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   width: 90%;
   max-width: 400px;
   padding: 15px;
   border-radius: 8px;
+  margin-top: 20px;
+  margin-bottom: 30px;
   -webkit-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
   -moz-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
   box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);

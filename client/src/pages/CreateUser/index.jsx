@@ -11,7 +11,7 @@ import {
   Li,
   List,
   Button,
-  ErrorsText
+  ErrorsText,
 } from "./styles";
 import { useDispatch } from "react-redux";
 import Loading from "../../components/Loader";
@@ -28,9 +28,9 @@ export default function NewUser() {
 
   const errorHandler = (data) => {
     let errors = {};
-    if (!data.name) errors.name = "obligatory field";
+    if (!data.name) errors.name = "Obligatory field";
 
-    if (!data.lastname) errors.lastname = "obligatory field";
+    if (!data.lastname) errors.lastname = "Obligatory field";
 
     if (!data.adress) errors.adress = "Obligatory field";
 
@@ -42,7 +42,7 @@ export default function NewUser() {
         errors.email = "Sumbit a valid email";
     }
 
-    if (!data.password) errors.password = "obligatory field";
+    if (!data.password) errors.password = "Obligatory field";
     if (data.password) {
       if (
         !/(?=(.*[0-9]))((?=.*[A-Za-z0-9])(?=.*[A-Z])(?=.*[a-z]))^.{8,}$/.test(
@@ -51,6 +51,11 @@ export default function NewUser() {
       )
         errors.password =
           "Password must have at least 1 upper case, 1 lower case, one number and 8 characters long";
+    }
+
+    if (!data.repeatPassword) errors.repeatPassword = "Obligatory field";
+    if (data.password !== data.repeatPassword) {
+      errors.repeatPassword = "Password should be equal";
     }
 
     return errors;
@@ -83,7 +88,7 @@ export default function NewUser() {
             direccion: newUser.adress,
           }
         );
-        
+
         setAlert({ msg: data.msg, type: "success" });
         event.target[0].value = "";
         event.target[1].value = "";
@@ -105,7 +110,7 @@ export default function NewUser() {
   const { msg } = alert;
 
   return (
-<Div>
+    <Div>
       <Header>
         <Title>Welcome</Title>
       </Header>
@@ -140,6 +145,17 @@ export default function NewUser() {
             </ErrorsText>
           </Li>
           <Li>
+            <Subtitle>Repeat Password:</Subtitle>
+            <Input
+              type="password"
+              name="repeatPassword"
+              onChange={handleChange}
+            ></Input>
+            <ErrorsText>
+              {errors && errors.repeatPassword && errors.repeatPassword}
+            </ErrorsText>
+          </Li>
+          <Li>
             <Subtitle>Address:</Subtitle>
             <Input type="text" name="adress" onChange={handleChange}></Input>
             <ErrorsText>{errors && errors.adress && errors.adress}</ErrorsText>
@@ -170,7 +186,19 @@ export default function NewUser() {
             >
               {msg}
             </p>
-            <p onClick={() => navigate("/login")} style={{alignSelf: 'center', marginTop: 15, textDecoration: 'underline', fontSize: 18, color: '#2355f5', fontWeight: 'bold'}}>Login </p>
+            <p
+              onClick={() => navigate("/login")}
+              style={{
+                alignSelf: "center",
+                marginTop: 15,
+                textDecoration: "underline",
+                fontSize: 18,
+                color: "#2355f5",
+                fontWeight: "bold",
+              }}
+            >
+              Login{" "}
+            </p>
           </div>
         )}
 
