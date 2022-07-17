@@ -23,6 +23,7 @@ import {
 import { getProduct , clearProduct } from "../../redux/actions/product";
 import {addToCart, setLocalStorage} from "../../redux/actions/cart"
 import Loading from "../../components/Loader";
+import estilos from "./detail.module.css";
 
 const colors = {
   orange: "#FFBA5A",
@@ -186,7 +187,8 @@ const ProductDetail = () => {
           <SizeInfo>
             {product.categorium?.nombre !== "Accesorios" &&
               product.talles?.map((talle) => {
-                return <Size onClick={defineSize} key={talle.id}>{talle.talle}</Size>;
+                return <Size onClick={defineSize} key={talle.id} 
+                            className={size === talle.talle ? estilos.sizeSelected : ""}>{talle.talle}</Size>;
               })}
           </SizeInfo>
           <Description>{product.descripcion}</Description>
