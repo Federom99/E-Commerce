@@ -18,9 +18,6 @@ export const DIV = styled.div`
     }
 `
 export const StyledPopup = styled(Popup)`
-&-content{
-    /* background: rgb(255,255,255); */
-}
 &-overlay{
     background: rgba(0, 0, 0, 0.7);
 }
@@ -64,7 +61,7 @@ export const PriceSize = styled.div`
 
 export const Select = styled.select`
     padding-left: 0.5rem;
-    width: 70px;
+    width: fit-content;
     height: 40px;
     font-weight: 500;
     font-family: inherit;
@@ -93,7 +90,9 @@ export const Button = styled.div`
     background-color: ${props => props.theme.bton};
     cursor: pointer;
 `
-
+export const NoButton = styled(Button)`
+    background-color:grey;
+`
 export const Favorite = styled.button`
     color:red;
     width: 25px;

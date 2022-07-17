@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { ToastContainer , toast } from "react-toastify";
 import {
   Main,
   Div,
@@ -19,7 +20,7 @@ import {
   Button,
   Review,
 } from "./styles";
-import { getProduct , deleteProduct } from "../../redux/actions/product";
+import { getProduct , clearProduct } from "../../redux/actions/product";
 import {addToCart, setLocalStorage} from "../../redux/actions/cart"
 import Loading from "../../components/Loader";
 
@@ -75,7 +76,7 @@ const ProductDetail = () => {
   useEffect(()=>{
     return ()=>{
       dispatch(setLocalStorage(cart))
-      dispatch(deleteProduct())
+      dispatch(clearProduct())
     }
   }, []);
 
@@ -122,12 +123,12 @@ const ProductDetail = () => {
       const check = await checkStock()
       if (check){
         dispatch(addToCart(order));
-        alert("Agregado al carrito");
+        toast.success("Agregado al carrito");
       } else{
-        alert(`No hay stock `)
+        toast.error(`No hay stock `)
       }
     }
-    else alert("Seleccione un talle");
+    else toast.error("Seleccione un talle");
   }
 
   if (error) return <div>Error! {error.message}</div>;
@@ -142,6 +143,14 @@ const ProductDetail = () => {
   console.log(product);
   return (
     <Main>
+      <ToastContainer position= "top-center"
+          autoClose= {5000}
+          hideProgressBar= {false}
+          closeOnClick
+          pauseOnHover
+          draggable
+          progress= {undefined}
+          />
       <Div>
         <ImageContainer>
           <Image src={product?.imagen} />
