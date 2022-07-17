@@ -23,8 +23,7 @@ export default function Login() {
   const [alert, setAlert] = useState({});
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const error = useSelector((state) => state.auth.error);
-  const loading = useSelector((state) => state.auth.loading);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const userSession = localStorage.getItem("user");
@@ -40,21 +39,18 @@ export default function Login() {
       setAlert({ msg: "All fields are required", type: "error" });
       return;
     }
-    dispatch(login({ mail, contraseña: password }));
-    navigate("/");
+    setLoading(true);
+    dispatch(login({ mail, contraseña: password })).then((res) => {
+      setLoading(false);
+      if (!res.payload.error) {
+        navigate("/");
+        window.location.reload();
+      }
+      if (res.payload.error) {
+        setAlert({ msg: res.payload.error, type: "error" });
+      }
+    });
   };
-
-  let content;
-  if (error) {
-    content = <Div>{error}</Div>;
-  }
-  if (loading) {
-    content = (
-      <Div>
-        <Loading />
-      </Div>
-    );
-  }
 
   return (
     <Div>
@@ -123,22 +119,27 @@ export default function Login() {
                 Login
               </button>
             </div>
-
-            {content && (
+            {alert.msg && alert.type === "error" && (
               <p
                 style={{
-                  widith: "100%",
-                  background: "red",
-                  padding: 7,
-                  textAlign: "center",
-                  borderRadius: 5,
+                  marginTop: 20,
+                  fontSize: 13,
+                  backgroundColor: "red",
                   color: "#fff",
+                  textAlign: "center",
+                  padding: 5,
+                  borderRadius: 5,
                 }}
               >
-                {content}
+                {alert.msg}
               </p>
             )}
 
+            {loading && (
+              <>
+                <Loading />
+              </>
+            )}
             <div
               style={{
                 width: "100%",
