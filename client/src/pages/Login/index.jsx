@@ -1,21 +1,10 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
-import {
-  Div,
-  DivBtn,
-  Input,
-  List,
-  Google,
-  Gith,
-  InputDiv,
-  Section,
-  Form,
-  Blist,
-} from "./styles";
-import { useDispatch, useSelector } from "react-redux";
-import { login } from "../../redux/actions/autenticacion";
+import { useEffect, useState } from "react";
+import { GoogleLogin } from "@react-oauth/google";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import Loading from "../../components/Loader";
+import { login } from "../../redux/actions/autenticacion";
+import { Div, Form, Input, InputDiv, List, Section } from "./styles";
 
 export default function Login() {
   const [mail, setEmail] = useState("");
@@ -50,6 +39,21 @@ export default function Login() {
         setAlert({ msg: res.payload.error, type: "error" });
       }
     });
+  };
+
+  const handleLogin = async (googleData) => {
+    console.log(googleData);
+    // const res = await fetch("http://localhost:3001/v1/auth/google", {
+    //   method: "POST",
+    //   body: JSON.stringify({
+    //     token: googleData.tokenId,
+    //   }),
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    // });
+    // const data = await res.json();
+    // store returned user in a context?
   };
 
   return (
@@ -140,6 +144,14 @@ export default function Login() {
                 <Loading />
               </>
             )}
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <GoogleLogin
+                text="Ingresar con Google"
+                onSuccess={handleLogin}
+                onError={handleLogin}
+              />
+            </div>
+
             <div
               style={{
                 width: "100%",
