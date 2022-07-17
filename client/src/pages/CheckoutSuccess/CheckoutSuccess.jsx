@@ -51,7 +51,7 @@ const CheckoutSuccess = () => {
         <Main>
             <Div>
                 <div id={estilos.contenedorDatos}>
-                    <H2>Checkout</H2>
+                    <H2>Datos del pedido</H2>
                     <br />
                     <ul id={estilos.lista}>
                         <li className={estilos.itemLista}>

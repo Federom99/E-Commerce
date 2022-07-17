@@ -13,7 +13,7 @@ export const FContainer = styled.footer`
     border: 1px solid rgba(255, 255, 255, 0.18);
 `
 
-export const Box = styled.div`
+export const Box = styled.a`
     transform: translateY(0px);
     transition: transform 0.25s ease-in-out;
     position: relative;
