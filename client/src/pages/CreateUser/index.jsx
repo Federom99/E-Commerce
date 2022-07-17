@@ -28,34 +28,34 @@ export default function NewUser() {
 
   const errorHandler = (data) => {
     let errors = {};
-    if (!data.name) errors.name = "Obligatory field";
+    if (!data.name) errors.name = "Campo requerido";
 
-    if (!data.lastname) errors.lastname = "Obligatory field";
+    if (!data.lastname) errors.lastname = "Campo requerido";
 
-    if (!data.adress) errors.adress = "Obligatory field";
+    if (!data.adress) errors.adress = "Campo requerido";
 
-    if (!data.email) errors.email = "Obligatory field";
+    if (!data.email) errors.email = "Campo requerido";
     if (data.email) {
       if (
         !/^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$/.test(data.email)
       )
-        errors.email = "Sumbit a valid email";
+        errors.email = "Mail inválido";
     }
 
-    if (!data.password) errors.password = "Obligatory field";
+    if (!data.password) errors.password = "Campo requerido";
     if (data.password) {
       if (
         !/(?=(.*[0-9]))((?=.*[A-Za-z0-9])(?=.*[A-Z])(?=.*[a-z]))^.{8,}$/.test(
           data.password
         )
       )
-        errors.password =
-          "Password must have at least 1 upper case, 1 lower case, one number and 8 characters long";
+        errors.password = 
+        "La contraseña debe tener al menos 1 letra mayúscula, 1 minúscula, 1 número y 8 caracteres de largo";
     }
 
-    if (!data.repeatPassword) errors.repeatPassword = "Obligatory field";
+    if (!data.repeatPassword) errors.repeatPassword = "Campo requerido";
     if (data.password !== data.repeatPassword) {
-      errors.repeatPassword = "Password should be equal";
+      errors.repeatPassword = "Las contraseñas deben ser iguales";
     }
 
     return errors;
@@ -103,7 +103,7 @@ export default function NewUser() {
         }
       }
     } else {
-      setAlert({ msg: "All fields are required", type: "error" });
+      setAlert({ msg: "Debes completar todos los campos", type: "error" });
     }
   };
 
@@ -112,17 +112,17 @@ export default function NewUser() {
   return (
     <Div>
       <Header>
-        <Title>Welcome</Title>
+        <Title>¡Bienvenido!</Title>
       </Header>
       <Form onSubmit={handleSubmit}>
         <List>
           <Li>
-            <Subtitle>Name:</Subtitle>
+            <Subtitle>Nombre:</Subtitle>
             <Input type="text" name="name" onChange={handleChange}></Input>
             <ErrorsText>{errors && errors.name && errors.name}</ErrorsText>
           </Li>
           <Li>
-            <Subtitle>LastName:</Subtitle>
+            <Subtitle>Apellido:</Subtitle>
             <Input type="text" name="lastname" onChange={handleChange}></Input>
             <ErrorsText>
               {errors && errors.lastname && errors.lastname}
@@ -134,7 +134,7 @@ export default function NewUser() {
             <ErrorsText>{errors && errors.email && errors.email}</ErrorsText>
           </Li>
           <Li>
-            <Subtitle>Password:</Subtitle>
+            <Subtitle>Contraseña:</Subtitle>
             <Input
               type="password"
               name="password"
@@ -145,7 +145,7 @@ export default function NewUser() {
             </ErrorsText>
           </Li>
           <Li>
-            <Subtitle>Repeat Password:</Subtitle>
+            <Subtitle>Repetir Contraseña:</Subtitle>
             <Input
               type="password"
               name="repeatPassword"
@@ -156,12 +156,12 @@ export default function NewUser() {
             </ErrorsText>
           </Li>
           <Li>
-            <Subtitle>Address:</Subtitle>
+            <Subtitle>Dirección:</Subtitle>
             <Input type="text" name="adress" onChange={handleChange}></Input>
             <ErrorsText>{errors && errors.adress && errors.adress}</ErrorsText>
           </Li>
         </List>
-        <Button type="submit">Register</Button>
+        <Button type="submit">Registrarse</Button>
 
         {alert.msg && alert.type === "success" && (
           <div

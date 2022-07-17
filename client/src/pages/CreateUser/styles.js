@@ -66,11 +66,17 @@ export const Button = styled.button`
   margin-bottom: 15px;
   width: 80%;
   padding: 10px;
-  border:none;
   background-color: #181818;
   border-radius: 5px;
   color: #fff;
   font-size: 15px;
   font-weight: 500;
   cursor: pointer;
+  &:hover {
+    background-color: whitesmoke;
+    color: black;
+    cursor: pointer;
+    border-color: black;
+    border-style: solid;
+  }
 `;
