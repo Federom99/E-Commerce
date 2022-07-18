@@ -1,13 +1,13 @@
 import {
   APROBAR_PEDIDO,
-    CHECKOUT, CREAR_PEDIDO, GET_FACTURA, GUARDAR_DATOS_COMPRADOR, GUARDAR_DATOS_COMPRADOR, GET_PEDIDOS, GET_USUARIOS,
+    CHECKOUT, CREAR_PEDIDO, GET_FACTURA, GUARDAR_DATOS_COMPRADOR, GET_PEDIDOS, GET_USUARIOS,
   } from "../actions/actionTypes";
   
   const initialState = {
     checkout:{},
     datos: {},
     pedidos: [],
-    usuarios: []
+    usuarios: [],
     pedido: [],
   };
   

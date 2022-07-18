@@ -47,6 +47,7 @@ export const aprobarPedido = (datos) => async dispatch => {
     type: APROBAR_PEDIDO,
     payload: data
   })
+}
 
 export function getPedidos(){
   return async function(dispatch){
