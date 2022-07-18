@@ -30,13 +30,11 @@ export const List = styled.ul`
 export const Blist = styled(List)`
   flex-direction: row;
   justify-content: space-between;
-
 `;
 export const Gith = styled(Google)``;
 
 export const InputDiv = styled.div``;
 export const Form = styled.form`
-  height: 450px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;

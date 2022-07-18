@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-oauth/google": "^0.2.6",
     "axios": "^0.27.2",
     "global": "^4.4.0",
     "query-string": "^7.1.1",
