@@ -1,11 +1,13 @@
 import {
   APROBAR_PEDIDO,
-    CHECKOUT, CREAR_PEDIDO, GET_FACTURA, GUARDAR_DATOS_COMPRADOR,
+    CHECKOUT, CREAR_PEDIDO, GET_FACTURA, GUARDAR_DATOS_COMPRADOR, GUARDAR_DATOS_COMPRADOR, GET_PEDIDOS, GET_USUARIOS,
   } from "../actions/actionTypes";
   
   const initialState = {
     checkout:{},
     datos: {},
+    pedidos: [],
+    usuarios: []
     pedido: [],
   };
   
@@ -35,6 +37,16 @@ import {
         return {
           ...state,
           pedido: action.payload
+        }
+      case GET_PEDIDOS:
+        return {
+          ...state,
+          pedidos: action.payload
+        }
+      case GET_USUARIOS:
+        return {
+          ...state,
+          usuarios: action.payload
         }
       default:
         return state;
