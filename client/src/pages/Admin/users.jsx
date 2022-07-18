@@ -94,6 +94,7 @@ const tablaUsuarios = [
 
   function alerta2 ( nombre ) {
   alert(nombre)
+  console.log(nombre)
 }
 
 const columnas = [

@@ -34,20 +34,21 @@ function validate(form){
     return errors;
 };
 
-export default function EditForm({ submit, propiedadNombre }) {
+export default function EditForm({ submit, datos }) {
+    console.log(datos)
     const dispatch = useDispatch();
     const categorias = useSelector(state => state.product.allCategories);
     const talles = useSelector(state => state.product.allTalles);
     const [errors, setErrors] = useState({});
     const [form, setForm] = useState({
-        nombre: "",
-        descripcion: "",
-        imagen: "",
-        talle: [],
-        precio: "",
+        nombre: datos.nombre,
+        descripcion: datos.descripcion,
+        imagen: datos.imagen,
+        talle: datos.talles.map(e => e.talle),
+        precio: datos.precio,
         stock: [],
-        categoria: "Remeras",
-        cantTalles: []
+        categoria: datos.categorium,
+        cantTalles: datos.talles
     })
     const [botonBloqueado, setBotonBloqueado] = useState("disabled");
     const [sinTalle, setSinTalle] = useState(false);
@@ -65,6 +66,8 @@ export default function EditForm({ submit, propiedadNombre }) {
             if(form.cantTalles.length !== form.stock.length) setBotonBloqueado("disabled");
         }, [errors, form]
     )
+
+    console.log(form)
 
     useEffect(() => {
         dispatch(getCategories());
@@ -168,7 +171,7 @@ export default function EditForm({ submit, propiedadNombre }) {
                     type="text"
                     value={form.nombre}
                     onChange={handleChange}
-                    placeholder={propiedadNombre}
+                    placeholder={datos.nombre}
                 />
                 {errors.nombre && (
                         <p className="errors">{errors.nombre}</p>
