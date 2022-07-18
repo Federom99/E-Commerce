@@ -8,6 +8,30 @@ import {
 
 const API_URL = "http://localhost:3001/user/";
 
+export const loginGoogle = (data) => async (dispatch) => {
+  dispatch(fetchloginBegin());
+  try {
+    const response = await fetch("http://localhost:3001/v1/auth/google", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user: data,
+      }),
+      credentials: "include",
+    });
+    const rest = await response.json();
+    const res = await handleErrors(response, rest);
+
+    if (res.token) localStorage.setItem("user", JSON.stringify(res));
+    return dispatch(fetchloginSuccess(res));
+  } catch (error) {
+    return dispatch(fetchloginFailure(error));
+  }
+};
+
 export const login = (data) => async (dispatch) => {
   dispatch(fetchloginBegin());
   try {
