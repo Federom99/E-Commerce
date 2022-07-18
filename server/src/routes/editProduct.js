@@ -15,14 +15,22 @@ router.put('/', async(req, res) => {
             prod.setCategorium(cat);
         }
         if(talle){
+            const tall = await  Producto_talle.findAll({where:{productoId: prod.dataValues.id}});
+            tall.map(async (t) => {await t.destroy()})
             talle.map( async (t, i) => {
                 const tall = await  Talle.findOne({where:{"talle":t}});
+                const add = await prod.addTalle(tall);
                 //Actualizo el stock a el correspondiente
                 const updateStock = await Producto_talle.update({stock:stock[i]}, {where:{productoId: prod.dataValues.id, talleId:tall.id}});
             })
+            // talle.map( async (t, i) => {
+            //     //Actualizo el stock a el correspondiente
+            //     // const updateStock = await Producto_talle.update({stock:stock[i]}, {where:{productoId: prod.dataValues.id, talleId:tall.id}});
+            // })
         }
         res.status(200).send("Actualizado exitosamente");
     }catch(e){
+        console.log(e);
         res.status(400).send(e);
     }
 })
