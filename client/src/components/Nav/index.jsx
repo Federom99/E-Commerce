@@ -1,5 +1,7 @@
 import { BsFillPersonFill } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
+import { GrUserAdmin } from "react-icons/gr";
+import {ImExit} from "react-icons/im";
 import { NavLink, useNavigate } from "react-router-dom";
 import style from "./nav.module.css";
 import Search from "./search";
@@ -48,6 +50,7 @@ export default function NavBar({ products }) {
   }
 
   let content;
+  let contentExit;
   if (error) {
     content = <div>{error}</div>;
   }
@@ -61,15 +64,17 @@ export default function NavBar({ products }) {
   if (currentUser) {
     content = (
       <>
-        <li onClick={toProfile}>{currentUser.name}</li>
-        <li onClick={logOut}>Salir</li>
+        <li onClick={toProfile}  className={style.icons}>{currentUser.name}</li>
         {showAdminBoard && (
-          <li>
-            <NavLink to="/admin/dashboard/">Admin</NavLink>
+          <li  className={style.icons}>
+            <NavLink to="/admin/dashboard/"><GrUserAdmin /></NavLink>
           </li>
         )}
       </>
     );
+    contentExit = (
+      <li onClick={logOut}  className={style.icons}><ImExit /></li>
+    )
   }
   if (!currentUser) {
     content = (
@@ -86,7 +91,7 @@ export default function NavBar({ products }) {
 
   return (
     <div className={style.full}>
-      <Contenido className={style.container}>
+      <Contenido className={!currentUser ? style.container : style.containerLoggedIn}>
         <li>
           <NavLink to="/">
             <img src={logo} className={style.logo} alt="logo" />
@@ -101,6 +106,7 @@ export default function NavBar({ products }) {
             <FaShoppingCart />
           </NavLink>
         </li>
+        {contentExit}
       </Contenido>
     </div>
   );
