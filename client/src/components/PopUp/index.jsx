@@ -25,6 +25,7 @@ import {
   LinkButton,
   Trash,
   ErrText,
+  H3,
 } from "./styles";
 
 export default function AddPopUp({ id, nombre, img, precio, close , talle , checkStock}) {
@@ -93,7 +94,7 @@ export default function AddPopUp({ id, nombre, img, precio, close , talle , chec
     <MainDiv>
       <Header>
         {
-          talle.current ==='Sin talle' ? (<h2> <Ok /> {nombre} añadido al carrito </h2>) : (<h2><Ok /> {nombre} talle:{talle.current} añadido al carrito</h2>)
+          talle.current ==='Sin talle' ? (<h2> <Ok /> {nombre} añadido al carrito </h2>) : (<h2><Ok /> {nombre} Talle:{talle.current} Añadido al carrito</h2>)
         }      
       </Header>
       <Main>
@@ -104,23 +105,23 @@ export default function AddPopUp({ id, nombre, img, precio, close , talle , chec
           }
           <h3>Subtotal: ${formatPrice(precio)}</h3>
           
-          <Button onClick={deleteCartItem}>Eliminar item <Trash/></Button>
+          <Button onClick={deleteCartItem}>Eliminar <Trash/></Button>
         </Detail>
         <Options>
-                <h3>Desea añadir más?</h3>
+                <H3>Desea añadir más?</H3>
                 <IncDiv>
                   <DecButton onClick={decAmount} size="lg"/>
                   <Amount>{pedido.cantidad}</Amount>
                   <IncButton onClick={incAmount} size="lg"/>
                 </IncDiv>
                 {              
-                  pedido.cantidad >1 ? (<h4>Se agregarán {pedido.cantidad} prendas</h4>) : (<h4>Se agregará 1 prenda</h4>)
+                  pedido.cantidad >1 ? (<H3>Se agregarán {pedido.cantidad} prendas</H3>) : (<H3>Se agregará 1 prenda</H3>)
                 }
                 {
                 onStock ? null : (<ErrText>Stock máximo</ErrText>)
                 }
                 
-                <h4>Subtotal: ${formatPrice(pedido.precio+precio)}</h4>
+                <H3>Subtotal: ${formatPrice(pedido.precio+precio)}</H3>
                 <Button onClick={addMore}>Añadir <AddMore/></Button>
         </Options>
       </Main>

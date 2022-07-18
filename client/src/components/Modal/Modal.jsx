@@ -11,34 +11,18 @@ export default function Modal({ cambiarEstado, submit, datos }) {
     const navigateTo  = useNavigate()
     const categorias = useSelector(state => state.product.allCategories);
     const talles = useSelector(state => state.product.allTalles);
-    const [errors, setErrors] = useState({});
     const [form, setForm] = useState({
         id: datos.id,
         nombre: datos.nombre.trim(),
         descripcion: datos.descripcion,
         imagen: datos.imagen,
-        talle: datos.talles.map(e => e.talle),
         precio: datos.precio,
         stock: datos.talles.map(e => e.producto_talle.stock),
         categoria: datos.categorium.nombre,
         cantTalles: datos.talles.map(t => t.talle)
     })
-    const [botonBloqueado, setBotonBloqueado] = useState("disabled");
     const [sinTalle, setSinTalle] = useState(false);
 
-    useEffect(
-        () => {
-            if (errors.nombre || errors.descripcion || errors.imagen || errors.talle || errors.precio || errors.stock || errors.categoria
-                || errors.cantTalles) {
-                setBotonBloqueado("disabled");
-            } else setBotonBloqueado("");
-            if (!form.nombre || !form.descripcion || !form.imagen || !form.talle || !form.precio || !form.stock || !form.categoria
-                || !form.cantTalles.length) {
-                setBotonBloqueado("disabled");
-            }
-            if (form.cantTalles.length !== form.stock.length) setBotonBloqueado("disabled");
-        }, [errors, form]
-    )
 
     // console.log(form)
 
@@ -53,9 +37,18 @@ export default function Modal({ cambiarEstado, submit, datos }) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        dispatch(updateProduct(form))
-        console.log(form);
-        alert("Producto Editado !")
+        const producto = {
+            id: datos.id,
+            nombre: form.nombre,
+            precio: form.precio,
+            descripcion: form.descripcion,
+            imagen: form.imagen,
+            talle: form.cantTalles,
+            stock: form.stock,
+            categoria: [form.categoria]
+        }
+        dispatch(updateProduct(producto))
+        // alert("Producto Editado !")
         cambiarEstado(false)
     }
 
@@ -73,10 +66,6 @@ export default function Modal({ cambiarEstado, submit, datos }) {
                 let arrStock = [];
                 setForm({ ...form, cantTalles: arr, stock: arrStock });
             }
-            setErrors(validate({
-                ...form,
-                [e.target.name]: e.target.value
-            }))
             return;
         }
         if (e.target.checked) {
@@ -94,20 +83,12 @@ export default function Modal({ cambiarEstado, submit, datos }) {
             arr.splice(indice, 1);
             setForm({ ...form, cantTalles: arr, stock: arrStock });
         }
-        setErrors(validate({
-            ...form,
-            [e.target.name]: e.target.value
-        }))
     }
 
     function handleStock(e, i) {
         let arr = form.stock;
         arr[i] = Number(e.target.value);
         setForm({ ...form, stock: arr });
-        setErrors(validate({
-            ...form,
-            [e.target.name]: e.target.value
-        }))
     }
 
     function handleChange(e) {
@@ -115,10 +96,6 @@ export default function Modal({ cambiarEstado, submit, datos }) {
             ...form,
             [e.target.name]: e.target.value
         })
-        setErrors(validate({
-            ...form,
-            [e.target.name]: e.target.value
-        }))
     }
 
     return (
@@ -217,7 +194,6 @@ export default function Modal({ cambiarEstado, submit, datos }) {
                                     })
                                 }
                             </select>
-
                             <button>Editar</button>
                         </form>
                     </div>

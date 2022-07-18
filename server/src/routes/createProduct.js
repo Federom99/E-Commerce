@@ -25,6 +25,7 @@ router.post('/', async(req, res) => {
         //Envío respuesta
         res.status(200).send("Creado exitosamente");
     }catch(e){
+        console.log(e);
         res.status(400).send(e);
     }
 })
