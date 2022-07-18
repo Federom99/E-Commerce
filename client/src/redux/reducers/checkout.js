@@ -1,10 +1,12 @@
 import {
-    CHECKOUT, CREAR_PEDIDO, GUARDAR_DATOS_COMPRADOR,
+    CHECKOUT, CREAR_PEDIDO, GUARDAR_DATOS_COMPRADOR, GET_PEDIDOS, GET_USUARIOS,
   } from "../actions/actionTypes";
   
   const initialState = {
     checkout:{},
-    datos: {}
+    datos: {},
+    pedidos: [],
+    usuarios: []
   };
   
   export default function productReducer(state = initialState, action) {
@@ -22,6 +24,16 @@ import {
       case CREAR_PEDIDO:
         return {
           ...state
+        }
+      case GET_PEDIDOS:
+        return {
+          ...state,
+          pedidos: action.payload
+        }
+      case GET_USUARIOS:
+        return {
+          ...state,
+          usuarios: action.payload
         }
       default:
         return state;

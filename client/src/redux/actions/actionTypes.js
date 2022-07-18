@@ -39,3 +39,7 @@ export const LOGOUT = "LOGOUT";
 export const CHECKOUT = "CHECKOUT";
 export const GUARDAR_DATOS_COMPRADOR = "GUARDAR_DATOS_COMPRADOR";
 export const CREAR_PEDIDO = "CREAR_PEDIDO";
+
+export const GET_PEDIDOS = "GET_PEDIDOS";
+export const GET_USUARIOS = "GET_USUARIOS";
+export const PUT_USUARIOS = "PUT_USUARIOS";
