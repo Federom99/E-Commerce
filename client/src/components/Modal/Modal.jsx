@@ -48,7 +48,7 @@ export default function Modal({ cambiarEstado, submit, datos }) {
             categoria: [form.categoria]
         }
         dispatch(updateProduct(producto))
-        alert("Producto Editado !")
+        // alert("Producto Editado !")
         cambiarEstado(false)
     }
 
