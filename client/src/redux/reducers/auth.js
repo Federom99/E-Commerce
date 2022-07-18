@@ -25,7 +25,6 @@ export default function (state = initialState, action) {
         msg: null,
       };
     case LOGIN_SUCCESS:
-      console.log(payload);
       return {
         ...state,
         isLoggedIn: true,

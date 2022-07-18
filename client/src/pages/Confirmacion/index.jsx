@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Loading from "../../components/Loader";
 import { Btn, Container, Letra, LetraB } from "./style";
+import estilos from "./confirmacion.module.css";
 
 function Confirmacion() {
   const navigation = useNavigate();
@@ -47,15 +48,11 @@ function Confirmacion() {
     );
   } else {
     content = (
-      <div style={{ display: "grid", justifyItems: "center" }}>
-        <Container>
-          <Letra color={"#f01f1f"}>Cuenta Confirmada</Letra>
-          <LetraB color={"black"}>
-            <br />
-            <br />
+      <div id={estilos.divContenedor}>
+          <Letra>Cuenta Confirmada</Letra>
+          <LetraB>
             Gracias por su Registro
           </LetraB>
-        </Container>
         <div>
           <Btn onClick={handleClick}>Login</Btn>
         </div>

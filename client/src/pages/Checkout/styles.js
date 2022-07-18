@@ -12,15 +12,11 @@ export const Main = styled.main`
 `;
 
 export const Div = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  max-width: 1440px;
-  min-height: 1080px;
-  @media (min-width: 850px) {
-    flex-direction: row;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 `;
 

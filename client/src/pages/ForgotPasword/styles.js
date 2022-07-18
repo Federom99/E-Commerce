@@ -31,6 +31,7 @@ export const Form = styled.form`
 export const Label = styled.label`
     display: flex;
     flex-direction: column;
+    margin: 0;
 `
 
 export const P = styled.p`
@@ -41,6 +42,7 @@ export const P = styled.p`
 `
 
 export const Input = styled.input`
+    margin: auto;
     margin-bottom: 1rem;
     padding: 1rem;
     width: 100%;
@@ -50,11 +52,22 @@ export const Input = styled.input`
 `
 
 export const Button = styled.button`
+    align-self: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
     width: 100%;
-    height: 30px;
-    background-color: #0C1DE8;
-    border-radius: 10px;
-    border: none;
-    color: #FFFFFF;
+    padding: 10px;
+    background-color: #181818;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
     cursor: pointer;
+    &:hover {
+        background-color: whitesmoke;
+        color: black;
+        cursor: pointer;
+        border-color: black;
+        border-style: solid;
+  }
 `

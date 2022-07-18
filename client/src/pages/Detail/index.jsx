@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { ToastContainer , toast } from "react-toastify";
 import {
   Main,
   Div,
@@ -19,9 +20,10 @@ import {
   Button,
   Review,
 } from "./styles";
-import { getProduct , deleteProduct } from "../../redux/actions/product";
-import {addToCart} from "../../redux/actions/cart"
+import { getProduct , clearProduct } from "../../redux/actions/product";
+import {addToCart, setLocalStorage} from "../../redux/actions/cart"
 import Loading from "../../components/Loader";
+import estilos from "./detail.module.css";
 
 const colors = {
   orange: "#FFBA5A",
@@ -56,12 +58,13 @@ const ProductDetail = () => {
   };
 
   let dispatch = useDispatch();
-
-  let product = useSelector((state) => state.product.product);
-  let error = useSelector((state) => state.product.error);
+  let [cart , product , error] = useSelector ( state => [ state.cart , state.product.product , state.product.error])
+  // let product = useSelector((state) => state.product.product);
+  // let error = useSelector((state) => state.product.error);
   let { productId } = useParams();
 
   useEffect(()=>{
+    window.scrollTo(0,0); 
     if (!Object.keys(product).length){
       dispatch(getProduct(productId))
     }
@@ -73,10 +76,10 @@ const ProductDetail = () => {
   },[product])
   useEffect(()=>{
     return ()=>{
-
-      dispatch(deleteProduct())
+      dispatch(setLocalStorage(cart))
+      dispatch(clearProduct())
     }
-  }, [productId]);
+  }, []);
 
   const checkStock = async (cantidad = 1) =>{
     let talle = size
@@ -121,12 +124,12 @@ const ProductDetail = () => {
       const check = await checkStock()
       if (check){
         dispatch(addToCart(order));
-        alert("Agregado al carrito");
+        toast.success("Agregado al carrito");
       } else{
-        alert(`No hay stock `)
+        toast.error(`No hay stock `)
       }
     }
-    else alert("Seleccione un talle");
+    else toast.error("Seleccione un talle");
   }
 
   if (error) return <div>Error! {error.message}</div>;
@@ -138,9 +141,17 @@ const ProductDetail = () => {
     );
 
   const formatPrice = new Intl.NumberFormat("es-AR").format(product.precio);
-  console.log(product);
+  // console.log(product);
   return (
     <Main>
+      <ToastContainer position= "top-center"
+          autoClose= {5000}
+          hideProgressBar= {false}
+          closeOnClick
+          pauseOnHover
+          draggable
+          progress= {undefined}
+          />
       <Div>
         <ImageContainer>
           <Image src={product?.imagen} />
@@ -176,11 +187,12 @@ const ProductDetail = () => {
           <SizeInfo>
             {product.categorium?.nombre !== "Accesorios" &&
               product.talles?.map((talle) => {
-                return <Size onClick={defineSize} key={talle.id}>{talle.talle}</Size>;
+                return <Size onClick={defineSize} key={talle.id} 
+                            className={size === talle.talle ? estilos.sizeSelected : ""}>{talle.talle}</Size>;
               })}
           </SizeInfo>
           <Description>{product.descripcion}</Description>
-          <Button onClick={addCart}>Add to cart</Button>
+          <Button onClick={addCart}>Agregar al carrito</Button>
           {/* <Review placeholder="Enter a review of the product"></Review> */}
           {/* <Button>Send review</Button> */}
         </InfoContainer>

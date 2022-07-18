@@ -8,14 +8,16 @@ import {
 } from "./styles";
 import estilos from "./CheckoutSuccess.module.css";
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import queryString from "query-string";
-import { crearPedido } from "../../redux/actions/checkout";
+import { aprobarPedido, crearPedido, getFactura } from "../../redux/actions/checkout";
 
 const CheckoutSuccess = () => {
     const dispatch = useDispatch();
+    const pedido = useSelector(state => state.checkout.pedido);
     const productoCreado = false;
     let {search} = useLocation();
+    let {idPedido} = useParams();
     let query;
     let datosDePago;
     if(search){
@@ -36,46 +38,53 @@ const CheckoutSuccess = () => {
             case "debit_card": datosDePago.medioDePago = "Tarjeta de débito"; break;
             default: datosDePago.medioDePago = "Otro";
         }
-        if(query.status === "approved"){
-            const pedido = {
-                fecha: new Date(),
-                pago_total: 2222,
-                direccion_de_envio: {
-                    direccion: "caca 12",
-                    CP: 4001
-                    },
-                estado: "Aprobado",
-                idProductos: [1],
-                nroOperacion: datosDePago.nroOperacion
-                }
-                dispatch(crearPedido(pedido));
-        }
     }
+
+    useEffect(() => {
+        dispatch(getFactura(idPedido));
+        dispatch(aprobarPedido({idPedido, nroOperacion: datosDePago.nroOperacion, estado: datosDePago.estado}));
+    },[]);
+
+    const {datosFactura} = pedido;
 
     return(
         <Main>
             <Div>
-                <InfoContainer>
-                    <H2>Checkout</H2>
-                    <div id={estilos.contenedorDatos}>
-                        <br />
-                        <div className={estilos.datos}>
+                <div id={estilos.contenedorDatos}>
+                    <H2>Datos del pedido</H2>
+                    <br />
+                    <ul id={estilos.lista}>
+                        <li className={estilos.itemLista}>
                             <span className={estilos.items}>Nro. de operacion: </span>
                             <span className={estilos.items}>{datosDePago.nroOperacion}</span>
-                        </div>
-                        <br />
-                        <div className={estilos.datos}>
+                        </li>
+                        <li className={estilos.itemLista}>
                             <span className={estilos.items}>Estado: </span>
                             <span className={estilos.items}>{datosDePago.estado}</span>
-                        </div>
-                        <br />
-                        <div className={estilos.datos}>
+                        </li>
+                        <li className={estilos.itemLista}>
                             <span className={estilos.items}>Método de pago: </span>
                             <span className={estilos.items}>{datosDePago.medioDePago}</span>
-                        </div>
-                        <br />
-                    </div>                 
-                </InfoContainer>
+                        </li>
+                        <li className={estilos.itemLista}>
+                            <span className={estilos.items}>Nombre: </span>
+                            <span className={estilos.items}>{datosFactura?.nombre+" "+datosFactura?.apellido}</span>
+                        </li>
+                        <li className={estilos.itemLista}>
+                            <span className={estilos.items}>Mail: </span>
+                            <span className={estilos.items}>{datosFactura?.mail}</span>
+                        </li>
+                        <li className={estilos.itemLista}>
+                            <span className={estilos.items}>DNI: </span>
+                            <span className={estilos.items}>{datosFactura?.dni}</span>
+                        </li>
+                        <li className={estilos.itemLista}>
+                            <span className={estilos.items}>Dirección: </span>
+                            <span className={estilos.items}>{datosFactura?.direccion}</span>
+                        </li>
+                    </ul>
+                    <br />
+                </div>        
             </Div>
         </Main>
     );

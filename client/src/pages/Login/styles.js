@@ -56,3 +56,24 @@ export const Input = styled.input`
     border: 1px solid #999;
     outline: none;
 `;
+
+export const ButtonLogIn = styled.button`
+  align-self: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 100%;
+  padding: 10px;
+  background-color: #181818;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  &:hover {
+    background-color: whitesmoke;
+    color: black;
+    cursor: pointer;
+    border-color: black;
+    border-style: solid;
+  }
+`;

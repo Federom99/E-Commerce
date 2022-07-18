@@ -45,15 +45,15 @@ const ResetPassword = () => {
         <Div>
             <Form onSubmit={ChangePassword}>
                 <Label>
-                    <P>Enter a new password</P>
+                    <P>Ingresar una nueva contraseña</P>
                     <Input
                         type='password'
-                        placeholder='Password' 
+                        placeholder='Nueva contraseña' 
                         onChange={(e) => setNewPassword(e.target.value)}
                     />
 
                 </Label>
-                <Button disabled={newPassword.validPassword}>Change Password</Button>
+                <Button disabled={newPassword.validPassword}>Cambiar contraseña</Button>
             </Form>
         </Div>
         )

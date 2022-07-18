@@ -84,7 +84,8 @@ conn.sync({ force: true }).then(() => {
           dni: u.dni,
           contraseña: await hashPassword(u.contraseña),
           isAdmin: u.isAdmin,
-          confirmado: true
+          confirmado: true,
+          carrito: u.carrito
         })
 
       })
