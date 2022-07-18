@@ -37,14 +37,14 @@ const ForgotPassword = () => {
         <Div>
             <Form onSubmit={ResetPassword}>
                 <Label htmlFor='mail'>
-                    <P>Enter email</P>
+                    <P>Ingresar email</P>
                     <Input
                         name='mail'
                         value={emailValue} 
                         onChange={(e) => setEmailValue(e.target.value)}
                     />
                 </Label>
-                <Button>Reset Password</Button>
+                <Button>Enviar mail</Button>
             </Form>
         </Div>
     )

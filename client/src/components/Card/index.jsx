@@ -16,11 +16,13 @@ import {
   Select,
   P,
   ImgLink,
+  NoButton,
 } from "./styles";
 import axios from "axios";
-
+import { ToastContainer , toast } from "react-toastify";
 const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
   const [open, setOpen] = useState(false);
+  const [stock , setStock] = useState(true);
   const size = useRef(talles[0].talle);
   const dispatch = useDispatch();
   let navigate = useNavigate();
@@ -31,18 +33,20 @@ const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
     let talle = size.current;
     const product = await axios.get(`http://localhost:3001/product/${id}`);
     if (talle === "Sin talle") {
-      if (product.data.talles[0].producto_talle.stock >= cantidad) return true;
+      if (product.data.talles[0].producto_talle.stock > cantidad) return true;
       else return false;
     } else {
       const index = await product.data.talles.findIndex(
         (p) => p.talle === talle
       );
-      if (product.data.talles[index].producto_talle.stock >= cantidad)
+      if (product.data.talles[index].producto_talle.stock > cantidad)
         return true;
       else return false;
     }
   };
-
+  const notify = ()=>{
+    toast( "default notif")
+  }
   const add = async () => {
     let talle = size.current;
     //dispatch al carrito
@@ -57,17 +61,23 @@ const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
     };
 
     const check = await checkStock()
-    if (check){      
+    if (check){            
       dispatch(addToCart(order))
       setOpen (isOpen=>!isOpen)
     }
     else {
-      if (talle === 'Sin talle') alert (`No hay stock de ${nombre}`)
-      else alert (`No hay stock de ${nombre} en talle ${talle}`)
+      if (talle === 'Sin talle') toast.error (`No hay stock de ${nombre}`,{
+        toastId:'NoStockAccOnCard'
+      })
+      else toast.error(`No hay stock de ${nombre} en talle ${talle}`,{
+        toastId:'NoStockOnCard'
+      })
+      setStock(false)
     }
   }
   const handleChange = (event) => {
     size.current = event.target.value;
+    setStock(true)
   };
 
   const formatPrice = new Intl.NumberFormat("es-AR").format(precio);
@@ -92,7 +102,9 @@ const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
             </Select>
             <P>$ {formatPrice}</P>
           </PriceSize>
-          <Button onClick={add}>Add to card</Button>
+          {
+          stock ? (<Button onClick={add}>Añadir al carrito</Button>) : (<NoButton className="NoStock" onClick={add}>No hay stock</NoButton>)
+          }      
           <StyledPopup open={open} closeOnDocumentClick onClose={closeModal}>
             <AddPopUp
               id={id}

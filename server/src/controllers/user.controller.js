@@ -18,7 +18,7 @@ const register = async (req, res) => {
   });
 
   if (userExists) {
-    const error = new Error(`The user with email ${mail} already exists`);
+    const error = new Error(`El usuario con mail ${mail} ya existe`);
     return res.status(400).json({ msg: error.message });
   }
 
@@ -45,7 +45,7 @@ const register = async (req, res) => {
     });
 
     return res.status(201).json({
-      msg: "Account created succesfully!",
+      msg: "¡Cuenta creada exitosamente!",
       user: {
         nombre,
         apellido,
@@ -69,11 +69,11 @@ const authentication = async (req, res) => {
   });
 
   if (!user) {
-    const error = new Error("This user not exist");
+    const error = new Error("El usuario no existe");
     return res.status(400).json({ msg: error.message });
   }
   if (!user.confirmado) {
-    const error = new Error("Usuario No Confirmado Por Favor revise su correo");
+    const error = new Error("Usuario no confirmado por favor revise su correo");
     return res.status(400).json({ msg: error.message });
   }
 
@@ -91,9 +91,13 @@ const authentication = async (req, res) => {
       isAdmin: user.isAdmin,
       confirmado: user.confirmado,
       token: token,
+      lastName: user.apellido,
+      phone: user.telefono,
+      address: user.direccion,
+      dni: user.dni,
     });
   } else {
-    const error = new Error("The password is not correct");
+    const error = new Error("La contraseña es incorrecta");
     return res.status(400).json({ msg: error.message });
   }
 };
@@ -124,7 +128,7 @@ const confirmarCuenta = async (req, res) => {
     await usuarioConfirmar.save();
 
     return res.json({
-      msg: "User Confirmed Succesfully!",
+      msg: "¡Usuario confirmado exitosamente!",
       user: { confirmado: usuarioConfirmar.confirmado },
     });
   } catch (error) {
@@ -141,7 +145,7 @@ const olvidePassword = async (req, res) => {
   });
 
   if (!userExists) {
-    const error = new Error(`The user with email ${mail} not exists`);
+    const error = new Error(`El usuario con el mail ${mail} no existe`);
     return res.status(400).json({ msg: error.message });
   }
 
@@ -196,7 +200,7 @@ const nuevoPassword = async (req, res) => {
   const { password } = req.body;
 
   if (!password) {
-    const error = new Error("Password solicitada no ingresada");
+    const error = new Error("Contraseña solicitada no ingresada");
     return res.status(400).json({ msg: error.message });
   }
 
@@ -209,7 +213,7 @@ const nuevoPassword = async (req, res) => {
     user.token = "";
     try {
       await user.save();
-      return res.json({ msg: "Password cambiado correctamente" });
+      return res.json({ msg: "Contraseña cambiada correctamente" });
     } catch (error) {
       console.log(error);
     }

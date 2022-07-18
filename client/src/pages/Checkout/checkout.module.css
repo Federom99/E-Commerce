@@ -1,50 +1,50 @@
-#formulario{
+#formularioContainer{
     /* background-color: red; */
-    height: auto;
-    width: 100%;
-    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 40px;
     display: flex;
     flex-direction: column;
+    width: 90%;
+    max-width: 400px;
+    padding: 15px;
+    border-radius: 8px;
+    -webkit-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
+    -moz-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
+    box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
 }
 
-.inputYLabel{
-    width: 70%;
-    margin: auto;
-    margin-top: 1rem;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    color: #283747;
-    font-size: 1.1rem;
+label{
+    font-size: 14px;
+    font-weight: 600;
+    margin: 3px 20px 5px 0px;
 }
 
 .inputDatos{
     /* background-color:whitesmoke; */
-    border-style: solid;
-    border-radius: 0;
-    height: 2rem;
-    width: 17rem;
-    font-family: Arial;
-    font-size: 1rem;
-    text-align: center;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #999;
+    width: 100%;
+    margin-bottom: 5px;
+    outline: none;
 }
 
 .inputDatosError{
     background-color:#F5B7B1;
-    border-style: solid;
+    padding: 8px;
+    border-radius: 5px;
+    border: 2px solid #999;
     border-color: red;
-    border-radius: 0;
-    height: 2rem;
-    width: 17rem;
-    font-family: Arial;
-    font-size: 1rem;
-    text-align: center;
+    width: 100%;
+    margin-bottom: 5px;
+    outline: none;
 }
 
 .indicador{
-    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 3px 20px 5px 0px;
     color: red;
-    margin: auto;
-    text-align: center;
 }
 
 .i{
@@ -52,20 +52,21 @@
 }
 
 #boton{
-    width: 9rem;
-    height: 2rem;
-    background-color: black;
-    border: none;
-    color:white;
-    font-family: Arial;
-    font-size: 1rem;
-    text-align: center;
-    margin: auto;
-    margin-top: 1rem;
+    align-self: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 80%;
+    padding: 10px;
+    background-color: #181818;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
 }
 
 #boton:hover{
-    background-color: white;
+    background-color: whitesmoke;
     color: black;
     cursor: pointer;
     border-color: black;
@@ -73,19 +74,35 @@
 }
 
 #botonBloqueado{
-    width: 9rem;
-    height: 2rem;
-    background-color: grey;
-    border: none;
-    color:white;
-    font-family: Arial;
-    font-size: 1rem;
-    text-align: center;
-    margin: auto;
-    margin-top: 1rem;
+    align-self: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 80%;
+    padding: 10px;
+    border:none;
+    background-color: rgb(66, 75, 84);
+    border-radius: 5px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: default;
 }
 
 .pagar{
     margin: auto;
     margin-top: 1rem;
+}
+
+.itemsLista{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    /* background-color: #F5B7B1; */
+    width: 100%;
+}
+
+#lista{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }

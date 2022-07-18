@@ -41,6 +41,8 @@ const confirmarCompra = require('./confirmarCompra');
 const productoDespachado = require('./productoDespachado');
 const productoLlegando = require('./productoLlegando');
 const compraEntregada = require('./compraEntregada');
+const cargarFactura = require("./cargarFactura");
+const editarPedidoFactura = require("./editarPedidoFactura");
 
 
 // Configurar los routers
@@ -81,5 +83,7 @@ router.use('/usuario/confirmacion', confirmarCompra);
 router.use('/admin/despachar', productoDespachado);
 router.use('/admin/correo', productoLlegando);
 router.use('/admin/entrega', compraEntregada);
+router.use("/factura/crear", cargarFactura);
+router.use("/factura/edit", editarPedidoFactura);
 
 module.exports = router;

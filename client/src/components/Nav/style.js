@@ -5,6 +5,9 @@ export const Contenido = styled.ul`
     & a {
       color: ${(props) => props.theme.colorTextPri};
     }
+    &:hover{
+      cursor:pointer;
+    }
   }
 `;
 

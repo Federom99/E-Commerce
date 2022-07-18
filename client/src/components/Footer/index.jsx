@@ -45,6 +45,8 @@ function Footer() {
         onMouseEnter={() => In("face")}
         onMouseLeave={() => Out("face")}
         expanded={expanded.face}
+        href="https://www.facebook.com/"
+        target="_blank"
       >
         <FaFacebookF />
       </Box>
@@ -52,6 +54,8 @@ function Footer() {
         onMouseEnter={() => In("insta")}
         onMouseLeave={() => Out("insta")}
         expanded={expanded.instagram}
+        href="https://www.instagram.com/"
+        target="_blank"
       >
         <AiFillInstagram />
       </Box>
@@ -59,6 +63,8 @@ function Footer() {
         onMouseEnter={() => In("what")}
         onMouseLeave={() => Out("what")}
         expanded={expanded.whatsapp}
+        href="https://www.whatsapp.com/"
+        target="_blank"
       >
         <IoLogoWhatsapp />
       </Box>

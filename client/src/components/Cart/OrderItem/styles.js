@@ -25,7 +25,7 @@ export const Button = styled.button`
     padding: 5px;
     margin: 0 5px 0 5px;
 `
-export const Div = styled.div`
+export const Div = styled.li`
     position: relative;
     margin: 10px 0 10px 0;
     background-color: rgba(12,12,12,0.1);

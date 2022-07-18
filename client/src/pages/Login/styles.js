@@ -30,13 +30,11 @@ export const List = styled.ul`
 export const Blist = styled(List)`
   flex-direction: row;
   justify-content: space-between;
-
 `;
 export const Gith = styled(Google)``;
 
 export const InputDiv = styled.div``;
 export const Form = styled.form`
-  height: 450px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -55,4 +53,25 @@ export const Input = styled.input`
     border-radius: 5px;
     border: 1px solid #999;
     outline: none;
+`;
+
+export const ButtonLogIn = styled.button`
+  align-self: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 100%;
+  padding: 10px;
+  background-color: #181818;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  &:hover {
+    background-color: whitesmoke;
+    color: black;
+    cursor: pointer;
+    border-color: black;
+    border-style: solid;
+  }
 `;

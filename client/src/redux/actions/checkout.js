@@ -1,6 +1,7 @@
 import axios from "axios";
 import {
-  CHECKOUT, GUARDAR_DATOS_COMPRADOR, GET_PEDIDOS, GET_USUARIOS,
+  APROBAR_PEDIDO,
+  CHECKOUT, CREAR_PEDIDO, GET_FACTURA, GUARDAR_DATOS_COMPRADOR, GET_PEDIDOS, GET_USUARIOS,
 } from "./actionTypes";
 
 const URL_SERVER = "http://localhost:3001";
@@ -14,16 +15,38 @@ export const checkout = (checkoutData) => async dispatch => {
     })
 } 
 
-export const guardarDatosComprador = (datos) => {
-  return{
-    type: GUARDAR_DATOS_COMPRADOR,
-    payload: datos
-  }
-}
+export const guardarDatosComprador = (checkoutData) => async dispatch => {
+  const {data} = await axios.post(`${URL_SERVER}/factura/crear`, checkoutData);
+  return dispatch({
+      type: GUARDAR_DATOS_COMPRADOR,
+      payload: data
+  })
+} 
 
 export const crearPedido = (pedido) => async dispatch => {
-  const {data} = await axios.post(`${URL_SERVER}/pedido/crear`);
+  const {data} = await axios.post(`${URL_SERVER}/pedido/crear`, pedido, { withCredentials: true });
+  console.log(data)
+  return dispatch ({
+    type: CREAR_PEDIDO,
+    payload: data
+  })
 }
+
+export const getFactura = (idPedido) => async dispatch => {
+  const {data} = await axios.get(`${URL_SERVER}/pedido/${idPedido}`);
+  // console.log(data)
+  return dispatch ({
+    type: GET_FACTURA,
+    payload: data
+  })
+}
+
+export const aprobarPedido = (datos) => async dispatch => {
+  const {data} = await axios.put(`${URL_SERVER}/factura/edit`, datos);
+  return dispatch({
+    type: APROBAR_PEDIDO,
+    payload: data
+  })
 
 export function getPedidos(){
   return async function(dispatch){

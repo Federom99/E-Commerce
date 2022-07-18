@@ -138,3 +138,6 @@ export const IncDiv = styled.div`
 export const Text = styled.h4`
     text-decoration: underline;
 `
+export const ErrText = styled.h4`
+    color: red;
+`

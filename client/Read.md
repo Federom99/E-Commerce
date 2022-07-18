@@ -1,0 +1,3 @@
+
+Para .env colocar
+VITE_REACT_GOOGLE_ID=586049846286-8dm4fi9m9nddtv677qgll5tqbh1lvb4k.apps.googleusercontent.com

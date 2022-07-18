@@ -18,6 +18,21 @@
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
+.containerLoggedIn{
+  list-style-type: none;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 3fr 0.5fr 0.5fr 0.5fr 0.5fr;
+  justify-items: center;
+  align-items: center;
+  font-size: calc(0.6vw + 1rem);
+  background: rgba(255, 255, 255, 0.45);
+  box-shadow: 0px 0px 5px 0 rgb(31 38 135 / 37%);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
 .container > li > a {
   text-decoration: none;
 }
@@ -128,6 +143,24 @@
 
 .icons {
   margin: 0 5px;
+}
+
+.icons:hover{
+  animation: myAnim 5s linear 0s infinite normal forwards;
+  cursor: pointer;
+}
+
+@keyframes myAnim {
+	0%,
+	50%,
+	100% {
+		opacity: 0.9;
+	}
+
+	25%,
+	75% {
+		opacity: 0.1;
+	}
 }
 
 .searching {

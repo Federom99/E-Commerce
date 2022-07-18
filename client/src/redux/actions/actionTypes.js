@@ -43,3 +43,7 @@ export const CREAR_PEDIDO = "CREAR_PEDIDO";
 export const GET_PEDIDOS = "GET_PEDIDOS";
 export const GET_USUARIOS = "GET_USUARIOS";
 export const PUT_USUARIOS = "PUT_USUARIOS";
+
+export const GET_FACTURA = "GET_FACTURA";
+export const APROBAR_PEDIDO = "APROBAR_PEDIDO";
+

@@ -1,6 +1,12 @@
+
+import { useEffect, useState } from "react";
+import { GoogleLogin } from "@react-oauth/google";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import {
   Div,
   DivBtn,
@@ -12,19 +18,25 @@ import {
   Section,
   Form,
   Blist,
+  ButtonLogIn
 } from "./styles";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../redux/actions/autenticacion";
 import Loading from "../../components/Loader";
+import { login } from "../../redux/actions/autenticacion";
+import { Div, Form, Input, InputDiv, List, Section } from "./styles";
 
 export default function Login() {
   const [mail, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [alert, setAlert] = useState({});
+
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/'
+
   const dispatch = useDispatch();
-  const error = useSelector((state) => state.auth.error);
-  const loading = useSelector((state) => state.auth.loading);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const userSession = localStorage.getItem("user");
@@ -40,21 +52,33 @@ export default function Login() {
       setAlert({ msg: "All fields are required", type: "error" });
       return;
     }
-    dispatch(login({ mail, contraseña: password }));
-    navigate("/");
+    setLoading(true);
+    dispatch(login({ mail, contraseña: password })).then((res) => {
+      setLoading(false);
+      if (!res.payload.error) {
+        navigate("/");
+        window.location.reload();
+      }
+      if (res.payload.error) {
+        setAlert({ msg: res.payload.error, type: "error" });
+      }
+    });
   };
 
-  let content;
-  if (error) {
-    content = <Div>{error}</Div>;
-  }
-  if (loading) {
-    content = (
-      <Div>
-        <Loading />
-      </Div>
-    );
-  }
+  const handleLogin = async (googleData) => {
+    console.log(googleData);
+    // const res = await fetch("http://localhost:3001/v1/auth/google", {
+    //   method: "POST",
+    //   body: JSON.stringify({
+    //     token: googleData.tokenId,
+    //   }),
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    // });
+    // const data = await res.json();
+    // store returned user in a context?
+  };
 
   return (
     <Div>
@@ -64,11 +88,10 @@ export default function Login() {
             <h2
               style={{
                 textAlign: "center",
-                fontWeight: "800",
                 color: "#252525",
               }}
             >
-              Login
+              Iniciar sesión
             </h2>
             <div
               style={{
@@ -95,7 +118,7 @@ export default function Login() {
               <List>
                 <li style={{ display: "flex", flexDirection: "column" }}>
                   <label style={{ color: "#252525", fontWeight: "bold" }}>
-                    Password:
+                    Contraseña:
                   </label>
                   <Input
                     type="password"
@@ -106,39 +129,39 @@ export default function Login() {
               </List>
             </div>
             <div style={{ width: "100%" }}>
-              <button
-                style={{
-                  width: "100%",
-                  padding: 8,
-                  fontSize: 15,
-                  fontWeight: "bold",
-                  borderRadius: 5,
-                  backgroundColor: "blue",
-                  border: "none",
-                  color: "white",
-                  cursor: "pointer",
-                }}
-                type="submit"
-              >
-                Login
-              </button>
+              <ButtonLogIn type="submit">
+                Iniciar sesión
+              </ButtonLogIn>
             </div>
-
-            {content && (
+            {alert.msg && alert.type === "error" && (
               <p
                 style={{
-                  widith: "100%",
-                  background: "red",
-                  padding: 7,
-                  textAlign: "center",
-                  borderRadius: 5,
+                  marginTop: 20,
+                  fontSize: 13,
+                  backgroundColor: "red",
                   color: "#fff",
+                  textAlign: "center",
+                  padding: 5,
+                  borderRadius: 5,
                 }}
               >
-                {content}
+                {alert.msg}
               </p>
             )}
 
+            {loading && (
+              <>
+                <Loading />
+              </>
+            )}
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <GoogleLogin
+                text="Ingresar con Google"
+                onSuccess={handleLogin}
+                onError={handleLogin}
+              />
+            </div>
+
             <div
               style={{
                 width: "100%",
@@ -148,7 +171,7 @@ export default function Login() {
                 alignItems: "center",
               }}
             >
-              <p>Don't have a account?</p>
+              <p>¿Aún no tienes cuenta?</p>
 
               <button
                 style={{
@@ -157,10 +180,11 @@ export default function Login() {
                   textDecoration: "underline",
                   color: "blue",
                   fontSize: 15,
+                  cursor: "pointer",
                 }}
                 onClick={() => navigate("/register")}
               >
-                Create Account
+                Crear cuenta
               </button>
             </div>
             <div
@@ -179,10 +203,11 @@ export default function Login() {
                   textDecoration: "underline",
                   color: "blue",
                   fontSize: 15,
+                  cursor: "pointer",
                 }}
                 onClick={() => navigate("/olvide-password")}
               >
-                I forget my password
+                Olvidé mi contraseña
               </button>
             </div>
           </Form>

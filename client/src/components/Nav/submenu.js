@@ -1,10 +1,10 @@
 export const subMenu = [
   {
-    title: "registrarse",
+    title: "Registrarse",
     link: "/register",
   },
   {
-    title: "ingresar",
+    title: "Ingresar",
     link: "/login",
   },
 ];

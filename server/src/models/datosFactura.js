@@ -4,7 +4,7 @@ const { DataTypes, sequelize, Sequelize } = require("sequelize");
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define(
-    "usuario",
+    "datosFactura",
     {
       id: {
         type: DataTypes.STRING,
@@ -27,7 +27,6 @@ module.exports = (sequelize) => {
       mail: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true,
       },
       direccion: {
         type: DataTypes.STRING,
@@ -37,24 +36,9 @@ module.exports = (sequelize) => {
         type: DataTypes.BIGINT,
         allowNull: false,
       },
-      contraseña: {
-        type: DataTypes.STRING,
-        allowNull: false,
+      montoTotal: {
+        type: DataTypes.INTEGER
       },
-      isAdmin: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: false,
-      },
-      confirmado: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: false,
-      },
-      token: {
-        type: DataTypes.STRING,
-      },
-      carrito: {
-        type: DataTypes.ARRAY(DataTypes.JSON)
-      }
     },
     {
       timestamps: false,

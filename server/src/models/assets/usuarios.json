@@ -9,7 +9,15 @@
     "dni": 41000000,
     "contraseña": "admin",
     "isAdmin": true,
-    "confirmado": true
+    "confirmado": true,
+    "carrito": [{
+      "id": 192,
+      "nombre": "Abrigo confort",
+      "talle": "M",
+      "precio": 20151,
+      "cantidad": 1,
+      "subtotal": 20151
+    }]
   },
   {
     "id": "9eh7Isj3LsaTgyeND7Zr2LwltwE2",

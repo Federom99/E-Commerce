@@ -28,7 +28,8 @@ export const CatList = styled.ul`
     grid-auto-flow: row;    
     justify-items: center;
 `
-export const Main = styled.main`
+export const Main = styled.ul`
+    list-style: none;
     border: 1px solid rgba(255, 255, 255, 0.18);
 `
 export const PriceSection = styled.div`

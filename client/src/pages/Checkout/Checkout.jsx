@@ -3,30 +3,60 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   Main,
   Div,
-  InfoContainer,
   H2,
 } from "./styles";
 import estilos from "./checkout.module.css";
 import useScript from "./useScript";
 import { useState } from "react";
-import {checkout, guardarDatosComprador} from "../../redux/actions/checkout"
+import {checkout, crearPedido, guardarDatosComprador} from "../../redux/actions/checkout"
 
 const Checkout = () => {
     const [input, setInput] = useState({nombre: "", apellido: "", documento: "", direccion: "", codigoPostal: "", provincia: ""});
     const [errores, setErrores] = useState({nombre: "", apellido: "", documento: "", direccion: "", codigoPostal: "", provincia: ""});
     const [botonBloqueado, setBotonBloqueado] = useState("disabled");
+    const [formBloqueado, setFormBloqueado] = useState("");
     const carrito = useSelector(state => state.cart.order);
-
+    const { user: currentUser } = useSelector((state) => state.auth);
     //----------------------------MERCADOPAGO----------------------------------------
     const { MercadoPago } = useScript( "https://sdk.mercadopago.com/js/v2", "MercadoPago");
     const pago = useSelector((state) => state.checkout.checkout);
+    const pedidoGenerado = useSelector(state => state.checkout.pedido);
     const dispatch = useDispatch();
 
-    function onClickHandler(e){
+    async function onClickHandler(e){
         e.preventDefault();
-        dispatch(checkout({carrito, datos:input}));
-        dispatch(guardarDatosComprador(input))
+        setBotonBloqueado("disabled");
+        setFormBloqueado("disabled");
+        const pedido = {
+            "productos": crearProductosPedido(carrito),
+            "comprador": input,
+        }
+        let disPedido = await dispatch(crearPedido(pedido));
     }
+
+    useEffect(() => {
+        // console.log(pedidoGenerado);
+        if(pedidoGenerado.hasOwnProperty("pedido")) {
+            dispatch(checkout({carrito, datos:input, pedidoGenerado}));
+            const factura = {
+                "nombre": input.nombre,
+                "apellido": input.apellido,
+                "telefono": currentUser.phone,
+                "mail": currentUser.email,
+                "direccion": input.direccion,
+                "dni": input.documento,
+                "idPedido": pedidoGenerado.pedido.id
+            }
+            dispatch(guardarDatosComprador(factura));
+        }
+    },[pedidoGenerado])
+
+    useEffect(() => {
+        if(currentUser){
+            const {name, lastName, dni, address} = currentUser;
+            setInput({nombre: name, apellido: lastName, documento: dni, direccion: address, codigoPostal: "", provincia: ""})
+        }
+    },[])
 
     useEffect(() => {
         if(pago.id && MercadoPago){
@@ -46,7 +76,8 @@ const Checkout = () => {
     },[pago, MercadoPago]);
      //----------------------------FIN--MERCADOPAGO--------------------------------------
 
-     console.log(pago);
+    //  console.log(carrito);
+    //  console.log(currentUser);
 
      useEffect(
         () => {
@@ -69,64 +100,79 @@ const Checkout = () => {
     return(
         <Main>
             <Div>
-                <InfoContainer>
-                    <H2>Checkout</H2>
-                    <form id={estilos.formulario}>
-                        <br />
-                        <div className={estilos.inputYLabel}>
-                            <label>Nombre</label>
-                            <div>
-                                <input name="nombre" type="text" className={errores.nombre ? estilos.inputDatosError : estilos.inputDatos}
-                                onChange={onChangeHandler} value={input.nombre}></input>
-                                {errores.nombre ? (<p className={estilos.indicador}>{errores.nombre}</p>) : (<p className={estilos.i}>a</p>)}
-                            </div>
-                        </div>
-                        <div className={estilos.inputYLabel}>
-                            <label>Apellido</label>
-                            <div>
-                                <input name="apellido" type="text" className={errores.apellido ? estilos.inputDatosError : estilos.inputDatos}
-                                onChange={onChangeHandler} value={input.apellido}></input>
-                                 {errores.apellido ? (<p className={estilos.indicador}>{errores.apellido}</p>) : (<p className={estilos.i}>a</p>)}
-                            </div>
-                        </div>
-                        <div className={estilos.inputYLabel}>
-                            <label>DNI</label>
-                            <div>
-                                <input name="documento" type="number" className={errores.documento ? estilos.inputDatosError : estilos.inputDatos}
-                                onChange={onChangeHandler} value={input.documento}></input>
-                                 {errores.documento ? (<p className={estilos.indicador}>{errores.documento}</p>) : (<p className={estilos.i}>a</p>)}
-                            </div>
-                        </div>
-                        <div className={estilos.inputYLabel}>
-                            <label>Direccion</label>
-                            <div>
-                                <input name="direccion" type="text" className={errores.direccion ? estilos.inputDatosError : estilos.inputDatos}
-                                onChange={onChangeHandler} value={input.direccion}></input>
-                                 {errores.direccion ? (<p className={estilos.indicador}>{errores.direccion}</p>) : (<p className={estilos.i}>a</p>)}
-                            </div>
-                        </div>
-                        <div className={estilos.inputYLabel}>
-                            <label>Codigo Postal</label>
-                            <div>
-                                <input name="codigoPostal" type="text" className={errores.codigoPostal ? estilos.inputDatosError : estilos.inputDatos}
-                                onChange={onChangeHandler} value={input.codigoPostal}></input>
-                                 {errores.codigoPostal ? (<p className={estilos.indicador}>{errores.codigoPostal}</p>) : (<p className={estilos.i}>a</p>)}
-                            </div>
-                        </div>
-                        <div className={estilos.inputYLabel}>
-                            <label>Provincia</label>
-                            <div>
-                                <input name="provincia" type="text" className={errores.provincia ? estilos.inputDatosError : estilos.inputDatos}
-                                onChange={onChangeHandler} value={input.provincia}></input>
-                                 {errores.provincia ? (<p className={estilos.indicador}>{errores.provincia}</p>) : (<p className={estilos.i}>a</p>)}
-                            </div>
-                        </div>
-                        <button id={botonBloqueado !== "disabled" ? estilos.boton : estilos.botonBloqueado} type="button"
-                         onClick={onClickHandler}>Continuar</button>     
-                        <br />
+                <div id={estilos.formularioContainer}>
+                    <H2>Datos de facturacion</H2>
+                    <form id={estilos.formulario}>  
+                        <ul id={estilos.lista}>
+                            <li className={estilos.itemsLista}>
+                                    <label>Nombre</label>
+                                    <div>
+                                        <input name="nombre" type="text" className={errores.nombre ? estilos.inputDatosError : estilos.inputDatos}
+                                        onChange={onChangeHandler} value={input.nombre}
+                                        disabled={formBloqueado === "disabled" ? "disabled" : ""}></input>
+                                        {errores.nombre ? (<p className={estilos.indicador}>{errores.nombre}</p>) : (<p className={estilos.i}>a</p>)}
+                                    </div>
+                            </li>
+                            <li className={estilos.itemsLista}>
+                                <label>Apellido</label>
+                                <div>
+                                    <input name="apellido" type="text" className={errores.apellido ? estilos.inputDatosError : estilos.inputDatos}
+                                    onChange={onChangeHandler} value={input.apellido}
+                                    disabled={formBloqueado === "disabled" ? "disabled" : ""}></input>
+                                    {errores.apellido ? (<p className={estilos.indicador}>{errores.apellido}</p>) : (<p className={estilos.i}>a</p>)}
+                                </div>
+                            </li>
+                            <li className={estilos.itemsLista}>
+                                <label>DNI</label>
+                                <div>
+                                    <input name="documento" type="number" className={errores.documento ? estilos.inputDatosError : estilos.inputDatos}
+                                    onChange={onChangeHandler} value={input.documento}
+                                    disabled={formBloqueado === "disabled" ? "disabled" : ""}></input>
+                                        {errores.documento ? (<p className={estilos.indicador}>{errores.documento}</p>) : (<p className={estilos.i}>a</p>)}
+                                </div>                        
+                            </li>
+                            <li className={estilos.itemsLista}>
+                                <label>Direccion</label>
+                                <div>
+                                    <input name="direccion" type="text" className={errores.direccion ? estilos.inputDatosError : estilos.inputDatos}
+                                    onChange={onChangeHandler} value={input.direccion}
+                                    disabled={formBloqueado === "disabled" ? "disabled" : ""}></input>
+                                        {errores.direccion ? (<p className={estilos.indicador}>{errores.direccion}</p>) : (<p className={estilos.i}>a</p>)}
+                                </div>                        
+                            </li>
+                            <li className={estilos.itemsLista}>
+                                <label>Codigo Postal</label>
+                                <div>
+                                    <input name="codigoPostal" type="text" className={errores.codigoPostal ? estilos.inputDatosError : estilos.inputDatos}
+                                    onChange={onChangeHandler} value={input.codigoPostal}
+                                    disabled={formBloqueado === "disabled" ? "disabled" : ""}></input>
+                                        {errores.codigoPostal ? (<p className={estilos.indicador}>{errores.codigoPostal}</p>) : (<p className={estilos.i}>a</p>)}
+                                </div>                        
+                            </li>
+                            <li className={estilos.itemsLista}>
+                                <label>Provincia</label>
+                                <div>
+                                    <input name="provincia" type="text" className={errores.provincia ? estilos.inputDatosError : estilos.inputDatos}
+                                    onChange={onChangeHandler} value={input.provincia}
+                                    disabled={formBloqueado === "disabled" ? "disabled" : ""}></input>
+                                        {errores.provincia ? (<p className={estilos.indicador}>{errores.provincia}</p>) : (<p className={estilos.i}>a</p>)}
+                                </div>                        
+                            </li>
+                            {
+                                botonBloqueado !== "disabled" ? 
+                                (
+                                    <button id={estilos.boton} type="button"
+                                        onClick={onClickHandler}>Continuar</button>
+                                ) : (
+                                    <button id={estilos.botonBloqueado} 
+                                    type="button">Crear pedido</button>
+                                )
+                            }   
+                        </ul>
                     </form>
-                        <div id="button-checkout" className={estilos.pagar}></div>                   
-                </InfoContainer>
+                    <div id="button-checkout" className={estilos.pagar}></div> 
+                    <br />
+                </div>
             </Div>
         </Main>
     );
@@ -170,6 +216,20 @@ export function validar(input, errores){
         default: return errores;
     }
     return errores;
+}
+
+function crearProductosPedido(carrito) {
+    let productos = [];
+    if(carrito){
+        carrito.map((c) => {
+            productos.push({
+                "productId": c.id,
+                "talle": c.talle,
+                "cantidad": c.cantidad
+            });
+        })
+    }
+    return productos;
 }
 
 export default Checkout;
