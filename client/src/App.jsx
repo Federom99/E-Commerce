@@ -7,6 +7,8 @@ import CreateUser from "./pages/CreateUser";
 import ProductDetail from "./pages/Detail";
 import Profile from "./pages/Profile";
 
+import RequireAuth from "./components/RequireAuth";
+
 import Login from "./pages/Login";
 
 import { useEffect, useState } from "react";
@@ -82,17 +84,24 @@ function App() {
       <Routes>
         <Route exact path="/" element={<MainContainer products={products} />} />
         <Route path="/detail/:productId" element={<ProductDetail />} />
-        <Route path="/admin/" element={<AdminHub />} />
         <Route path="/login/" element={<Login />} />
         <Route path="/olvide-password" element={<ForgotPassword/>} />
         <Route path="/olvide-password/:token" element={<ResetPassword/>}/>
         <Route path="/register" element={<CreateUser />} />
         <Route path="/cart/" element={<ShoppingCart />} />
-        <Route path="/profile/" element={<Profile />} />
-        <Route path="/createProduct" element={<CreateProduct />} />
+
+        <Route element={<RequireAuth isAdmin={false}/>}>
+          <Route path="/profile/" element={<Profile />} />
+          <Route path="/createProduct" element={<CreateProduct />} />
+        </Route>
+         
         <Route path="/confirmar/:id" element={<Confirmacion />} />
-        <Route path="/admin" element={<AdminHub />} />
-        <Route path="/admin/dashboard/*" element={<DashboardAdmin />} />
+
+        <Route element={<RequireAuth  isAdmin={true}/>}>
+          <Route path="/admin" element={<AdminHub />} />
+          <Route path="/admin/dashboard/*" element={<DashboardAdmin />} />
+        </Route>
+
         <Route path="/checkout/success/:idPedido" element={<CheckoutSuccess />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="*" element={<NoMatch />} />
