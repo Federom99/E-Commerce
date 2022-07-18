@@ -23,6 +23,7 @@ import {
 import { getProduct , clearProduct } from "../../redux/actions/product";
 import {addToCart, setLocalStorage} from "../../redux/actions/cart"
 import Loading from "../../components/Loader";
+import estilos from "./detail.module.css";
 
 const colors = {
   orange: "#FFBA5A",
@@ -140,7 +141,7 @@ const ProductDetail = () => {
     );
 
   const formatPrice = new Intl.NumberFormat("es-AR").format(product.precio);
-  console.log(product);
+  // console.log(product);
   return (
     <Main>
       <ToastContainer position= "top-center"
@@ -186,11 +187,12 @@ const ProductDetail = () => {
           <SizeInfo>
             {product.categorium?.nombre !== "Accesorios" &&
               product.talles?.map((talle) => {
-                return <Size onClick={defineSize} key={talle.id}>{talle.talle}</Size>;
+                return <Size onClick={defineSize} key={talle.id} 
+                            className={size === talle.talle ? estilos.sizeSelected : ""}>{talle.talle}</Size>;
               })}
           </SizeInfo>
           <Description>{product.descripcion}</Description>
-          <Button onClick={addCart}>Add to cart</Button>
+          <Button onClick={addCart}>Agregar al carrito</Button>
           {/* <Review placeholder="Enter a review of the product"></Review> */}
           {/* <Button>Send review</Button> */}
         </InfoContainer>

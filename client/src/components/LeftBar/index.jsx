@@ -14,7 +14,8 @@ import {
   ProductFilterContainer,
   Select,
   Option,
-  FilterTitle
+  FilterTitle,
+  DivFilterTitle
 } from "./styles";
 
 function LeftBar({resetPagina}) {
@@ -79,8 +80,10 @@ function LeftBar({resetPagina}) {
           <Name>Accesorios</Name>
         </Category>
       </CategoriesContainer>
-      <FilterTitle>Filtrar</FilterTitle>
-      <BsArrowDownUp />
+      <DivFilterTitle>
+        <FilterTitle>Filtrar</FilterTitle>
+        <BsArrowDownUp />
+      </DivFilterTitle>
       <Select onChange={(e) => changeOrderBy(e)} value={input.orden}>
         <Option>Precio Asc</Option>
         <Option>Precio Desc</Option>
