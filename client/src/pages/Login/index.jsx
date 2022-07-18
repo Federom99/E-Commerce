@@ -126,6 +126,13 @@ export default function Login() {
             <div style={{ width: "100%" }}>
               <ButtonLogIn type="submit">Iniciar sesión</ButtonLogIn>
             </div>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <GoogleLogin
+                text="Ingresar con Google"
+                onSuccess={handleLogin}
+                onError={(error) => console.log(error)}
+              />
+            </div>
             {alert.msg && alert.type === "error" && (
               <p
                 style={{
@@ -147,13 +154,6 @@ export default function Login() {
                 <Loading />
               </>
             )}
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <GoogleLogin
-                text="Ingresar con Google"
-                onSuccess={handleLogin}
-                onError={(error) => console.log(error)}
-              />
-            </div>
 
             <div
               style={{
