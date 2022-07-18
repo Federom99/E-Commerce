@@ -123,6 +123,17 @@ export function deleteProduct(payload) {
   };
 }
 
+export function updateProduct(payload) {
+  return async function () {
+    try {
+      const response = await axios.put(`${URL_SERVER}/edit/product/`, payload);
+      return response;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+}
+
 export const getCategories = () => async (dispatch) => {
   const { data } = await axios.get(`${URL_SERVER}/categories`);
   return dispatch({ type: GET_CATEGORIES, payload: data });

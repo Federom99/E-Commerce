@@ -6,7 +6,7 @@ const router = Router();
 
 router.put('/', async(req, res) => {
     const {id, nombre, precio, categoria, descripcion, imagen, talle, stock} = req.body;
-    const productoParaActualizar = {nombre, descripcion, imagen, precio};
+    const productoParaActualizar = {nombre, descripcion, imagen, precio, talle};
     try{
         const prodActualizado = await Producto.update(productoParaActualizar, {where:{"id":id}});
         const prod = await Producto.findByPk(id);

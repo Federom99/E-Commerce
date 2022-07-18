@@ -1,7 +1,7 @@
 .modal {
     width: 100vw;
-    height: 100vh;
-    position: fixed;
+    /* height: 100vw; */
+    position: absolute;
     top: 0;
     left: 0;
     background: rgba(0,0,0,.5);
@@ -9,10 +9,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 100;
 }
 
 .contentModal {
-    margin-top: 200px;
+    margin-top: 20px;
     width: 500px;
     padding-top: 50px;
     min-height: 100px;
@@ -21,6 +22,7 @@
     border-radius: 5px;
     box-shadow: rgba(100,100,111, 0.2) 0px 7px 29px 0px;
     padding: 20px;
+    margin-bottom: 300px;
 }
 
 .contentModal svg{
@@ -56,3 +58,84 @@
     grid-template-columns: 150px 1fr;
     padding-top: 50px !important;
 } */
+
+.formulario {
+    padding: 15px;
+    width: 450px;
+    /* height: auto; */
+    border: 1px solid gray;
+    margin-bottom: 20px;
+    overflow-y: scroll;
+}
+
+.formulario label {
+    display: block;
+    font-size: 19px;
+    padding-top: 7px;
+    padding-bottom: 5px;
+}
+
+.formulario input {
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+}
+
+.formulario button {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 15px;
+    width: 70px;
+    padding: 5px;
+    font-size: 18px;
+    color: white;
+    background-color: #1877f2;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #1877f2;
+}
+
+.errors {
+    color: red;
+    margin-top: 10px;
+    font-weight: 700;
+}
+
+#botonBloqueado{
+    background-color: gray;
+    border: none;
+    cursor:default;
+}
+
+#selectCat{
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+}
+
+#checkLabel{
+    display: grid;
+    font-size: 10px;
+    width:50px;
+    /* background-color: #1877f2; */
+    grid-template-columns: repeat(2,1fr);
+}
+
+#checkContainer{
+    /* background-color: red; */
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    flex-direction: column;
+}
+
+#inputTalle{
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: 1rem;
+}
+
+#spanTalle{
+    margin-left: 1rem;
+    font-size: 0.7rem;
+}
