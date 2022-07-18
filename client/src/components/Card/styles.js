@@ -18,9 +18,6 @@ export const DIV = styled.div`
     }
 `
 export const StyledPopup = styled(Popup)`
-&-content{
-    /* background: rgb(255,255,255); */
-}
 &-overlay{
     background: rgba(0, 0, 0, 0.7);
 }
@@ -64,7 +61,7 @@ export const PriceSize = styled.div`
 
 export const Select = styled.select`
     padding-left: 0.5rem;
-    width: 70px;
+    width: fit-content;
     height: 40px;
     font-weight: 500;
     font-family: inherit;
@@ -82,18 +79,30 @@ export const P = styled.p`
 `
 
 export const Button = styled.div`
+    background-color: #181818;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0.9rem 0;
     width: 100%;
     height: 40px;
-    font-weight: 600;
-    color: ${props => props.theme.txtbtn};
-    background-color: ${props => props.theme.bton};
-    cursor: pointer;
+    // font-weight: 600;
+    &:hover {
+        background-color: whitesmoke;
+        color: black;
+        cursor: pointer;
+        border-color: black;
+        border-style: solid;
+        }
 `
-
+export const NoButton = styled(Button)`
+    background-color:grey;
+`
 export const Favorite = styled.button`
     color:red;
     width: 25px;

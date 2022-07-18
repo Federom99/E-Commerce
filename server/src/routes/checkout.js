@@ -9,57 +9,61 @@ mercadopago.configure({
 });
 
 router.post("/", (req, res) => {
-    const {carrito, datos, pedidoGenerado} = req.body
-    console.log(req.body)
-    const idPedido = pedidoGenerado.pedido.id;
-    const productos = [];
-    carrito.map((p) => {
-        let item = {
-            title: "ropita bonita",
-            unit_price: p.subtotal / p.cantidad,
-            quantity: p.cantidad,
-            description: "ROPA"
-        }
-        productos.push(item);
-    })
-
-    const pagador = {
-        name: datos.nombre,
-        surname: datos.apellido,
-        identification: {
-            type: "DNI",
-            number: datos.documento
-        },
-        address: {
-            street_name: datos.direccion
-        }
-    }
-    
-    let preference = {
-        items: productos,
-        payer: pagador,
-        payment_methods: {
-            excluded_payment_types: [
-                {
-                    id: "ticket"
-                }
-            ],
-            installments: 12
-            },
-        back_urls:{
-            success: "http://localhost:3000/checkout/success/"+idPedido,
-            failure: "http://localhost:3000/checkout/success/"+idPedido,
-        },
-        auto_return: "approved",
-        binary_mode: true,
-    };
-
-    mercadopago.preferences.create(preference)
-        .then(function(response){
-            res.json(response.body);
-        }).catch(function (error){
-            console.log(error);
+    try{
+        const {carrito, datos, pedidoGenerado} = req.body
+        console.log(req.body)
+        const idPedido = pedidoGenerado.pedido.id;
+        const productos = [];
+        carrito.map((p) => {
+            let item = {
+                title: "ropita bonita",
+                unit_price: p.subtotal / p.cantidad,
+                quantity: p.cantidad,
+                description: "ROPA"
+            }
+            productos.push(item);
         })
+
+        const pagador = {
+            name: datos.nombre,
+            surname: datos.apellido,
+            identification: {
+                type: "DNI",
+                number: datos.documento
+            },
+            address: {
+                street_name: datos.direccion
+            }
+        }
+        
+        let preference = {
+            items: productos,
+            payer: pagador,
+            payment_methods: {
+                excluded_payment_types: [
+                    {
+                        id: "ticket"
+                    }
+                ],
+                installments: 12
+                },
+            back_urls:{
+                success: "http://localhost:3000/checkout/success/"+idPedido,
+                failure: "http://localhost:3000/checkout/success/"+idPedido,
+            },
+            auto_return: "approved",
+            binary_mode: true,
+        };
+
+        mercadopago.preferences.create(preference)
+            .then(function(response){
+                res.json(response.body);
+            }).catch(function (error){
+                console.log(error);
+            })
+    }catch(e){
+        console.log(e);
+    }
 })
 
 module.exports = router;

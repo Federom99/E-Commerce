@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import estilos from "./Paginado.module.css";
+import {MdOutlineLastPage, MdOutlineFirstPage, MdArrowBackIos, MdArrowForwardIos} from "react-icons/md"
 
 export default function Paginado({
   cantidad,
@@ -30,14 +31,14 @@ export default function Paginado({
           name="Principio"
           onClick={() => paginadoHandler(1)}
         >
-          &lt;&lt;
+          <MdOutlineFirstPage />
         </button>
         <button
           className={estilos.botones}
           name="Prev"
           onClick={() => paginadoHandler(paginaActual - 1)}
         >
-          &lt;
+          <MdArrowBackIos />
         </button>
         {numeros?.map((n, i) => {
           if (n > paginaActual + 2 || n < paginaActual - 2) {
@@ -61,14 +62,14 @@ export default function Paginado({
           name="Next"
           onClick={() => paginadoHandler(paginaActual + 1)}
         >
-          &gt;
+          <MdArrowForwardIos />
         </button>
         <button
           className={estilos.final}
           name="Final"
           onClick={() => paginadoHandler(cantTotal)}
         >
-          &gt;&gt;
+          <MdOutlineLastPage />
         </button>
       </div>
     </div>

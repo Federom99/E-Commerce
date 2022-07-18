@@ -1,7 +1,9 @@
 import { useDispatch } from "react-redux";
+import { ToastContainer } from "react-toastify";
 import Card from "../../components/Card";
 // import { getProducts } from "../../redux/actions/product";
 import { BTN, Section } from "./styles";
+import 'react-toastify/dist/ReactToastify.css'
 
 export default function CardContainer({ products }) {
   const dispatch = useDispatch();
@@ -14,8 +16,16 @@ export default function CardContainer({ products }) {
     <Section>
       {products?.map((product) => (
         <Card key={product.id} {...product} />
-      ))}
+        ))}
       {btn}
+        <ToastContainer position= "top-center"
+          autoClose= {5000}
+          hideProgressBar= {false}
+          closeOnClick
+          pauseOnHover
+          draggable
+          progress= {undefined}
+          />
     </Section>
   );
 }

@@ -1,7 +1,27 @@
+
 import { useEffect, useState } from "react";
 import { GoogleLogin } from "@react-oauth/google";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+import {
+  Div,
+  DivBtn,
+  Input,
+  List,
+  Google,
+  Gith,
+  InputDiv,
+  Section,
+  Form,
+  Blist,
+  ButtonLogIn
+} from "./styles";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../../redux/actions/autenticacion";
 import Loading from "../../components/Loader";
 import { login } from "../../redux/actions/autenticacion";
 import { Div, Form, Input, InputDiv, List, Section } from "./styles";
@@ -64,11 +84,10 @@ export default function Login() {
             <h2
               style={{
                 textAlign: "center",
-                fontWeight: "800",
                 color: "#252525",
               }}
             >
-              Login
+              Iniciar sesión
             </h2>
             <div
               style={{
@@ -95,7 +114,7 @@ export default function Login() {
               <List>
                 <li style={{ display: "flex", flexDirection: "column" }}>
                   <label style={{ color: "#252525", fontWeight: "bold" }}>
-                    Password:
+                    Contraseña:
                   </label>
                   <Input
                     type="password"
@@ -106,22 +125,9 @@ export default function Login() {
               </List>
             </div>
             <div style={{ width: "100%" }}>
-              <button
-                style={{
-                  width: "100%",
-                  padding: 8,
-                  fontSize: 15,
-                  fontWeight: "bold",
-                  borderRadius: 5,
-                  backgroundColor: "blue",
-                  border: "none",
-                  color: "white",
-                  cursor: "pointer",
-                }}
-                type="submit"
-              >
-                Login
-              </button>
+              <ButtonLogIn type="submit">
+                Iniciar sesión
+              </ButtonLogIn>
             </div>
             {alert.msg && alert.type === "error" && (
               <p
@@ -161,7 +167,7 @@ export default function Login() {
                 alignItems: "center",
               }}
             >
-              <p>Don't have a account?</p>
+              <p>¿Aún no tienes cuenta?</p>
 
               <button
                 style={{
@@ -170,10 +176,11 @@ export default function Login() {
                   textDecoration: "underline",
                   color: "blue",
                   fontSize: 15,
+                  cursor: "pointer",
                 }}
                 onClick={() => navigate("/register")}
               >
-                Create Account
+                Crear cuenta
               </button>
             </div>
             <div
@@ -192,10 +199,11 @@ export default function Login() {
                   textDecoration: "underline",
                   color: "blue",
                   fontSize: 15,
+                  cursor: "pointer",
                 }}
                 onClick={() => navigate("/olvide-password")}
               >
-                I forget my password
+                Olvidé mi contraseña
               </button>
             </div>
           </Form>

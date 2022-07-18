@@ -106,11 +106,11 @@ export const postProduct = (payload) => {
   };
 };
 
-// export const deleteProduct = () => {
-//   return {
-//     type: DELETE_PRODUCT,
-//   };
-// };
+export const clearProduct = () => {
+  return {
+    type: DELETE_PRODUCT,
+  };
+};
 
 export function deleteProduct(payload) {
   return async function () {

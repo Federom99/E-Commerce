@@ -48,9 +48,30 @@ export const Form = styled.form`
   box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
 `;
 export const Input = styled.input`
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #999;
+    outline: none;
+`;
+
+export const ButtonLogIn = styled.button`
+  align-self: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 100%;
   padding: 10px;
-  margin-bottom: 20px;
+  background-color: #181818;
   border-radius: 5px;
-  border: 1px solid #999;
-  outline: none;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  &:hover {
+    background-color: whitesmoke;
+    color: black;
+    cursor: pointer;
+    border-color: black;
+    border-style: solid;
+  }
 `;
