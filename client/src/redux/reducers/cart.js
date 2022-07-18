@@ -9,7 +9,7 @@ import {
 const cart = JSON.parse(localStorage.getItem("cart"))
 const initialState = cart ? {
   shoppingCart: cart.shoppingCart,
-  order: cart.order,
+  order: [],
   loading:false,
   error:null,
 } :
@@ -69,10 +69,18 @@ export default function cartReducer(state = initialState, action) {
         ...state,
         order: [...state.order,action.payload],
       };
+      
     case PRICE_REMOVE_CART:
+      for (let i=0;i<state.shoppingCart.length;i++){
+        if (state.shoppingCart[i].id === action.payload.id && state.shoppingCart[i].talle === action.payload.size){
+          state.shoppingCart.splice(i,1)
+          break;
+        }
+      }
       for (let i=0;i<state.order.length;i++){
         if (state.order[i].id === action.payload.id && state.order[i].talle === action.payload.size){
           state.order.splice(i,1)
+          break;
         }
       }
       return {

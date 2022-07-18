@@ -6,15 +6,17 @@ import { Link } from "react-router-dom";
 import { setLocalStorage } from "../../redux/actions/cart";
 export default function ShoppingCart() {
   const [cart , shoppingCart,order] = useSelector((store) => [store.cart , store.cart.shoppingCart,store.cart.order]);
-  const [alert,setAlert] = useState(1)
   const [amount,setAmount] = useState(shoppingCart.length)
   const { user: currentUser } = useSelector((state) => state.auth);
-  // const [price , setPrice] = useState(0)
+  
   const dispatch = useDispatch()
+
   useEffect(()=>{
     setAmount(shoppingCart.length)
   },[shoppingCart.length])
-  useEffect(()=>{
+
+  useEffect(()=>{  
+    dispatch(setLocalStorage(cart))
     return () =>{
       dispatch(setLocalStorage(cart))
     }
@@ -46,7 +48,7 @@ export default function ShoppingCart() {
             </section>
             <Main>
               {
-              shoppingCart.map(item=><OrderItem item={item}/>)
+              shoppingCart.map(item=><OrderItem key={`${item.id}+${item.talle}`} id={item.id} item={item}/>)
               }
             </Main>            
           </Li>
