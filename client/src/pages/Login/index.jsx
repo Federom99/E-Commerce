@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import {
   Div,
   DivBtn,
@@ -21,7 +21,11 @@ export default function Login() {
   const [mail, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [alert, setAlert] = useState({});
+
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/'
+
   const dispatch = useDispatch();
   const error = useSelector((state) => state.auth.error);
   const loading = useSelector((state) => state.auth.loading);
