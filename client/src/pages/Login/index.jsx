@@ -1,30 +1,21 @@
-
-import { useEffect, useState } from "react";
 import { GoogleLogin } from "@react-oauth/google";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import { useState, useEffect } from "react";
-import axios from "axios";
-import { Link, useNavigate, useLocation } from "react-router-dom";
-import {
-  Div,
-  DivBtn,
-  Input,
-  List,
-  Google,
-  Gith,
-  InputDiv,
-  Section,
-  Form,
-  Blist,
-  ButtonLogIn
-} from "./styles";
-import { useDispatch, useSelector } from "react-redux";
-import { login } from "../../redux/actions/autenticacion";
+import { useLocation } from "react-router-dom";
 import Loading from "../../components/Loader";
-import { login } from "../../redux/actions/autenticacion";
-import { Div, Form, Input, InputDiv, List, Section } from "./styles";
+import { login, loginGoogle } from "../../redux/actions/autenticacion";
+import {
+  ButtonLogIn,
+  Div,
+  Form,
+  Input,
+  InputDiv,
+  List,
+  Section,
+} from "./styles";
+import jwt_decode from "jwt-decode";
 
 export default function Login() {
   const [mail, setEmail] = useState("");
@@ -33,7 +24,7 @@ export default function Login() {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || '/'
+  const from = location.state?.from?.pathname || "/";
 
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
@@ -65,18 +56,22 @@ export default function Login() {
     });
   };
 
-  const handleLogin = async (googleData) => {
-    console.log(googleData);
-    // const res = await fetch("http://localhost:3001/v1/auth/google", {
-    //   method: "POST",
-    //   body: JSON.stringify({
-    //     token: googleData.tokenId,
-    //   }),
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    // });
-    // const data = await res.json();
+  const handleLogin = async (response) => {
+    console.log(response);
+    const userObject = await jwt_decode(response.credential);
+    console.log(userObject);
+    if (userObject) {
+      dispatch(loginGoogle(userObject)).then((res) => {
+        setLoading(false);
+        if (!res.payload.error) {
+          navigate("/");
+          window.location.reload();
+        }
+        if (res.payload.error) {
+          setAlert({ msg: res.payload.error, type: "error" });
+        }
+      });
+    }
     // store returned user in a context?
   };
 
@@ -129,9 +124,7 @@ export default function Login() {
               </List>
             </div>
             <div style={{ width: "100%" }}>
-              <ButtonLogIn type="submit">
-                Iniciar sesión
-              </ButtonLogIn>
+              <ButtonLogIn type="submit">Iniciar sesión</ButtonLogIn>
             </div>
             {alert.msg && alert.type === "error" && (
               <p
@@ -158,7 +151,7 @@ export default function Login() {
               <GoogleLogin
                 text="Ingresar con Google"
                 onSuccess={handleLogin}
-                onError={handleLogin}
+                onError={(error) => console.log(error)}
               />
             </div>
 

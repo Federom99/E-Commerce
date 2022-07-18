@@ -11,7 +11,7 @@ const categoryRouter = require("./category");
 const editProductRouter = require("./editProduct");
 const productRouter = require("./product.js");
 const favoritosRouter = require("./favoritos");
-const createFavoritos = require("./createFavoritos")
+const createFavoritos = require("./createFavoritos");
 const actualizarPedidoRouter = require("./cambiarEstadoPedido");
 const userToAdminRouter = require("./userToAdmin");
 const deleteProductRouter = require("./deleteProduct");
@@ -21,33 +21,34 @@ const cargarUserDbRouter = require("./user-DB");
 const getCategories = require("./getCategories");
 const getTalles = require("./getTalles");
 
-const stockRouter = require('./stock')
+const stockRouter = require("./stock");
 const getPedidosRouter = require("./getPedidos");
 const getPedidoUser = require("./getPedidoUser");
 const getPedidoId = require("./getPedidoId");
 const createPedido = require("./createPedido");
-const getRating = require('./getRating');
+const getRating = require("./getRating");
 const getRatingProduct = require("./getRatingProduct");
 const getRatingUser = require("./getRatingUser");
-const postRating = require('./postRating');
+const postRating = require("./postRating");
 const deletleReview = require("./deleteReview");
 const getRatingUserID = require("./getRatingUserID");
 const deleteUser = require("./deleteUser");
-const deletePedido = require('./deletePedido');
+const deletePedido = require("./deletePedido");
 const createPreference = require("./checkout");
 
-const confirmarCompra = require('./confirmarCompra');
-const productoDespachado = require('./productoDespachado');
-const productoLlegando = require('./productoLlegando');
-const compraEntregada = require('./compraEntregada');
+const confirmarCompra = require("./confirmarCompra");
+const productoDespachado = require("./productoDespachado");
+const productoLlegando = require("./productoLlegando");
+const compraEntregada = require("./compraEntregada");
 const cargarFactura = require("./cargarFactura");
 const editarPedidoFactura = require("./editarPedidoFactura");
-
+const googleAuth = require("../controllers/user.google.controller");
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
 router.use("/user", userRouter);
+router.post("/v1/auth/google", googleAuth);
 router.use("/products", productsRouter);
 router.use("/create/product", createProductRouter);
 router.use("/category", categoryRouter);
@@ -62,25 +63,25 @@ router.use("/category/delete", deleteCategoryRouter);
 router.use("/admin/crearorigen", cargarProductDbRouter);
 router.use("/admin/crearusuarios", cargarUserDbRouter);
 router.use("/categories", getCategories);
-router.use("/stock", stockRouter)
+router.use("/stock", stockRouter);
 router.use("/talles", getTalles);
 router.use("/pedidos", getPedidosRouter);
 router.use("/pedidos/user", getPedidoUser);
 router.use("/pedido", getPedidoId);
 router.use("/pedido/crear", createPedido);
-router.use('/rating', getRating);
+router.use("/rating", getRating);
 router.use("/ratings", getRatingProduct);
 router.use("/usuario/ratings", getRatingUser);
-router.use('/ratings/crear', postRating);
+router.use("/ratings/crear", postRating);
 router.use("/ratings", deletleReview);
 router.use("/ratings/usuario", getRatingUserID);
 router.use("/usuario", deleteUser);
-router.use('/pedido', deletePedido);
+router.use("/pedido", deletePedido);
 router.use("/create_preference", createPreference);
-router.use('/usuario/confirmacion', confirmarCompra);
-router.use('/admin/despachar', productoDespachado);
-router.use('/admin/correo', productoLlegando);
-router.use('/admin/entrega', compraEntregada);
+router.use("/usuario/confirmacion", confirmarCompra);
+router.use("/admin/despachar", productoDespachado);
+router.use("/admin/correo", productoLlegando);
+router.use("/admin/entrega", compraEntregada);
 router.use("/factura/crear", cargarFactura);
 router.use("/factura/edit", editarPedidoFactura);
 
