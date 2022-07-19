@@ -12,6 +12,9 @@ module.exports = (sequelize) => {
         allowNull: false,
         primaryKey: true,
       },
+      imagen: {
+        type: DataTypes.STRING,
+      },
       nombre: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -26,7 +29,7 @@ module.exports = (sequelize) => {
       },
       mail: {
         type: DataTypes.STRING,
-        allowNull: false,
+        // allowNull: false,
         unique: true,
       },
       direccion: {
@@ -39,7 +42,6 @@ module.exports = (sequelize) => {
       },
       contraseña: {
         type: DataTypes.STRING,
-        allowNull: false,
       },
       isAdmin: {
         type: DataTypes.BOOLEAN,
@@ -53,8 +55,8 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
       },
       carrito: {
-        type: DataTypes.ARRAY(DataTypes.JSON)
-      }
+        type: DataTypes.ARRAY(DataTypes.JSON),
+      },
     },
     {
       timestamps: false,

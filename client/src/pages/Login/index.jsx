@@ -57,9 +57,7 @@ export default function Login() {
   };
 
   const handleLogin = async (response) => {
-    console.log(response);
     const userObject = await jwt_decode(response.credential);
-    console.log(userObject);
     if (userObject) {
       dispatch(loginGoogle(userObject)).then((res) => {
         setLoading(false);
@@ -128,7 +126,9 @@ export default function Login() {
             </div>
             <div style={{ display: "flex", justifyContent: "center" }}>
               <GoogleLogin
-                text="Ingresar con Google"
+                theme="filled_black"
+                locale="es"
+                text={"signin"}
                 onSuccess={handleLogin}
                 onError={(error) => console.log(error)}
               />
