@@ -38,7 +38,7 @@ router.post("/", async (req, res) => {
       });
 
       //Me fijo si encontré un producto que requeria esa y que tenga stock. Si no lo hago en algún caso, devuelvo un error.
-      if(!productoTalle || (productoTalle.talles[0].stock - productos[i].cantidad) < 0) return res.status(400).send({Error: "Hubo un error. Porfavor, inténtelo de vuelta."})
+      if(!productoTalle || (productoTalle.talles[0].dataValues.producto_talle.dataValues.stock - productos[i].cantidad) < 0) return res.status(400).send({Error: "Hubo un error. Porfavor, inténtelo de vuelta."})
       //Sumo el total del precio
       total += productos[i].cantidad * productoTalle.precio
     }

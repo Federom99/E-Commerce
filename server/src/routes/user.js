@@ -9,6 +9,9 @@ const {
   comprobarToken,
   nuevoPassword,
 } = require("../controllers/user.controller.js");
+const {
+  registergoogleAuth,
+} = require("../controllers/user.google.controller.js");
 
 const { Usuario } = require("../db");
 
@@ -16,6 +19,7 @@ const router = Router();
 
 router.post("/register", register);
 router.post("/login", authentication);
+router.post("/register-google", registergoogleAuth);
 router.get("/confirmar/:token", confirmarCuenta);
 router.post("/salir", salir);
 router.post("/olvide-password", olvidePassword);

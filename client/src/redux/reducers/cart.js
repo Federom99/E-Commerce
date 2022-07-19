@@ -1,5 +1,6 @@
 import {
   ADD_CART,
+  DELETE_CART,
   MODIFY_CART,
   PRICE_CART,
   PRICE_REMOVE_CART,
@@ -86,6 +87,13 @@ export default function cartReducer(state = initialState, action) {
       return {
         ...state,        
       };
+    case DELETE_CART:
+      console.log("a");
+      return{
+        ...state,
+        shoppingCart:[],
+        order:[]
+      }
     case "SET_LOCAL_CART":
       return{
         ...state

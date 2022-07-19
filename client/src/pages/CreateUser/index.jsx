@@ -15,6 +15,8 @@ import {
 } from "./styles";
 import { useDispatch } from "react-redux";
 import Loading from "../../components/Loader";
+import { GoogleLogin } from "@react-oauth/google";
+import jwt_decode from "jwt-decode";
 
 export default function NewUser() {
   const dispatch = useDispatch();
@@ -49,8 +51,8 @@ export default function NewUser() {
           data.password
         )
       )
-        errors.password = 
-        "La contraseña debe tener al menos 1 letra mayúscula, 1 minúscula, 1 número y 8 caracteres de largo";
+        errors.password =
+          "La contraseña debe tener al menos 1 letra mayúscula, 1 minúscula, 1 número y 8 caracteres de largo";
     }
 
     if (!data.repeatPassword) errors.repeatPassword = "Campo requerido";
@@ -109,6 +111,28 @@ export default function NewUser() {
 
   const { msg } = alert;
 
+  const handleLogin = async (response) => {
+    const userObject = await jwt_decode(response.credential);
+    console.log(userObject);
+
+    try {
+      const { data } = await axios.post(
+        "http://localhost:3001/user/register-google",
+        {
+          user: userObject,
+        }
+      );
+
+      setAlert({ msg: data.msg, type: "success-google" });
+    } catch (error) {
+      if (error.response.data.msg) {
+        setAlert({ msg: error.response.data.msg, type: "error" });
+      } else {
+        setAlert({ msg: error.message });
+      }
+    }
+  };
+
   return (
     <Div>
       <Header>
@@ -116,13 +140,13 @@ export default function NewUser() {
       </Header>
       <Form onSubmit={handleSubmit}>
         <h2
-              style={{
-                textAlign: "center",
-                color: "#252525",
-                marginBottom: "1rem",
-              }}
-            >
-              Registrarse
+          style={{
+            textAlign: "center",
+            color: "#252525",
+            marginBottom: "1rem",
+          }}
+        >
+          Registrarse
         </h2>
         <List>
           <Li>
@@ -171,45 +195,56 @@ export default function NewUser() {
           </Li>
         </List>
         <Button type="submit">Registrarse</Button>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <GoogleLogin
+            theme="filled_black"
+            text="continue_with"
+            locale="es"
+            useOneTap
+            onSuccess={handleLogin}
+            onError={(error) => console.log(error)}
+          />
+        </div>
 
-        {alert.msg && alert.type === "success" && (
-          <div
-            style={{
-              marginTop: 10,
-              display: "flex",
-              flexDirection: "column",
-              gap: 5,
-            }}
-          >
-            <p
+        {(alert.msg && alert.type === "success") ||
+          (alert.type === "success-google" && (
+            <div
               style={{
-                backgroundColor: "green",
-                color: "#fff",
-                width: "80%",
-                margin: "0 auto",
-                textAlign: "center",
-                paddingTop: 5,
-                paddingBottom: 5,
-                borderRadius: 5,
+                marginTop: 10,
+                display: "flex",
+                flexDirection: "column",
+                gap: 5,
               }}
             >
-              {msg}
-            </p>
-            <p
-              onClick={() => navigate("/login")}
-              style={{
-                alignSelf: "center",
-                marginTop: 15,
-                textDecoration: "underline",
-                fontSize: 18,
-                color: "#2355f5",
-                fontWeight: "bold",
-              }}
-            >
-              Login{" "}
-            </p>
-          </div>
-        )}
+              <p
+                style={{
+                  backgroundColor: "green",
+                  color: "#fff",
+                  width: "80%",
+                  margin: "0 auto",
+                  textAlign: "center",
+                  paddingTop: 5,
+                  paddingBottom: 5,
+                  borderRadius: 5,
+                }}
+              >
+                {msg}
+              </p>
+              <p
+                onClick={() => navigate("/login")}
+                style={{
+                  alignSelf: "center",
+                  marginTop: 15,
+                  textDecoration: "underline",
+                  fontSize: 18,
+                  color: "#2355f5",
+                  fontWeight: "bold",
+                }}
+              >
+                Login{" "}
+              </p>
+            </div>
+          ))}
 
         {alert.msg && alert.type === "error" && (
           <p
