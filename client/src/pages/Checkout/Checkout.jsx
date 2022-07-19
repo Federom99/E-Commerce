@@ -25,8 +25,6 @@ const Checkout = () => {
 
     async function onClickHandler(e){
         e.preventDefault();
-        setBotonBloqueado("disabled");
-        setFormBloqueado("disabled");
         const pedido = {
             "productos": crearProductosPedido(carrito),
             "comprador": input,
@@ -67,7 +65,9 @@ const Checkout = () => {
                 b.parentNode.removeChild(b);
             }
         }
-        if(pago.id && MercadoPago){
+        if(pago.id && MercadoPago && botonBloqueado !== "disabled"){
+            setBotonBloqueado("disabled");
+            setFormBloqueado("disabled");
             const mp = new MercadoPago("APP_USR-06027043-b2a5-4576-ac25-217e1bbfc148", {
                 locale: "es-AR",
             })
