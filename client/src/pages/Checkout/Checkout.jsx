@@ -15,7 +15,7 @@ const Checkout = () => {
     const [errores, setErrores] = useState({nombre: "", apellido: "", documento: "", direccion: "", codigoPostal: "", provincia: ""});
     const [botonBloqueado, setBotonBloqueado] = useState("disabled");
     const [formBloqueado, setFormBloqueado] = useState("");
-    const carrito = useSelector(state => state.cart.order);
+    const carrito = useSelector(state => state.cart.shoppingCart);
     const { user: currentUser } = useSelector((state) => state.auth);
     //----------------------------MERCADOPAGO----------------------------------------
     const { MercadoPago } = useScript( "https://sdk.mercadopago.com/js/v2", "MercadoPago");
@@ -59,6 +59,14 @@ const Checkout = () => {
     },[])
 
     useEffect(() => {
+        console.log(pago);
+        const btn = document.getElementsByClassName("mercadopago-button");
+        console.log(btn);
+        if(btn[0]){
+            for(let b of btn){
+                b.parentNode.removeChild(b);
+            }
+        }
         if(pago.id && MercadoPago){
             const mp = new MercadoPago("APP_USR-06027043-b2a5-4576-ac25-217e1bbfc148", {
                 locale: "es-AR",
@@ -73,10 +81,10 @@ const Checkout = () => {
                 },
                 })
         }
-    },[pago, MercadoPago]);
+    },[pago]);
      //----------------------------FIN--MERCADOPAGO--------------------------------------
 
-    //  console.log(carrito);
+     console.log(carrito);
     //  console.log(currentUser);
 
      useEffect(
