@@ -63,6 +63,12 @@ export const Button = styled.button`
     font-size: 15px;
     font-weight: 500;
     cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
     &:hover {
         background-color: whitesmoke;
         color: black;
@@ -87,6 +93,12 @@ export const LinkButton = styled(Link)`
     text-align: center;
     border-color: black;
     border-style: solid;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
     &:hover {
         background-color: whitesmoke;
         color: black;
@@ -130,11 +142,23 @@ export const Img = styled.img`
     -webkit-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
     -moz-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
     box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 `;
 
 export const Amount = styled.div`
     padding: 5px;
     font-weight: bold;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 `;
 
 export const Options = styled.section`
@@ -165,9 +189,39 @@ export const Text = styled.h4`
 `
 export const ErrText = styled.h4`
     color: red;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 `
 
 export const H3 = styled.h3`
     margin-bottom: 0.5rem;
     margin-top: 0.5rem;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 `;
+
+export const H2 = styled.h2`
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+`
+
+export const H4 = styled.h4`
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+`
