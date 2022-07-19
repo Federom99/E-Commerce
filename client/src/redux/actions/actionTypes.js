@@ -47,3 +47,5 @@ export const PUT_USUARIOS = "PUT_USUARIOS";
 export const GET_FACTURA = "GET_FACTURA";
 export const APROBAR_PEDIDO = "APROBAR_PEDIDO";
 
+export const DELETE_CART = "DELETE_CART";
+
