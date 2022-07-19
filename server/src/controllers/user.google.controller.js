@@ -1,8 +1,33 @@
 const { Usuario } = require("../db");
 const { generarJWT } = require("../helpers/generarJWT");
+
+const registergoogleAuth = async (req, res) => {
+  const { user } = req.body;
+
+  try {
+    const createUser = await Usuario.create({
+      dni: Math.round(Math.random() * 100),
+      nombre: user.given_name,
+      apellido: user.family_name,
+      direccion: "",
+    });
+
+    if (user.email_verified) {
+      createUser.confirmado = true;
+      createUser.mail = user.email;
+      await createUser.save();
+      res.json({ msg: "¡Cuenta creada exitosamente!" });
+    } else {
+      return res.status(400).json({
+        msg: `Cuenta con el email: ${user.email} no confirmada, por favor confirmar la cuenta primero`,
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
 const googleAuth = async (req, res) => {
   const { user } = req.body;
-  console.log(user);
 
   if (user.email_verified) {
     try {
@@ -38,4 +63,4 @@ const googleAuth = async (req, res) => {
   }
 };
 
-module.exports = googleAuth;
+module.exports = { googleAuth, registergoogleAuth };
