@@ -1,5 +1,6 @@
 import {
   ADD_CART,
+  DELETE_CART,
   MODIFY_CART,
   PRICE_CART,
   PRICE_REMOVE_CART,
@@ -64,5 +65,12 @@ export const clearLocalStorage = ()=>{
   localStorage.removeItem("cart")
   return{
     type: "REMOVE_LOCAL_CART"
+  }
+}
+
+export const deleteCart = () => {
+  console.log("deleteeeeedddd");
+  return{
+    type: DELETE_CART
   }
 }

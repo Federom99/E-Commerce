@@ -9,6 +9,7 @@ import estilos from "./checkout.module.css";
 import useScript from "./useScript";
 import { useState } from "react";
 import {checkout, crearPedido, guardarDatosComprador} from "../../redux/actions/checkout"
+import { deleteCart } from "../../redux/actions/cart";
 
 const Checkout = () => {
     const [input, setInput] = useState({nombre: "", apellido: "", documento: "", direccion: "", codigoPostal: "", provincia: ""});
@@ -57,9 +58,9 @@ const Checkout = () => {
     },[])
 
     useEffect(() => {
-        console.log(pago);
+        // console.log(pago);
         const btn = document.getElementsByClassName("mercadopago-button");
-        console.log(btn);
+        // console.log(btn);
         if(btn[0]){
             for(let b of btn){
                 b.parentNode.removeChild(b);
@@ -80,11 +81,12 @@ const Checkout = () => {
                     label: "Pagar", // Cambia el texto del botón de pago (opcional)
                 },
                 })
+            dispatch(deleteCart());
         }
     },[pago]);
      //----------------------------FIN--MERCADOPAGO--------------------------------------
 
-     console.log(carrito);
+    //  console.log(carrito);
     //  console.log(currentUser);
 
      useEffect(
