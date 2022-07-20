@@ -125,6 +125,7 @@ export default function NewUser() {
 
       setAlert({ msg: data.msg, type: "success-google" });
     } catch (error) {
+      console.log(error);
       if (error.response.data.msg) {
         setAlert({ msg: error.response.data.msg, type: "error" });
       } else {
@@ -253,7 +254,7 @@ export default function NewUser() {
               backgroundColor: "red",
               color: "#fff",
               width: "80%",
-              margin: "0 auto",
+              margin: "15px auto",
               textAlign: "center",
               paddingTop: 5,
               paddingBottom: 5,
