@@ -80,7 +80,8 @@ export function getUsuarios(){
 export function updateUser(payload) {
   return async function () {
     try {
-      const response = await axios.put(`${URL_SERVER}/admin/usuario/`, payload);
+      console.log(payload)
+      const response = await axios.put(`${URL_SERVER}/admin/usuario`, payload);
       return response;
     } catch (e) {
       console.log(e);

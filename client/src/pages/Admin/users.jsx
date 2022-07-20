@@ -4,99 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from 'react';
 import './products.css'
 
-// const tablaUsuarios = [
-//     {
-//       "id": "Qff78AeOAWdMJH1pIrWX5Dn40Xv2",
-//       "nombre": "Federico",
-//       "apellido": "Romero",
-//       "telefono": 3810000000,
-//       "mail": "federo.15.99@gmail.com",
-//       "direccion": "Pilo, Córdoba",
-//       "dni": 41000000,
-//       "contraseña": "admin",
-//       "isAdmin": true
-//     },
-//     {
-//       "id": "9eh7Isj3LsaTgyeND7Zr2LwltwE2",
-//       "nombre": "Jose",
-//       "apellido": "Osorio",
-//       "telefono": 5300000000,
-//       "mail": "joseinvictus273@hotmail.com",
-//       "direccion": "Piumato Rodriguez, Bogota",
-//       "dni": 35000000,
-//       "contraseña": "admin",
-//       "isAdmin": true
-//     },
-//     {
-//       "id": "0recbbIV6GZreIlvNMc6wrxpOor1",
-//       "nombre": "Martin",
-//       "apellido": "Orlando",
-//       "telefono": 1100000000,
-//       "mail": "martin._orlando@hotmail.com.ar",
-//       "direccion": "Somewhere in the CABA",
-//       "dni": 44000000,
-//       "contraseña": "admin",
-//       "isAdmin": true
-//     },
-//     {
-//       "id": "fIXTjfRP2uYVpW81GoUYIRWABDr2",
-//       "nombre": "Mario",
-//       "apellido": "Rodriguez",
-//       "telefono": 2940000000,
-//       "mail": "rgzrgzm@gmail.com",
-//       "direccion": "Nueva Leon, Mexico",
-//       "dni": 30000000,
-//       "contraseña": "admin",
-//       "isAdmin": true
-//     },
-//     {
-//       "id": "hFLxCkmxGlVFkzPpy7af2b6Eeu02",
-//       "nombre": "David",
-//       "apellido": "Gomez",
-//       "telefono": 3510000000,
-//       "mail": "davidstangetz13@gmail.com",
-//       "direccion": "El centro del país",
-//       "dni": 39000000,
-//       "contraseña": "admin",
-//       "isAdmin": true
-//     },
-//     {
-//       "id": "1IbHp9pvK6gNLNJOdoBLIPyreq72",
-//       "nombre": "Alan",
-//       "apellido": "Acevedo",
-//       "telefono": 3410000000,
-//       "mail": "alanacevedo2001@hotmail.com",
-//       "direccion": "Buenos aires, La plata",
-//       "dni": 40000000,
-//       "contraseña": "admin",
-//       "isAdmin": true
-//     },
-//     {
-//       "id": "dsI3ZazuBKTyQGJFS9ghRudXCpn1",
-//       "nombre": "Emiliano",
-//       "apellido": "Arancio",
-//       "telefono": 1100000000,
-//       "mail": "earancio616@gmail.com",
-//       "direccion": "CABA",
-//       "dni": 8000000,
-//       "contraseña": "admin",
-//       "isAdmin": true
-//     },
-//     {
-//       "id": "dsI3ZazuBKTyQGJFS9ghRudXCpn9",
-//       "nombre": "Alexis",
-//       "apellido": "Cortazzi",
-//       "telefono": 1100000000,
-//       "mail": "alexiscortazzii@gmail.com",
-//       "direccion": "Caballito, San Juan",
-//       "dni": 9000000,
-//       "contraseña": "admin",
-//       "isAdmin": true
-//     }
-//   ]
-
 export default function Users() {
-  const [EditUser, setEditUser] = useState({})
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -106,12 +14,16 @@ export default function Users() {
   const usuarios = useSelector((state) => state.checkout.usuarios);
   // console.log(usuarios)
 
-  function alerta2 ( datos ) {
-    setEditUser(datos)
-    // // // alert(datos)
-    // console.log(EditUser)
-    // row.isAdmin = false
-    // dispatch(updateUser( id, isAdmin ))
+  function alerta2 (id, isAdmin) {
+    dispatch(updateUser({id, isAdmin: !isAdmin}))
+    alert("Usuario ya no es mas Admin")
+    dispatch(getUsuarios());
+  }
+
+  function alerta1 (id, bloqueado) {
+    dispatch(updateUser({id, bloqueado: !bloqueado}))
+    alert("Usuario Bloqueado")
+    dispatch(getUsuarios());
   }
   
   const columnas = [
@@ -141,8 +53,20 @@ export default function Users() {
       sortable: true
      },
      { 
-      name: 'Acciones',
-      selector: row => <button className='user' onClick={ () => alerta2(row.isAdmin == true ? row.isAdmin = false : row.isAdmin = true)}>Editar</button>,
+      name: 'Bloqueado',
+      selector: row => row.bloqueado === true ? 'SI' : 'NO',
+      sortable: true
+     },
+     { 
+      name: 'Admin',
+      selector: row => <button className='user' onClick={ () => alerta2(row.id, row.isAdmin)}>Editar</button>,
+      // row.isAdmin == true ? row.isAdmin = false : row.isAdmin = true
+      sortable: true
+     },
+     { 
+      name: 'Bloqueado',
+      selector: row => <button className='user' onClick={ () => alerta1(row.id, row.bloqueado)}>Editar</button>,
+      // row.isAdmin == true ? row.isAdmin = false : row.isAdmin = true
       sortable: true
      },
   ]
