@@ -11,6 +11,7 @@ import { useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import queryString from "query-string";
 import { aprobarPedido, crearPedido, getFactura } from "../../redux/actions/checkout";
+import { deleteCart } from "../../redux/actions/cart";
 
 const CheckoutSuccess = () => {
     const dispatch = useDispatch();
@@ -43,6 +44,7 @@ const CheckoutSuccess = () => {
     useEffect(() => {
         dispatch(getFactura(idPedido));
         dispatch(aprobarPedido({idPedido, nroOperacion: datosDePago.nroOperacion, estado: datosDePago.estado}));
+        dispatch(deleteCart());
     },[]);
 
     const {datosFactura} = pedido;

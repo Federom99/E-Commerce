@@ -8,8 +8,7 @@ import {
 import estilos from "./checkout.module.css";
 import useScript from "./useScript";
 import { useState } from "react";
-import {checkout, crearPedido, guardarDatosComprador} from "../../redux/actions/checkout"
-import { deleteCart } from "../../redux/actions/cart";
+import {checkout, crearPedido, guardarDatosComprador} from "../../redux/actions/checkout";
 
 const Checkout = () => {
     const [input, setInput] = useState({nombre: "", apellido: "", documento: "", direccion: "", codigoPostal: "", provincia: ""});
@@ -81,10 +80,13 @@ const Checkout = () => {
                     label: "Pagar", // Cambia el texto del botón de pago (opcional)
                 },
                 })
-            dispatch(deleteCart());
         }
     },[pago]);
      //----------------------------FIN--MERCADOPAGO--------------------------------------
+
+     async function mpSubmitHandler(e){
+        e.preventDefault();
+     }
 
     //  console.log(carrito);
     //  console.log(currentUser);
@@ -111,6 +113,7 @@ const Checkout = () => {
         <Main>
             <Div>
                 <div id={estilos.formularioContainer}>
+                    {carrito.length ? (<>
                     <H2>Datos de facturacion</H2>
                     <form id={estilos.formulario}>  
                         <ul id={estilos.lista}>
@@ -180,8 +183,11 @@ const Checkout = () => {
                             }   
                         </ul>
                     </form>
-                    <div id="button-checkout" className={estilos.pagar}></div> 
+                    <form onSubmit={mpSubmitHandler}>
+                        <div id="button-checkout" className={estilos.pagar}></div> 
+                    </form>
                     <br />
+                    </>) : (<H2 style={{marginTop:"1rem"}}>No hay items en su carrito</H2>)}
                 </div>
             </Div>
         </Main>
