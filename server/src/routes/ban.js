@@ -6,7 +6,7 @@ const router = Router();
 router.put("/:id", async (req, res) => {
 
     const {id} = req.params
-
+    try{
     const user = await Usuario.findByPk(id)
 
     await Usuario.update({
@@ -15,6 +15,9 @@ router.put("/:id", async (req, res) => {
     {where: {id: id}})
 
     res.send(`Usuario ${id} baneado.`)
+    }catch(e){
+        res.send(e)
+    }
 });
 
 module.exports = router;
