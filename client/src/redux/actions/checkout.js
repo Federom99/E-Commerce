@@ -26,25 +26,9 @@ export const checkout = (checkoutData) => async (dispatch) => {
   });
 };
 
-export const guardarDatosComprador = (checkoutData) => async (dispatch) => {
-  const { data } = await axios.post(
-    `${URL_SERVER}/factura/crear`,
-    checkoutData
-  );
+export const guardarDatosComprador = (checkoutData) => async dispatch => {
+  const {data} = await axios.post(`${URL_SERVER}/factura/crear`, checkoutData);
   return dispatch({
-    type: GUARDAR_DATOS_COMPRADOR,
-    payload: data,
-  });
-};
-
-export const crearPedido = (pedido) => async (dispatch) => {
-  const { data } = await axios.post(`${URL_SERVER}/pedido/crear`, pedido, {
-    withCredentials: true,
-  });
-  console.log(data);
-  return dispatch({
-
-
       type: GUARDAR_DATOS_COMPRADOR,
       payload: data
   })
@@ -54,11 +38,10 @@ export const crearPedido = (pedido) => async dispatch => {
   const {data} = await axios.post(`${URL_SERVER}/pedido/crear`, pedido, { withCredentials: true });
   // console.log(data)
   return dispatch ({
-
     type: CREAR_PEDIDO,
-    payload: data,
-  });
-};
+    payload: data
+  })
+}
 
 export const getFactura = (idPedido) => async (dispatch) => {
   const { data } = await axios.get(`${URL_SERVER}/pedido/${idPedido}`);
