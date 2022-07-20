@@ -26,6 +26,8 @@ import {
   Trash,
   ErrText,
   H3,
+  H2,
+  H4
 } from "./styles";
 
 export default function AddPopUp({ id, nombre, img, precio, close , talle , checkStock , currentStock}) {
@@ -114,16 +116,16 @@ export default function AddPopUp({ id, nombre, img, precio, close , talle , chec
     <MainDiv>
       <Header>
         {
-          talle.current ==='Sin talle' ? (<h2> <Ok /> {nombre} añadido al carrito </h2>) : (<h2><Ok /> {nombre} Talle:{talle.current} Añadido al carrito</h2>)
+          talle.current ==='Sin talle' ? (<H2> <Ok /> {nombre} añadido al carrito </H2>) : (<H2><Ok /> {nombre} Talle:{talle.current} Añadido al carrito</H2>)
         }      
       </Header>
       <Main>
         <Img src={`${img}`} />
         <Detail>
           {
-            talle.current !== 'Sin talle' ? (<h4>Talle: {talle.current}</h4>) : null
+            talle.current !== 'Sin talle' ? (<H4>Talle: {talle.current}</H4>) : null
           }
-          <h3>Subtotal: ${formatPrice(precio)}</h3>
+          <H3>Subtotal: ${formatPrice(precio)}</H3>
           
           <Button onClick={deleteCartItem}>Eliminar <Trash/></Button>
         </Detail>

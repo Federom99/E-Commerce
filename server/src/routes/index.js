@@ -43,7 +43,7 @@ const productoLlegando = require("./productoLlegando");
 const compraEntregada = require("./compraEntregada");
 const cargarFactura = require("./cargarFactura");
 const editarPedidoFactura = require("./editarPedidoFactura");
-const googleAuth = require("../controllers/user.google.controller");
+const { googleAuth } = require("../controllers/user.google.controller.js");
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
