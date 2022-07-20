@@ -21,7 +21,7 @@ import {
   Review,
 } from "./styles";
 import { getProduct , clearProduct } from "../../redux/actions/product";
-import {addToCart, setLocalStorage} from "../../redux/actions/cart"
+import {addToCart, modifyItemStock, setItemStock, setLocalStorage} from "../../redux/actions/cart"
 import Loading from "../../components/Loader";
 import estilos from "./detail.module.css";
 
@@ -58,9 +58,7 @@ const ProductDetail = () => {
   };
 
   let dispatch = useDispatch();
-  let [cart , product , error] = useSelector ( state => [ state.cart , state.product.product , state.product.error])
-  // let product = useSelector((state) => state.product.product);
-  // let error = useSelector((state) => state.product.error);
+  let [cart , product , error , currentStock] = useSelector ( state => [ state.cart , state.product.product , state.product.error , state.cart.cartRemainingStock])
   let { productId } = useParams();
 
   useEffect(()=>{
@@ -95,7 +93,7 @@ const ProductDetail = () => {
     }
   }
 
-  useEffect(()=>{
+  useEffect(()=>{    
     if (Object.keys(product).length){
       if (product.categorium.nombre === 'Accesorios'){
         setSize("Sin talle")
@@ -105,11 +103,22 @@ const ProductDetail = () => {
   },[product])
 
   useEffect(()=>{
+    console.log('esto actua')
     if (Object.keys(product).length && product.categorium.nombre !== 'Accesorios' && size){
-      let index = product.talles.findIndex(p=>p.talle === size)
-      setStock(product.talles[index].producto_talle.stock)
+      console.log('el primer if abre')
+      let index = currentStock.findIndex(p=>{
+        if(p.id===parseInt(productId) && p.talle === size) return p
+      })
+      console.log('index: ',index)
+      if (index!==-1){
+        setStock(currentStock[index].stock)
+      }
+      else{
+        let index2 = product.talles.findIndex(p=>p.talle === size)
+        setStock(product.talles[index2].producto_talle.stock)
+      }
     }    
-  },[size])
+  },[size,currentStock])
 
   const addCart = async ()=>{
     if(product.categorium?.nombre ==="Accesorios"){
@@ -123,8 +132,26 @@ const ProductDetail = () => {
     if (order.talle){
       const check = await checkStock()
       if (check){
-        dispatch(addToCart(order));
-        toast.success("Agregado al carrito");
+        let index = currentStock.findIndex(p=>{
+          if (p.id === parseInt(productId) && p.talle === size) return p
+        })
+        if (index !== -1){ //si lo encuentra en el global actual de stock
+          if((currentStock[index].stock-1)>=0){ //si el stock no queda como negativo
+            dispatch(modifyItemStock(parseInt(productId),size))
+            dispatch(addToCart(order))
+            toast.success("Agregado al carrito");
+            setStock(stock=>stock-=1)
+          }
+          else {
+            toast.error('No hay más stock')
+          }        
+        }
+        else{ //si no lo encuentra en el global (si hay stock porque lo verifica check)     
+          dispatch(addToCart(order))
+          dispatch(setItemStock(parseInt(productId),size))
+          toast.success("Agregado al carrito");
+          setStock(stock=>stock-=1)
+        }
       } else{
         toast.error(`No hay stock `)
       }

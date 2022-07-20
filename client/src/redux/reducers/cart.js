@@ -13,12 +13,14 @@ const initialState = cart ? {
   order: [],
   loading:false,
   error:null,
+  cartRemainingStock: cart.cartRemainingStock,
 } :
 {
   shoppingCart: [],
   order: [],
   loading: false,
   error: null,
+  cartRemainingStock:[],
 };
 
 export default function cartReducer(state = initialState, action) {
@@ -38,7 +40,6 @@ export default function cartReducer(state = initialState, action) {
       };    
 
     case MODIFY_CART:
-      console.log(action.payload)
       for (let i=0;i<state.shoppingCart.length;i++){
         if (state.shoppingCart[i].id === action.payload.id && state.shoppingCart[i].talle === action.payload.size){
           state.shoppingCart[i].cantidad += action.payload.amount
@@ -103,6 +104,30 @@ export default function cartReducer(state = initialState, action) {
         ...state,
         shoppingCart:[],
         order:[]
+      }
+    case "SET_ITEM_STOCK":
+      return{
+        ...state,
+        cartRemainingStock: [...state.cartRemainingStock,action.payload]
+      }
+    case "MODIFY_ITEM_STOCK":
+      for (let i=0;i<state.cartRemainingStock.length;i++){
+        if (state.cartRemainingStock[i].id === action.payload.id && state.cartRemainingStock[i].talle === action.payload.talle){
+          state.cartRemainingStock[i].stock -=action.payload.amount
+          break;
+        }
+      }
+      return{
+        ...state
+      }
+    case "RESET_ITEM_STOCK":
+      for (let i=0;i<state.cartRemainingStock.length;i++){
+        if (state.cartRemainingStock[i].id === action.payload.id && state.cartRemainingStock[i].talle === action.payload.talle){
+          state.cartRemainingStock.splice(i,1)  
+        }
+      }  
+      return{
+        ...state
       }
     default:
       return state;
