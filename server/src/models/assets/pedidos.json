@@ -67,6 +67,6 @@
     "pago_total": 1803,
     "direccion_de_envio": { "direccion": "Av. Rio Grande 1023", "CP": 4000 },
     "estado": "Aprobado",
-    "idProductos": [1, 2, 3]
+    "idProductos": [1, 91, 3]
   }
 ]
