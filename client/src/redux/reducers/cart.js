@@ -93,7 +93,8 @@ export default function cartReducer(state = initialState, action) {
       return{
         ...state,
         shoppingCart:[],
-        order:[]
+        order:[],
+        cartRemainingStock: [],
       }
     case "SET_LOCAL_CART":
       return{
