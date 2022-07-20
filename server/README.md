@@ -145,6 +145,8 @@ PUT /edit/product. El unico dato obligatorio es el id. El resto son opcionales. 
 }
 ```
 
+PUT /ban/uid. Banea al user del uid pasado por param.
+
 
 
 Faltan por documentar las rutas de los siguientes archivos (no entendi bien como funcionaban así que porfa fijense los que las hicieron y documentenlas en este readme.):
