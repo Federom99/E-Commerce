@@ -47,6 +47,10 @@ module.exports = (sequelize) => {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
       },
+      bloqueado: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+      },
       confirmado: {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
