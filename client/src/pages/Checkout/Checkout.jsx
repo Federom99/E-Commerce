@@ -183,7 +183,7 @@ const Checkout = () => {
                             }   
                         </ul>
                     </form>
-                    <form onSubmit={mpSubmitHandler}>
+                    <form onSubmit={mpSubmitHandler} style={{display: "flex"}}>
                         <div id="button-checkout" className={estilos.pagar}></div> 
                     </form>
                     <br />
