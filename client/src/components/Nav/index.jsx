@@ -116,11 +116,6 @@ export default function NavBar({ products }) {
           </NavLink>
         </li>
         {contentExit}
-        {
-          <>
-            <Switch />
-          </>
-        }
       </Contenido>
     </div>
   );
