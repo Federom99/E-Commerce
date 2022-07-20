@@ -61,6 +61,11 @@ module.exports = (sequelize) => {
       carrito: {
         type: DataTypes.ARRAY(DataTypes.JSON),
       },
+      banned: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false
+      }
     },
     {
       timestamps: false,
