@@ -60,19 +60,6 @@ router.post("/", async (req, res) => {
         cantidad: productos[i].cantidad,
         pedidoId: pedido.dataValues.id
       })
-
-
-      //Resto el stock
-       const productoTalle = await Producto_talle.findOne({where: {
-          productoId: productos[i].productId,
-          talleId: talle.id
-        }
-      });
-
-      await productoTalle.update({
-        stock: productoTalle.dataValues.stock - productos[i].cantidad
-      })
-
     }
 
     //Busco todas las compras donde el id del pedido sea el que acabo de crear y despues lo mando junto al pedido.
