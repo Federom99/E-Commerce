@@ -21,6 +21,7 @@ const cargarUserDbRouter = require("./user-DB");
 const getCategories = require("./getCategories");
 const getTalles = require("./getTalles");
 const getUsers = require("./getUsers")
+const banRouter = require('./ban')
 
 const stockRouter = require("./stock");
 const getPedidosRouter = require("./getPedidos");
@@ -86,5 +87,6 @@ router.use("/admin/correo", productoLlegando);
 router.use("/admin/entrega", compraEntregada);
 router.use("/factura/crear", cargarFactura);
 router.use("/factura/edit", editarPedidoFactura);
+router.use("/ban", banRouter);
 
 module.exports = router;
