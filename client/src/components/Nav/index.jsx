@@ -1,7 +1,7 @@
 import { BsFillPersonFill } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
 import { GrUserAdmin } from "react-icons/gr";
-import {ImExit} from "react-icons/im";
+import { ImExit } from "react-icons/im";
 import { NavLink, useNavigate } from "react-router-dom";
 import style from "./nav.module.css";
 import Search from "./search";
@@ -15,6 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/actions/autenticacion";
 import Loading from "../Loader";
 import { clearLocalStorage } from "../../redux/actions/cart";
+import { Switch } from "../switchButtom";
 
 export default function NavBar({ products }) {
   const navigation = useNavigate();
@@ -40,14 +41,14 @@ export default function NavBar({ products }) {
 
   const logOut = () => {
     dispatch(logout());
-    dispatch(clearLocalStorage())
+    dispatch(clearLocalStorage());
     navigation("/");
     document.cookie =
       "FOOD-API=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
   };
-  const toProfile = ()=>{
-    navigation("/profile")
-  }
+  const toProfile = () => {
+    navigation("/profile");
+  };
 
   let content;
   let contentExit;
@@ -64,17 +65,23 @@ export default function NavBar({ products }) {
   if (currentUser) {
     content = (
       <>
-        <li onClick={toProfile}  className={style.icons}>{currentUser.name}</li>
+        <li onClick={toProfile} className={style.icons}>
+          {currentUser.name}
+        </li>
         {showAdminBoard && (
-          <li  className={style.icons}>
-            <NavLink to="/admin/dashboard/"><GrUserAdmin /></NavLink>
+          <li className={style.icons}>
+            <NavLink to="/admin/dashboard/">
+              <GrUserAdmin />
+            </NavLink>
           </li>
         )}
       </>
     );
     contentExit = (
-      <li onClick={logOut}  className={style.icons}><ImExit /></li>
-    )
+      <li onClick={logOut} className={style.icons}>
+        <ImExit />
+      </li>
+    );
   }
   if (!currentUser) {
     content = (
@@ -91,7 +98,9 @@ export default function NavBar({ products }) {
 
   return (
     <div className={style.full}>
-      <Contenido className={!currentUser ? style.container : style.containerLoggedIn}>
+      <Contenido
+        className={!currentUser ? style.container : style.containerLoggedIn}
+      >
         <li>
           <NavLink to="/">
             <img src={logo} className={style.logo} alt="logo" />
@@ -107,6 +116,11 @@ export default function NavBar({ products }) {
           </NavLink>
         </li>
         {contentExit}
+        {
+          <>
+            <Switch />
+          </>
+        }
       </Contenido>
     </div>
   );
