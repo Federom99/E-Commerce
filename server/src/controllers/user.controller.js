@@ -108,7 +108,7 @@ const getUsers = async (req, res) => {
 
   try {
     const users = !req.query.search ? await Usuario.findAll() : await Usuario.findAll({where:{
-      [Op.or]: [{nombre: {[Op.iLike]: `%${req.query.search}`}}, {apellido: {[Op.iLike]: `%${req.query.search}`}}]
+      [Op.or]: [{nombre: {[Op.iLike]: `%${req.query.search}%`}}, {apellido: {[Op.iLike]: `%${req.query.search}%`}}]
     }})
     res.json(users);
   } catch (error) {
