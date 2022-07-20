@@ -86,7 +86,7 @@ POST /user/login. Recibe por body:
 }
 ```
 
-GET /user. Trae la lista de todos los usuarios. Si le pasamos el query ?name=nombre/apellido devuelve los users con ese nombre/apellido.
+GET /user. Trae la lista de todos los usuarios. Si le pasamos el query ?search=nombre/apellido devuelve los users con ese nombre/apellido.
 
 PUT /admin/usuario/:id.  Recibe por body las prop. Y basicamente es modificar el isAdmin de false a true. Pero si o si se tienen que pasar todas las props de user por body.
 El .save() da la capacidad de modificar una instancia después de que se haya instanciado, pero antes de que se almacene en la base de datos.
