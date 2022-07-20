@@ -36,7 +36,7 @@ GET /categories/. Devuelve un objeto con un array de las categorías.
 
 GET /pedido/:id. Devuelve un pedido según el id recibido por parámetros.
 
-GET /pedidos. Devuelve todos los pedidos.
+GET /pedidos. Devuelve todos los pedidos. GET /pedidos?search=nombreproducto devuelve todos los pedidos con ese producto.
 
 GET /pedidos/user/:id. Devuelve todos los pedidos del user pasado por id.
 
