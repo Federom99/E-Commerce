@@ -71,9 +71,11 @@ export const clearLocalStorage = ()=>{
 }
 
 export const deleteCart = () => {
-  console.log("deleteeeeedddd");
+  // console.log("deleteeeeedddd");
   return{
     type: DELETE_CART
+  }
+}
 
 export const setItemStock = (id, talle)=> async dispatch =>{
   const product = await axios.get(`http://localhost:3001/product/${id}`)
