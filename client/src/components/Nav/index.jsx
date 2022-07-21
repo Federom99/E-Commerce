@@ -29,6 +29,7 @@ export default function NavBar({ products }) {
   const [showAdminBoard, setShowAdminBoard] = useState(false);
 
   const { user: currentUser } = useSelector((state) => state.auth);
+  const auth = useSelector((state) => state.auth);
   const error = useSelector((state) => state.auth.error);
   const loading = useSelector((state) => state.auth.loading);
 
@@ -38,12 +39,27 @@ export default function NavBar({ products }) {
     }
   }, [currentUser]);
 
+  function check_cookie_name(name) {
+    var match = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)"));
+    if (match) {
+      return match[2];
+    } else {
+      return null;
+    }
+  }
+  const result = check_cookie_name("jwt");
+
+  useEffect(() => {
+    if (!result) {
+      dispatch(logout());
+    }
+  }, [result]);
+
   const logOut = () => {
     dispatch(logout());
     dispatch(clearLocalStorage());
+    window.location.reload();
     navigation("/");
-    document.cookie =
-      "FOOD-API=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
   };
   const toProfile = () => {
     navigation("/profile");
