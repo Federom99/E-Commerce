@@ -77,6 +77,10 @@ const authentication = async (req, res) => {
     const error = new Error("Usuario no confirmado por favor revise su correo");
     return res.status(400).json({ msg: error.message });
   }
+  if(user.banned){
+    const error = new Error("Ese usuario esta baneado.");
+    return res.status(400).json({ msg: error.message });
+  }
 
   if (await comparePassword(contraseña, user.contraseña)) {
 
