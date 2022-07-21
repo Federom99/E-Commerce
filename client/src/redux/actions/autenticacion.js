@@ -82,7 +82,7 @@ export const clearMsg = (dispatch) => {
 
 export const logout = () => async (dispatch) => {
   localStorage.removeItem("user");
-  const result = await fetch(API_URL + "salir", {
+  await fetch(API_URL + "salir", {
     method: "POST",
     // credentials: "include",
   });
