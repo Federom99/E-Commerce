@@ -2,9 +2,10 @@ const { Router } = require("express");
 const {Usuario, Producto, Talle, Compra, Producto_talle } = require("../db.js");
 const { promisify } = require("util");
 const jwt = require("jsonwebtoken");
+const { isAuthenticated } = require("../controllers/user.controller.js");
 const router = Router();
 
-router.post("/", async (req, res) => {
+router.post("/", isAuthenticated, async (req, res) => {
   try {
     const decode = await promisify(jwt.verify)(
       req.cookies.jwt,
