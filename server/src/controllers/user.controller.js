@@ -93,6 +93,7 @@ const authentication = async (req, res) => {
     res.cookie('jwt', token)
 
     return res.status(200).json({
+      id: user.id,
       name: user.nombre,
       email: user.mail,
       isAdmin: user.isAdmin,
