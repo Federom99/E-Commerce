@@ -61,6 +61,7 @@ const ProductDetail = () => {
 
   let dispatch = useDispatch();
   let [cart , product , error , currentStock] = useSelector ( state => [ state.cart , state.product.product , state.product.error , state.cart.cartRemainingStock])
+  const {user:currentUser} = useSelector(state=>state.auth)
   let { productId } = useParams();
 
   useEffect(()=>{
@@ -184,7 +185,7 @@ const ProductDetail = () => {
       <Div>
         <ImageContainer>
           <FavContainer>
-            <FavIcon productId={parseInt(productId)} productName={product.nombre}/>
+            {currentUser ? (<FavIcon productId={parseInt(productId)} productName={product.nombre}/>) : null}            
           </FavContainer>
           <Image src={product?.imagen} />
         </ImageContainer>
