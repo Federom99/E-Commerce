@@ -22,7 +22,7 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
       coordenadas: {
-        type: DataTypes.ARRAY(DataTypes.INTEGER),
+        type: DataTypes.ARRAY(DataTypes.FLOAT),
         allowNull: false,
       },
     },{
