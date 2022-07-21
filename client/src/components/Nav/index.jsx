@@ -42,19 +42,14 @@ export default function NavBar({ products }) {
   function check_cookie_name(name) {
     var match = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)"));
     if (match) {
-      console.log(match[2]);
       return match[2];
     } else {
-      console.log("--something went wrong---");
       return null;
     }
   }
   const result = check_cookie_name("jwt");
 
   useEffect(() => {
-    const u = localStorage.getItem("user");
-
-    console.log(result);
     if (!result) {
       dispatch(logout());
     }
