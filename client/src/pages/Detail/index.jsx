@@ -19,11 +19,13 @@ import {
   Size,
   Button,
   Review,
+  FavContainer,
 } from "./styles";
 import { getProduct , clearProduct } from "../../redux/actions/product";
 import {addToCart, modifyItemStock, setItemStock, setLocalStorage} from "../../redux/actions/cart"
 import Loading from "../../components/Loader";
 import estilos from "./detail.module.css";
+import FavIcon from "../../components/FavContainer";
 
 const colors = {
   orange: "#FFBA5A",
@@ -181,6 +183,9 @@ const ProductDetail = () => {
           />
       <Div>
         <ImageContainer>
+          <FavContainer>
+            <FavIcon productId={parseInt(productId)} productName={product.nombre}/>
+          </FavContainer>
           <Image src={product?.imagen} />
         </ImageContainer>
         <InfoContainer>
