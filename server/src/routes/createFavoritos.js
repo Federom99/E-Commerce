@@ -1,14 +1,32 @@
 const { Router } = require("express");
-const {productosFav} = require("../db.js");
+const {ProductosFav , Usuario} = require("../db.js");
 const {Op} = require('sequelize')
 
 const router = Router();
 
-router.post('/', async(req, res) => {
-    const {favorito} = req.body;
-    let fav = await productosFav.create({"id": favorito});
+router.post('/', async(req, res,next) => {
+    const {userId , productId} = req.body;
+    try{
+        let fav = await ProductosFav.create({
+            productId
+        });
+        console.log('userId')
+        let user = await  Usuario.findOne({
+            where:{
+                id:userId
+            }
+        })        
+        if (fav) {
+            console.log('entramos')
+            await user.addProductosFavs(fav)
+        }
+        res.status(200).json({
+            id: productId
+        });
 
-    res.status(200).send("Favorito agregado con exito");
+    } catch (error){
+        next(error)
+    }
 })
 
 
