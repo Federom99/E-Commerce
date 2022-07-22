@@ -6,9 +6,9 @@ export default function useFormEditProfile(){
 
     const dispatch = useDispatch()
 
-    const nombre = /([a-zA-Z]){3,10}/
+    const nombre = /([a-zA-Z]){3,20}/
 
-    const apellido = /[a-zA-Z]{3,10}/
+    const apellido = /([a-zA-Z]){3,20}/
 
     const email = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
    
@@ -67,7 +67,7 @@ export default function useFormEditProfile(){
                     setInputErrors(prevFormData => {
                         return {
                             ...prevFormData,
-                            [name]: 'El nombre debe tener mas de 2 caracteres y menos de 11'
+                            [name]: 'El nombre debe tener mas de 2 caracteres y menos de 21'
                         }
                     })
                 }
@@ -90,7 +90,7 @@ export default function useFormEditProfile(){
                 setInputErrors(prevFormData => {
                     return {
                         ...prevFormData,
-                        [name]: 'El apellido debe tener mas de 2 caracteres y menos de 11'
+                        [name]: 'El apellido debe tener mas de 2 caracteres y menos de 21'
                     }
                 })
             }

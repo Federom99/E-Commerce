@@ -12,7 +12,6 @@ import {
   Button,
   H2,
   StyledPopup,
-  ExtraInfo,
   Select,
   P,
   ImgLink,

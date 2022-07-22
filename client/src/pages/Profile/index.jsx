@@ -17,7 +17,9 @@ import {
   FormEdit,
   Label,
   Input,
-  ButtonsContainer
+  ButtonsContainer,
+  Errors,
+  Error
 } from "./styles";
 
 export default function User() {
@@ -34,6 +36,15 @@ export default function User() {
   const {user} = useSelector(state => state.userReducer)
 
   const [editProfile, setEditProfile] = useState(false)
+
+  function changeInfo(e){
+    try {
+      handleSubmit(e)
+      setEditProfile(prevState => !prevState)
+    } catch (error) {
+      console.log('Ups')
+    }
+  }
 
   const dispatch = useDispatch()
   useEffect(() => {
@@ -91,15 +102,17 @@ export default function User() {
               <Button
                 disabled={disabled}
                 aceptar 
-                onClick={(e) => {
-                  handleSubmit(e)
-                  setEditProfile(prevState => !prevState)
-                }}
+                onClick={(e) => changeInfo(e)}
               >
                 Aceptar
               </Button>
             </ButtonsContainer>
           </FormEdit>
+          <Errors>
+            <Error>{inputErrors.nombre}</Error>
+            <Error>{inputErrors.apellido}</Error>
+            <Error>{inputErrors.mail}</Error>
+          </Errors>
         </>
         :
         <>
