@@ -12,7 +12,6 @@ import {
   Button,
   H2,
   StyledPopup,
-  ExtraInfo,
   Select,
   P,
   ImgLink,
@@ -110,6 +109,7 @@ const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
           {currentUser ? (<FavIcon productId={id} productName={nombre}/>) : null}
         </FavContainer>
       </DivBis>
+
         <ImgLink to={`/detail/${id}`}>
           <Image src={imagen} />
         </ImgLink>

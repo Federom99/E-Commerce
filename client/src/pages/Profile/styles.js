@@ -41,12 +41,14 @@ export const Label = styled.label`
   margin: 0;
   margin-bottom: 1rem;
   padding: 1rem 0;
+  width: 100%;
   border-bottom: 1px solid gray;
 `
 
 export const Input = styled.input`
+  display: block;
   padding: 0.5rem 0.8rem;
-  width: 250px;
+  max-width: 250px;
   border: 1px solid rgba(0, 0, 0, .4);
   border-radius: 5px;
 `
@@ -64,6 +66,15 @@ export const UserInfo = styled.div`
   min-width: 325px;
 `
 
+export const Errors = styled.ul`
+  list-style: none;
+`
+
+export const Error = styled.li`
+  margin-bottom: 1rem;
+  color: #B50000;
+`
+
 export const UL = styled.ul`
   display: flex;
   justify-content: space-between;
@@ -78,6 +89,7 @@ export const LI = styled.li`
     color: gray;
   }
 `
+
 
 export const Button = styled.button`
   align-self: flex-start;

@@ -3,9 +3,10 @@ import product from "./product";
 import cart from "./cart";
 import auth from "./auth";
 import checkout from "./checkout";
-import userReducer from "./userProfile";
 import favorites from "./favoritos";
+import userReducer from "./userProfile";
 import pedidos from "./pedidos";
+
 export default combineReducers({
   product,
   cart,

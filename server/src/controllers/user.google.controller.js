@@ -4,9 +4,10 @@ const { generarJWT } = require("../helpers/generarJWT");
 const registergoogleAuth = async (req, res) => {
   const { user } = req.body;
 
-  const usuarioEncontrado = Usuario.findOne({
+  const usuarioEncontrado = await Usuario.findOne({
     where: { mail: user.email },
   });
+  console.log(usuarioEncontrado);
 
   if (usuarioEncontrado) {
     const error = new Error(`El usuario con mail ${user.email} ya existe`);

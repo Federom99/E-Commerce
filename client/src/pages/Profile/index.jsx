@@ -19,6 +19,8 @@ import {
   Input,
   ButtonsContainer,
   LinkTo,
+  Errors,
+  Error
 } from "./styles";
 
 export default function User() {
@@ -30,9 +32,18 @@ export default function User() {
   } = useSelector((state) => state.auth);
   const { user } = useSelector((state) => state.userReducer);
 
-  const [editProfile, setEditProfile] = useState(false);
+  const [editProfile, setEditProfile] = useState(false)
 
-  const dispatch = useDispatch();
+  function changeInfo(e){
+    try {
+      handleSubmit(e)
+      setEditProfile(prevState => !prevState)
+    } catch (error) {
+      console.log('Ups')
+    }
+  }
+
+  const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getUser(id));
   }, []);
@@ -98,6 +109,11 @@ export default function User() {
               </Button>
             </ButtonsContainer>
           </FormEdit>
+          <Errors>
+            <Error>{inputErrors.nombre}</Error>
+            <Error>{inputErrors.apellido}</Error>
+            <Error>{inputErrors.mail}</Error>
+          </Errors>
         </>
       ) : (
         <>

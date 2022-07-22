@@ -31,7 +31,6 @@ const MainContainer = ({ products }) => {
       if (favs.userId) dispatch(getAllFavs(favs.userId));
     }
   }, [favs.userId]);
-
   function paginado(nroPagina) {
     setPaginaActual(nroPagina);
   }
