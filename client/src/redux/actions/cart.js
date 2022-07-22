@@ -4,6 +4,8 @@ import {
   PRICE_CART,
   PRICE_REMOVE_CART,
   REMOVE_CART,
+  REMOVE_LOCAL_CART,
+  SET_LOCAL_CART,
 } from "./actionTypes";
 
 export const addToCart = (order) => {
@@ -20,7 +22,7 @@ export const modifyCart = (details) => {
   };
 };
 
-export const removeCart = (id,size) => {
+export const removeCart = (id, size) => {
   return {
     type: REMOVE_CART,
     payload: {
@@ -37,32 +39,32 @@ export const addOrder = (order) => {
   };
 };
 
-export const removeOrder = (id,talle) => {
+export const removeOrder = (id, talle) => {
   return {
     type: PRICE_REMOVE_CART,
     payload: {
-    id,
-    size:talle
-  }
+      id,
+      size: talle,
+    },
   };
 };
-export const setLocalStorage = (data)=>{
-  let item = JSON.parse(localStorage.getItem("cart"))
-  if (!item){
-    localStorage.setItem("cart",JSON.stringify(data))
-  }else{ 
-    item.shoppingCart = data.shoppingCart
-    item.order = data.order
-    localStorage.setItem("cart",JSON.stringify(item))
+export const setLocalStorage = (data) => {
+  let item = JSON.parse(localStorage.getItem("cart"));
+  if (!item) {
+    localStorage.setItem("cart", JSON.stringify(data));
+  } else {
+    item.shoppingCart = data.shoppingCart;
+    item.order = data.order;
+    localStorage.setItem("cart", JSON.stringify(item));
   }
 
   return {
-    type: 'SET_LOCAL_CART',    
-  }
-}
-export const clearLocalStorage = ()=>{
-  localStorage.removeItem("cart")
-  return{
-    type: "REMOVE_LOCAL_CART"
-  }
-}
+    type: SET_LOCAL_CART,
+  };
+};
+export const clearLocalStorage = () => {
+  localStorage.removeItem("cart");
+  return {
+    type: REMOVE_LOCAL_CART,
+  };
+};

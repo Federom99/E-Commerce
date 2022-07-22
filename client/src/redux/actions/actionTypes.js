@@ -7,6 +7,8 @@ export const MODIFY_CART = "MODIFY_CART";
 export const REMOVE_CART = "REMOVE_CART";
 export const PRICE_CART = "PRICE_CART";
 export const PRICE_REMOVE_CART = "PRICE_REMOVE_CART";
+export const SET_LOCAL_CART = "SET_LOCAL_CART";
+export const REMOVE_LOCAL_CART = "REMOVE_LOCAL_CART";
 
 export const ORDER_BY_CATEGORY = "ORDER_BY_CATEGORY";
 export const ORDER_BY = "ORDER_BY";
