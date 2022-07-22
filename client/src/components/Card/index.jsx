@@ -30,7 +30,7 @@ const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
   let navigate = useNavigate();
 
   const currentStock = useSelector(state=>state.cart.cartRemainingStock)
-  const { user : currentUser } = useSelector(state=>state.auth)
+  const { user : currentUser }= useSelector(state=>state.auth)
 
   const closeModal = () => setOpen(false);
 
@@ -104,11 +104,12 @@ const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
   return (
     <DIV>
       <ContainerImage>
-        <DivBis>
+      <DivBis>
         <FavContainer>
           {currentUser ? (<FavIcon productId={id} productName={nombre}/>) : null}
         </FavContainer>
-        </DivBis>
+      </DivBis>
+
         <ImgLink to={`/detail/${id}`}>
           <Image src={imagen} />
         </ImgLink>

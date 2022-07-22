@@ -184,7 +184,7 @@ const ProductDetail = () => {
       />
       <Div>
         <ImageContainer>
-          <FavContainer>
+        <FavContainer>
             {currentUser ? (<FavIcon productId={parseInt(productId)} productName={product.nombre}/>) : null}            
           </FavContainer>
           <Image src={product?.imagen} />

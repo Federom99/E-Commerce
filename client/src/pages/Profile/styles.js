@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 
 export const Container = styled.div`
@@ -120,6 +121,8 @@ export const P = styled.p`
   font-weight: 600;
   cursor: pointer;
 `
-
+export const LinkTo = styled(Link)`
+  text-decoration: none;
+`
 
 

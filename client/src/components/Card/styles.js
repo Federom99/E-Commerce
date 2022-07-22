@@ -66,8 +66,8 @@ export const DivBis = styled.div`
     width: inherit;
     position:relative;
     z-index:0
-
 `
+
 export const FavContainer = styled.div`
     position: absolute;
     z-index:1337;
@@ -75,7 +75,6 @@ export const FavContainer = styled.div`
     left: 0px;
     margin: 10px;
     width:40px auto
-
 `
 export const Image = styled.img`
     width: 100%;
