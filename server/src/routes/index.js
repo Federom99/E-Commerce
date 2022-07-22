@@ -45,6 +45,7 @@ const compraEntregada = require("./compraEntregada");
 const cargarFactura = require("./cargarFactura");
 const editarPedidoFactura = require("./editarPedidoFactura");
 const { googleAuth } = require("../controllers/user.google.controller.js");
+const getSucursales = require("./getSucursales");
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
@@ -88,5 +89,6 @@ router.use("/admin/entrega", compraEntregada);
 router.use("/factura/crear", cargarFactura);
 router.use("/factura/edit", editarPedidoFactura);
 router.use("/ban", banRouter);
+router.use("/sucursales", getSucursales);
 
 module.exports = router;

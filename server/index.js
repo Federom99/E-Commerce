@@ -1,7 +1,7 @@
 const server = require("./src/app.js");
 const { conn } = require("./src/db.js");
 
-const { Producto, Talle, Producto_talle, Categoria, Usuario, Pedido, Compra} = require("./src/db.js");
+const { Producto, Talle, Producto_talle, Categoria, Usuario, Pedido, Compra, Sucursales} = require("./src/db.js");
 
 const fs = require("fs");
 const { hashPassword } = require("./src/helpers/hashPassword.js");
@@ -116,6 +116,21 @@ conn.sync({ force: true }).then(() => {
 
         await randomUser.addPedido(pedido)
 
+      })
+
+      //Agarro las sucursales del JSON
+      const sucursalesJSON = JSON.parse(
+        fs.readFileSync(__dirname + "/src/models/assets/sucursales.json")
+      );
+
+      sucursalesJSON.forEach(async (u) => {
+
+        await Sucursales.create({
+          "nombre":  u.nombre,
+          "capital": u.capital,
+          "cp": u.cp,
+          "coordenadas": u.coord
+        })
       })
     }
     )();
