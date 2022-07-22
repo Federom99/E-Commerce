@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { getUsuarios } from "../../redux/actions/checkout";
 import {
   Div,
   Form,
@@ -27,6 +29,13 @@ export default function NewUser() {
   const [alert, setAlert] = useState({});
 
   const navigate = useNavigate();
+
+  const bloqueados = useSelector((state) => state.checkout.usuariosFiltrados);
+  console.log(bloqueados)
+
+  useEffect(() => {
+    dispatch(getUsuarios());
+  }, [])
 
   const errorHandler = (data) => {
     let errors = {};
@@ -78,6 +87,11 @@ export default function NewUser() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    const usuario = bloqueados.find((e) => e.mail === newUser.email)
+    if (usuario && usuario.bloqueado === true) {
+      setAlert({ msg: "Usuario Bloqueado", type: "error" });
+      return;
+    }
     if (!Object.keys(errors).length && Object.keys(newUser).length) {
       try {
         const { data } = await axios.post(
