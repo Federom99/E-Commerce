@@ -12,6 +12,7 @@ const editProductRouter = require("./editProduct");
 const productRouter = require("./product.js");
 const favoritosRouter = require("./favoritos");
 const createFavoritos = require("./createFavoritos");
+const deleteFavorito = require("./deleteFavorito");
 const actualizarPedidoRouter = require("./cambiarEstadoPedido");
 const userToAdminRouter = require("./userToAdmin");
 const deleteProductRouter = require("./deleteProduct");
@@ -20,6 +21,8 @@ const cargarProductDbRouter = require("./product-DB");
 const cargarUserDbRouter = require("./user-DB");
 const getCategories = require("./getCategories");
 const getTalles = require("./getTalles");
+const getUsers = require("./getUsers")
+const banRouter = require('./ban')
 
 const stockRouter = require("./stock");
 const getPedidosRouter = require("./getPedidos");
@@ -55,9 +58,11 @@ router.use("/category", categoryRouter);
 router.use("/edit/product", editProductRouter);
 router.use("/product", productRouter);
 router.use("/favoritos/wishlist", favoritosRouter);
+router.use("/favoritos/delete", deleteFavorito);
 router.use("/create/favoritos", createFavoritos);
 router.use("/admin/pedido", actualizarPedidoRouter);
 router.use("/admin/usuario", userToAdminRouter);
+router.use("/usuarios", getUsers)
 router.use("/product/delete", deleteProductRouter);
 router.use("/category/delete", deleteCategoryRouter);
 router.use("/admin/crearorigen", cargarProductDbRouter);
@@ -84,5 +89,6 @@ router.use("/admin/correo", productoLlegando);
 router.use("/admin/entrega", compraEntregada);
 router.use("/factura/crear", cargarFactura);
 router.use("/factura/edit", editarPedidoFactura);
+router.use("/ban", banRouter);
 
 module.exports = router;

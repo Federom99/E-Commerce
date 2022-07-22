@@ -1,8 +1,12 @@
 import styled from "styled-components";
 
 export const Img = styled.img`
-    width:200px;
-    height: auto;
+    height: 10rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    -webkit-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
+    -moz-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
+    box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
 `
 export const List = styled.ul`    
         list-style: none;
@@ -13,6 +17,8 @@ export const List = styled.ul`
 `
 export const Li = styled.li`
     align-self: center;
+    display: flex;
+    flex-direction: column;
 `
 export const Text = styled.div`
     text-align: justify;
@@ -20,20 +26,62 @@ export const Text = styled.div`
 `
 export const Amount = styled.div`
     display: flex;
+    width: 8rem;
+    /* background-color: red; */
+    flex-direction: row;
+    justify-content: space-between;
 `
+
+export const PCant = styled.p`
+    /* background-color: blue; */
+    margin: auto;
+    font-weight: bolder;
+    `
 export const Button = styled.button`
-    padding: 5px;
-    margin: 0 5px 0 5px;
+    margin: auto;
+    vertical-align: middle;
+    width: 2rem;
+    height: 2rem;
+    background-color: #181818;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bolder;
+    cursor: pointer;
+    &:hover {
+        background-color: whitesmoke;
+        color: black;
+        cursor: pointer;
+        border-color: black;
+        border-style: solid;
+    }
 `
 export const Div = styled.li`
     position: relative;
-    margin: 10px 0 10px 0;
-    background-color: rgba(12,12,12,0.1);
-    box-shadow:  0px 0px 12px 1px rgb(0 0 0 / 37%);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    margin: auto;
+    margin-bottom: 1rem;
+    /* border-radius: 1rem; */
+    /* border-style: solid; */
+    /* border-width: 1px; */
+    -webkit-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
+    -moz-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
+    box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
+    width: 90%;
 `
 export const CloseButton = styled(Button)`
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: 0.5rem;
+    right: 0.5rem;
 `
+
+export const SPAN = styled.span`
+    color: #E74C3C;
+    font-weight: bolder;
+    margin: auto;
+    margin-top: 1rem;
+`;
+
+export const H3 = styled.h3`
+    font-weight: bolder;
+    margin-bottom: 7px;
+`;

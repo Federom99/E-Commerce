@@ -47,6 +47,10 @@ module.exports = (sequelize) => {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
       },
+      bloqueado: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+      },
       confirmado: {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
@@ -57,6 +61,11 @@ module.exports = (sequelize) => {
       carrito: {
         type: DataTypes.ARRAY(DataTypes.JSON),
       },
+      banned: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false
+      }
     },
     {
       timestamps: false,

@@ -62,7 +62,21 @@ export const StyledPopup = styled(Popup)`
 export const ContainerImage = styled.div`
     width: 100%;
 `
+export const DivBis = styled.div`
+    width: inherit;
+    position:relative;
+    z-index:0
 
+`
+export const FavContainer = styled.div`
+    position: absolute;
+    z-index:1337;
+    top: 0px;
+    left: 0px;
+    margin: 10px;
+    width:40px auto
+
+`
 export const Image = styled.img`
     width: 100%;
     height: 365px;

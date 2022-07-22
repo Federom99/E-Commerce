@@ -8,14 +8,14 @@ import {
 import estilos from "./checkout.module.css";
 import useScript from "./useScript";
 import { useState } from "react";
-import {checkout, crearPedido, guardarDatosComprador} from "../../redux/actions/checkout"
+import {checkout, crearPedido, guardarDatosComprador} from "../../redux/actions/checkout";
 
 const Checkout = () => {
     const [input, setInput] = useState({nombre: "", apellido: "", documento: "", direccion: "", codigoPostal: "", provincia: ""});
     const [errores, setErrores] = useState({nombre: "", apellido: "", documento: "", direccion: "", codigoPostal: "", provincia: ""});
     const [botonBloqueado, setBotonBloqueado] = useState("disabled");
     const [formBloqueado, setFormBloqueado] = useState("");
-    const carrito = useSelector(state => state.cart.order);
+    const carrito = useSelector(state => state.cart.shoppingCart);
     const { user: currentUser } = useSelector((state) => state.auth);
     //----------------------------MERCADOPAGO----------------------------------------
     const { MercadoPago } = useScript( "https://sdk.mercadopago.com/js/v2", "MercadoPago");
@@ -25,8 +25,6 @@ const Checkout = () => {
 
     async function onClickHandler(e){
         e.preventDefault();
-        setBotonBloqueado("disabled");
-        setFormBloqueado("disabled");
         const pedido = {
             "productos": crearProductosPedido(carrito),
             "comprador": input,
@@ -59,7 +57,17 @@ const Checkout = () => {
     },[])
 
     useEffect(() => {
-        if(pago.id && MercadoPago){
+        // console.log(pago);
+        const btn = document.getElementsByClassName("mercadopago-button");
+        // console.log(btn);
+        if(btn[0]){
+            for(let b of btn){
+                b.parentNode.removeChild(b);
+            }
+        }
+        if(pago.id && MercadoPago && botonBloqueado !== "disabled"){
+            setBotonBloqueado("disabled");
+            setFormBloqueado("disabled");
             const mp = new MercadoPago("APP_USR-06027043-b2a5-4576-ac25-217e1bbfc148", {
                 locale: "es-AR",
             })
@@ -73,8 +81,12 @@ const Checkout = () => {
                 },
                 })
         }
-    },[pago, MercadoPago]);
+    },[pago]);
      //----------------------------FIN--MERCADOPAGO--------------------------------------
+
+     async function mpSubmitHandler(e){
+        e.preventDefault();
+     }
 
     //  console.log(carrito);
     //  console.log(currentUser);
@@ -101,6 +113,7 @@ const Checkout = () => {
         <Main>
             <Div>
                 <div id={estilos.formularioContainer}>
+                    {carrito.length ? (<>
                     <H2>Datos de facturacion</H2>
                     <form id={estilos.formulario}>  
                         <ul id={estilos.lista}>
@@ -170,8 +183,11 @@ const Checkout = () => {
                             }   
                         </ul>
                     </form>
-                    <div id="button-checkout" className={estilos.pagar}></div> 
+                    <form onSubmit={mpSubmitHandler} style={{display: "flex"}}>
+                        <div id="button-checkout" className={estilos.pagar}></div> 
+                    </form>
                     <br />
+                    </>) : (<H2 style={{marginTop:"1rem"}}>No hay items en su carrito</H2>)}
                 </div>
             </Div>
         </Main>

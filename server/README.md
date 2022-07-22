@@ -36,7 +36,7 @@ GET /categories/. Devuelve un objeto con un array de las categorías.
 
 GET /pedido/:id. Devuelve un pedido según el id recibido por parámetros.
 
-GET /pedidos. Devuelve todos los pedidos.
+GET /pedidos. Devuelve todos los pedidos. GET /pedidos?search=nombreproducto devuelve todos los pedidos con ese producto.
 
 GET /pedidos/user/:id. Devuelve todos los pedidos del user pasado por id.
 
@@ -86,7 +86,7 @@ POST /user/login. Recibe por body:
 }
 ```
 
-GET /users. Trae la lista de todos los usuarios.
+GET /user. Trae la lista de todos los usuarios. Si le pasamos el query ?search=nombre/apellido devuelve los users con ese nombre/apellido.
 
 PUT /admin/usuario/:id.  Recibe por body las prop. Y basicamente es modificar el isAdmin de false a true. Pero si o si se tienen que pasar todas las props de user por body.
 El .save() da la capacidad de modificar una instancia después de que se haya instanciado, pero antes de que se almacene en la base de datos.
@@ -144,6 +144,8 @@ PUT /edit/product. El unico dato obligatorio es el id. El resto son opcionales. 
   "precio": 999
 }
 ```
+
+PUT /ban/uid. Banea al user del uid pasado por param.
 
 
 

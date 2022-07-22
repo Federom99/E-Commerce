@@ -1,3 +1,4 @@
+const { Op } = require("sequelize");
 const { Usuario } = require("../db.js");
 const { emailRegistro, emailOlvidePassword } = require("../helpers/emails.js");
 const { generarJWT } = require("../helpers/generarJWT.js");
@@ -86,6 +87,7 @@ const authentication = async (req, res) => {
     res.cookie('jwt', token)
 
     return res.status(200).json({
+      id: user.id,
       name: user.nombre,
       email: user.mail,
       isAdmin: user.isAdmin,
@@ -103,8 +105,12 @@ const authentication = async (req, res) => {
 };
 
 const getUsers = async (req, res) => {
+
+
   try {
-    const users = await Usuario.findAll();
+    const users = !req.query.search ? await Usuario.findAll() : await Usuario.findAll({where:{
+      [Op.or]: [{nombre: {[Op.iLike]: `%${req.query.search}%`}}, {apellido: {[Op.iLike]: `%${req.query.search}%`}}]
+    }})
     res.json(users);
   } catch (error) {
     console.log(error);

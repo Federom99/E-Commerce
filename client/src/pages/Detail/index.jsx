@@ -19,11 +19,13 @@ import {
   Size,
   Button,
   Review,
+  FavContainer,
 } from "./styles";
-import { getProduct, clearProduct } from "../../redux/actions/product";
-import { addToCart, setLocalStorage } from "../../redux/actions/cart";
+import { getProduct , clearProduct } from "../../redux/actions/product";
+import {addToCart, modifyItemStock, setItemStock, setLocalStorage} from "../../redux/actions/cart"
 import Loading from "../../components/Loader";
 import estilos from "./detail.module.css";
+import FavIcon from "../../components/FavContainer";
 
 const colors = {
   orange: "#FFBA5A",
@@ -57,13 +59,8 @@ const ProductDetail = () => {
   };
 
   let dispatch = useDispatch();
-  let [cart, product, error] = useSelector((state) => [
-    state.cart,
-    state.product.product,
-    state.product.error,
-  ]);
-  // let product = useSelector((state) => state.product.product);
-  // let error = useSelector((state) => state.product.error);
+  let [cart , product , error , currentStock] = useSelector ( state => [ state.cart , state.product.product , state.product.error , state.cart.cartRemainingStock])
+  const {user:currentUser} = useSelector(state=>state.auth)
   let { productId } = useParams();
 
   useEffect(() => {
@@ -101,28 +98,32 @@ const ProductDetail = () => {
     }
   };
 
-  useEffect(() => {
-    if (Object.keys(product).length) {
-      if (product.categorium.nombre === "Accesorios") {
-        setSize("Sin talle");
-        setStock(product.talles[0].producto_talle.stock);
-      }
-    }
-  }, [product]);
-
-  useEffect(() => {
-    if (
-      Object.keys(product).length &&
-      product.categorium.nombre !== "Accesorios" &&
-      size
-    ) {
-      let index = product.talles.findIndex((p) => p.talle === size);
-      setStock(product.talles[index].producto_talle.stock);
+  useEffect(()=>{    
+    if (Object.keys(product).length){
+      if (product.categorium.nombre === 'Accesorios'){
+        setSize("Sin talle")
+        setStock(product.talles[0].producto_talle.stock)
+      } 
     }
   }, [size]);
+  
+  useEffect(()=>{
+    if (Object.keys(product).length && product.categorium.nombre !== 'Accesorios' && size){
+      let index = currentStock.findIndex(p=>{
+        if(p.id===parseInt(productId) && p.talle === size) return p
+      })
+      if (index!==-1){
+        setStock(currentStock[index].stock)
+      }
+      else{
+        let index2 = product.talles.findIndex(p=>p.talle === size)
+        setStock(product.talles[index2].producto_talle.stock)
+      }
+    }    
+  },[size,currentStock])
 
-  const addCart = async () => {
-    if (product.categorium?.nombre === "Accesorios") {
+  const addCart = async ()=>{
+    if(product.categorium?.nombre ==="Accesorios"){
       setSize("Sin talle");
     }
     let order = {
@@ -130,13 +131,32 @@ const ProductDetail = () => {
       talle: size,
       cantidad: 1,
     };
-    if (order.talle) {
-      const check = await checkStock();
-      if (check) {
-        dispatch(addToCart(order));
-        toast.success("Agregado al carrito");
-      } else {
-        toast.error(`No hay stock `);
+    
+    if (order.talle){
+      const check = await checkStock()
+      if (check){
+        let index = currentStock.findIndex(p=>{
+          if (p.id === parseInt(productId) && p.talle === size) return p
+        })
+        if (index !== -1){ //si lo encuentra en el global actual de stock
+          if((currentStock[index].stock-1)>=0){ //si el stock no queda como negativo
+            dispatch(modifyItemStock(parseInt(productId),size))
+            dispatch(addToCart(order))
+            toast.success("Agregado al carrito");
+            setStock(stock=>stock-=1)
+          }
+          else {
+            toast.error('No hay más stock')
+          }        
+        }
+        else{ //si no lo encuentra en el global (si hay stock porque lo verifica check)     
+          dispatch(addToCart(order))
+          dispatch(setItemStock(parseInt(productId),size))
+          toast.success("Agregado al carrito");
+          setStock(stock=>stock-=1)
+        }
+      } else{
+        toast.error(`No hay stock `)
       }
     } else toast.error("Seleccione un talle");
   };
@@ -150,7 +170,7 @@ const ProductDetail = () => {
     );
 
   const formatPrice = new Intl.NumberFormat("es-AR").format(product.precio);
-  // console.log(product);
+
   return (
     <Main>
       <ToastContainer
@@ -164,6 +184,9 @@ const ProductDetail = () => {
       />
       <Div>
         <ImageContainer>
+          <FavContainer>
+            {currentUser ? (<FavIcon productId={parseInt(productId)} productName={product.nombre}/>) : null}            
+          </FavContainer>
           <Image src={product?.imagen} />
         </ImageContainer>
         <InfoContainer>

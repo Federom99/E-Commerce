@@ -9,7 +9,7 @@
     border: 1px solid #1877f2;
 }
 
-.nuevo:hover{
+.nuevo:hover {
     background-color: #1666cf;
 }
 
@@ -21,4 +21,37 @@
     cursor: pointer;
     border-radius: 5px;
     border: 1px solid #1877f2;
+}
+
+.textField {
+    height: 32px;
+    width: 200px;
+    border: 1px solid #e5e5e5;
+    padding: 0 32px 0 16px;
+    border-radius: 15px;
+}
+
+.textField:hover {
+    border: none;
+}
+
+.btnBuscar {
+    height: 30px;
+    width: 30px;
+    margin-left: 5px;
+    border-radius: 5px;
+    border: 1px solid GREY;
+    cursor: pointer;
+    /* text-align: center;
+    align-items: center;
+    justify-content: center; */
+}
+
+.btnBuscar:hover {
+    background-color: rgb(215, 215, 215);
+}
+
+.barraBusqueda {
+    float: right;
+    padding-bottom: 20px;
 }

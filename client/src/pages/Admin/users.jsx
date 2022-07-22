@@ -1,154 +1,139 @@
 import DataTable from 'react-data-table-component';
+import { getUsuarios, updateUser } from '../../redux/actions/checkout';
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from 'react';
 import './products.css'
 
-const tablaUsuarios = [
+export default function Users() {
+  const dispatch = useDispatch();
+  const [search, setSearch] = useState({
+    nombre: ""
+  })
+  const [datos, setDatos] = useState({
+    usuariosFiltrados: useSelector((state) => state.checkout.usuarios),
+  })
+
+  useEffect(() => {
+    dispatch(getUsuarios());
+  }, [])
+
+  const usuarios = useSelector((state) => state.checkout.usuarios);
+  // var usuariosFiltrados = [useSelector((state) => state.checkout.usuarios);]
+  // console.log(usuarios)
+
+  function alerta2(id, isAdmin) {
+    dispatch(updateUser({ id, isAdmin: !isAdmin }))
+    alert("Usuario ya no es mas Admin")
+    dispatch(getUsuarios());
+  }
+
+  function alerta1(id, bloqueado) {
+    dispatch(updateUser({ id, bloqueado: !bloqueado }))
+    alert("Usuario Bloqueado")
+    dispatch(getUsuarios());
+  }
+
+  function handleInputChange(e) {
+    // e.preventDefault()
+    setSearch({
+      ...search,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    setDatos({ usuariosFiltrados: usuarios.filter(el => el.nombre.toLowerCase().includes(search.nombre.toLowerCase())) })
+  }
+
+  function RecargarSubmit(e) {
+    // e.preventDefault()
+    setDatos({ usuariosFiltrados: usuarios })
+    setSearch({
+      nombre: "",
+    })
+  }
+
+  const columnas = [
     {
-      "id": "Qff78AeOAWdMJH1pIrWX5Dn40Xv2",
-      "nombre": "Federico",
-      "apellido": "Romero",
-      "telefono": 3810000000,
-      "mail": "federo.15.99@gmail.com",
-      "direccion": "Pilo, Córdoba",
-      "dni": 41000000,
-      "contraseña": "admin",
-      "isAdmin": true
+      name: 'Nombre',
+      selector: row => `${row.nombre}`,
+      sortable: true
     },
     {
-      "id": "9eh7Isj3LsaTgyeND7Zr2LwltwE2",
-      "nombre": "Jose",
-      "apellido": "Osorio",
-      "telefono": 5300000000,
-      "mail": "joseinvictus273@hotmail.com",
-      "direccion": "Piumato Rodriguez, Bogota",
-      "dni": 35000000,
-      "contraseña": "admin",
-      "isAdmin": true
+      name: 'Apellido',
+      selector: row => `${row.apellido}`,
+      sortable: true
     },
     {
-      "id": "0recbbIV6GZreIlvNMc6wrxpOor1",
-      "nombre": "Martin",
-      "apellido": "Orlando",
-      "telefono": 1100000000,
-      "mail": "martin._orlando@hotmail.com.ar",
-      "direccion": "Somewhere in the CABA",
-      "dni": 44000000,
-      "contraseña": "admin",
-      "isAdmin": true
+      name: 'Mail',
+      selector: row => `${row.mail}`,
+      sortable: true
     },
     {
-      "id": "fIXTjfRP2uYVpW81GoUYIRWABDr2",
-      "nombre": "Mario",
-      "apellido": "Rodriguez",
-      "telefono": 2940000000,
-      "mail": "rgzrgzm@gmail.com",
-      "direccion": "Nueva Leon, Mexico",
-      "dni": 30000000,
-      "contraseña": "admin",
-      "isAdmin": true
+      name: 'Telefono',
+      selector: row => `${row.telefono}`,
+      sortable: true
     },
     {
-      "id": "hFLxCkmxGlVFkzPpy7af2b6Eeu02",
-      "nombre": "David",
-      "apellido": "Gomez",
-      "telefono": 3510000000,
-      "mail": "davidstangetz13@gmail.com",
-      "direccion": "El centro del país",
-      "dni": 39000000,
-      "contraseña": "admin",
-      "isAdmin": true
+      name: 'Admin',
+      selector: row => row.isAdmin === true ? 'SI' : 'NO',
+      sortable: true
     },
     {
-      "id": "1IbHp9pvK6gNLNJOdoBLIPyreq72",
-      "nombre": "Alan",
-      "apellido": "Acevedo",
-      "telefono": 3410000000,
-      "mail": "alanacevedo2001@hotmail.com",
-      "direccion": "Buenos aires, La plata",
-      "dni": 40000000,
-      "contraseña": "admin",
-      "isAdmin": true
+      name: 'Bloqueado',
+      selector: row => row.bloqueado === true ? 'SI' : 'NO',
+      sortable: true
     },
     {
-      "id": "dsI3ZazuBKTyQGJFS9ghRudXCpn1",
-      "nombre": "Emiliano",
-      "apellido": "Arancio",
-      "telefono": 1100000000,
-      "mail": "earancio616@gmail.com",
-      "direccion": "CABA",
-      "dni": 8000000,
-      "contraseña": "admin",
-      "isAdmin": true
+      name: 'Admin',
+      selector: row => <button className='user' onClick={() => alerta2(row.id, row.isAdmin)}>Editar</button>,
+      // row.isAdmin == true ? row.isAdmin = false : row.isAdmin = true
+      sortable: true
     },
     {
-      "id": "dsI3ZazuBKTyQGJFS9ghRudXCpn9",
-      "nombre": "Alexis",
-      "apellido": "Cortazzi",
-      "telefono": 1100000000,
-      "mail": "alexiscortazzii@gmail.com",
-      "direccion": "Caballito, San Juan",
-      "dni": 9000000,
-      "contraseña": "admin",
-      "isAdmin": true
-    }
+      name: 'Bloqueado',
+      selector: row => <button className='user' onClick={() => alerta1(row.id, row.bloqueado)}>Editar</button>,
+      // row.isAdmin == true ? row.isAdmin = false : row.isAdmin = true
+      sortable: true
+    },
   ]
 
-  function alerta2 ( nombre ) {
-  alert(nombre)
-  console.log(nombre)
-}
-
-const columnas = [
-   { 
-    name: 'Nombre',
-    selector: row => `${ row.nombre }`,
-    sortable: true
-   },
-   { 
-    name: 'Apellido',
-    selector: row => `${ row.apellido }`,
-    sortable: true
-   },
-   { 
-    name: 'Mail',
-    selector: row => `${ row.mail }`,
-    sortable: true
-   },
-   { 
-    name: 'Telefono',
-    selector: row => `${ row.telefono }`,
-    sortable: true
-   },
-   { 
-    name: 'Admin',
-    selector: row => row.isAdmin == true ? 'SI' : 'NO',
-    sortable: true
-   },
-   { 
-    name: 'Acciones',
-    selector: row => <button className='user' onClick={ () => alerta2(row.nombre + " " + row.apellido)}>Editar</button>,
-    sortable: true
-   },
-]
-
-const paginacionOpciones={
+  const paginacionOpciones = {
     rowsPerPageText: 'Filas por pagina',
     rangeSeparatorText: 'de',
     selectAllRowsItem: true,
     selectAllRowsItemText: 'Todos'
-}
+  }
 
-export default function Users() {
-    return (
-        <div>
-            <DataTable
-            columns={columnas}
-            data={tablaUsuarios}
-            title="Usuarios"
-            pagination
-            paginationComponentOptions={paginacionOpciones}
-            fixedHeader
-            fixedHeaderScrollHeight="600px"
-            />
-        </div>
-    )
+  return (
+    <div>
+      <div className='barraBusqueda'>
+        <input
+          type='text'
+          name='nombre'
+          value={search.nombre}
+          className='textField'
+          placeholder="Buscar"
+          onChange={(c) => handleInputChange(c)}
+        />
+        <button type='submit' className="btnBuscar" onClick={(e) => handleSubmit(e)}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+        </svg></button>
+        <button type='submit' className="btnBuscar" onClick={(e) => RecargarSubmit(e)}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z" />
+          <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z" />
+        </svg></button>
+      </div>
+      <DataTable
+        columns={columnas}
+        data={datos.usuariosFiltrados}
+        title="Usuarios"
+        pagination
+        paginationComponentOptions={paginacionOpciones}
+        fixedHeader
+        fixedHeaderScrollHeight="600px"
+      />
+    </div>
+  )
 }

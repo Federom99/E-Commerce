@@ -16,10 +16,12 @@ router.post("/", (req, res) => {
         const productos = [];
         carrito.map((p) => {
             let item = {
-                title: "ropita bonita",
-                unit_price: p.subtotal / p.cantidad,
+                title: p.nombre,
+                unit_price: p.precio,
                 quantity: p.cantidad,
-                description: "ROPA"
+                description: p.descripcion,
+                picture_url: p.imagen,
+                category_id: p.talle,
             }
             productos.push(item);
         })
@@ -60,9 +62,11 @@ router.post("/", (req, res) => {
                 res.json(response.body);
             }).catch(function (error){
                 console.log(error);
+                res.send("Se ha producido un error");
             })
     }catch(e){
-        console.log(e);
+        console.log(error);
+        res.send("Se ha producido un error");
     }
 })
 

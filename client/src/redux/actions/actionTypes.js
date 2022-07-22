@@ -41,5 +41,26 @@ export const LOGOUT = "LOGOUT";
 export const CHECKOUT = "CHECKOUT";
 export const GUARDAR_DATOS_COMPRADOR = "GUARDAR_DATOS_COMPRADOR";
 export const CREAR_PEDIDO = "CREAR_PEDIDO";
+
+export const GET_PEDIDOS = "GET_PEDIDOS";
+export const GET_USUARIOS = "GET_USUARIOS";
+export const PUT_USUARIOS = "PUT_USUARIOS";
+
 export const GET_FACTURA = "GET_FACTURA";
 export const APROBAR_PEDIDO = "APROBAR_PEDIDO";
+
+
+export const CONFIRMAR_COMPRA = "CONFIRMAR_COMPRA";
+export const ACTUALIZAR_ESTADO_ENVIO = "ACTUALIZAR_ESTADO";
+
+export const MAIL_ADMIN = "MAIL_ADMIN";
+
+export const POST_REVIEW = "POST_REVIEW "
+export const GET_REVIEWS = "GET_REVIEWS";
+export const GET_PRODUCT_REVIEWS = "GET_PRODUCT_REVIEWS";
+export const GET_ALL_REVIEWS = "GET_ALL_REVIEWS";
+export const DELETE_REVIEW = "DELETE_REVIEW";
+
+export const DELETE_CART = "DELETE_CART";
+
+
