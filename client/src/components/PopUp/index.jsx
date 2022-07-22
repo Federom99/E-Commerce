@@ -1,7 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { modifyCart, removeCart, setLocalStorage } from "../../redux/actions/cart";
+import { modifyCart, modifyItemStock, removeCart, resetItemStock, setLocalStorage } from "../../redux/actions/cart";
 import { toast } from 'react-toastify';
 
 import {
@@ -30,34 +30,46 @@ import {
   H4
 } from "./styles";
 
-export default function AddPopUp({ id, nombre, img, precio, close , talle , checkStock}) {
+export default function AddPopUp({ id, nombre, img, precio, close , talle , checkStock , currentStock}) {
   const [pedido, setpedido] = useState({
     cantidad: 1,
     precio: precio,
   })
   const [onStock,setOnStock] = useState(true)
+  const stock = useRef(0)
   const cart = useSelector(state=>state.cart)
   const dispatch = useDispatch();
+  const index = useRef(-1)
+  
 
-  useEffect(()=>{
+  useEffect(()=>{    
     return ()=>{
       dispatch(setLocalStorage(cart))
     }
   },[])
+
   const incAmount = async() => {
-    let check = await checkStock(pedido.cantidad)
-    if (check){
-    if (!onStock) setOnStock(true)
-    setpedido({
-      ...pedido,
-      cantidad:pedido.cantidad+1,
-      precio:((pedido.cantidad+1)*precio)
-    })
-  }
-  else setOnStock(false)
+    if (index.current===-1){
+      index.current=currentStock.findIndex(p=>{
+        if (p.id===id && p.talle===talle.current) return p
+      })
+      stock.current = currentStock[index.current].stock-1      
+    }
+    if(stock.current>0){
+      stock.current =stock.current-1
+      if (!onStock) setOnStock(true)
+      setpedido({
+        ...pedido,
+        cantidad:pedido.cantidad+1,
+        precio:((pedido.cantidad+1)*precio)
+      })
+
+    }
+    else setOnStock(false)
   };
   const decAmount = () => {    
     if (pedido.cantidad > 1) {
+      stock.current+=1
       setOnStock(true)
       setpedido({
         ...pedido,
@@ -67,11 +79,17 @@ export default function AddPopUp({ id, nombre, img, precio, close , talle , chec
     }
   };
   
-  const addMore = async() => {
+  const addMore = () => {
     let amount= pedido.cantidad
-    let check = await checkStock(amount)
     let size = talle.current
-    if (check){
+    if (index.current===-1){
+      index.current=currentStock.findIndex(p=>{
+        if (p.id===id && p.talle===talle.current) return p
+      })
+      stock.current = currentStock[index.current].stock-1      
+    }
+
+    if (stock.current>=0){
       let newOrder = {
         id,
         size,
@@ -79,12 +97,14 @@ export default function AddPopUp({ id, nombre, img, precio, close , talle , chec
       };
       toast.success(`${amount} items agregados al carrito`)
       dispatch(modifyCart(newOrder));
+      dispatch(modifyItemStock(id,size,amount))
       close();
     }
     else toast.error(`No hay suficiente stock`)
   };
   const deleteCartItem = () => {
     let size=talle.current
+    dispatch(resetItemStock(id,size))
     dispatch(removeCart(id,size));
     close();
   };

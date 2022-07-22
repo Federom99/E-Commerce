@@ -34,10 +34,17 @@ export const Div = styled.div`
 export const ImageContainer = styled.div`
   // background-color: blue;
   height: 80%;
+  position: relative;
   // max-width: 500px;
   -webkit-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
   -moz-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
   box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
+`;
+export const FavContainer = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  margin: 10px;
 `;
 
 export const Image = styled.img`
@@ -45,7 +52,7 @@ export const Image = styled.img`
 `;
 
 export const InfoContainer = styled.div`
-/* background-color: blue; */
+  /* background-color: blue; */
   padding: 1rem;
   max-width: 500px;
   margin-top: 1rem;

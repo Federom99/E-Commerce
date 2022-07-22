@@ -10,11 +10,11 @@ mercadopago.configure({
 
 router.post("/", (req, res) => {
     try{
-        const {carrito, datos, pedidoGenerado} = req.body
+        const {items, datos, pedidoGenerado} = req.body
         console.log(req.body)
         const idPedido = pedidoGenerado.pedido.id;
         const productos = [];
-        carrito.map((p) => {
+        items.map((p) => {
             let item = {
                 title: p.nombre,
                 unit_price: p.precio,
@@ -65,7 +65,7 @@ router.post("/", (req, res) => {
                 res.send("Se ha producido un error");
             })
     }catch(e){
-        console.log(error);
+        console.log(e);
         res.send("Se ha producido un error");
     }
 })

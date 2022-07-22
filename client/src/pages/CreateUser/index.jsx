@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { getUsuarios } from "../../redux/actions/checkout";
 import {
   Div,
   Form,
@@ -27,6 +29,13 @@ export default function NewUser() {
   const [alert, setAlert] = useState({});
 
   const navigate = useNavigate();
+
+  const bloqueados = useSelector((state) => state.checkout.usuariosFiltrados);
+  console.log(bloqueados)
+
+  useEffect(() => {
+    dispatch(getUsuarios());
+  }, [])
 
   const errorHandler = (data) => {
     let errors = {};
@@ -78,6 +87,11 @@ export default function NewUser() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    const usuario = bloqueados.find((e) => e.mail === newUser.email)
+    if (usuario && usuario.bloqueado === true) {
+      setAlert({ msg: "Usuario Bloqueado", type: "error" });
+      return;
+    }
     if (!Object.keys(errors).length && Object.keys(newUser).length) {
       try {
         const { data } = await axios.post(
@@ -125,6 +139,7 @@ export default function NewUser() {
 
       setAlert({ msg: data.msg, type: "success-google" });
     } catch (error) {
+      console.log(error);
       if (error.response.data.msg) {
         setAlert({ msg: error.response.data.msg, type: "error" });
       } else {
@@ -253,7 +268,7 @@ export default function NewUser() {
               backgroundColor: "red",
               color: "#fff",
               width: "80%",
-              margin: "0 auto",
+              margin: "15px auto",
               textAlign: "center",
               paddingTop: 5,
               paddingBottom: 5,

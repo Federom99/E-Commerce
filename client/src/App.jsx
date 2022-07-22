@@ -30,7 +30,8 @@ import Checkout from "./pages/Checkout/Checkout";
 import CheckoutSuccess from "./pages/CheckoutSuccess/CheckoutSuccess";
 import ForgotPassword from "./pages/ForgotPasword";
 import ResetPassword from "./pages/ResetPassword";
-
+import Compras from "./pages/Compras";
+import Favoritos from "./pages/Favoritos";
 
 function handleErrors(response, rest) {
   if (response.status === 400) {
@@ -85,24 +86,29 @@ function App() {
         <Route exact path="/" element={<MainContainer products={products} />} />
         <Route path="/detail/:productId" element={<ProductDetail />} />
         <Route path="/login/" element={<Login />} />
-        <Route path="/olvide-password" element={<ForgotPassword/>} />
-        <Route path="/olvide-password/:token" element={<ResetPassword/>}/>
+        <Route path="/olvide-password" element={<ForgotPassword />} />
+        <Route path="/olvide-password/:token" element={<ResetPassword />} />
         <Route path="/register" element={<CreateUser />} />
         <Route path="/cart/" element={<ShoppingCart />} />
 
-        <Route element={<RequireAuth isAdmin={false}/>}>
+        <Route element={<RequireAuth isAdmin={false} />}>
           <Route path="/profile/" element={<Profile />} />
           <Route path="/createProduct" element={<CreateProduct />} />
+          <Route path="/profile/compras/:id" element={<Compras />} />
+          <Route path="/profile/favoritos/:id" element={<Favoritos />} />
         </Route>
-         
+
         <Route path="/confirmar/:id" element={<Confirmacion />} />
 
-        <Route element={<RequireAuth  isAdmin={true}/>}>
+        <Route element={<RequireAuth isAdmin={true} />}>
           <Route path="/admin" element={<AdminHub />} />
           <Route path="/admin/dashboard/*" element={<DashboardAdmin />} />
         </Route>
 
-        <Route path="/checkout/success/:idPedido" element={<CheckoutSuccess />} />
+        <Route
+          path="/checkout/success/:idPedido"
+          element={<CheckoutSuccess />}
+        />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>

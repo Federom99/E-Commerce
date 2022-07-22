@@ -18,6 +18,10 @@ module.exports = (sequelize) => {
     },
     talleId: {
       type: DataTypes.INTEGER
+    },
+    done: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
     }
   }, { timestamps: false });
 };

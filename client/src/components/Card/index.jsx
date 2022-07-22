@@ -1,8 +1,8 @@
-import React, { useRef, useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import AddPopUp from "../PopUp";
 import { useNavigate } from "react-router-dom";
-import { addToCart } from "../../redux/actions/cart";
+import { addToCart, modifyItemStock, setItemStock } from "../../redux/actions/cart";
 import {
   DIV,
   ContainerImage,
@@ -16,15 +16,21 @@ import {
   P,
   ImgLink,
   NoButton,
+  FavContainer,
+  DivBis,
 } from "./styles";
 import axios from "axios";
 import { ToastContainer , toast } from "react-toastify";
+import FavIcon from "../FavContainer";
 const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
   const [open, setOpen] = useState(false);
   const [stock , setStock] = useState(true);
   const size = useRef(talles[0].talle);
   const dispatch = useDispatch();
   let navigate = useNavigate();
+
+  const currentStock = useSelector(state=>state.cart.cartRemainingStock)
+  const { user : currentUser }= useSelector(state=>state.auth)
 
   const closeModal = () => setOpen(false);
 
@@ -43,12 +49,19 @@ const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
       else return false;
     }
   };
-  const notify = ()=>{
-    toast( "default notif")
+  
+  const handleStockError = (talle)=>{ 
+    if (talle === 'Sin talle') toast.error (`No hay más stock de ${nombre}`,{
+      toastId:'NoStockAccOnCard'
+    })
+    else toast.error(`No hay más stock de ${nombre} en talle ${talle}`,{
+      toastId:'NoStockOnCard'
+    })
+    setStock(false)
   }
-  const add = async () => {
+  
+  const handleAddCart = async() => {
     let talle = size.current;
-    //dispatch al carrito
     let order = {
       id,
       nombre,
@@ -58,22 +71,30 @@ const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
       talle,
       cantidad: 1,
     };
-
     const check = await checkStock()
-    if (check){            
-      dispatch(addToCart(order))
-      setOpen (isOpen=>!isOpen)
-    }
-    else {
-      if (talle === 'Sin talle') toast.error (`No hay stock de ${nombre}`,{
-        toastId:'NoStockAccOnCard'
+    if (check){
+      let index = currentStock.findIndex(p=>{
+        if (p.id === id && p.talle === talle) return p
       })
-      else toast.error(`No hay stock de ${nombre} en talle ${talle}`,{
-        toastId:'NoStockOnCard'
-      })
-      setStock(false)
+      if (index !== -1){
+        if((currentStock[index].stock-1)>=0){
+          dispatch(modifyItemStock(id,talle))
+          dispatch(addToCart(order))
+          setOpen(isOpen=>!isOpen)
+        }
+        else {
+          handleStockError(talle)
+        }        
+      }
+      else{        
+        dispatch(addToCart(order))
+        dispatch(setItemStock(id,talle))
+        setOpen(isOpen=>!isOpen)
+      }
     }
-  }
+
+  };
+
   const handleChange = (event) => {
     size.current = event.target.value;
     setStock(true)
@@ -83,6 +104,12 @@ const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
   return (
     <DIV>
       <ContainerImage>
+      <DivBis>
+        <FavContainer>
+          {currentUser ? (<FavIcon productId={id} productName={nombre}/>) : null}
+        </FavContainer>
+      </DivBis>
+
         <ImgLink to={`/detail/${id}`}>
           <Image src={imagen} />
         </ImgLink>
@@ -102,7 +129,7 @@ const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
             <P>$ {formatPrice}</P>
           </PriceSize>
           {
-          stock ? (<Button onClick={add}>Añadir al carrito</Button>) : (<NoButton className="NoStock" onClick={add}>No hay stock</NoButton>)
+          stock ? (<Button onClick={handleAddCart}>Añadir al carrito</Button>) : (<NoButton className="NoStock" onClick={handleAddCart}>No hay stock</NoButton>)
           }      
           <StyledPopup open={open} closeOnDocumentClick onClose={closeModal}>
             <AddPopUp
@@ -113,6 +140,7 @@ const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
               talle={size}
               close={closeModal}
               checkStock={checkStock}
+              currentStock={currentStock}
             />
           </StyledPopup>
         </div>

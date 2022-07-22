@@ -11,11 +11,12 @@ router.get("/:id", async (req, res) => {
       include: [
         {
           model: Producto,
-          attributes: ["nombre"],
+          attributes: ["nombre", "imagen"],
           through: { attributes: ["cantidad", "productoId"] },
         },
       ],
       where: { usuarioId: req.params.id },
+      order: ["fecha"],
     });
 
     res.status(200).send(pedidos);

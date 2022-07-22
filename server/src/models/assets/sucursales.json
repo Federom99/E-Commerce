@@ -1,0 +1,146 @@
+[   {
+        "nombre":  "Ciudad Autonoma de Buenos Aires",
+        "capital": "CABA",
+        "cp": "C1043ADA",
+        "coord":  [-34.60376, -58.38162] 
+    },
+    {
+        "nombre":  "Buenos Aires",
+        "capital": "La Plata",
+        "cp": "B1900",
+        "coord":  [-34.920570, -57.954778] 
+    },
+    {
+        "nombre":  "Catamarca",
+        "capital": "San Fernando del Valle de Catamarca",
+        "cp": "K4700",
+        "coord": [-28.468151, -65.784602]
+    },
+    {
+        "nombre":  "Chaco",
+        "capital": "Resistencia",
+        "cp": "3500",
+        "coord": [-27.457611, -58.984016]
+    },
+    {
+        "nombre":  "Chubut",
+        "capital": "Rawson",
+        "cp": "U9103",
+        "coord": [-43.298878, -65.099358]
+    },
+    {
+        "nombre":  "Córdoba",
+        "capital": "Córdoba",
+        "cp": "B5000",
+        "coord": [-31.414671, -64.188166]
+    },
+    {
+        "nombre":  "Corrientes",
+        "capital": "Corrientes",
+        "cp": "W3197",
+        "coord": [-27.464011, -58.824316]
+    },
+    {
+        "nombre":  "Entre Ríos",
+        "capital": "Paraná",
+        "cp": "E3100",
+        "coord": [-31.744248, -60.511702]
+    },
+    {
+        "nombre":  "Formosa",
+        "capital": "Formosa",
+        "cp": "P3600",
+        "coord": [-26.186170, -58.198575]
+    },
+    {
+        "nombre":  "Jujuy",
+        "capital": "San Salvador de Jujuy",
+        "cp": "Y4600",
+        "coord": [-24.167127, -65.309847]
+    },
+    {
+        "nombre":  "La Pampa",
+        "capital": "Santa Rosa",
+        "cp": "L6300",
+        "coord": [-36.624480, -64.303468]
+    },
+    {
+        "nombre":  "La Rioja",
+        "capital": "La Rioja",
+        "cp": "F5300",
+        "coord": [-29.413993, -66.854233]
+    },
+    {
+        "nombre":  "Mendoza",
+        "capital": "Mendoza",
+        "cp": "M5500",
+        "coord": [-32.874972, -68.843070]
+    },
+    {
+        "nombre":  "Misiones",
+        "capital": "Posadas",
+        "cp": "N3300",
+        "coord": [-27.367801, -55.894304]
+    },
+    {
+        "nombre":  "Neuquén",
+        "capital": "Neuquén",
+        "cp": "N8300",
+        "coord": [-38.938693, -68.058066]
+    },
+    {
+        "nombre":  "Río Negro",
+        "capital": "Viedma",
+        "cp": "N8500",
+        "coord": [-40.809238, -62.995591]
+    },
+    {
+        "nombre":  "Salta",
+        "capital": "Salta",
+        "cp": "A4400",
+        "coord": [-24.783289, -65.405225]
+    },
+    {
+        "nombre":  "San Juan",
+        "capital": "San Juan",
+        "cp": "J5400",
+        "coord": [-31.537696, -68.524009]
+    },
+    {
+        "nombre":  "San Luis",
+        "capital": "San Luis",
+        "cp": "D5700",
+        "coord": [-33.291339, -66.315503]
+    },
+    {
+        "nombre":  "Santa Cruz",
+        "capital": "Río Gallegos",
+        "cp": "Z9400",
+        "coord": [-51.622353, -69.213542]
+    },
+    {
+        "nombre":  "Santa Fe",
+        "capital": "Santa Fe",
+        "cp": "S2013",
+        "coord": [-31.612875, -60.696130]
+    },
+    {
+        "nombre":  "Santiago del Estero",
+        "capital": "Santiago del Estero",
+        "cp": "G4200",
+        "coord": [-27.789562, -64.249368]
+    },
+    {
+        "nombre":  "Tierra del Fuego",
+        "capital": "Ushuaia",
+        "cp": "V9410",
+        "coord": [-54.803463, -68.308522]
+    },
+    {
+        "nombre":  "Tucumán",
+        "capital": "San Miguel de Tucumán",
+        "cp": "T4000",
+        "coord": [-26.830697, -65.188950]
+    }
+
+]
