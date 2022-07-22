@@ -13,9 +13,9 @@ export const Main = styled.main`
 export const Div = styled.div`
     min-height: 100vh;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 `;
 
 

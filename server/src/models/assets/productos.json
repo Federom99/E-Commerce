@@ -765,20 +765,12 @@
     "nombre": "Camisa 100% Linononero",
     "precio": "15318",
     "descripcion": "Color: Azul marino. Camisa regular fit confeccionada en tejido de lino. Cuello italiano y manga larga acabada en puño con botón. Bolsillo plastrón en pecho. Cierre frontal de botonadura.",
-    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/4478/357/052/2/w/850/4478357052_6_1_1.jpg?ts=1648113527836",
+    "imagen": "https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/446996/item/goods_63_446996.jpg?width=722&impolicy=quality_70&imformat=chrome",
     "talle": ["S", "M", "L", "XL"],
     "stock": [10,15,30,9],
     "categoria": ["Camisas"]
   },
-  {
-    "nombre": "Camisa 100% Linoritox",
-    "precio": "15318",
-    "descripcion": "Color: Khaki. Camisa regular fit confeccionada en tejido de lino. Cuello italiano y manga larga acabada en puño con botón. Bolsillo plastrón en pecho. Cierre frontal de botonadura.",
-    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/4478/357/052/2/w/850/4478357052_6_1_1.jpg?ts=1648113527836",
-    "talle": ["S", "M", "L", "XL"],
-    "stock": [10,15,30,9],
-    "categoria": ["Camisas"]
-  },
+  
   {
     "nombre": "Camisa Estampado Lunares",
     "precio": "19218",
@@ -2105,14 +2097,7 @@
     "stock": 200,
     "categoria": ["Accesorios"]
   },
-  {
-    "nombre": "Gorro Corto V",
-    "precio": "600",
-    "descripcion": "Color: Verde. Gorro confeccionado en algodón con elasticidad. Acabado con vuelta.",
-    "imagen": "https://static.zara.net/photos///2022/V/0/2/p/9065/329/630/2/w/850/9065329630_6_1_1.jpg?ts=1641210014448",
-    "stock": 200,
-    "categoria": ["Accesorios"]
-  },
+
   {
     "nombre": "Sombrero BC",
     "precio": "900",
@@ -2201,14 +2186,7 @@
     "stock": 200,
     "categoria": ["Accesorios"]
   },
-  {
-    "nombre": "Calcetín Bandaserin",
-    "precio": "200",
-    "descripcion": "Color: Marino. Calcetines en rib. Bandas combinada a contraste.",
-    "imagen": "https://static.zara.net/photos///2022/I/0/2/p/0348/302/251/2/w/850/0348302251_6_1_1.jpg?ts=1652182701222",
-    "stock": 200,
-    "categoria": ["Accesorios"]
-  },
+ 
   {
     "nombre": "Calcetín ETDWQ",
     "precio": "200",

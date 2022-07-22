@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useLocation } from "react-router";
 import Compras from "../../components/Favoritos";
+
 import Review from "../../components/Review";
 import { Header, Li, List, Main, Section } from "./styles";
 
@@ -28,3 +29,4 @@ export default function ListContainer({ favProducts }) {
     </Section>
   );
 }
+

@@ -1,4 +1,9 @@
-[
+[   {
+        "nombre":  "Ciudad Autonoma de Buenos Aires",
+        "capital": "CABA",
+        "cp": "C1043ADA",
+        "coord":  [-34.60376, -58.38162] 
+    },
     {
         "nombre":  "Buenos Aires",
         "capital": "La Plata",

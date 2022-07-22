@@ -155,7 +155,6 @@ export default function productReducer(state = initialState, action) {
       };
     case GET_PRODUCTS_SUCCESS_SEARCH:
       // let full = state.products; // se se quiere un estado anterior
-      console.log(action.payload)
       return {
         ...state,
         loading: false,

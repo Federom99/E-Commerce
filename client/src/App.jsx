@@ -94,8 +94,8 @@ function App() {
         <Route element={<RequireAuth isAdmin={false} />}>
           <Route path="/profile/" element={<Profile />} />
           <Route path="/createProduct" element={<CreateProduct />} />
-          <Route path="/profile/compras/:id" element={<Compras/>} />
-          <Route path="/profile/favoritos/:id" element={<Favoritos/>} />
+          <Route path="/profile/compras/:id" element={<Compras />} />
+          <Route path="/profile/favoritos/:id" element={<Favoritos />} />
         </Route>
 
         <Route path="/confirmar/:id" element={<Confirmacion />} />
