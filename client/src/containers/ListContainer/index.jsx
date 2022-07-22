@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { useLocation } from "react-router";
+import Compras from "../../components/Favoritos";
+
 import Review from "../../components/Review";
 import { Header, Li, List, Main, Section } from "./styles";
 
@@ -21,9 +23,10 @@ export default function ListContainer({ favProducts }) {
       <List>
         <Li>
           <Header>{state.soy}</Header>
-          <Main>{state.soy === "Review" ? <Review /> : <>Lol</>}</Main>
+          <Main>{state.soy === "Review" ? <Review /> : <Compras/>}</Main>
         </Li>
       </List>
     </Section>
   );
 }
+

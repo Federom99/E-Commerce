@@ -1,6 +1,7 @@
 const initialState = {
     userId:'',
     userFavorites:[],
+    favDetail:[]
 }
 
 export default function favReducer (state=initialState,action){
@@ -32,6 +33,12 @@ export default function favReducer (state=initialState,action){
                 ...state,
                 userId:'',
                 userFavorites:[],
+                favDetail:[]
+            }
+        case "GET_FAV_DETAIL":
+            return{
+                ...state,
+                favDetail: [...state.favDetail,action.payload]
             }
         default:
         return {
