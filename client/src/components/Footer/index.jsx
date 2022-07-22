@@ -159,7 +159,7 @@ export default function Footer({ contacto }) {
             Alexis C.
           </SubTitle>
           <SubTitle
-            href="https://www.linkedin.com/in/alexis-cortazzi-247585213/"
+            href="https://www.linkedin.com/in/rgzrgzm/"
             target="_blank"
           >
             Mario R.
