@@ -1,26 +1,14 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import { motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { getPedidos } from "../../redux/actions/pedidos";
 import Loading from "../Loader";
-import { motion } from "framer-motion";
-import { dateFormat } from "./dateformat";
-import {
-  CloseBtn,
-  Div,
-  DivImg,
-  H3,
-  Img,
-  Li,
-  LiImg,
-  LIinimg,
-  List,
-  Ul,
-} from "./style";
 import Modal from "../ModalReview";
 import ModalContainer from "../ModalReview/ModalContainer";
+import { dateFormat } from "./dateformat";
+import { CloseBtn, Div, H3, Img, Li, LiImg, LIinimg, List, Ul } from "./style";
 
 function Review() {
   const dispatch = useDispatch();
@@ -65,9 +53,6 @@ function Review() {
                     <Li key={`${pedido.id}fecha`}>
                       <H3>{dateFormat(pedido.fecha, "MM-yy-dd")}</H3>
                     </Li>
-
-                    {/* <ListaProReview products={pedido.productos} /> */}
-
                     <LiImg>
                       {pedido.productos.map((product) => {
                         return (

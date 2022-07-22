@@ -4,6 +4,7 @@ export const DIV = styled.div`
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 9999;
   height: 100vw;
   width: 100%;
   margin: 0;
