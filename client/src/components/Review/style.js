@@ -39,7 +39,9 @@ export const LiImg = styled.li`
 export const Img = styled.img`
   height: 5rem;
   border-radius: 60%;
+  user-select: none;
   margin: 15px -15px;
+  z-index: -1;
   -webkit-box-shadow: 3px 2px 2px 0px rgb(198 198 198 / 52%);
   -moz-box-shadow: 3px 2px 2px 0px rgb(198 198 198 / 52%);
   box-shadow: 3px 2px 2px 0px rgb(198 198 198 / 52%);

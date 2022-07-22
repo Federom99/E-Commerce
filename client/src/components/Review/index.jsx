@@ -8,6 +8,7 @@ import Loading from "../Loader";
 import { motion } from "framer-motion";
 import { dateFormat } from "./dateformat";
 import { CloseBtn, Div, H3, Img, Li, LiImg, List } from "./style";
+import ListaProReview from "../listaProReview";
 function Review() {
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -37,14 +38,11 @@ function Review() {
                 <Li key={`${pedido.id}fecha`}>
                   <H3>{dateFormat(pedido.fecha, "MM-yy-dd")}</H3>
                 </Li>
-                <LiImg as={motion.li}>
-                  {pedido.productos.map((product) => (
-                    <Img
-                      src={product.imagen}
-                      alt={`Imagen de ${product.nombre}`}
-                    />
-                  ))}
-                </LiImg>
+
+                <ListaProReview products={pedido.productos} />
+                {/* {pedido.productos.map((product) => (
+                    <li>1</li>
+                  ))} */}
                 <Li>
                   <h4>
                     $ {Intl.NumberFormat("es-AR").format(pedido.pago_total)}
