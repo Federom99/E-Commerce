@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { ToastContainer , toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import {
   Main,
   Div,
@@ -36,20 +36,19 @@ const ProductDetail = () => {
   const [currentValue, setCurrentValue] = useState(0);
   const [hoverValue, setHoverValue] = useState(undefined);
 
-  const [size , setSize] = useState('');
-  const [stock , setStock] = useState(0);
-  const [isLoading , setIsLoading] = useState(true);
+  const [size, setSize] = useState("");
+  const [stock, setStock] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
 
   const stars = Array(5).fill(0);
-
 
   const handleClick = (value) => {
     setCurrentValue(value);
   };
-  
-  const defineSize = (event)=>{
-    setSize(event.target.innerHTML)
-  }
+
+  const defineSize = (event) => {
+    setSize(event.target.innerHTML);
+  };
 
   const handleMouseOver = (newHoverValue) => {
     setHoverValue(newHoverValue);
@@ -64,37 +63,40 @@ const ProductDetail = () => {
   const {user:currentUser} = useSelector(state=>state.auth)
   let { productId } = useParams();
 
-  useEffect(()=>{
-    window.scrollTo(0,0); 
-    if (!Object.keys(product).length){
-      dispatch(getProduct(productId))
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    if (!Object.keys(product).length) {
+      dispatch(getProduct(productId));
+    } else {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1000);
     }
-    else {
-      setTimeout(()=>{
-        setIsLoading(false)
-      },1000)
-    }
-  },[product])
-  useEffect(()=>{
-    return ()=>{
-      dispatch(setLocalStorage(cart))
-      dispatch(clearProduct())
-    }
+  }, [product]);
+  useEffect(() => {
+    return () => {
+      dispatch(setLocalStorage(cart));
+      dispatch(clearProduct());
+    };
   }, []);
 
-  const checkStock = async (cantidad = 1) =>{
-    let talle = size
-    const product = await axios.get(`http://localhost:3001/product/${productId}`);
-    if (talle==='Sin talle'){
-      if (product.data.talles[0].producto_talle.stock >= cantidad ) return true
-      else return false
+  const checkStock = async (cantidad = 1) => {
+    let talle = size;
+    const product = await axios.get(
+      `http://localhost:3001/product/${productId}`
+    );
+    if (talle === "Sin talle") {
+      if (product.data.talles[0].producto_talle.stock >= cantidad) return true;
+      else return false;
+    } else {
+      const index = await product.data.talles.findIndex(
+        (p) => p.talle === talle
+      );
+      if (product.data.talles[index].producto_talle.stock >= cantidad)
+        return true;
+      else return false;
     }
-    else{
-      const index = await product.data.talles.findIndex(p=> p.talle === talle) 
-      if (product.data.talles[index].producto_talle.stock >= cantidad ) return true
-      else return false
-    }
-  }
+  };
 
   useEffect(()=>{    
     if (Object.keys(product).length){
@@ -103,8 +105,8 @@ const ProductDetail = () => {
         setStock(product.talles[0].producto_talle.stock)
       } 
     }
-  },[product])
-
+  }, [size]);
+  
   useEffect(()=>{
     if (Object.keys(product).length && product.categorium.nombre !== 'Accesorios' && size){
       let index = currentStock.findIndex(p=>{
@@ -123,12 +125,13 @@ const ProductDetail = () => {
   const addCart = async ()=>{
     if(product.categorium?.nombre ==="Accesorios"){
       setSize("Sin talle");
-    };
+    }
     let order = {
       ...product,
-      talle:size,
-      cantidad:1
+      talle: size,
+      cantidad: 1,
     };
+    
     if (order.talle){
       const check = await checkStock()
       if (check){
@@ -155,15 +158,14 @@ const ProductDetail = () => {
       } else{
         toast.error(`No hay stock `)
       }
-    }
-    else toast.error("Seleccione un talle");
-  }
+    } else toast.error("Seleccione un talle");
+  };
 
   if (error) return <div>Error! {error.message}</div>;
   if (isLoading)
     return (
       <div>
-        <Loading alto={"1000px"}/>
+        <Loading alto={"1000px"} />
       </div>
     );
 
@@ -171,14 +173,15 @@ const ProductDetail = () => {
 
   return (
     <Main>
-      <ToastContainer position= "top-center"
-          autoClose= {5000}
-          hideProgressBar= {false}
-          closeOnClick
-          pauseOnHover
-          draggable
-          progress= {undefined}
-          />
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        closeOnClick
+        pauseOnHover
+        draggable
+        progress={undefined}
+      />
       <Div>
         <ImageContainer>
           <FavContainer>
@@ -188,10 +191,8 @@ const ProductDetail = () => {
         </ImageContainer>
         <InfoContainer>
           <H2>{product?.nombre}</H2>
-          {
-            size ? ( <P stock={stock}>Precio: $ {formatPrice}</P> ) : null
-          }
-          
+          {size ? <P stock={stock}>Precio: $ {formatPrice}</P> : null}
+
           {/* <Stars>
             {stars.map((_, index) => {
               return (
@@ -217,14 +218,21 @@ const ProductDetail = () => {
           <SizeInfo>
             {product.categorium?.nombre !== "Accesorios" &&
               product.talles?.map((talle) => {
-                return <Size onClick={defineSize} key={talle.id} 
-                            className={size === talle.talle ? estilos.sizeSelected : ""}>{talle.talle}</Size>;
+                return (
+                  <Size
+                    onClick={defineSize}
+                    key={talle.id}
+                    className={size === talle.talle ? estilos.sizeSelected : ""}
+                  >
+                    {talle.talle}
+                  </Size>
+                );
               })}
           </SizeInfo>
           <Description>{product.descripcion}</Description>
           <Button onClick={addCart}>Agregar al carrito</Button>
-          {/* <Review placeholder="Enter a review of the product"></Review> */}
-          {/* <Button>Send review</Button> */}
+          <Review placeholder="Enter a review of the product"></Review>
+          <Button>Send review</Button>
         </InfoContainer>
       </Div>
     </Main>
