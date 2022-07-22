@@ -48,9 +48,10 @@ const Checkout = () => {
     useEffect(() => {
         // console.log(pedidoGenerado);
         if(pedidoGenerado.hasOwnProperty("pedido")) {
-            if(envio === "Envio") carrito.push({nombre: "Envío a domicilio", precio:500, cantidad: 1,
+            const items = JSON.parse(JSON.stringify(carrito));
+            if(envio === "Envio") items.push({nombre: "Envío a domicilio", precio:500, cantidad: 1,
             descripcion: "Envio a domicilio", imagen: "a", talle: "Sin talle"})
-            dispatch(checkout({carrito, datos:input, pedidoGenerado}));
+            dispatch(checkout({items, datos:input, pedidoGenerado}));
             const factura = {
                 "nombre": input.nombre,
                 "apellido": input.apellido,
