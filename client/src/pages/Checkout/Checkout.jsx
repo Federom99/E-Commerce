@@ -48,6 +48,8 @@ const Checkout = () => {
     useEffect(() => {
         // console.log(pedidoGenerado);
         if(pedidoGenerado.hasOwnProperty("pedido")) {
+            if(envio === "Envio") carrito.push({nombre: "Envío a domicilio", precio:500, cantidad: 1,
+            descripcion: "Envio a domicilio", imagen: "a", talle: "Sin talle"})
             dispatch(checkout({carrito, datos:input, pedidoGenerado}));
             const factura = {
                 "nombre": input.nombre,
@@ -213,7 +215,7 @@ const Checkout = () => {
                                         onClick={onClickHandler}>Continuar</button>
                                 ) : (
                                     <button id={estilos.botonBloqueado} 
-                                    type="button">Crear pedido</button>
+                                    type="button">{!pago.id ? "Crear pedido" : "..."}</button>
                                 )
                             }   
                         </ul>
@@ -235,6 +237,15 @@ const Checkout = () => {
                             <div>
                                 <input type="radio" name="tipoEnvio" value="Envio" onChange={radioChangeHandler}/>
                                 <label>Envío a domicilio</label>
+                            </div>
+                            <div>
+                                {
+                                    envio === "Envio" && 
+                                        <label><br />Costo de envío: $500</label>
+                                }{
+                                    envio === "Retiro" &&
+                                        <label><br />Retiro a partir de 5 días hábiles</label>
+                                }
                             </div>
                         </li>
                         {
