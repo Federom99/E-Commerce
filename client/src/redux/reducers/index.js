@@ -4,11 +4,12 @@ import cart from "./cart";
 import auth from "./auth";
 import checkout from "./checkout";
 import userReducer from "./userProfile";
-
+import favoritos from "./favoritos";
 export default combineReducers({
   product,
   cart,
   auth,
   checkout,
-  userReducer
+  userReducer,
+  favoritos
 });

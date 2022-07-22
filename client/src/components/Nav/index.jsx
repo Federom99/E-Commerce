@@ -15,7 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/actions/autenticacion";
 import Loading from "../Loader";
 import { clearLocalStorage } from "../../redux/actions/cart";
-
+import { removeFavs } from "../../redux/actions/favoritos";
 export default function NavBar({ products }) {
   const navigation = useNavigate();
   const dispatch = useDispatch();
@@ -58,6 +58,7 @@ export default function NavBar({ products }) {
   const logOut = () => {
     dispatch(logout());
     dispatch(clearLocalStorage());
+    dispatch(removeFavs())
     window.location.reload();
     navigation("/");
   };

@@ -30,6 +30,8 @@ import Checkout from "./pages/Checkout/Checkout";
 import CheckoutSuccess from "./pages/CheckoutSuccess/CheckoutSuccess";
 import ForgotPassword from "./pages/ForgotPasword";
 import ResetPassword from "./pages/ResetPassword";
+import Compras from "./pages/Compras";
+import Favoritos from "./pages/Favoritos";
 
 function handleErrors(response, rest) {
   if (response.status === 400) {
@@ -92,6 +94,8 @@ function App() {
         <Route element={<RequireAuth isAdmin={false} />}>
           <Route path="/profile/" element={<Profile />} />
           <Route path="/createProduct" element={<CreateProduct />} />
+          <Route path="/profile/compras/:id" element={<Compras/>} />
+          <Route path="/profile/favoritos/:id" element={<Favoritos/>} />
         </Route>
 
         <Route path="/confirmar/:id" element={<Confirmacion />} />

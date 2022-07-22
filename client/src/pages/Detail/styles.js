@@ -142,6 +142,12 @@ export const Button = styled.button`
     border-style: solid;
   }
 `;
+export const FavContainer = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  margin: 10px;
+`
 
 export const Review = styled.textarea`
   margin-bottom: 1rem;

@@ -17,7 +17,8 @@ import {
   FormEdit,
   Label,
   Input,
-  ButtonsContainer
+  ButtonsContainer,
+  LinkTo
 } from "./styles";
 
 export default function User() {
@@ -119,8 +120,8 @@ export default function User() {
             </UL>
             <Button onClick={() => setEditProfile(prevState => !prevState)}>Editar perfil</Button>
             <ExtraInfo>
-              <P>Compras</P>
-              <P>Favoritos</P>
+              <LinkTo to={`/profile/compras/${id}`}>Compras</LinkTo>
+              <LinkTo to={`/profile/favoritos/${id}`}>Favoritos</LinkTo>
             </ExtraInfo>
           </UserInfo>
         </>
