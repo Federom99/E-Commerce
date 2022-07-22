@@ -45,14 +45,14 @@ export const FavContainer = styled.div`
   top: 0px;
   left: 0px;
   margin: 10px;
-`
+`;
 
 export const Image = styled.img`
   height: 100%;
 `;
 
 export const InfoContainer = styled.div`
-/* background-color: blue; */
+  /* background-color: blue; */
   padding: 1rem;
   max-width: 500px;
   margin-top: 1rem;
@@ -149,12 +149,6 @@ export const Button = styled.button`
     border-style: solid;
   }
 `;
-export const FavContainer = styled.div`
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  margin: 10px;
-`
 
 export const Review = styled.textarea`
   margin-bottom: 1rem;
