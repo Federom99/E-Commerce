@@ -12,14 +12,16 @@ import {
   Button,
   H2,
   StyledPopup,
-  ExtraInfo,
   Select,
   P,
   ImgLink,
   NoButton,
+  FavContainer,
+  DivBis,
 } from "./styles";
 import axios from "axios";
 import { ToastContainer , toast } from "react-toastify";
+import FavIcon from "../FavContainer";
 const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
   const [open, setOpen] = useState(false);
   const [stock , setStock] = useState(true);
@@ -28,6 +30,7 @@ const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
   let navigate = useNavigate();
 
   const currentStock = useSelector(state=>state.cart.cartRemainingStock)
+  const { user : currentUser }= useSelector(state=>state.auth)
 
   const closeModal = () => setOpen(false);
 
@@ -101,6 +104,12 @@ const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
   return (
     <DIV>
       <ContainerImage>
+      <DivBis>
+        <FavContainer>
+          {currentUser ? (<FavIcon productId={id} productName={nombre}/>) : null}
+        </FavContainer>
+      </DivBis>
+
         <ImgLink to={`/detail/${id}`}>
           <Image src={imagen} />
         </ImgLink>

@@ -10,6 +10,7 @@ import {
   ACTUALIZAR_ESTADO_ENVIO,
   MAIL_ADMIN,
   CONFIRMAR_COMPRA,
+  GET_ALL_SUCURSALES,
 } from "./actionTypes";
 
 const URL_SERVER = "http://localhost:3001";
@@ -73,11 +74,15 @@ export function getPedidos() {
     }
   };
 }
-
-export function getUsuarios() {
-  return async function (dispatch) {
-    try {
-      var json = await axios.get(`${URL_SERVER}/usuarios/`, {});
+export function getUsuarios(reset){
+  return async function(dispatch){
+      try {
+      var json = await axios.get(`${URL_SERVER}/usuarios/`,{});
+      if(reset)
+      return dispatch({
+        type: "RESET_FILTER",
+        payload: json.data
+    }); else 
       return dispatch({
         type: GET_USUARIOS,
         payload: json.data,
@@ -86,6 +91,13 @@ export function getUsuarios() {
       console.log(error);
     }
   };
+}
+
+export function filterUsers(payload) {
+  console.log(payload)
+  return {type: "FILTER_USUARIOS",
+          payload: payload
+}
 }
 
 export function updateUser(payload) {
@@ -99,9 +111,6 @@ export function updateUser(payload) {
     }
   };
 }
-
-
-
 
 export function enviarMail(userMail) {
   return async function (dispatch) {
@@ -139,5 +148,19 @@ export function mailAdmin(userId, { newEstado }) {
     }
 
     dispatch({ type: MAIL_ADMIN });
+  };
+}
+
+export function getAllSucursales() {
+  return async function (dispatch) {
+    try {
+      var {data} = await axios.get(`${URL_SERVER}/sucursales`, {});
+      return dispatch({
+        type: GET_ALL_SUCURSALES,
+        payload: data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 }

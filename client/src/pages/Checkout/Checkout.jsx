@@ -8,7 +8,8 @@ import {
 import estilos from "./checkout.module.css";
 import useScript from "./useScript";
 import { useState } from "react";
-import {checkout, crearPedido, guardarDatosComprador} from "../../redux/actions/checkout";
+import {checkout, crearPedido, getAllSucursales, guardarDatosComprador} from "../../redux/actions/checkout";
+import Mapa from "../../components/Mapa/Mapa";
 
 const Checkout = () => {
     const [input, setInput] = useState({nombre: "", apellido: "", documento: "", direccion: "", codigoPostal: "", provincia: ""});
@@ -17,6 +18,10 @@ const Checkout = () => {
     const [formBloqueado, setFormBloqueado] = useState("");
     const carrito = useSelector(state => state.cart.shoppingCart);
     const { user: currentUser } = useSelector((state) => state.auth);
+    const sucursales = useSelector(state => state.checkout.sucursales);
+    const [envio, setEnvio] = useState("");
+    const [inputEnvio, setInputEnvio] = useState({direccion: "", codigoPostal: "", provincia: "", tipo:""});
+    const [erroresEnvio, setErroresEnvio] = useState({direccion: "", codigoPostal: "", provincia: ""});
     //----------------------------MERCADOPAGO----------------------------------------
     const { MercadoPago } = useScript( "https://sdk.mercadopago.com/js/v2", "MercadoPago");
     const pago = useSelector((state) => state.checkout.checkout);
@@ -25,17 +30,28 @@ const Checkout = () => {
 
     async function onClickHandler(e){
         e.preventDefault();
+        const comprador = {
+            ...input,
+            direccion: inputEnvio.direccion,
+            codigoPostal: inputEnvio.codigoPostal,
+            provincia: inputEnvio.provincia,
+            tipoDeEnvio: inputEnvio.tipo
+        }
         const pedido = {
             "productos": crearProductosPedido(carrito),
-            "comprador": input,
+            "comprador": comprador,
         }
+        console.log(pedido);
         let disPedido = await dispatch(crearPedido(pedido));
     }
 
     useEffect(() => {
         // console.log(pedidoGenerado);
         if(pedidoGenerado.hasOwnProperty("pedido")) {
-            dispatch(checkout({carrito, datos:input, pedidoGenerado}));
+            const items = JSON.parse(JSON.stringify(carrito));
+            if(envio === "Envio") items.push({nombre: "Envío a domicilio", precio:500, cantidad: 1,
+            descripcion: "Envio a domicilio", imagen: "a", talle: "Sin talle"})
+            dispatch(checkout({items, datos:input, pedidoGenerado}));
             const factura = {
                 "nombre": input.nombre,
                 "apellido": input.apellido,
@@ -50,6 +66,7 @@ const Checkout = () => {
     },[pedidoGenerado])
 
     useEffect(() => {
+        dispatch(getAllSucursales());
         if(currentUser){
             const {name, lastName, dni, address} = currentUser;
             setInput({nombre: name, apellido: lastName, documento: dni, direccion: address, codigoPostal: "", provincia: ""})
@@ -101,7 +118,13 @@ const Checkout = () => {
                 || !input.provincia){
                     setBotonBloqueado("disabled");
             }
-        }, [errores, input]
+            if(erroresEnvio.direccion || erroresEnvio.codigoPostal || erroresEnvio.provincia){
+                    setBotonBloqueado("disabled");
+                }else setBotonBloqueado("");
+                if(!inputEnvio.direccion || !inputEnvio.codigoPostal || !inputEnvio.provincia){
+                        setBotonBloqueado("disabled");
+                }
+        }, [errores, input, inputEnvio, erroresEnvio]
     )
 
      function onChangeHandler(e){
@@ -109,10 +132,25 @@ const Checkout = () => {
         setErrores(validar({name: e.target.name, value: e.target.value}, errores));
      }
 
+     function onChangeHandlerEnvio(e){
+        setInputEnvio( {...inputEnvio, [e.target.name]:e.target.value, tipo: "Envío"});
+        setErroresEnvio(validar({name: e.target.name, value: e.target.value}, erroresEnvio));
+     }
+
+     function radioChangeHandler(e){
+        setEnvio(e.target.value);
+        setInputEnvio({direccion: "", codigoPostal: "", provincia: "", tipo:e.target.value})
+        console.log(e.target.value);
+     }
+
+     function selectSucursal(sucursal){
+        setInputEnvio({direccion: sucursal.capital, codigoPostal: sucursal.cp, provincia: sucursal.nombre, tipo: "Retiro"})
+     }
+
     return(
         <Main>
             <Div>
-                <div id={estilos.formularioContainer}>
+                <div className={estilos.formularioContainer}>
                     {carrito.length ? (<>
                     <H2>Datos de facturacion</H2>
                     <form id={estilos.formulario}>  
@@ -178,7 +216,7 @@ const Checkout = () => {
                                         onClick={onClickHandler}>Continuar</button>
                                 ) : (
                                     <button id={estilos.botonBloqueado} 
-                                    type="button">Crear pedido</button>
+                                    type="button">{!pago.id ? "Crear pedido" : "..."}</button>
                                 )
                             }   
                         </ul>
@@ -188,6 +226,66 @@ const Checkout = () => {
                     </form>
                     <br />
                     </>) : (<H2 style={{marginTop:"1rem"}}>No hay items en su carrito</H2>)}
+                </div>
+                <div className={estilos.formularioContainer}>
+                    <H2>Datos de entrega</H2>
+                    <ul id={estilos.lista}>
+                        <li className={estilos.itemsLista}>
+                            <div>
+                                <input type="radio" name="tipoEnvio" value="Retiro" onChange={radioChangeHandler}/>
+                                <label>Retiro en punto de entrega</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="tipoEnvio" value="Envio" onChange={radioChangeHandler}/>
+                                <label>Envío a domicilio</label>
+                            </div>
+                            <div>
+                                {
+                                    envio === "Envio" && 
+                                        <label><br />Costo de envío: $500</label>
+                                }{
+                                    envio === "Retiro" &&
+                                        <label><br />Retiro a partir de 5 días hábiles</label>
+                                }
+                            </div>
+                        </li>
+                        {
+                            envio === "Envio" &&
+                            <>
+                                <li className={estilos.itemsLista}>
+                                <label>Direccion</label>
+                                <div>
+                                    <input name="direccion" type="text" className={erroresEnvio.direccion ? estilos.inputDatosError : estilos.inputDatos}
+                                    onChange={onChangeHandlerEnvio} value={inputEnvio.direccion}
+                                    disabled={formBloqueado === "disabled" ? "disabled" : ""}></input>
+                                        {erroresEnvio.direccion ? (<p className={estilos.indicador}>{erroresEnvio.direccion}</p>) : (<p className={estilos.i}>a</p>)}
+                                </div>                        
+                                </li>
+                                <li className={estilos.itemsLista}>
+                                    <label>Codigo Postal</label>
+                                    <div>
+                                        <input name="codigoPostal" type="text" className={erroresEnvio.codigoPostal ? estilos.inputDatosError : estilos.inputDatos}
+                                        onChange={onChangeHandlerEnvio} value={inputEnvio.codigoPostal}
+                                        disabled={formBloqueado === "disabled" ? "disabled" : ""}></input>
+                                            {erroresEnvio.codigoPostal ? (<p className={estilos.indicador}>{erroresEnvio.codigoPostal}</p>) : (<p className={estilos.i}>a</p>)}
+                                    </div>                        
+                                </li>
+                                <li className={estilos.itemsLista}>
+                                    <label>Provincia</label>
+                                    <div>
+                                        <input name="provincia" type="text" className={erroresEnvio.provincia ? estilos.inputDatosError : estilos.inputDatos}
+                                        onChange={onChangeHandlerEnvio} value={inputEnvio.provincia}
+                                        disabled={formBloqueado === "disabled" ? "disabled" : ""}></input>
+                                            {erroresEnvio.provincia ? (<p className={estilos.indicador}>{erroresEnvio.provincia}</p>) : (<p className={estilos.i}>a</p>)}
+                                    </div>                        
+                                </li>
+                            </>
+                        }
+                        {
+                            envio === "Retiro" &&
+                            <Mapa sucursales={sucursales} selectSucursal={selectSucursal}/>
+                        }
+                    </ul>
                 </div>
             </Div>
         </Main>
@@ -222,6 +320,7 @@ export function validar(input, errores){
         case "codigoPostal":
             if(!input.value.length) errores[input.name] = "Requerido";
             else errores[input.name] = "";
+            if(!/[0-9]/.test(input.value) && /[a-z]/.test(input.value)) errores[input.name] = "Código postal inválido";
             break;
         case "provincia":
             if(!input.value.length) errores[input.name] = "Requerido";
