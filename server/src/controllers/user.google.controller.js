@@ -51,6 +51,7 @@ const googleAuth = async (req, res) => {
 
       res.cookie("jwt", token);
       return res.status(200).json({
+        id: usuario.id,
         name: usuario.nombre,
         email: usuario.mail,
         isAdmin: usuario.isAdmin,

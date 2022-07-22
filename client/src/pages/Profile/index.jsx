@@ -4,9 +4,9 @@ import { getUser, updateUser } from "../../redux/actions/userProfile";
 
 import useFormEditProfile from "../../hooks/useFormEditProfile";
 
-import { 
-  Container, 
-  ImageContainer, 
+import {
+  Container,
+  ImageContainer,
   Image,
   UserInfo,
   UL,
@@ -18,83 +18,80 @@ import {
   Label,
   Input,
   ButtonsContainer,
-  LinkTo
+  LinkTo,
 } from "./styles";
 
 export default function User() {
+  const { disabled, inputValues, inputErrors, editField, handleSubmit } =
+    useFormEditProfile();
 
   const {
-    disabled,
-    inputValues,
-    inputErrors, 
-    editField, 
-    handleSubmit,
-  } = useFormEditProfile()
+    user: { id },
+  } = useSelector((state) => state.auth);
+  const { user } = useSelector((state) => state.userReducer);
 
-  const {user: {id}} = useSelector(state => state.auth)
-  const {user} = useSelector(state => state.userReducer)
+  const [editProfile, setEditProfile] = useState(false);
 
-  const [editProfile, setEditProfile] = useState(false)
-
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getUser(id))
-  }, [])
+    dispatch(getUser(id));
+  }, []);
 
   return (
     <Container>
       <ImageContainer>
-        <Image src="https://static.vecteezy.com/system/resources/previews/002/318/271/original/user-profile-icon-free-vector.jpg" alt="" />
+        <Image
+          src="https://static.vecteezy.com/system/resources/previews/002/318/271/original/user-profile-icon-free-vector.jpg"
+          alt=""
+        />
       </ImageContainer>
-      {
-        editProfile
-        ?
+      {editProfile ? (
         <>
           <FormEdit>
             <Label>
               <p>Nombre</p>
               <Input
                 name="nombre"
-                value={inputValues.nombre} 
+                value={inputValues.nombre}
                 placeholder="Pepito"
-                onChange={(e) => editField(e.target.name,e.target.value)}
+                onChange={(e) => editField(e.target.name, e.target.value)}
               />
             </Label>
             <Label>
               <p>Apellido</p>
               <Input
                 name="apellido"
-                value={inputValues.apellido} 
+                value={inputValues.apellido}
                 placeholder="Perez"
-                onChange={(e) => editField(e.target.name,e.target.value)}
+                onChange={(e) => editField(e.target.name, e.target.value)}
               />
             </Label>
             <Label>
               <p>Correo electronico</p>
               <Input
                 name="mail"
-                value={inputValues.mail} 
+                value={inputValues.mail}
                 placeholder="Perez"
-                onChange={(e) => editField(e.target.name,e.target.value)}
+                onChange={(e) => editField(e.target.name, e.target.value)}
               />
             </Label>
             <Label>
               <p>Telefono</p>
-              <Input/>
+              <Input />
             </Label>
             <ButtonsContainer>
-              <Button 
-                type="button" 
-                onClick={() => setEditProfile(prevState => !prevState)}
+              <Button
+                type="button"
+                onClick={() => setEditProfile((prevState) => !prevState)}
               >
                 Cancelar
               </Button>
               <Button
                 disabled={disabled}
-                aceptar 
+                aceptar
                 onClick={(e) => {
-                  handleSubmit(e)
-                  setEditProfile(prevState => !prevState)
+                  handleSubmit(e);
+                  setEditProfile((prevState) => !prevState);
                 }}
               >
                 Aceptar
@@ -102,13 +99,15 @@ export default function User() {
             </ButtonsContainer>
           </FormEdit>
         </>
-        :
+      ) : (
         <>
           <UserInfo>
             <h3>Perfil</h3>
             <UL>
               <LI className="Info">Nombre de usuario</LI>
-              <LI>{user?.nombre} {user?.apellido}</LI>
+              <LI>
+                {user?.nombre} {user?.apellido}
+              </LI>
             </UL>
             <UL>
               <LI className="Info">Correo electronico</LI>
@@ -118,16 +117,16 @@ export default function User() {
               <LI className="Info">Telefono</LI>
               <LI>{user?.telefono}</LI>
             </UL>
-            <Button onClick={() => setEditProfile(prevState => !prevState)}>Editar perfil</Button>
+            <Button onClick={() => setEditProfile((prevState) => !prevState)}>
+              Editar perfil
+            </Button>
             <ExtraInfo>
               <LinkTo to={`/profile/compras/${id}`}>Compras</LinkTo>
               <LinkTo to={`/profile/favoritos/${id}`}>Favoritos</LinkTo>
             </ExtraInfo>
           </UserInfo>
         </>
-      }
+      )}
     </Container>
   );
 }
-
-
