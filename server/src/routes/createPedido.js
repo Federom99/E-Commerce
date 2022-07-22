@@ -15,7 +15,7 @@ router.post("/", queue({ activeLimit: 1, queuedLimit: -1}), async (req, res) => 
 
     const user = await Usuario.findByPk(id);
 
-    let { productos, comprador, direccion_de_envio } = req.body;
+    let { productos, comprador, direccion_de_envio, tipoDeEnvio } = req.body;
 
     if(!direccion_de_envio){
       direccion_de_envio = comprador.direccion + " - " + comprador.codigoPostal + " - " + comprador.provincia;
@@ -49,6 +49,8 @@ router.post("/", queue({ activeLimit: 1, queuedLimit: -1}), async (req, res) => 
       direccion_de_envio: direccion_de_envio,
       //Suponemos que esto se crea justo despues de la pasarela de pago, por lo que estaría aprobado.
       estado: "Pendiente de pago",
+      //tipo de envio
+      tipo_de_envio: comprador.tipoDeEnvio
     });
 
     //Creo una compra por cada producto

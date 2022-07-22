@@ -63,4 +63,7 @@ export const DELETE_REVIEW = "DELETE_REVIEW";
 
 export const DELETE_CART = "DELETE_CART";
 
+export const GET_ALL_SUCURSALES = "GET_ALL_SUCURSALES";
+
+
 

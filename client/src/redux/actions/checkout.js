@@ -10,6 +10,7 @@ import {
   ACTUALIZAR_ESTADO_ENVIO,
   MAIL_ADMIN,
   CONFIRMAR_COMPRA,
+  GET_ALL_SUCURSALES,
 } from "./actionTypes";
 
 const URL_SERVER = "http://localhost:3001";
@@ -100,9 +101,6 @@ export function updateUser(payload) {
   };
 }
 
-
-
-
 export function enviarMail(userMail) {
   return async function (dispatch) {
     await axios.post(`${URL_SERVER}usuario/confirmacion`, { mail: userMail });
@@ -139,5 +137,19 @@ export function mailAdmin(userId, { newEstado }) {
     }
 
     dispatch({ type: MAIL_ADMIN });
+  };
+}
+
+export function getAllSucursales() {
+  return async function (dispatch) {
+    try {
+      var {data} = await axios.get(`${URL_SERVER}/sucursales`, {});
+      return dispatch({
+        type: GET_ALL_SUCURSALES,
+        payload: data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 }
