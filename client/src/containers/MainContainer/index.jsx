@@ -19,7 +19,6 @@ const MainContainer = ({ products }) => {
 
   // console.log(state)
   useEffect (()=>{
-    console.log('mainContainerUE')
     if(state.user) {
       dispatch(getUserId(state.user.name,state.user.email))
   }
@@ -30,7 +29,7 @@ const MainContainer = ({ products }) => {
       norender=true
     }
     else{
-      dispatch(getAllFavs(favs.userId))
+      if (favs.userId) dispatch(getAllFavs(favs.userId))
     }
   },[favs.userId])
   function paginado(nroPagina) {

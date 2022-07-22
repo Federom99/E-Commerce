@@ -29,13 +29,21 @@ export const createUserFav = (userId , productId) => async dispatch =>{
 export const deleteUserFav = (userId , productId ) => async dispatch =>{
     try{
         console.log('userIdAct: ',userId, 'productIdAct: ',productId)
-        const deleteFav = await axios.delete(`${API_URL}/favoritos/delete/${productId}`,{headers:{},data:{userId}})
+        const deleteFav = await axios.delete(`${API_URL}/favoritos/delete/${productId}`,{headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },data:{userId}})
         dispatch({
             type: "FAVOURITE_DELETED",
-            payload: deleteFav,
+            payload: productId,
         })
     } catch(error){
         console.log(error)
     }
-
+    
+}
+export const removeFavs = ()=>{
+    return{
+        type:"FAVOURITE_REMOVE"
+    }
 }

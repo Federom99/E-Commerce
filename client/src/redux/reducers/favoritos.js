@@ -11,23 +11,27 @@ export default function favReducer (state=initialState,action){
                 userId:action.payload
             }
         case "FAVOURITE_CREATED":
-            console.log('newfav: ',action.payload)
             return{
                 ...state,
                 userFavorites:[...state.userFavorites,action.payload.data.id]
             }
         case "FAVOURITE_DELETED":
-            const index = state.userFavorites.findIndex( p => p===action.payload.id )
+            const index = state.userFavorites.findIndex( p => p===action.payload )
             state.userFavorites.splice(index,1)
             return{
                 ...state,
             }
         case "GET_USER_FAVS":
-            console.log(action.payload)
             let list = action.payload.map(p=>p.productId)
             return{
                 ...state,
                 userFavorites:list
+            }
+        case "FAVOURITE_REMOVE":
+            return{
+                ...state,
+                userId:'',
+                userFavorites:[],
             }
         default:
         return {

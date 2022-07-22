@@ -9,7 +9,6 @@ router.delete("/:id", async (req, res, next) => {
     const { userId }= req.body
   try {
       const id = req.params.id;
-      console.log('userIdBE: ',userId,'productIdBE: ',id)
     const productoABorrar = await ProductosFav.findOne({
         include:{
             model: Usuario,
@@ -19,7 +18,7 @@ router.delete("/:id", async (req, res, next) => {
         }
     });
     await productoABorrar.destroy();
-    res.json(id,userId);
+    res.status(200).send('Favorito eliminado');
   } catch (error) {
     next(error);
   }

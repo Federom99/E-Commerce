@@ -106,13 +106,10 @@ const ProductDetail = () => {
   },[product])
 
   useEffect(()=>{
-    console.log('esto actua')
     if (Object.keys(product).length && product.categorium.nombre !== 'Accesorios' && size){
-      console.log('el primer if abre')
       let index = currentStock.findIndex(p=>{
         if(p.id===parseInt(productId) && p.talle === size) return p
       })
-      console.log('index: ',index)
       if (index!==-1){
         setStock(currentStock[index].stock)
       }
@@ -171,7 +168,7 @@ const ProductDetail = () => {
     );
 
   const formatPrice = new Intl.NumberFormat("es-AR").format(product.precio);
-  // console.log(product);
+
   return (
     <Main>
       <ToastContainer position= "top-center"

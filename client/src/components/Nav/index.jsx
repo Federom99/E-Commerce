@@ -15,6 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/actions/autenticacion";
 import Loading from "../Loader";
 import { clearLocalStorage } from "../../redux/actions/cart";
+import { removeFavs } from "../../redux/actions/favoritos";
 
 export default function NavBar({ products }) {
   const navigation = useNavigate();
@@ -41,6 +42,7 @@ export default function NavBar({ products }) {
   const logOut = () => {
     dispatch(logout());
     dispatch(clearLocalStorage());
+    dispatch(removeFavs())
     navigation("/");
     document.cookie =
       "FOOD-API=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";

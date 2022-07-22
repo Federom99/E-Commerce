@@ -19,7 +19,7 @@ export default function FavIcon ({productId , productName}){
             toast.success(`${productName} añadido a favoritos`)
         }
         else {
-            console.log('userId: ', userId, 'productId: ',productId)
+            //eliminado
             dispatch(deleteUserFav(userId,productId))
             toast.error(`${productName} eliminado de favoritos`)
         }
