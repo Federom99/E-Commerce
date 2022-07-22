@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { fadeIn } from "../../styles/animation";
 
 export const DIV = styled.div`
-    ${fadeIn('0.5s')};
+    ${fadeIn({time: '0.5s'})};
     padding: 1rem 1.5rem;
     max-width: 335px;
     height: auto;
@@ -85,21 +85,19 @@ export const Image = styled.img`
 export const InfoContainer = styled.div`
     text-align: center;
     padding: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 `
 
 export const H2 = styled(Link)`
     text-decoration: none;
     color: ${props => props.theme.colorTextPri};
-    font-size: 1.3rem;
-    font-weight: 400;
+    font-size: 1.1rem;
+    font-weight: 600;
 `
 export const ImgLink = styled(Link)`
     text-decoration: none;
-`
-
-
-export const ExtraInfo = styled.div`
-    
 `
 
 export const PriceSize = styled.div`
