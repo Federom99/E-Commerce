@@ -1,6 +1,6 @@
 .full {
   width: 100%;
-  z-index: 2;
+  z-index: 9999;
   font-family: "Raleway", sans-serif;
 }
 .container {
