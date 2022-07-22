@@ -15,7 +15,7 @@ const initialState = {
   pedidos: [],
   usuarios: [],
   pedido: [],
-  detalleEnvio: [],
+  detalleEnvio: {},
 };
 
 export default function productReducer(state = initialState, action) {
