@@ -89,7 +89,6 @@ export default function cartReducer(state = initialState, action) {
         ...state,        
       };
     case DELETE_CART:
-      console.log("a");
       return{
         ...state,
         shoppingCart:[],
