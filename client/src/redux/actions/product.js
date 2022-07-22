@@ -76,7 +76,6 @@ export const getProduct = (productId) => {
     try {
       const response = await fetch(`${URL_SERVER}/product/${productId}`);
       const data = await response.json();
-      console.log(data);
       dispatch(fetchProductSuccess(data));
     } catch (error) {
       return dispatch(fetchProductFailure(error));
@@ -100,7 +99,6 @@ export const fetchProductFailure = (error) => ({
 
 export const postProduct = (payload) => {
   return async function () {
-    console.log(payload);
     var json = await axios.post(`${URL_SERVER}/create/product`, payload);
     return json;
   };

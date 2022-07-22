@@ -1,6 +1,8 @@
 import {
   APROBAR_PEDIDO,
     CHECKOUT, CREAR_PEDIDO, GET_FACTURA, GUARDAR_DATOS_COMPRADOR, GET_PEDIDOS, GET_USUARIOS,
+  ACTUALIZAR_ESTADO_ENVIO,
+  GET_ALL_SUCURSALES,
   } from "../actions/actionTypes";
   
   const initialState = {
@@ -9,7 +11,9 @@ import {
     pedidos: [],
     usuarios: [],
     pedido: [],
-    usuariosFiltrados: []
+    usuariosFiltrados: [],
+    detalleEnvio: [],
+    sucursales: []
   };
   
   export default function productReducer(state = initialState, action) {
@@ -70,8 +74,19 @@ import {
           usuarios: action.payload,
           usuariosFiltrados: state.usuariosFiltrados.length < 1 ? action.payload : filtrados
         }
+        case ACTUALIZAR_ESTADO_ENVIO:
+          return {
+            ...state,
+            detalleEnvio: action.payload,
+          };
+    case GET_ALL_SUCURSALES:
+        console.log(action.payload)
+        return{
+          ...state,
+          sucursales: action.payload
+        }
       default:
         return state;
     }
   }
-  
+}

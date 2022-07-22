@@ -3,8 +3,9 @@ const {Usuario, Producto, Talle, Compra, Producto_talle } = require("../db.js");
 const { promisify } = require("util");
 const jwt = require("jsonwebtoken");
 const router = Router();
+const queue = require('express-queue');
 
-router.post("/", async (req, res) => {
+router.post("/", queue({ activeLimit: 1, queuedLimit: -1}), async (req, res) => {
   try {
     const decode = await promisify(jwt.verify)(
       req.cookies.jwt,
@@ -14,7 +15,7 @@ router.post("/", async (req, res) => {
 
     const user = await Usuario.findByPk(id);
 
-    let { productos, comprador, direccion_de_envio } = req.body;
+    let { productos, comprador, direccion_de_envio, tipoDeEnvio } = req.body;
 
     if(!direccion_de_envio){
       direccion_de_envio = comprador.direccion + " - " + comprador.codigoPostal + " - " + comprador.provincia;
@@ -36,7 +37,6 @@ router.post("/", async (req, res) => {
           }
         }
       });
-
       //Me fijo si encontré un producto que requeria esa y que tenga stock. Si no lo hago en algún caso, devuelvo un error.
       if(!productoTalle || (productoTalle.talles[0].dataValues.producto_talle.dataValues.stock - productos[i].cantidad) < 0) return res.status(400).send({Error: "Hubo un error. Porfavor, inténtelo de vuelta."})
       //Sumo el total del precio
@@ -49,6 +49,8 @@ router.post("/", async (req, res) => {
       direccion_de_envio: direccion_de_envio,
       //Suponemos que esto se crea justo despues de la pasarela de pago, por lo que estaría aprobado.
       estado: "Pendiente de pago",
+      //tipo de envio
+      tipo_de_envio: comprador.tipoDeEnvio
     });
 
     //Creo una compra por cada producto
@@ -60,19 +62,6 @@ router.post("/", async (req, res) => {
         cantidad: productos[i].cantidad,
         pedidoId: pedido.dataValues.id
       })
-
-
-      //Resto el stock
-       const productoTalle = await Producto_talle.findOne({where: {
-          productoId: productos[i].productId,
-          talleId: talle.id
-        }
-      });
-
-      await productoTalle.update({
-        stock: productoTalle.dataValues.stock - productos[i].cantidad
-      })
-
     }
 
     //Busco todas las compras donde el id del pedido sea el que acabo de crear y despues lo mando junto al pedido.

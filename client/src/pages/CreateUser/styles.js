@@ -7,8 +7,7 @@ export const Div = styled.div`
   align-items: center;
   justify-content: center;
 `;
-export const Header = styled.header`
-`;
+export const Header = styled.header``;
 
 export const Title = styled.h2`
   margin-top: 30px;
@@ -18,7 +17,7 @@ export const Title = styled.h2`
 
 export const ErrorsText = styled.p`
   color: red;
-`
+`;
 
 export const Form = styled.form`
   margin: 0 auto;
