@@ -63,10 +63,15 @@ export function getPedidos(){
   }
 }
 
-export function getUsuarios(){
+export function getUsuarios(reset){
   return async function(dispatch){
       try {
       var json = await axios.get(`${URL_SERVER}/usuarios/`,{});
+      if(reset)
+      return dispatch({
+        type: "RESET_FILTER",
+        payload: json.data
+    }); else 
       return dispatch({
           type: GET_USUARIOS,
           payload: json.data
@@ -75,6 +80,13 @@ export function getUsuarios(){
       console.log(error)
   }
   }
+}
+
+export function filterUsers(payload) {
+  console.log(payload)
+  return {type: "FILTER_USUARIOS",
+          payload: payload
+}
 }
 
 export function updateUser(payload) {
