@@ -227,17 +227,22 @@ const Checkout = () => {
                     <br />
                     </>) : (<H2 style={{marginTop:"1rem"}}>No hay items en su carrito</H2>)}
                 </div>
+                <div style={{borderLeft:"1px solid #000", height:"500px"}}></div>
                 <div className={estilos.formularioContainer}>
                     <H2>Datos de entrega</H2>
                     <ul id={estilos.lista}>
                         <li className={estilos.itemsLista}>
-                            <div>
-                                <input type="radio" name="tipoEnvio" value="Retiro" onChange={radioChangeHandler}/>
-                                <label>Retiro en punto de entrega</label>
+                            <div style={{display: "flex", flexDirection:"row"}}>
+                                <label className={estilos.rbLabel}>
+                                <input className={estilos.radio} type="radio" name="tipoEnvio" value="Retiro" onChange={radioChangeHandler}/>
+                                    <span style={{marginLeft: "1rem"}}>Retiro en punto de entrega</span>
+                                    </label>
                             </div>
                             <div>
-                                <input type="radio" name="tipoEnvio" value="Envio" onChange={radioChangeHandler}/>
-                                <label>Envío a domicilio</label>
+                                <label className={estilos.rbLabel}>
+                                <input className={estilos.radio} type="radio" name="tipoEnvio" value="Envio" onChange={radioChangeHandler}/>
+                                    <span style={{marginLeft: "1rem"}}>Envío a domicilio</span>
+                                </label>
                             </div>
                             <div>
                                 {
