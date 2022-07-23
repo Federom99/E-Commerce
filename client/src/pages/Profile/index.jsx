@@ -139,8 +139,8 @@ export default function User() {
               Editar perfil
             </Button>
             <ExtraInfo>
-              <LinkTo to={`/profile/compras/${id}`}>Compras</LinkTo>
-              <LinkTo to={`/profile/favoritos/${id}`}>Favoritos</LinkTo>
+              <LinkTo to={`/profile/compras/${id}`}><Button>Compras</Button></LinkTo>
+              <LinkTo to={`/profile/favoritos/${id}`}><Button>Favoritos</Button></LinkTo>
             </ExtraInfo>
           </UserInfo>
         </>
