@@ -2,15 +2,18 @@ import {
   APROBAR_PEDIDO,
     CHECKOUT, CREAR_PEDIDO, GET_FACTURA, GUARDAR_DATOS_COMPRADOR, GET_PEDIDOS, GET_USUARIOS,
   ACTUALIZAR_ESTADO_ENVIO,
+  GET_ALL_SUCURSALES,
 } from "../actions/actionTypes";
 
 const initialState = {
-  checkout: {},
+  checkout:{},
   datos: {},
   pedidos: [],
   usuarios: [],
   pedido: [],
-  detalleEnvio: {},
+  usuariosFiltrados: [],
+  detalleEnvio: [],
+  sucursales: []
 };
 
 export default function productReducer(state = initialState, action) {
@@ -56,7 +59,11 @@ export default function productReducer(state = initialState, action) {
         ...state,
         detalleEnvio: action.payload,
       };
-
+    case GET_ALL_SUCURSALES:
+      return{
+        ...state,
+        sucursales: action.payload
+      }
     default:
       return state;
   }

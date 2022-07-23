@@ -3,7 +3,6 @@ import LocationMarker from './Location';
 
 const Mapa = ({sucursales, selectSucursal}) => {
     const position = [-34.60376, -58.38162];
-
     return(
         <div style={{display: "flex"}}>
             <MapContainer center={position} zoom={16} scrollWheelZoom={true} style={{height:"400px", width:"400px", margin: "auto",
