@@ -1,6 +1,11 @@
 import {
   APROBAR_PEDIDO,
-    CHECKOUT, CREAR_PEDIDO, GET_FACTURA, GUARDAR_DATOS_COMPRADOR, GET_PEDIDOS, GET_USUARIOS,
+  CHECKOUT,
+  CREAR_PEDIDO,
+  GET_FACTURA,
+  GUARDAR_DATOS_COMPRADOR,
+  GET_PEDIDOS,
+  GET_USUARIOS,
   ACTUALIZAR_ESTADO_ENVIO,
 } from "../actions/actionTypes";
 
@@ -10,7 +15,7 @@ const initialState = {
   pedidos: [],
   usuarios: [],
   pedido: [],
-  detalleEnvio: {},
+  detalleEnvio: [],
 };
 
 export default function productReducer(state = initialState, action) {

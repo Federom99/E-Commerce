@@ -20,8 +20,10 @@ import {
   ButtonsContainer,
   LinkTo,
   Errors,
-  Error
+  Error,
 } from "./styles";
+import ModalContainer from "../../components/ModalReview/ModalContainer";
+import Modal from "../../components/ModalReview";
 
 export default function User() {
   const { disabled, inputValues, inputErrors, editField, handleSubmit } =
@@ -32,21 +34,22 @@ export default function User() {
   } = useSelector((state) => state.auth);
   const { user } = useSelector((state) => state.userReducer);
 
-  const [editProfile, setEditProfile] = useState(false)
+  const [editProfile, setEditProfile] = useState(false);
 
-  function changeInfo(e){
+  function changeInfo(e) {
     try {
-      handleSubmit(e)
-      setEditProfile(prevState => !prevState)
+      handleSubmit(e);
+      setEditProfile((prevState) => !prevState);
     } catch (error) {
-      console.log('Ups')
+      console.log("Ups");
     }
   }
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getUser(id));
   }, []);
+
 
   return (
     <Container>

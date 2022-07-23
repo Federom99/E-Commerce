@@ -1,12 +1,11 @@
 import { motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { getPedidos } from "../../redux/actions/pedidos";
+import { changeModalClose, changeModalOPen } from "../../redux/actions/reviews";
 import Loading from "../Loader";
-import Modal from "../ModalReview";
-import ModalContainer from "../ModalReview/ModalContainer";
 import { dateFormat } from "./dateformat";
 import { CloseBtn, Div, H3, Img, Li, LiImg, LIinimg, List, Ul } from "./style";
 
@@ -16,12 +15,10 @@ function Review() {
 
   const pedidos = useSelector((state) => state.pedidos.pedidos);
   const loading = useSelector((state) => state.pedidos.loading);
+  const change = useSelector((state) => state.reviews.modal);
 
-  const [modalOpen, setModalOpen] = useState(false);
-
-  const close = () => setModalOpen(false);
-  const open = () => setModalOpen(true);
-  console.log(modalOpen);
+  const close = () => dispatch(changeModalClose());
+  const open = (id, imagen) => dispatch(changeModalOPen(id, imagen));
 
   useEffect(() => {
     dispatch(getPedidos(id));
@@ -29,11 +26,6 @@ function Review() {
 
   return (
     <>
-      <ModalContainer>
-        {modalOpen && (
-          <Modal modalOpen={modalOpen} text={"lol"} handleClose={close} />
-        )}
-      </ModalContainer>
       <Div>
         <CloseBtn>
           <AiOutlineHeart />
@@ -53,7 +45,7 @@ function Review() {
                     <Li key={`${pedido.id}fecha`}>
                       <H3>{dateFormat(pedido.fecha, "MM-yy-dd")}</H3>
                     </Li>
-                    <LiImg>
+                    <LiImg key={`${pedido.id}img`}>
                       {pedido.productos.map((product) => {
                         return (
                           <LIinimg
@@ -62,7 +54,14 @@ function Review() {
                               scale: 1.02,
                             }}
                             key={product.compra.productoId}
-                            onClick={() => (modalOpen ? close() : open())}
+                            onClick={() =>
+                              change
+                                ? close()
+                                : open(
+                                    product.compra.productoId,
+                                    product.imagen
+                                  )
+                            }
                           >
                             <Img
                               as={motion.img}
@@ -78,7 +77,7 @@ function Review() {
                       })}
                     </LiImg>
                     <Li>
-                      <h4>
+                      <h4 key={`${pedido.id}money`}>
                         $ {Intl.NumberFormat("es-AR").format(pedido.pago_total)}
                       </h4>
                     </Li>
