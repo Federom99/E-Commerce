@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts } from "../../../redux/actions/favoritos";
+import { getFavProducts  } from "../../../redux/actions/favoritos";
 import { CardLi, CardList, Img, ImgContainer } from "./styles";
 
 
@@ -10,19 +10,26 @@ const [isLoading,setIsLoading] = useState(true);
 const favProducts = useSelector(state=>state.favorites.favDetail)
 const [data,setData] = useState({});
 const dispatch = useDispatch()
-let norender = true
+
+useEffect(()=>{    
+        dispatch(getFavProducts(productId))
+        const product = favProducts.filter(p=>p.id === productId)
+        setData(product[0])
+        // console.log(product)
+},[])
+
 useEffect(()=>{
-        if( data && data.imagen) {
+    if(favProducts){
+        const product = favProducts.filter(p=>p.id === productId)
+        setData(product[0])
+    }    
+        if( data &&  Object.keys(data).length) {
             setTimeout(() => {
                 setIsLoading(false)                
             }, 1500);
-        }
-        else{
-            dispatch(getProducts(productId))
-            const product = favProducts.filter(p=>p.id === productId)
-            setData(product[0])
-        }
-},[data])
+
+        }    
+},[data,favProducts])
     return(    
         <div>
            {
