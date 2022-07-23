@@ -6,8 +6,6 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  background-color: white;
-  color: black;
   width: 100%;
   height: 220px;
   @media screen and (max-width: 560px) {
@@ -62,7 +60,7 @@ const Title = styled.p`
 
 const SubTitle = styled.a`
   text-decoration: none;
-  color: black;
+  color: ${({theme}) => theme.color};
   font-size: 17px;
   font-weight: bold;
   margin: 20px 0px;
@@ -85,7 +83,7 @@ const SubTitle = styled.a`
 `;
 
 const Bar = styled.div`
-  background-color: black;
+  background-color: ${({theme}) => theme.color};
   width: 35%;
   height: 3px;
   margin: 10px 25px;
