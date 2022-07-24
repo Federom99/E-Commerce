@@ -16,11 +16,12 @@ export const Div = styled.div`
     min-height: 100%;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    width: 80%;
-    display: flex;
-    flex-direction: row;
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-evenly; */
     /* background-color: red; */
     border-radius: 8px;
     -webkit-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
