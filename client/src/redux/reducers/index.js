@@ -6,6 +6,7 @@ import checkout from "./checkout";
 import favorites from "./favoritos";
 import userReducer from "./userProfile";
 import pedidos from "./pedidos";
+import reviews from "./reviews";
 
 export default combineReducers({
   product,
@@ -13,6 +14,7 @@ export default combineReducers({
   auth,
   checkout,
   userReducer,
+  reviews,
   pedidos,
   favorites,
 });

@@ -19,7 +19,6 @@ export default function pedidosUsuarioReducer(state = initialState, action) {
         error: null,
       };
     case GET_PEDIDOS_SUCCESS:
-      console.log(action.payload);
       return {
         ...state,
         loading: false,

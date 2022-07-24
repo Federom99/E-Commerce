@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Section = styled.section`
   margin: auto;
+  margin-top: 2rem;
   margin-bottom: 4rem;
   border-style: none;
   border-radius: 1rem;
@@ -21,6 +22,7 @@ export const List = styled.ul`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  
 `;
 
 export const Li = styled.li`

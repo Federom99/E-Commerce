@@ -24,7 +24,7 @@ import Users from "./pages/Admin/users";
 import Products from "./pages/Admin/products";
 import Sales from "./pages/Admin/sales";
 import Confirmacion from "./pages/Confirmacion";
-import { GlobalStyle } from "./styles/GlobalStyles";
+import { GlobalStyle, lightTheme, darkTheme } from "./styles/GlobalStyles";
 import { clearMsg } from "./redux/actions/autenticacion";
 import Checkout from "./pages/Checkout/Checkout";
 import CheckoutSuccess from "./pages/CheckoutSuccess/CheckoutSuccess";
@@ -32,6 +32,12 @@ import ForgotPassword from "./pages/ForgotPasword";
 import ResetPassword from "./pages/ResetPassword";
 import Compras from "./pages/Compras";
 import Favoritos from "./pages/Favoritos";
+import ModalContainer from "./components/ModalReview/ModalContainer";
+import Modal from "./components/ModalReview";
+import { changeModalClose, changeModalOPen } from "./redux/actions/reviews";
+import { useDarkMode } from "./styles/useDarkMode";
+import Toggle from "./components/Toggle/Toggle";
+import styled, { ThemeProvider } from 'styled-components';
 
 function handleErrors(response, rest) {
   if (response.status === 400) {
@@ -44,8 +50,12 @@ function App() {
   const error = useSelector((state) => state.product.error);
   const loading = useSelector((state) => state.product.loading);
   const products = useSelector((state) => state.product.products);
+  const change = useSelector((state) => state.reviews.modal);
+
   const dispatch = useDispatch();
   let location = useLocation();
+  const [ theme, toggleTheme ] = useDarkMode();
+  const themeMode = theme === "light" ? lightTheme : darkTheme;
 
   useEffect(() => {
     dispatch(getProducts());
@@ -79,6 +89,20 @@ function App() {
 
   return (
     <div className="App">
+    <ThemeProvider theme={themeMode}>
+      <ModalContainer>
+        {change == true && (
+          <Modal
+            modalOpen={change}
+            text={"lol"}
+            handleClose={() =>
+              change
+                ? dispatch(changeModalClose())
+                : dispatch(changeModalOPen())
+            }
+          />
+        )}
+      </ModalContainer>
       <GlobalStyle />
       <NavBar products={products} />
       {/* {location.pathname !== "/" ? <NavBar /> : null} */}
@@ -112,7 +136,10 @@ function App() {
         <Route path="/checkout" element={<Checkout />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
+
       <Footer />
+      <Toggle theme={theme} toggleTheme={toggleTheme} />
+    </ThemeProvider>
     </div>
   );
 }

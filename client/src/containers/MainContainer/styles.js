@@ -8,4 +8,8 @@ export const Main = styled.main`
   min-height: 1080px;
   display: grid;
   grid-template-columns: 150px 1fr;
+
+  @media(max-width: 768px) {
+    display: block;
+  }
 `;

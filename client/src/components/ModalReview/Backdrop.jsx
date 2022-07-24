@@ -6,6 +6,7 @@ import { useEffect } from "react";
 function Backdrop({ children, onCLick }) {
   useEffect(() => {
     document.body.style.overflow = "hidden";
+    document.body.style.minHeight = "100vh";
     return () => {
       document.body.style.overflow = "visible";
     };
