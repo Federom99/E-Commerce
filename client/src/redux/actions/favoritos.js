@@ -47,8 +47,12 @@ export const removeFavs = ()=>{
         type:"FAVOURITE_REMOVE"
     }
 }
-
-export const getProducts = (productId)=>async dispatch => {
+export const removeDetail = ()=>{
+    return{
+        type:"FAVORITE_REMOVE_DETAIL"
+    }
+}
+export const getFavProducts = (productId)=>async dispatch => {
     try{
         const response = await axios.get(`${API_URL}/product/${productId}`)
         const product = response.data

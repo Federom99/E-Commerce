@@ -48,14 +48,14 @@ export default function Login() {
     e.preventDefault();
 
     if ([mail, password].includes("")) {
-      setAlert({ msg: "All fields are required", type: "error" });
+      setAlert({ msg: "Todos los campos son obligatorios", type: "error" });
       return;
     }
-    // const usuario = bloqueados.find((e) => e.mail === mail)
-    // if (usuario.bloqueado === true) {
-    //   setAlert({ msg: "Usuario Bloqueado", type: "error" });
-    //   return;
-    // }
+    const usuario = bloqueados.find((e) => e.mail === mail)
+    if (usuario && usuario.bloqueado === true) {
+      setAlert({ msg: "Usuario Bloqueado", type: "error" });
+      return;
+    }
     setLoading(true);
     dispatch(login({ mail, contraseña: password })).then((res) => {
       setLoading(false);

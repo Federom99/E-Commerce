@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Img = styled.img`
@@ -84,4 +85,9 @@ export const SPAN = styled.span`
 export const H3 = styled.h3`
   font-weight: bolder;
   margin-bottom: 7px;
+  text-align: start;
 `;
+
+export const LinkTo = styled(Link)`
+  text-decoration: none;
+`

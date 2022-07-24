@@ -56,9 +56,10 @@ export const Name = styled.span`
 `
 
 export const Select = styled.select`
+    border: 1px solid #4a4949;
+    border-radius: 8px;
     width: 120px;
     height: 2rem;
-    // border-radius: 5px;
     border-width: 2px;
     
 `
@@ -71,6 +72,7 @@ export const Option = styled.option`
 export const FilterTitle = styled.span`
     font-size: 1rem;
     text-align: center;
+    font-weight: bold;
 `
 
 export const DivFilterTitle = styled.div`
@@ -81,4 +83,8 @@ export const DivFilterTitle = styled.div`
     margin-top: 1rem;
     /* background-color: red; */
     width: 100%;
+
+    @media(max-width: 768px) {
+        justify-content: unset;
+    }
 `;

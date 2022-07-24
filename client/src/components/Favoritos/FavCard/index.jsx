@@ -1,8 +1,10 @@
 import { useEffect } from "react";
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts } from "../../../redux/actions/favoritos";
-import { CardLi, CardList, Img, ImgContainer } from "./styles";
+import { getFavProducts  } from "../../../redux/actions/favoritos";
+import Loading from "../../Loader";
+import FavIcon from "../../FavContainer";
+import { CardLi, CardList, FavContainer, Img, ImgContainer, LinkTo, Price, Text } from "./styles";
 
 
 export default function FavCard ({productId}){
@@ -10,36 +12,47 @@ const [isLoading,setIsLoading] = useState(true);
 const favProducts = useSelector(state=>state.favorites.favDetail)
 const [data,setData] = useState({});
 const dispatch = useDispatch()
-let norender = true
+
+useEffect(()=>{    
+        dispatch(getFavProducts(productId))
+        const product = favProducts.filter(p=>p.id === productId)
+        setData(product[0])
+        // console.log(product)
+},[])
+
 useEffect(()=>{
-        if( data && data.imagen) {
-            setTimeout(() => {
+    if(favProducts){
+        const product = favProducts.filter(p=>p.id === productId)
+        setData(product[0])
+    }    
+        if( data &&  Object.keys(data).length) {
                 setIsLoading(false)                
-            }, 1500);
-        }
-        else{
-            dispatch(getProducts(productId))
-            const product = favProducts.filter(p=>p.id === productId)
-            setData(product[0])
-        }
-},[data])
+        }    
+},[data,favProducts])
     return(    
         <div>
            {
-            isLoading ? (<h3>Loading</h3>) : (<main>
+            isLoading ? (<Loading/>) : (<main>
                 <CardList>
                     <CardLi>
+                        <FavContainer>
+                            <FavIcon productId={productId} productName={data.nombre}/>
+                        </FavContainer>
                         <ImgContainer>
-                            <Img src={data.imagen}/>
+                            <LinkTo to={`/detail/${productId}`}>
+                            <Img src={data.imagen}/>                            
+                            </LinkTo>
                         </ImgContainer>
                     </CardLi>
                     <CardLi>
-                        <h3>{data.nombre}</h3>
-                        <p>{data.descripcion}</p>    
+                        <Text>
+                            <h3>{data.nombre}</h3>
+                            <p>{data.descripcion}</p>
+                        </Text>
                     </CardLi>
                     <CardLi>
-                        <h4>Precio unitario</h4>
-                        <p>${data.precio}</p>
+                        <Price>Precio: ${data.precio}</Price>
+                        {/* <p>${data.precio}</p> */}
                     </CardLi>
                 </CardList>
             </main>)

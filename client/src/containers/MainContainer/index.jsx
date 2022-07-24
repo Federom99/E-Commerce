@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React , { useEffect } from "react";
 
 import { Main } from "./styles";
 import CardsContainer from "../CardsContainer";
@@ -17,28 +17,23 @@ import {
 
 const MainContainer = ({ products }) => {
   const [state, favs] = useSelector((state) => [state.auth, state.favorites]);
-
   const [paginaActual, setPaginaActual] = useState(1);
   const [cantidad, setCantidad] = useState(9);
   const indiceFinal = paginaActual * cantidad;
   const indicePrimero = indiceFinal - cantidad;
   const productsItems = products.slice(indicePrimero, indiceFinal);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   // console.log(state)
 
-  useEffect(() => {
-    if (state.user) {
-      dispatch(getUserId(state.user.name, state.user.email));
-    }
-  }, []);
-  let norender = false;
-  useEffect(() => {
-    if (!norender) {
-      norender = true;
-    } else {
-      if (favs.userId) dispatch(getAllFavs(favs.userId));
-    }
-  }, [favs.userId]);
+  useEffect (()=>{
+    if(state.user) {
+      dispatch(getUserId(state.user.name,state.user.email))
+  }
+  },[])
+  useEffect(()=>{
+      if (favs.userId) dispatch(getAllFavs(favs.userId))    
+  },[favs.userId])
+
   function paginado(nroPagina) {
     setPaginaActual(nroPagina);
   }

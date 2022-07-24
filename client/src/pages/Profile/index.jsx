@@ -24,6 +24,8 @@ import {
 } from "./styles";
 import ModalContainer from "../../components/ModalReview/ModalContainer";
 import Modal from "../../components/ModalReview";
+import { getAllFavs } from "../../redux/actions/favoritos";
+
 
 export default function User() {
   const { disabled, inputValues, inputErrors, editField, handleSubmit } =
@@ -48,6 +50,7 @@ export default function User() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getUser(id));
+    dispatch(getAllFavs(id))
   }, []);
 
 
@@ -91,7 +94,12 @@ export default function User() {
             </Label>
             <Label>
               <p>Telefono</p>
-              <Input />
+              <Input
+                name="telefono"
+                value={inputValues.telefono} 
+                placeholder="123456789"
+                onChange={(e) => editField(e.target.name,e.target.value)}
+              />
             </Label>
             <ButtonsContainer>
               <Button
@@ -140,8 +148,8 @@ export default function User() {
               Editar perfil
             </Button>
             <ExtraInfo>
-              <LinkTo to={`/profile/compras/${id}`}>Compras</LinkTo>
-              <LinkTo to={`/profile/favoritos/${id}`}>Favoritos</LinkTo>
+              <LinkTo to={`/profile/compras/${id}`}><Button>Compras</Button></LinkTo>
+              <LinkTo to={`/profile/favoritos/${id}`}><Button>Favoritos</Button></LinkTo>
             </ExtraInfo>
           </UserInfo>
         </>
