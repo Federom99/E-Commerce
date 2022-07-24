@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const CardList = styled.ul`
@@ -6,15 +7,27 @@ export const CardList = styled.ul`
     grid-template-columns: repeat(3,33%);
     grid-auto-flow: row;
     justify-items: center;
-    border:solid;
-    border-radius:10px
+    position: relative;
+    margin: auto;
+    margin-bottom: 1rem;
+    -webkit-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
+    -moz-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
+    box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
+    width: 90%;
 `
+export const FavContainer = styled.div`
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    margin: 10px;
+`
+
 
 export const CardLi = styled.li`
     align-self: center;
     display: flex;
     flex-direction: column;
-    width: fit-content;
+    width: -webkit-fill-available;
 `
 export const Img = styled.img`
     height: 10rem;
@@ -22,8 +35,20 @@ export const Img = styled.img`
     margin-bottom: 1rem;
     -webkit-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
     -moz-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
-    box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
+    box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);    
 `
 export const ImgContainer = styled.div`
     width: fit-content;
+    align-self: center;
+`
+export const LinkTo = styled(Link)`
+    text-decoration: none;
+`
+export const Text = styled.div`
+    display:flex;
+    flex-direction:column;
+    align-items: flex-start;
+`
+export const Price = styled.h4`
+    align-self:center;
 `

@@ -4,24 +4,28 @@ import { useDispatch, useSelector } from "react-redux";
 import { createUserFav, deleteUserFav, getAllFavs } from "../../redux/actions/favoritos";
 import { FavOff, FavOn } from "./styles";
 import {toast} from "react-toastify";
+import ToastMsg from "../Toast";
+import { useLocation } from "react-router-dom";
 
 export default function FavIcon ({productId , productName}){
     const [favStatus , setFavStatus] = useState(false);
     const favs = useSelector(state => state.favorites)
     const dispatch = useDispatch()
-    
+    const location = useLocation()
     const handleChange = ()=>{
-        setFavStatus(status => !status)
         let userId=favs.userId;
         if (!favStatus){
+            setFavStatus(status => !status)
             // añadido:
             dispatch(createUserFav(userId,productId))
             toast.success(`${productName} añadido a favoritos`)
         }
         else {
             //eliminado
-            dispatch(deleteUserFav(userId,productId))
-            toast.error(`${productName} eliminado de favoritos`)
+            // dispatch(deleteUserFav(userId,productId))
+            
+            location.pathname === "/" ? toast.error(`${productName} eliminado de favoritos`) : 
+            toast(<ToastMsg tipo={"fav"} name={productName} userId={userId} productId={productId} setFavStatus={setFavStatus}/>)
         }
     }
     useEffect(()=>{

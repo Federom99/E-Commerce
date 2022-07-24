@@ -14,10 +14,11 @@ export const Div = styled.div`
     flex-direction: column;
 `
 export const Header = styled.header`
-    text-align: center;
-    margin-top: 2rem;
-    font-size: 2rem;
-    font-weight: lighter;
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 2rem;
+  font-weight: lighter;
+  font-family: "Righteous", cursive;
 `
 export const List = styled.ul`
     list-style: none;

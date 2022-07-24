@@ -4,6 +4,7 @@ import { List, Li , Error , Div , Header , CatList , Main, PriceSection, BOTON} 
 import OrderItem from '../../components/Cart/OrderItem';
 import { Link } from "react-router-dom";
 import { setLocalStorage } from "../../redux/actions/cart";
+import { ToastContainer } from "react-toastify";
 export default function ShoppingCart() {
   const [cart , shoppingCart,order] = useSelector((store) => [store.cart , store.cart.shoppingCart,store.cart.order]);
   const [amount,setAmount] = useState(shoppingCart.length)
@@ -26,6 +27,11 @@ export default function ShoppingCart() {
   const price = order.reduce((prev,compra)=> prev+compra.subtotal,0)
   return (
     <Div>
+      <ToastContainer
+                    position="top-center"                    
+                    draggable
+
+                />
       { shoppingCart && shoppingCart.length ? (
         <List>
           <Li>
@@ -36,15 +42,6 @@ export default function ShoppingCart() {
             </Header>
           </Li>
           <Li>
-            {/* <section>
-              <CatList>
-                <Li><h2>Producto</h2></Li>
-                <Li><h2>Descripcion</h2></Li>
-                <Li><h2>Precio unitario</h2> </Li>
-                <Li><h2>Cantidad</h2></Li>
-                <Li><h2>Subtotal</h2></Li>
-              </CatList>
-            </section> */}
             <Main>
               {
               shoppingCart.map(item=><OrderItem key={`${item.id}+${item.talle}`} id={item.id} item={item}/>)

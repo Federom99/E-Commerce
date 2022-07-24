@@ -22,6 +22,7 @@ import {
   Errors,
   Error
 } from "./styles";
+import { getAllFavs } from "../../redux/actions/favoritos";
 
 export default function User() {
   const { disabled, inputValues, inputErrors, editField, handleSubmit } =
@@ -46,6 +47,7 @@ export default function User() {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getUser(id));
+    dispatch(getAllFavs(id))
   }, []);
 
   return (
@@ -142,8 +144,8 @@ export default function User() {
               Editar perfil
             </Button>
             <ExtraInfo>
-              <LinkTo to={`/profile/compras/${id}`}>Compras</LinkTo>
-              <LinkTo to={`/profile/favoritos/${id}`}>Favoritos</LinkTo>
+              <LinkTo to={`/profile/compras/${id}`}><Button>Compras</Button></LinkTo>
+              <LinkTo to={`/profile/favoritos/${id}`}><Button>Favoritos</Button></LinkTo>
             </ExtraInfo>
           </UserInfo>
         </>

@@ -40,6 +40,11 @@ export default function favReducer (state=initialState,action){
                 ...state,
                 favDetail: [...state.favDetail,action.payload]
             }
+        case "FAVORITE_REMOVE_DETAIL":
+            return{
+                ...state,
+                favDetail:[]
+            }
         default:
         return {
             ...state
