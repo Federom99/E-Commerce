@@ -88,7 +88,12 @@ export default function User() {
             </Label>
             <Label>
               <p>Telefono</p>
-              <Input />
+              <Input
+                name="telefono"
+                value={inputValues.telefono} 
+                placeholder="123456789"
+                onChange={(e) => editField(e.target.name,e.target.value)}
+              />
             </Label>
             <ButtonsContainer>
               <Button
