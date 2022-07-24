@@ -12,7 +12,7 @@
 .item{
     /* background-color: red; */
     display: grid;
-    grid-template-columns: 15rem repeat(2, 1fr);
+    grid-template-columns: 15rem 1fr 6rem;
     grid-template-rows: 2rem;
     margin-top: 1rem;
     margin-bottom: 1rem;

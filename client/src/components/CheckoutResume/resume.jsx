@@ -35,10 +35,8 @@ function Resume({cart, envio}) {
                 <span style={{textAlign: "left"}}>Total</span>
                 <span style={{textAlign: "center"}}></span>
                 {
-                    envio === "Envio" && <span style={{textAlign: "right"}}>{"$ " + Intl.NumberFormat("es-AR").format(total + 500)}</span>
-                }
-                {
-                    envio === "Retiro" && <span style={{textAlign: "right"}}>{"$ " + Intl.NumberFormat("es-AR").format(total)}</span>
+                    envio === "Envio" ? <span style={{textAlign: "right"}}>{"$ " + Intl.NumberFormat("es-AR").format(total + 500)}</span>
+                    : <span style={{textAlign: "right"}}>{"$ " + Intl.NumberFormat("es-AR").format(total)}</span>
                 }
             </div>
         </div>
@@ -52,5 +50,6 @@ function sumaPrecios(cart){
     cart.map((c) => {
         total += c.precio * c.cantidad;
     })
+    console.log(total);
     return total;
 }
