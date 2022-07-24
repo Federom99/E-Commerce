@@ -35,7 +35,7 @@ export default function Login() {
 
   useEffect(() => {
     dispatch(getUsuarios());
-  }, [])
+  }, []);
 
   useEffect(() => {
     const userSession = localStorage.getItem("user");

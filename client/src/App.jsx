@@ -32,6 +32,9 @@ import ForgotPassword from "./pages/ForgotPasword";
 import ResetPassword from "./pages/ResetPassword";
 import Compras from "./pages/Compras";
 import Favoritos from "./pages/Favoritos";
+import ModalContainer from "./components/ModalReview/ModalContainer";
+import Modal from "./components/ModalReview";
+import { changeModalClose, changeModalOPen } from "./redux/actions/reviews";
 import { useDarkMode } from "./styles/useDarkMode";
 import Toggle from "./components/Toggle/Toggle";
 import styled, { ThemeProvider } from 'styled-components';
@@ -47,6 +50,8 @@ function App() {
   const error = useSelector((state) => state.product.error);
   const loading = useSelector((state) => state.product.loading);
   const products = useSelector((state) => state.product.products);
+  const change = useSelector((state) => state.reviews.modal);
+
   const dispatch = useDispatch();
   let location = useLocation();
   const [ theme, toggleTheme ] = useDarkMode();
@@ -85,6 +90,19 @@ function App() {
   return (
     <div className="App">
     <ThemeProvider theme={themeMode}>
+      <ModalContainer>
+        {change == true && (
+          <Modal
+            modalOpen={change}
+            text={"lol"}
+            handleClose={() =>
+              change
+                ? dispatch(changeModalClose())
+                : dispatch(changeModalOPen())
+            }
+          />
+        )}
+      </ModalContainer>
       <GlobalStyle />
       <NavBar products={products} />
       {/* {location.pathname !== "/" ? <NavBar /> : null} */}

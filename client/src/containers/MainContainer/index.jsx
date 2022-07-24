@@ -5,11 +5,18 @@ import CardsContainer from "../CardsContainer";
 import LeftBar from "../../components/LeftBar";
 import Paginado from "../../components/Paginado/Paginado";
 import { useState } from "react";
-import { useSelector , useDispatch } from "react-redux";
-import { getAllFavs , getUserId } from "../../redux/actions/favoritos";
+import { useSelector, useDispatch } from "react-redux";
+import { getAllFavs, getUserId } from "../../redux/actions/favoritos";
+import ModalContainer from "../../components/ModalReview/ModalContainer";
+import Modal from "../../components/ModalReview";
+import {
+  changeModalClose,
+  changeModalOPen,
+  changeModalReview,
+} from "../../redux/actions/reviews";
 
 const MainContainer = ({ products }) => {
-  const [state , favs] = useSelector((state) =>[state.auth , state.favorites]);
+  const [state, favs] = useSelector((state) => [state.auth, state.favorites]);
   const [paginaActual, setPaginaActual] = useState(1);
   const [cantidad, setCantidad] = useState(9);
   const indiceFinal = paginaActual * cantidad;
