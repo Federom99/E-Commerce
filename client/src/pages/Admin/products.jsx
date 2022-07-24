@@ -142,7 +142,8 @@ export default function Products() {
         fixedHeaderScrollHeight="600px"
       />
       {modal && (<Modal
-        cambiarEstado={setModal} datos={EditProduct} submit={submit}
+        cambiarEstado={setModal} datos={EditProduct}
+        //  submit={submit}
       />
       )}
     </div>
