@@ -143,6 +143,7 @@
 
 .icons {
   margin: 0 5px;
+  font-weight: bold;
 }
 
 .icons:hover{

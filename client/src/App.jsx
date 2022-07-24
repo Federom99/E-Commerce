@@ -24,7 +24,7 @@ import Users from "./pages/Admin/users";
 import Products from "./pages/Admin/products";
 import Sales from "./pages/Admin/sales";
 import Confirmacion from "./pages/Confirmacion";
-import { GlobalStyle } from "./styles/GlobalStyles";
+import { GlobalStyle, lightTheme, darkTheme } from "./styles/GlobalStyles";
 import { clearMsg } from "./redux/actions/autenticacion";
 import Checkout from "./pages/Checkout/Checkout";
 import CheckoutSuccess from "./pages/CheckoutSuccess/CheckoutSuccess";
@@ -32,6 +32,9 @@ import ForgotPassword from "./pages/ForgotPasword";
 import ResetPassword from "./pages/ResetPassword";
 import Compras from "./pages/Compras";
 import Favoritos from "./pages/Favoritos";
+import { useDarkMode } from "./styles/useDarkMode";
+import Toggle from "./components/Toggle/Toggle";
+import styled, { ThemeProvider } from 'styled-components';
 
 function handleErrors(response, rest) {
   if (response.status === 400) {
@@ -46,6 +49,8 @@ function App() {
   const products = useSelector((state) => state.product.products);
   const dispatch = useDispatch();
   let location = useLocation();
+  const [ theme, toggleTheme ] = useDarkMode();
+  const themeMode = theme === "light" ? lightTheme : darkTheme;
 
   useEffect(() => {
     dispatch(getProducts());
@@ -79,6 +84,7 @@ function App() {
 
   return (
     <div className="App">
+    <ThemeProvider theme={themeMode}>
       <GlobalStyle />
       <NavBar products={products} />
       {/* {location.pathname !== "/" ? <NavBar /> : null} */}
@@ -112,7 +118,10 @@ function App() {
         <Route path="/checkout" element={<Checkout />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
+
       <Footer />
+      <Toggle theme={theme} toggleTheme={toggleTheme} />
+    </ThemeProvider>
     </div>
   );
 }
