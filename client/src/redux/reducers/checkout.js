@@ -5,7 +5,7 @@ import {
 } from "../actions/actionTypes";
 
 const initialState = {
-  checkout: {},
+  checkout:{},
   datos: {},
   pedidos: [],
   usuarios: [],
@@ -79,7 +79,6 @@ export default function productReducer(state = initialState, action) {
         detalleEnvio: action.payload,
       };
     case GET_ALL_SUCURSALES:
-      console.log(action.payload)
       return{
         ...state,
         sucursales: action.payload

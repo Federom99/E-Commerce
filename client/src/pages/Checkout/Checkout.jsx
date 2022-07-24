@@ -10,6 +10,7 @@ import useScript from "./useScript";
 import { useState } from "react";
 import {checkout, crearPedido, getAllSucursales, guardarDatosComprador} from "../../redux/actions/checkout";
 import Mapa from "../../components/Mapa/Mapa";
+import Resume from "../../components/CheckoutResume/resume";
 
 const Checkout = () => {
     const [input, setInput] = useState({nombre: "", apellido: "", documento: "", direccion: "", codigoPostal: "", provincia: ""});
@@ -41,7 +42,7 @@ const Checkout = () => {
             "productos": crearProductosPedido(carrito),
             "comprador": comprador,
         }
-        console.log(pedido);
+        // console.log(pedido);
         let disPedido = await dispatch(crearPedido(pedido));
     }
 
@@ -150,8 +151,9 @@ const Checkout = () => {
     return(
         <Main>
             <Div>
+                {carrito.length ? (<>
+                <Resume cart={carrito} envio={envio}/>
                 <div className={estilos.formularioContainer}>
-                    {carrito.length ? (<>
                     <H2>Datos de facturacion</H2>
                     <form id={estilos.formulario}>  
                         <ul id={estilos.lista}>
@@ -225,24 +227,28 @@ const Checkout = () => {
                         <div id="button-checkout" className={estilos.pagar}></div> 
                     </form>
                     <br />
-                    </>) : (<H2 style={{marginTop:"1rem"}}>No hay items en su carrito</H2>)}
                 </div>
+                {/* <div style={{borderLeft:"1px solid #000", height:"500px"}}></div> */}
                 <div className={estilos.formularioContainer}>
                     <H2>Datos de entrega</H2>
                     <ul id={estilos.lista}>
                         <li className={estilos.itemsLista}>
-                            <div>
-                                <input type="radio" name="tipoEnvio" value="Retiro" onChange={radioChangeHandler}/>
-                                <label>Retiro en punto de entrega</label>
+                            <div style={{display: "flex", flexDirection:"row"}}>
+                                <label className={estilos.rbLabel}>
+                                <input className={estilos.radio} type="radio" name="tipoEnvio" value="Retiro" onChange={radioChangeHandler}/>
+                                    <span style={{marginLeft: "1rem"}}>Retiro en punto de entrega</span>
+                                    </label>
                             </div>
                             <div>
-                                <input type="radio" name="tipoEnvio" value="Envio" onChange={radioChangeHandler}/>
-                                <label>Envío a domicilio</label>
+                                <label className={estilos.rbLabel}>
+                                <input className={estilos.radio} type="radio" name="tipoEnvio" value="Envio" onChange={radioChangeHandler}/>
+                                    <span style={{marginLeft: "1rem"}}>Envío a domicilio</span>
+                                </label>
                             </div>
                             <div>
                                 {
                                     envio === "Envio" && 
-                                        <label><br />Costo de envío: $500</label>
+                                        <label><br />Costo de envío: $500<br /><br /></label>
                                 }{
                                     envio === "Retiro" &&
                                         <label><br />Retiro a partir de 5 días hábiles</label>
@@ -287,6 +293,7 @@ const Checkout = () => {
                         }
                     </ul>
                 </div>
+            </>) : (<H2 style={{marginTop:"3rem", marginBottom:"3rem", fontSize:"2rem"}}>No hay items en su carrito</H2>)}
             </Div>
         </Main>
     );
