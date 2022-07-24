@@ -9,7 +9,9 @@ import {
   resetItemStock,
   setLocalStorage,
 } from "../../../redux/actions/cart";
-import { List, Img, Li , Text , Amount, Button , Div , CloseButton, PCant, SPAN, H3} from "./styles";
+import { List, Img, Li , Text , Amount, Button , Div , CloseButton, PCant, SPAN, H3, LinkTo} from "./styles";
+import { toast } from "react-toastify";
+import ToastMsg from "../../Toast";
 
 export default function OrderItem({ id , item }) {
   const [productOrder,setOrder] = useState({
@@ -22,14 +24,7 @@ export default function OrderItem({ id , item }) {
   })
   const [cart , currentStock] = useSelector(state=>[ state.cart , state.cart.cartRemainingStock ])
   const [stock,setStock] = useState(0)
-  // const index = useRef (-1)
   const getStock = async ()=>{
-    // let index = currentStock.findIndex(p=>{
-    //   if (p.id === id && p.talle === item.talle) return p
-    // })
-    // console.log(`El index de ${item.nombre} es ${index}`)
-    // console.log(`El stock disponible de ${item.nombre} es ${currentStock[index]}`)
-    // setStock(currentStock[index].stock)
     const product = await axios.get(`http://localhost:3001/product/${item.id}`)
     if (item.talle === 'Sin talle'){
       setStock(product.data.talles[0].producto_talle.stock)
@@ -83,15 +78,17 @@ export default function OrderItem({ id , item }) {
     }
   };
   const removeItem = () => {
-    dispatch(removeOrder(item.id,item.talle));
-    dispatch(resetItemStock(id,item.talle))
+    toast(<ToastMsg tipo={"cart"} name={item.nombre} productId={id} productSize={item.talle}/>)
+
   };
   return (
     <Div key={id}>
       <CloseButton onClick={removeItem}><BsTrashFill/></CloseButton>
       <List>
         <Li key={`${id}img`}>
-          <Img src={`${item.imagen}`} alt={`Imagen de ${item.nombre}`} />
+          <LinkTo to={`/detail/${id}`}>
+            <Img src={`${item.imagen}`} alt={`Imagen de ${item.nombre}`} />
+          </LinkTo>    
         </Li>
         <Li key={`${id}text`}>
           <Text>
