@@ -1,14 +1,16 @@
 import { useLocation, Navigate, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-function RequireAuthAdmin({isAdmin}){
+function RequireAuthAdmin({isAllowed}){
     const auth = useSelector(state => state.auth)
     const location = useLocation();
 
     return (
-        auth?.user.isAdmin === isAdmin
+        auth?.user?.isAdmin === isAllowed && auth?.isLoggedIn
         ? <Outlet/>
-        : <Navigate to='/' state={{from: location}} replace/>
+        : auth?.isLoggedIn
+        ? <Navigate to='/' state={{from: location}} replace/>
+        : <Navigate to='/login' state={{from: location}} replace/>
     )
 }
 

@@ -125,7 +125,7 @@ function App() {
 
         <Route path="/confirmar/:id" element={<Confirmacion />} />
 
-        <Route element={<RequireAuthAdmin isAdmin={true}/>}>
+        <Route element={<RequireAuthAdmin isAllowed={true}/>}>
           <Route path="/admin/dashboard/*" element={<DashboardAdmin />} />
         </Route>
 
