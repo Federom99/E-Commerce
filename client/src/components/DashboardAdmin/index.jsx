@@ -2,6 +2,7 @@ import { Link, Route, Routes } from 'react-router-dom'
 import Users from '../../pages/Admin/users'
 import Products from '../../pages/Admin/products'
 import Sales from '../../pages/Admin/sales';
+import Admin from '../../pages/Admin';
 import './Dashboard.css'
 
 export default function DashboardAdmin() {
@@ -23,7 +24,7 @@ export default function DashboardAdmin() {
             </div>
             <div className='body'>
             <Routes>
-                    <Route path="/" element={<Users />} />
+                    <Route path="/" element={<Admin />} />
                     <Route path="users" element={<Users />} />
                     <Route path="products" element={<Products />} />
                     <Route path="sales" element={<Sales />} />
