@@ -16,9 +16,15 @@ const fs = require("fs");
 const { hashPassword } = require("./src/helpers/hashPassword.js");
 
 // Syncing all the models at once.
-// Seteado en force: true para que sea facil debuggear.
-conn.sync({ force: true }).then(() => {
-  server.listen(3001, () => {
+// Seteado en el valor que ponga en el .env
+conn.sync({ force: process.env.DEPLOYED === 'true' ? true : false }).then(() => {
+  server.listen(3001, async () => {
+    //Cuento los productos para ver si ya fueron cargados antes.
+    const productosCuenta = await Producto.count()
+    if(productosCuenta !== 0){
+      console.log('Los productos ya estaban cargados en la DB.')
+      return
+    }
     console.log("%s listening at 3001");
     const productosJSON = JSON.parse(
       fs.readFileSync(__dirname + "/src/models/assets/productos.json")
@@ -163,6 +169,7 @@ conn.sync({ force: true }).then(() => {
           coordenadas: u.coord,
         });
       });
+      console.log('DB loaded.')
     })();
   });
 });
