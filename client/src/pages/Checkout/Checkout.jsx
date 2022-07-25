@@ -109,6 +109,10 @@ const Checkout = () => {
                     container: "#button-checkout", // Indica el nombre de la clase donde se mostrará el botón de pago
                     label: "Pagar", // Cambia el texto del botón de pago (opcional)
                 },
+                theme: {
+                    elementsColor: '#000000',
+                    headerColor: '#ffffff',
+                }
                 })
         }
     },[pago]);

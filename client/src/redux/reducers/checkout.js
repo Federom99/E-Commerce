@@ -9,7 +9,7 @@ const initialState = {
   datos: {},
   pedidos: [],
   usuarios: [],
-  pedido: [{Error: "hola"}],
+  pedido: [],
   usuariosFiltrados: [],
   detalleEnvio: [],
   sucursales: []
