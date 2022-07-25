@@ -78,7 +78,10 @@ export default function OrderItem({ id , item }) {
     }
   };
   const removeItem = () => {
-    toast(<ToastMsg tipo={"cart"} name={item.nombre} productId={id} productSize={item.talle}/>)
+    // toast.error('asd')
+    toast.error(<ToastMsg tipo={"cart"} name={item.nombre} productId={id} productSize={item.talle}/>,{
+      toastId: `delete${id}+${item.talle}`
+    })
 
   };
   return (

@@ -5,7 +5,7 @@ import { ToastContainer } from "react-toastify"
 import { getAllFavs, removeDetail } from "../../redux/actions/favoritos.js"
 import Loading from "../Loader/index.jsx"
 import FavCard from "./FavCard/index.jsx"
-import { Li, List } from "./styles"
+import { Li, List, StyledContainer } from "./styles"
 
 
 export default function Compras (){
@@ -28,9 +28,9 @@ useEffect(()=>{
             isLoading ? (<Loading/>) : (
             
             <List>
-                <ToastContainer
+                <StyledContainer
                     position="top-center"
-                    hideProgressBar
+                    hideProgressBar = {false}                    
                     draggable
                     progress={undefined}
                 />
