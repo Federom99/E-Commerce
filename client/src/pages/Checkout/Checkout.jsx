@@ -128,19 +128,18 @@ const Checkout = () => {
      useEffect(
         () => {
             if(errores.nombre || errores.apellido || errores.documento || errores.direccion || errores.codigoPostal
-            || errores.provincia){
-                setBotonBloqueado("disabled");
-            }else setBotonBloqueado("");
+                || errores.provincia){
+                    setBotonBloqueado("disabled");
+                }else if(erroresEnvio.direccion || erroresEnvio.codigoPostal || erroresEnvio.provincia){
+                    setBotonBloqueado("disabled");
+                }else setBotonBloqueado("");
+            if(!inputEnvio.direccion || !inputEnvio.codigoPostal || !inputEnvio.provincia){
+                    setBotonBloqueado("disabled");
+            }
             if(!input.nombre || !input.apellido || !input.documento || !input.direccion || !input.codigoPostal
                 || !input.provincia){
                     setBotonBloqueado("disabled");
             }
-            if(erroresEnvio.direccion || erroresEnvio.codigoPostal || erroresEnvio.provincia){
-                    setBotonBloqueado("disabled");
-                }else setBotonBloqueado("");
-                if(!inputEnvio.direccion || !inputEnvio.codigoPostal || !inputEnvio.provincia){
-                        setBotonBloqueado("disabled");
-                }
         }, [errores, input, inputEnvio, erroresEnvio]
     )
 
@@ -266,8 +265,10 @@ const Checkout = () => {
                                     envio === "Envio" && 
                                         <label><br />Costo de envío: $500<br /><br /></label>
                                 }{
-                                    envio === "Retiro" &&
-                                        <label><br />Retiro a partir de 5 días hábiles</label>
+                                    inputEnvio.direccion && envio === "Retiro" ? 
+                                    <label><br />Retiro a partir de 5 días hábiles - Punto de retiro: {inputEnvio.direccion}</label>
+                                    : envio === "Retiro" &&
+                                    <label><br />Retiro a partir de 5 días hábiles<br /></label>
                                 }
                             </div>
                         </li>

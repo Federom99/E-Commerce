@@ -12,6 +12,7 @@ import { useLocation, useParams } from "react-router-dom";
 import queryString from "query-string";
 import { aprobarPedido, crearPedido, getFactura } from "../../redux/actions/checkout";
 import { deleteCart } from "../../redux/actions/cart";
+import checkoutResume from "../../components/CheckoutResume/resume"
 
 const CheckoutSuccess = () => {
     const dispatch = useDispatch();
@@ -48,6 +49,7 @@ const CheckoutSuccess = () => {
     },[]);
 
     const {datosFactura} = pedido;
+    console.log(pedido);
 
     return(
         <Main>
@@ -86,7 +88,8 @@ const CheckoutSuccess = () => {
                         </li>
                     </ul>
                     <br />
-                </div>        
+                </div>
+                {/* <checkoutResume cart={carrito} envio={envio}/>      */}
             </Div>
         </Main>
     );
