@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ToastContainer } from "react-toastify";
 
 export const List = styled.ul`
   list-style: none;
@@ -31,5 +32,14 @@ export const Div = styled.div`
     min-height: 20vh;
     display: flex;
     flex-direction: column;
-
+`
+export const StyledContainer = styled(ToastContainer)`
+&&&.Toastify__toast-container {}
+  .Toastify__toast {
+    
+  }
+  .Toastify__toast-body {
+    
+  }
+  .Toastify__progress-bar {}
 `

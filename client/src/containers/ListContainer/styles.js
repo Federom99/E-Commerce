@@ -37,7 +37,7 @@ export const Header = styled.header`
   margin-top: 2rem;
   font-size: 2rem;
   font-weight: lighter;
-  font-family: "Righteous", cursive;
+  /* font-family: "Righteous", cursive; */
 `;
 
 export const CatList = styled.ul`
