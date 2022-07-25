@@ -7,7 +7,8 @@ import CreateUser from "./pages/CreateUser";
 import ProductDetail from "./pages/Detail";
 import Profile from "./pages/Profile";
 
-import RequireAuth from "./components/RequireAuth";
+import RequireAuthUser from "./components/RequireAuth/user";
+import RequireAuthAdmin from "./components/RequireAuth/admin";
 
 import Login from "./pages/Login";
 
@@ -115,7 +116,7 @@ function App() {
         <Route path="/register" element={<CreateUser />} />
         <Route path="/cart/" element={<ShoppingCart />} />
 
-        <Route element={<RequireAuth isAdmin={false} />}>
+        <Route element={<RequireAuthUser isLogged={true}/>}>
           <Route path="/profile/" element={<Profile />} />
           <Route path="/createProduct" element={<CreateProduct />} />
           <Route path="/profile/compras/:id" element={<Compras />} />
@@ -124,8 +125,7 @@ function App() {
 
         <Route path="/confirmar/:id" element={<Confirmacion />} />
 
-        <Route element={<RequireAuth isAdmin={true} />}>
-          <Route path="/admin" element={<AdminHub />} />
+        <Route element={<RequireAuthAdmin isAdmin={true}/>}>
           <Route path="/admin/dashboard/*" element={<DashboardAdmin />} />
         </Route>
 
