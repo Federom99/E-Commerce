@@ -1,31 +1,32 @@
-import { useEffect } from "react";
-import { FaStar } from "react-icons/fa";
-import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
-import {
-  Main,
-  Div,
-  ImageContainer,
-  Image,
-  InfoContainer,
-  H2,
-  P,
-  Stars,
-  SizeInfo,
-  Description,
-  Size,
-  Button,
-  Review,
-  FavContainer,
-} from "./styles";
-import { getProduct , clearProduct } from "../../redux/actions/product";
-import {addToCart, modifyItemStock, setItemStock, setLocalStorage} from "../../redux/actions/cart"
-import Loading from "../../components/Loader";
-import estilos from "./detail.module.css";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 import FavIcon from "../../components/FavContainer";
+import Loading from "../../components/Loader";
+import {
+  addToCart,
+  modifyItemStock,
+  setItemStock,
+  setLocalStorage,
+} from "../../redux/actions/cart";
+import { clearProduct, getProduct } from "../../redux/actions/product";
+import estilos from "./detail.module.css";
+import {
+  Button,
+  Description,
+  Div,
+  FavContainer,
+  H2,
+  Image,
+  ImageContainer,
+  InfoContainer,
+  Main,
+  P,
+  Size,
+  SizeInfo,
+} from "./styles";
 
 const colors = {
   orange: "#FFBA5A",
@@ -59,8 +60,13 @@ const ProductDetail = () => {
   };
 
   let dispatch = useDispatch();
-  let [cart , product , error , currentStock] = useSelector ( state => [ state.cart , state.product.product , state.product.error , state.cart.cartRemainingStock])
-  const {user:currentUser} = useSelector(state=>state.auth)
+  let [cart, product, error, currentStock] = useSelector((state) => [
+    state.cart,
+    state.product.product,
+    state.product.error,
+    state.cart.cartRemainingStock,
+  ]);
+  const { user: currentUser } = useSelector((state) => state.auth);
   let { productId } = useParams();
 
   useEffect(() => {
@@ -98,32 +104,35 @@ const ProductDetail = () => {
     }
   };
 
-  useEffect(()=>{    
-    if (Object.keys(product).length){
-      if (product.categorium.nombre === 'Accesorios'){
-        setSize("Sin talle")
-        setStock(product.talles[0].producto_talle.stock)
-      } 
+  useEffect(() => {
+    if (Object.keys(product).length) {
+      if (product.categorium.nombre === "Accesorios") {
+        setSize("Sin talle");
+        setStock(product.talles[0].producto_talle.stock);
+      }
     }
   }, [size]);
-  
-  useEffect(()=>{
-    if (Object.keys(product).length && product.categorium.nombre !== 'Accesorios' && size){
-      let index = currentStock.findIndex(p=>{
-        if(p.id===parseInt(productId) && p.talle === size) return p
-      })
-      if (index!==-1){
-        setStock(currentStock[index].stock)
-      }
-      else{
-        let index2 = product.talles.findIndex(p=>p.talle === size)
-        setStock(product.talles[index2].producto_talle.stock)
-      }
-    }    
-  },[size,currentStock])
 
-  const addCart = async ()=>{
-    if(product.categorium?.nombre ==="Accesorios"){
+  useEffect(() => {
+    if (
+      Object.keys(product).length &&
+      product.categorium.nombre !== "Accesorios" &&
+      size
+    ) {
+      let index = currentStock.findIndex((p) => {
+        if (p.id === parseInt(productId) && p.talle === size) return p;
+      });
+      if (index !== -1) {
+        setStock(currentStock[index].stock);
+      } else {
+        let index2 = product.talles.findIndex((p) => p.talle === size);
+        setStock(product.talles[index2].producto_talle.stock);
+      }
+    }
+  }, [size, currentStock]);
+
+  const addCart = async () => {
+    if (product.categorium?.nombre === "Accesorios") {
       setSize("Sin talle");
     }
     let order = {
@@ -131,32 +140,33 @@ const ProductDetail = () => {
       talle: size,
       cantidad: 1,
     };
-    
-    if (order.talle){
-      const check = await checkStock()
-      if (check){
-        let index = currentStock.findIndex(p=>{
-          if (p.id === parseInt(productId) && p.talle === size) return p
-        })
-        if (index !== -1){ //si lo encuentra en el global actual de stock
-          if((currentStock[index].stock-1)>=0){ //si el stock no queda como negativo
-            dispatch(modifyItemStock(parseInt(productId),size))
-            dispatch(addToCart(order))
+
+    if (order.talle) {
+      const check = await checkStock();
+      if (check) {
+        let index = currentStock.findIndex((p) => {
+          if (p.id === parseInt(productId) && p.talle === size) return p;
+        });
+        if (index !== -1) {
+          //si lo encuentra en el global actual de stock
+          if (currentStock[index].stock - 1 >= 0) {
+            //si el stock no queda como negativo
+            dispatch(modifyItemStock(parseInt(productId), size));
+            dispatch(addToCart(order));
             toast.success("Agregado al carrito");
-            setStock(stock=>stock-=1)
+            setStock((stock) => (stock -= 1));
+          } else {
+            toast.error("No hay más stock");
           }
-          else {
-            toast.error('No hay más stock')
-          }        
-        }
-        else{ //si no lo encuentra en el global (si hay stock porque lo verifica check)     
-          dispatch(addToCart(order))
-          dispatch(setItemStock(parseInt(productId),size))
+        } else {
+          //si no lo encuentra en el global (si hay stock porque lo verifica check)
+          dispatch(addToCart(order));
+          dispatch(setItemStock(parseInt(productId), size));
           toast.success("Agregado al carrito");
-          setStock(stock=>stock-=1)
+          setStock((stock) => (stock -= 1));
         }
-      } else{
-        toast.error(`No hay stock `)
+      } else {
+        toast.error(`No hay stock `);
       }
     } else toast.error("Seleccione un talle");
   };
@@ -184,8 +194,13 @@ const ProductDetail = () => {
       />
       <Div>
         <ImageContainer>
-        <FavContainer>
-            {currentUser ? (<FavIcon productId={parseInt(productId)} productName={product.nombre}/>) : null}            
+          <FavContainer>
+            {currentUser ? (
+              <FavIcon
+                productId={parseInt(productId)}
+                productName={product.nombre}
+              />
+            ) : null}
           </FavContainer>
           <Image src={product?.imagen} />
         </ImageContainer>
@@ -193,28 +208,6 @@ const ProductDetail = () => {
           <H2>{product?.nombre}</H2>
           {size ? <P stock={stock}>Precio: $ {formatPrice}</P> : null}
 
-          {/* <Stars>
-            {stars.map((_, index) => {
-              return (
-                <FaStar
-                  key={index}
-                  size={20}
-                  onClick={() => handleClick(index + 1)}
-                  onMouseOver={() => handleMouseOver(index + 1)}
-                  onMouseLeave={handleMouseLeave}
-                  color={
-                    (hoverValue || currentValue) > index
-                      ? colors.orange
-                      : colors.grey
-                  }
-                  style={{
-                    marginRight: 10,
-                    cursor: "pointer",
-                  }}
-                />
-              );
-            })}
-          </Stars> */}
           <SizeInfo>
             {product.categorium?.nombre !== "Accesorios" &&
               product.talles?.map((talle) => {
@@ -231,8 +224,6 @@ const ProductDetail = () => {
           </SizeInfo>
           <Description>{product.descripcion}</Description>
           <Button onClick={addCart}>Agregar al carrito</Button>
-          <Review placeholder="Enter a review of the product"></Review>
-          <Button>Send review</Button>
         </InfoContainer>
       </Div>
     </Main>
