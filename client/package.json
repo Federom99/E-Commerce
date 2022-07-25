@@ -29,7 +29,8 @@
     "recharts": "^2.1.12",
     "redux": "^4.2.0",
     "redux-thunk": "^2.4.1",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "sweetalert2": "^11.4.24"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",

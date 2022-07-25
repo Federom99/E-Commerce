@@ -5,7 +5,7 @@ import Sales from '../../pages/Admin/sales';
 import Admin from '../../pages/Admin';
 import './Dashboard.css'
 
-export default function DahboardAdmin() {
+export default function DashboardAdmin() {
     return (
         <div className='contenedor'>
             <div className='sideBar'>

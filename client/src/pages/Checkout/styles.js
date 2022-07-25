@@ -48,6 +48,7 @@ export const H2 = styled.div`
   font-weight: 600;
   margin: auto;
   margin-bottom: 1rem;
+  grid-column: 2/3
 `;
 
 export const Error = styled.h1`

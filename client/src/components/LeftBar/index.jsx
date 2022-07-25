@@ -81,7 +81,7 @@ function LeftBar({resetPagina}) {
         </Category>
       </CategoriesContainer>
       <DivFilterTitle>
-        <FilterTitle>Filtrar</FilterTitle>
+        <FilterTitle>Ordenar</FilterTitle>
         <BsArrowDownUp />
       </DivFilterTitle>
       <Select onChange={(e) => changeOrderBy(e)} value={input.orden}>

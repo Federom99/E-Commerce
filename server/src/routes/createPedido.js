@@ -18,7 +18,7 @@ router.post("/", queue({ activeLimit: 1, queuedLimit: -1}), async (req, res) => 
     let { productos, comprador, direccion_de_envio, tipoDeEnvio } = req.body;
 
     if(!direccion_de_envio){
-      direccion_de_envio = comprador.direccion + " - " + comprador.codigoPostal + " - " + comprador.provincia;
+      direccion_de_envio = {direccion: comprador.direccion + " - " + comprador.provincia, CP: comprador.codigoPostal};
     }
 
     console.log(req.body);
@@ -38,7 +38,8 @@ router.post("/", queue({ activeLimit: 1, queuedLimit: -1}), async (req, res) => 
         }
       });
       //Me fijo si encontré un producto que requeria esa y que tenga stock. Si no lo hago en algún caso, devuelvo un error.
-      if(!productoTalle || (productoTalle.talles[0].dataValues.producto_talle.dataValues.stock - productos[i].cantidad) < 0) return res.status(400).send({Error: "Hubo un error. Porfavor, inténtelo de vuelta."})
+      if(!productoTalle || (productoTalle.talles[0].dataValues.producto_talle.dataValues.stock - productos[i].cantidad) < 0) 
+        return res.status(400).send({Error: "Lo sentimos. El producto seleccionado está agotado."})
       //Sumo el total del precio
       total += productos[i].cantidad * productoTalle.precio
     }
