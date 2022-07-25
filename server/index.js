@@ -21,7 +21,8 @@ conn.sync({ force: process.env.DEPLOYED === 'true' ? false : true }).then(() => 
   server.listen(3001, async () => {
     //Cuento los productos para ver si ya fueron cargados antes.
     const productosCuenta = await Producto.count()
-    if(productosCuenta !== 0){
+    const TallesCuenta = await Talle.count()
+    if(productosCuenta !== 0 && TallesCuenta !== 0){
       console.log('Los productos ya estaban cargados en la DB.')
       return
     }
