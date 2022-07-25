@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'Anek Malayalam', sans-serif;
         background-color: ${({theme}) => theme.body};
         color: ${({theme}) => theme.color};
-        transition: all .4s linear;
+        /* transition: all .4s linear; */
     }
     .App{
         min-width: 375px;

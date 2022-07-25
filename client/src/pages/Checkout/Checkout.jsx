@@ -12,6 +12,8 @@ import {checkout, crearPedido, getAllSucursales, guardarDatosComprador} from "..
 import Mapa from "../../components/Mapa/Mapa";
 import Resume from "../../components/CheckoutResume/resume";
 import { deleteCart } from "../../redux/actions/cart";
+import { clearLocalStorage } from "../../redux/actions/cart";
+import Swal from "sweetalert2"
 
 const Checkout = () => {
     const [input, setInput] = useState({nombre: "", apellido: "", documento: "", direccion: "", codigoPostal: "", provincia: ""});
@@ -67,12 +69,12 @@ const Checkout = () => {
         }
         if(pedidoGenerado.hasOwnProperty("Error")){
             Swal.fire({
-                icon: 'error',
+                type: 'error',
                 title: 'Ups...',
                 text: 'Ha ocurrido un error',
-                footer: pedidoGenerado.Error
+                footer: pedidoGenerado.Error,
+                didClose: () => { dispatch(deleteCart()); dispatch(clearLocalStorage()); window.location.replace("/cart") }
               });
-            dispatch(deleteCart());
         }
     },[pedidoGenerado])
 
@@ -303,7 +305,7 @@ const Checkout = () => {
                         }
                     </ul>
                 </div>
-            </>) : (<H2 style={{marginTop:"3rem", marginBottom:"3rem", fontSize:"2rem"}}>No hay items en su carrito</H2>)}
+            </>) : (<H2 style={{margin: "auto", marginTop:"3rem", marginBottom:"3rem", fontSize:"1.5rem"}}>No hay items en su carrito</H2>)}
             </Div>
         </Main>
     );

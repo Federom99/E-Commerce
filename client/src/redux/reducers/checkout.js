@@ -9,7 +9,7 @@ const initialState = {
   datos: {},
   pedidos: [],
   usuarios: [],
-  pedido: [],
+  pedido: [{Error: "hola"}],
   usuariosFiltrados: [],
   detalleEnvio: [],
   sucursales: []
@@ -67,7 +67,7 @@ export default function productReducer(state = initialState, action) {
           state.usuariosFiltrados[i].id === action.payload[j].id && filtrados.push(action.payload[j])
         }
       }
-      console.log(filtrados)
+      // console.log(filtrados)
       return {
         ...state,
         usuarios: action.payload,
