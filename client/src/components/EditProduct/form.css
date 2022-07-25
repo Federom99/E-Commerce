@@ -1,22 +1,42 @@
 .formulario {
-    padding: 15px;
     width: 450px;
-    height: auto;
     border: 1px solid gray;
-    margin-bottom: 20px;
+    margin: auto;
+    -webkit-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
+    -moz-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
+    box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
+    border-radius: 8px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .formulario label {
-    display: block;
-    font-size: 19px;
-    padding-top: 7px;
-    padding-bottom: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 3px 20px 5px 0px;
 }
 
 .formulario input {
-    margin-right: auto;
-    margin-left: auto;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #999;
     width: 100%;
+    margin-bottom: 5px;
+    outline: none;
+}
+
+.inputError{
+    background-color:#F5B7B1;
+    padding: 8px;
+    border-radius: 5px;
+    border: 2px solid #999;
+    border-color: red;
+    width: 100%;
+    margin-bottom: 5px;
+    outline: none;
 }
 
 .formulario button {
@@ -35,9 +55,10 @@
 }
 
 .errors {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 3px 20px 5px 0px;
     color: red;
-    margin-top: 10px;
-    font-weight: 700;
 }
 
 #botonBloqueado{
@@ -46,10 +67,39 @@
     cursor:default;
 }
 
+#boton{
+    align-self: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 80%;
+    padding: 10px;
+    background-color: #181818;
+    border-color: #181818;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+#boton:hover{
+    background-color: whitesmoke;
+    color: black;
+    cursor: pointer;
+    border-color: black;
+    border-style: solid;
+}
+
 #selectCat{
     margin-right: auto;
     margin-left: auto;
     width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #999;
+    width: 100%;
+    margin-bottom: 5px;
+    outline: none;
 }
 
 #checkLabel{
@@ -65,6 +115,7 @@
     display: grid;
     grid-template-columns: repeat(3,1fr);
     flex-direction: column;
+    justify-self: center;
 }
 
 #inputTalle{
@@ -76,4 +127,10 @@
 #spanTalle{
     margin-left: 1rem;
     font-size: 0.7rem;
+}
+
+#contenedorForm{
+    /* background-color: red; */
+    width: 100%;
+    display: flex;
 }

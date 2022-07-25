@@ -181,7 +181,7 @@ export default function Form({ submit }) {
 
     return (
         <div id="contenedorForm">
-            <form className="formulario" onSubmit={handleSubmit}>
+            <form style={{overflow:"hidden"}} className="formulario" onSubmit={handleSubmit}>
                 <label>Nombre</label>
                 <input
                     name="nombre"
@@ -189,6 +189,7 @@ export default function Form({ submit }) {
                     value={form.nombre}
                     onChange={handleChange}
                     placeholder="Nombre"
+                    className={errors.nombre && "inputError"}
                 />
                 {errors.nombre && (
                         <p className="errors">{errors.nombre}</p>
@@ -200,6 +201,7 @@ export default function Form({ submit }) {
                     value={form.descripcion}
                     onChange={handleChange}
                     placeholder="descripcion"
+                    className={errors.descripcion && "inputError"}
                 />
                 {errors.descripcion && (
                         <p className="errors">{errors.descripcion}</p>
@@ -209,6 +211,7 @@ export default function Form({ submit }) {
                     name="imagen"
                     type="file"
                     onChange={handleChange}
+                    className={errors.imagen && "inputError"}
                 />
                 {errors.imagen && (
                         <p className="errors">{errors.imagen}</p>
@@ -241,7 +244,8 @@ export default function Form({ submit }) {
                             <>
                             <label>{ct}</label>
                             <input type="number" value={form.stock[i]}
-                                onChange={(e) => handleStock(e, i)}></input>
+                                onChange={(e) => handleStock(e, i)}
+                                className={errors.stock && "inputError"}></input>
                             </>
                         )
                     })}
@@ -256,6 +260,7 @@ export default function Form({ submit }) {
                     value={form.precio}
                     onChange={handleChange}
                     placeholder="Precio"
+                    className={errors.precio && "inputError"}
                 />
                 {errors.precio && (
                         <p className="errors">{errors.precio}</p>

@@ -87,6 +87,10 @@ export const InfoContainer = styled.div`
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    ${DIV}:hover &{
+        white-space: normal;
+        margin-bottom: -2rem;
+    }
 `
 
 export const H2 = styled(Link)`

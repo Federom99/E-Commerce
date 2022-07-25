@@ -13,9 +13,7 @@ export default function EditProduct () {
     }
 
     return (
-        <Main>
             <EditForm submit={submit}/>
-        </Main>
     )
 }
 
