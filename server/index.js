@@ -17,7 +17,7 @@ const { hashPassword } = require("./src/helpers/hashPassword.js");
 
 // Syncing all the models at once.
 // Seteado en el valor que ponga en el .env
-conn.sync({ force: process.env.DEPLOYED === 'true' ? true : false }).then(() => {
+conn.sync({ force: process.env.DEPLOYED === 'true' ? false : true }).then(() => {
   server.listen(3001, async () => {
     //Cuento los productos para ver si ya fueron cargados antes.
     const productosCuenta = await Producto.count()
