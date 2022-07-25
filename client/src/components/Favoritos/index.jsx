@@ -35,7 +35,7 @@ useEffect(()=>{
                     progress={undefined}
                 />
                 {
-                    favs.userFavorites.map(id=><Li key={id}><FavCard productId={id}/></Li>)
+                    favs.userFavorites.length ? favs.userFavorites.map(id=><Li key={id}><FavCard productId={id}/></Li>) : <h3>No hay productos en favoritos</h3>
                 }
             </List>)
         }

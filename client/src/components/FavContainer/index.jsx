@@ -21,11 +21,15 @@ export default function FavIcon ({productId , productName}){
             toast.success(`${productName} añadido a favoritos`)
         }
         else {
-            //eliminado
-            // dispatch(deleteUserFav(userId,productId))
-            
-            location.pathname === "/" ? toast.error(`${productName} eliminado de favoritos`) : 
-            toast(<ToastMsg tipo={"fav"} name={productName} userId={userId} productId={productId} setFavStatus={setFavStatus}/>)
+            let detail = location.pathname.split("/")[1]
+            if (location.pathname === "/" || detail === "detail"){
+                setFavStatus(false)
+                dispatch(deleteUserFav(userId,productId))
+                toast.error(`${productName} eliminado de favoritos`)
+            }
+            else{
+                toast(<ToastMsg tipo={"fav"} name={productName} userId={userId} productId={productId} setFavStatus={setFavStatus}/>)    
+            }
         }
     }
     useEffect(()=>{
