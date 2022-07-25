@@ -22,7 +22,6 @@ export const List = styled.ul`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
 `;
 
 export const Li = styled.li`
@@ -84,4 +83,3 @@ export const BOTON = styled.button`
     border-style: solid;
   }
 `;
-

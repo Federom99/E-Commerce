@@ -58,7 +58,12 @@ export default function reviewReducer(state = initialState, action) {
     case CHANGE_MODAL_OPEN:
       return {
         ...state,
-        review: { id: action.payload.id, imagen: action.payload.imagen },
+        review: {
+          id: action.payload.id,
+          imagen: action.payload.imagen,
+          nombre: action.payload.nombre,
+          userId: action.payload.userId,
+        },
         modal: true,
       };
     default:

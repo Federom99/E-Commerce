@@ -18,8 +18,9 @@ export const DIV = styled.div`
 
 export const Modale = styled.div`
   position: relative;
-  height: 300px;
-  min-width: 200px;
+  min-width: 250px;
+  max-width: 250px;
+  max-height: 600px;
   margin: auto;
   padding: 0 2rem;
   border-radius: 12px;
@@ -32,11 +33,15 @@ export const Modale = styled.div`
   -webkit-backdrop-filter: blur(1.5px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
+  overflow-y: scroll;
 `;
 
-export const BTN = styled.button`
+export const BTN = styled.div`
   align-self: flex-end;
   justify-self: flex-start;
+  margin-top: 1rem;
+  padding-left: 55px;
+  position: relative;
 `;
 
 export const Img = styled.img`
@@ -71,4 +76,57 @@ export const BtnRese = styled.button`
     color: black;
     background-color: white;
   }
+`;
+export const Button = styled.button`
+  align-self: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 80%;
+  padding: 10px;
+  background-color: #181818;
+  border-radius: 15px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  &:hover {
+    background-color: whitesmoke;
+    color: black;
+    cursor: pointer;
+    border-color: black;
+    border-style: solid;
+  }
+`;
+
+export const Review = styled.textarea`
+  margin-top: 1rem;
+  height: 200px;
+  padding: 1rem;
+  border-radius: 5px;
+  resize: none;
+  &:focus {
+    outline: 1px solid ${(props) => props.theme.backgroundElement};
+  }
+`;
+
+export const Input = styled.input`
+  display: block;
+  padding: 0.5rem 0.8rem;
+  max-width: 250px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  margin-top: 1rem;
+  &:focus {
+    outline: 1px solid ${(props) => props.theme.backgroundElement};
+  }
+`;
+
+export const Stars = styled.div`
+  align-self: flex-start;
+  margin-top: 1rem;
+`;
+
+export const ErrorsText = styled.p`
+  color: red;
+  align-self: flex-start;
 `;

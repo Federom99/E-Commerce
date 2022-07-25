@@ -18,7 +18,8 @@ function Review() {
   const change = useSelector((state) => state.reviews.modal);
 
   const close = () => dispatch(changeModalClose());
-  const open = (id, imagen) => dispatch(changeModalOPen(id, imagen));
+  const open = (id, imagen, nombre, userId) =>
+    dispatch(changeModalOPen(id, imagen, nombre, userId));
 
   useEffect(() => {
     dispatch(getPedidos(id));
@@ -27,17 +28,12 @@ function Review() {
   return (
     <>
       <Div>
-        <CloseBtn>
-          <AiOutlineHeart />
-        </CloseBtn>
         {loading ? (
           <>
             <Loading alto={0} />
           </>
         ) : (
           <>
-            {/* {JSON.stringify(pedidos)} */}
-
             <List>
               {pedidos.map((pedido) => {
                 return (
@@ -59,7 +55,9 @@ function Review() {
                                 ? close()
                                 : open(
                                     product.compra.productoId,
-                                    product.imagen
+                                    product.imagen,
+                                    product.nombre,
+                                    id
                                   )
                             }
                           >
@@ -70,7 +68,7 @@ function Review() {
                               src={product.imagen}
                             />
                             <Ul>
-                              <li>Reseña</li>
+                              <li>Reseñar</li>
                             </Ul>
                           </LIinimg>
                         );

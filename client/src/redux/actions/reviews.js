@@ -15,8 +15,8 @@ const URL_SERVER = "http://localhost:3001/";
 
 export function postReviews(id, payload) {
   return async function (dispatch) {
-    await axios.post(`${URL_SERVER}${ratings}${crear}/${id}`, payload);
-
+    const res = await axios.post(`${URL_SERVER}ratings/crear/${id}`, payload);
+    console.log(res);
     return dispatch({
       type: POST_REVIEW,
       payload,
@@ -27,7 +27,6 @@ export function postReviews(id, payload) {
 export function getReviews(id) {
   return async function (dispatch) {
     const resp = await axios.get(`${URL_SERVER}ratings/usuario/${id}`);
-
     if (resp) {
       dispatch({ type: GET_REVIEWS, payload: resp.data });
     }
@@ -68,9 +67,9 @@ export function changeModalReview() {
   };
 }
 
-export const changeModalOPen = (id, imagen) => ({
+export const changeModalOPen = (id, imagen, nombre, userId) => ({
   type: CHANGE_MODAL_OPEN,
-  payload: { id, imagen },
+  payload: { id, imagen, nombre, userId },
 });
 export function changeModalClose() {
   return { type: CHANGE_MODAL_CLOSE };
