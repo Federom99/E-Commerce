@@ -7,7 +7,7 @@ import CreateUser from "./pages/CreateUser";
 import ProductDetail from "./pages/Detail";
 import Profile from "./pages/Profile";
 
-import RequireAuthUser from "./components/RequireAuth/user";
+import RequireAuthUser from "./components/RequireAuth";
 import RequireAuthAdmin from "./components/RequireAuth/admin";
 
 import Login from "./pages/Login";
