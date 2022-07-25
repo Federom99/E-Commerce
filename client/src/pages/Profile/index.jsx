@@ -70,7 +70,7 @@ export default function User() {
               <Input
                 name="nombre"
                 value={inputValues.nombre}
-                placeholder="Pepito"
+                placeholder="Nombre"
                 onChange={(e) => editField(e.target.name, e.target.value)}
               />
             </Label>
@@ -79,7 +79,7 @@ export default function User() {
               <Input
                 name="apellido"
                 value={inputValues.apellido}
-                placeholder="Perez"
+                placeholder="Apellido"
                 onChange={(e) => editField(e.target.name, e.target.value)}
               />
             </Label>
@@ -88,7 +88,7 @@ export default function User() {
               <Input
                 name="mail"
                 value={inputValues.mail}
-                placeholder="Perez"
+                placeholder="ejemplo@gmail.com"
                 onChange={(e) => editField(e.target.name, e.target.value)}
               />
             </Label>
@@ -97,7 +97,7 @@ export default function User() {
               <Input
                 name="telefono"
                 value={inputValues.telefono} 
-                placeholder="123456789"
+                placeholder="Número de teléfono"
                 onChange={(e) => editField(e.target.name,e.target.value)}
               />
             </Label>
