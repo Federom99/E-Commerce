@@ -36,12 +36,19 @@ export const guardarDatosComprador = (checkoutData) => async dispatch => {
 } 
 
 export const crearPedido = (pedido) => async dispatch => {
-  const {data} = await axios.post(`${URL_SERVER}/pedido/crear`, pedido, { withCredentials: true });
+  try{
+    const {data} = await axios.post(`${URL_SERVER}/pedido/crear`, pedido, { withCredentials: true });
+    return dispatch ({
+      type: CREAR_PEDIDO,
+      payload: data
+    })
+  }catch(e){
+    return dispatch ({
+      type: CREAR_PEDIDO,
+      payload: e.response.data
+    })
+  }
   // console.log(data)
-  return dispatch ({
-    type: CREAR_PEDIDO,
-    payload: data
-  })
 }
 
 export const getFactura = (idPedido) => async (dispatch) => {

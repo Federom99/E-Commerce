@@ -11,6 +11,7 @@ import { useState } from "react";
 import {checkout, crearPedido, getAllSucursales, guardarDatosComprador} from "../../redux/actions/checkout";
 import Mapa from "../../components/Mapa/Mapa";
 import Resume from "../../components/CheckoutResume/resume";
+import { deleteCart } from "../../redux/actions/cart";
 
 const Checkout = () => {
     const [input, setInput] = useState({nombre: "", apellido: "", documento: "", direccion: "", codigoPostal: "", provincia: ""});
@@ -63,6 +64,15 @@ const Checkout = () => {
                 "idPedido": pedidoGenerado.pedido.id
             }
             dispatch(guardarDatosComprador(factura));
+        }
+        if(pedidoGenerado.hasOwnProperty("Error")){
+            Swal.fire({
+                icon: 'error',
+                title: 'Ups...',
+                text: 'Ha ocurrido un error',
+                footer: pedidoGenerado.Error
+              });
+            dispatch(deleteCart());
         }
     },[pedidoGenerado])
 
