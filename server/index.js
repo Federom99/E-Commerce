@@ -1,7 +1,16 @@
 const server = require("./src/app.js");
 const { conn } = require("./src/db.js");
 
-const { Producto, Talle, Producto_talle, Categoria, Usuario, Pedido, Compra, Sucursales} = require("./src/db.js");
+const {
+  Producto,
+  Talle,
+  Producto_talle,
+  Categoria,
+  Usuario,
+  Pedido,
+  Compra,
+  Sucursales,
+} = require("./src/db.js");
 
 const fs = require("fs");
 const { hashPassword } = require("./src/helpers/hashPassword.js");
@@ -18,16 +27,15 @@ conn.sync({ force: true }).then(() => {
     (async function () {
       //Creo un talle para los productos sin talle
       Talle.create({
-        talle: 'Sin talle'
-      })
-
+        talle: "Sin talle",
+      });
 
       //Por cada producto del JSON, creo una entrada de su categoria en la DB (si no existe) y, a partir de la categoria, creo el producto para asociarlo con ella.
       productosJSON.forEach(async (p) => {
         const categoria = await Categoria.findOrCreate({
           where: { nombre: `${p.categoria[0]}` },
           defaults: { nombre: p.categoria[0] },
-        })
+        });
 
         const productoCreado = await categoria[0].createProducto({
           nombre: p.nombre,
@@ -36,43 +44,59 @@ conn.sync({ force: true }).then(() => {
           precio: parseInt(p.precio),
         });
 
-
         //Si no tengo un talle, lo pongo o lo traigo de la db, de lo contrario, les pongo el talle "Sin talle" que cree antes.
         //En ambos casos, si en el JSON tienen el atributo stock lo asigno en la tabla que relaciona al talle y al producto para
         //el talle en particular. Si no tienen el atributo stock, lo pongo en 0.
-        if(p.talle){
+        if (p.talle) {
           p.talle.forEach(async (t, i) => {
-          const talle = await Talle.findOrCreate({
-            where: { talle: `${t}` },
-            defaults: { talle: t },
-          })
+            const talle = await Talle.findOrCreate({
+              where: { talle: `${t}` },
+              defaults: { talle: t },
+            });
 
-          const talleAgregado = await productoCreado.addTalle(talle[0].dataValues.id, { through: { selfGranted: false } });
+            const talleAgregado = await productoCreado.addTalle(
+              talle[0].dataValues.id,
+              { through: { selfGranted: false } }
+            );
 
-          p.stock ? await Producto_talle.update({stock: p.stock[i]}, {where: {id: talleAgregado[0].dataValues.id}}) : await Producto_talle.update({stock: 0}, {where: {id: talleAgregado[0].dataValues.id}})
+            p.stock
+              ? await Producto_talle.update(
+                  { stock: p.stock[i] },
+                  { where: { id: talleAgregado[0].dataValues.id } }
+                )
+              : await Producto_talle.update(
+                  { stock: 0 },
+                  { where: { id: talleAgregado[0].dataValues.id } }
+                );
+          });
+        } else {
+          const talleAgregado = await productoCreado.addTalle(1, {
+            through: { selfGranted: false },
+          });
 
-        })
-      }
-      else{
-        const talleAgregado = await productoCreado.addTalle(1, { through: { selfGranted: false } });
-
-        p.stock ? await Producto_talle.update({stock: p.stock}, {where: {id: talleAgregado[0].dataValues.id}}) : await Producto_talle.update({stock: 0}, {where: {id: talleAgregado[0].dataValues.id}})
-      }
+          p.stock
+            ? await Producto_talle.update(
+                { stock: p.stock },
+                { where: { id: talleAgregado[0].dataValues.id } }
+              )
+            : await Producto_talle.update(
+                { stock: 0 },
+                { where: { id: talleAgregado[0].dataValues.id } }
+              );
+        }
       });
-
 
       //Agarro los usuarios del JSON
       const usuariosJSON = JSON.parse(
         fs.readFileSync(__dirname + "/src/models/assets/usuarios.json")
       );
 
-      const users = []
+      const users = [];
 
       //Por cada usuario del JSON, creo un usuario en la DB con su data (encriptando la pass).
       usuariosJSON.forEach(async (u) => {
-
         //Pongo su id en un array
-        users.push(u.id)
+        users.push(u.id);
 
         await Usuario.create({
           id: u.id,
@@ -85,10 +109,9 @@ conn.sync({ force: true }).then(() => {
           contraseña: await hashPassword(u.contraseña),
           isAdmin: u.isAdmin,
           confirmado: true,
-          carrito: u.carrito
-        })
-
-      })
+          carrito: u.carrito,
+        });
+      });
 
       //Saco los pedidos del json
       const pedidosJSON = JSON.parse(
@@ -96,27 +119,36 @@ conn.sync({ force: true }).then(() => {
       );
 
       pedidosJSON.forEach(async (p, i) => {
-
         const pedido = await Pedido.create({
           fecha: p.fecha,
           pago_total: p.pago_total,
           direccion_de_envio: p.direccion_de_envio,
-          estado: p.estado
-        })
+          estado: p.estado,
+        });
 
         p.idProductos.forEach(async (id) => {
-          const productoDelPedido = await Producto.findByPk(id)
-          await pedido.addProducto(productoDelPedido)
-        })
+          const productoDelPedido = await Producto.findByPk(id);
+          await pedido.addProducto(productoDelPedido);
+        });
 
         //Agarro un user random de la db y le asigno el pedido
-        const randomUser = await Usuario.findOne({where: {
-          id: users[Math.floor(Math.random()*users.length)]
-        }})
+        const randomUser = await Usuario.findOne({
+          where: {
+            id: users[Math.floor(Math.random() * users.length)],
+          },
+        });
 
-        await randomUser.addPedido(pedido)
+        await randomUser.addPedido(pedido);
 
-      })
+        //Agarro un user random de la db y le asigno el pedido
+        const david = await Usuario.findOne({
+          where: {
+            id: "hFLxCkmxGlVFkzPpy7af2b6Eeu02",
+          },
+        });
+
+        await david.addPedido(pedido);
+      });
 
       //Agarro las sucursales del JSON
       const sucursalesJSON = JSON.parse(
@@ -124,15 +156,13 @@ conn.sync({ force: true }).then(() => {
       );
 
       sucursalesJSON.forEach(async (u) => {
-
         await Sucursales.create({
-          "nombre":  u.nombre,
-          "capital": u.capital,
-          "cp": u.cp,
-          "coordenadas": u.coord
-        })
-      })
-    }
-    )();
+          nombre: u.nombre,
+          capital: u.capital,
+          cp: u.cp,
+          coordenadas: u.coord,
+        });
+      });
+    })();
   });
 });

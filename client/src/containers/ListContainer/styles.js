@@ -22,7 +22,6 @@ export const List = styled.ul`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
 `;
 
 export const Li = styled.li`
@@ -37,7 +36,7 @@ export const Header = styled.header`
   margin-top: 2rem;
   font-size: 2rem;
   font-weight: lighter;
-  font-family: "Righteous", cursive;
+  /* font-family: "Righteous", cursive; */
 `;
 
 export const CatList = styled.ul`
@@ -84,4 +83,3 @@ export const BOTON = styled.button`
     border-style: solid;
   }
 `;
-

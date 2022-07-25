@@ -10,10 +10,11 @@ import { useLocation } from "react-router-dom";
 export default function FavIcon ({productId , productName}){
     const [favStatus , setFavStatus] = useState(false);
     const favs = useSelector(state => state.favorites)
+    const userId = useSelector ( state => state.auth.user.id)
     const dispatch = useDispatch()
     const location = useLocation()
     const handleChange = ()=>{
-        let userId=favs.userId;
+        // let userId=favs.userId;
         if (!favStatus){
             setFavStatus(status => !status)
             // añadido:
@@ -21,11 +22,17 @@ export default function FavIcon ({productId , productName}){
             toast.success(`${productName} añadido a favoritos`)
         }
         else {
-            //eliminado
-            // dispatch(deleteUserFav(userId,productId))
-            
-            location.pathname === "/" ? toast.error(`${productName} eliminado de favoritos`) : 
-            toast(<ToastMsg tipo={"fav"} name={productName} userId={userId} productId={productId} setFavStatus={setFavStatus}/>)
+            let detail = location.pathname.split("/")[1]
+            if (location.pathname === "/" || detail === "detail"){
+                setFavStatus(false)
+                dispatch(deleteUserFav(userId,productId))
+                toast.error(`${productName} eliminado de favoritos`)
+            }
+            else{
+                toast.error(<ToastMsg tipo={"fav"} name={productName} userId={userId} productId={productId} setFavStatus={setFavStatus}/>,{
+                    toastId:`delete${productId}`,
+                })    
+            }
         }
     }
     useEffect(()=>{

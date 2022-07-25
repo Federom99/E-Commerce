@@ -149,14 +149,3 @@ export const Button = styled.button`
     border-style: solid;
   }
 `;
-
-export const Review = styled.textarea`
-  margin-bottom: 1rem;
-  padding: 1rem;
-  height: 100px;
-  border-radius: 5px;
-  resize: none;
-  &:focus {
-    outline: 1px solid ${(props) => props.theme.backgroundElement};
-  }
-`;

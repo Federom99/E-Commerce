@@ -11,6 +11,9 @@ import { useState } from "react";
 import {checkout, crearPedido, getAllSucursales, guardarDatosComprador} from "../../redux/actions/checkout";
 import Mapa from "../../components/Mapa/Mapa";
 import Resume from "../../components/CheckoutResume/resume";
+import { deleteCart } from "../../redux/actions/cart";
+import { clearLocalStorage } from "../../redux/actions/cart";
+import Swal from "sweetalert2"
 
 const Checkout = () => {
     const [input, setInput] = useState({nombre: "", apellido: "", documento: "", direccion: "", codigoPostal: "", provincia: ""});
@@ -64,6 +67,15 @@ const Checkout = () => {
             }
             dispatch(guardarDatosComprador(factura));
         }
+        if(pedidoGenerado.hasOwnProperty("Error")){
+            Swal.fire({
+                type: 'error',
+                title: 'Ups...',
+                text: 'Ha ocurrido un error',
+                footer: pedidoGenerado.Error,
+                didClose: () => { dispatch(deleteCart()); dispatch(clearLocalStorage()); window.location.replace("/cart") }
+              });
+        }
     },[pedidoGenerado])
 
     useEffect(() => {
@@ -97,6 +109,10 @@ const Checkout = () => {
                     container: "#button-checkout", // Indica el nombre de la clase donde se mostrará el botón de pago
                     label: "Pagar", // Cambia el texto del botón de pago (opcional)
                 },
+                theme: {
+                    elementsColor: '#000000',
+                    headerColor: '#ffffff',
+                }
                 })
         }
     },[pago]);
@@ -112,19 +128,18 @@ const Checkout = () => {
      useEffect(
         () => {
             if(errores.nombre || errores.apellido || errores.documento || errores.direccion || errores.codigoPostal
-            || errores.provincia){
-                setBotonBloqueado("disabled");
-            }else setBotonBloqueado("");
+                || errores.provincia){
+                    setBotonBloqueado("disabled");
+                }else if(erroresEnvio.direccion || erroresEnvio.codigoPostal || erroresEnvio.provincia){
+                    setBotonBloqueado("disabled");
+                }else setBotonBloqueado("");
+            if(!inputEnvio.direccion || !inputEnvio.codigoPostal || !inputEnvio.provincia){
+                    setBotonBloqueado("disabled");
+            }
             if(!input.nombre || !input.apellido || !input.documento || !input.direccion || !input.codigoPostal
                 || !input.provincia){
                     setBotonBloqueado("disabled");
             }
-            if(erroresEnvio.direccion || erroresEnvio.codigoPostal || erroresEnvio.provincia){
-                    setBotonBloqueado("disabled");
-                }else setBotonBloqueado("");
-                if(!inputEnvio.direccion || !inputEnvio.codigoPostal || !inputEnvio.provincia){
-                        setBotonBloqueado("disabled");
-                }
         }, [errores, input, inputEnvio, erroresEnvio]
     )
 
@@ -141,7 +156,7 @@ const Checkout = () => {
      function radioChangeHandler(e){
         setEnvio(e.target.value);
         setInputEnvio({direccion: "", codigoPostal: "", provincia: "", tipo:e.target.value})
-        console.log(e.target.value);
+        // console.log(e.target.value);
      }
 
      function selectSucursal(sucursal){
@@ -250,8 +265,10 @@ const Checkout = () => {
                                     envio === "Envio" && 
                                         <label><br />Costo de envío: $500<br /><br /></label>
                                 }{
-                                    envio === "Retiro" &&
-                                        <label><br />Retiro a partir de 5 días hábiles</label>
+                                    inputEnvio.direccion && envio === "Retiro" ? 
+                                    <label><br />Retiro a partir de 5 días hábiles - Punto de retiro: {inputEnvio.direccion}</label>
+                                    : envio === "Retiro" &&
+                                    <label><br />Retiro a partir de 5 días hábiles<br /></label>
                                 }
                             </div>
                         </li>
@@ -293,7 +310,7 @@ const Checkout = () => {
                         }
                     </ul>
                 </div>
-            </>) : (<H2 style={{marginTop:"3rem", marginBottom:"3rem", fontSize:"2rem"}}>No hay items en su carrito</H2>)}
+            </>) : (<H2 style={{margin: "auto", marginTop:"3rem", marginBottom:"3rem", fontSize:"1.5rem"}}>No hay items en su carrito</H2>)}
             </Div>
         </Main>
     );
