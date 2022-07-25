@@ -1,8 +1,11 @@
 import styled from "styled-components";
+
 export const Button = styled.button`
   margin: auto;
+  padding: 5px;
   vertical-align: middle;
-  width: fit-content;
+  display: flex;
+  align-items: stretch;
   height: auto;
   background-color: #181818;
   border-radius: 5px;
@@ -18,3 +21,9 @@ export const Button = styled.button`
     border-style: solid;
   }
 `;
+
+export const Text = styled.p`
+  padding: 10px;
+  margin: 20px 0 0 0;
+  text-align: justify;
+`

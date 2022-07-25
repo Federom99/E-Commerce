@@ -35,7 +35,7 @@ export const Header = styled.header`
   text-align: center;
   margin-top: 2rem;
   font-size: 2rem;
-  font-weight: bold;
+  font-weight: lighter;
   /* font-family: "Righteous", cursive; */
 `;
 

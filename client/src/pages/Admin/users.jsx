@@ -14,12 +14,12 @@ export default function Users() {
 
   useEffect(() => {
     dispatch(getUsuarios());
-    console.log("me rompo")
+    // console.log("me rompo")
   }, [])
 
-  useEffect(() => {
-    console.log("me rompo todo")
-  }, [usuariosFiltrados])
+  // useEffect(() => {
+  //   console.log("me rompo todo")
+  // }, [usuariosFiltrados])
   
   // var usuariosFiltrados = [useSelector((state) => state.checkout.usuarios);]
   // console.log(usuarios)

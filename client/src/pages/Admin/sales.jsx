@@ -43,7 +43,7 @@ export default function Sales() {
   const columnas = [
     {
       name: 'Fecha',
-      selector: row => `${row.fecha}`,
+      selector: row => `${row.fecha.substring(0, 10)}`,
       sortable: true
     },
     {

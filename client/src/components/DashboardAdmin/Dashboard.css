@@ -1,13 +1,13 @@
 .contenedor {
   display: flex;
   flex-direction: row;
-  margin: 1rem auto 0 auto;
-  padding-top: 20px;
+  /* margin: 1rem auto 0 auto; */
+  /* padding-top: 20px; */
   padding-bottom: 40px;
   min-height: 1080px;
   width: 100%;
   min-width: 375px;
-  max-width: 1440px;
+  /* max-width: 1440px; */
 }
 
 .sideBar {
@@ -22,7 +22,7 @@
     font-size: 28px;
     line-height: 70px;
     color: white;
-    background: #1b1b1b;
+    /* background: #1b1b1b; */
     text-align: center;
     font-family: 'Open Sans', sans-serif;
     letter-spacing: 1px;

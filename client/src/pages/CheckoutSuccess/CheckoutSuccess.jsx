@@ -12,6 +12,7 @@ import { useLocation, useParams } from "react-router-dom";
 import queryString from "query-string";
 import { aprobarPedido, crearPedido, getFactura } from "../../redux/actions/checkout";
 import { deleteCart } from "../../redux/actions/cart";
+import checkoutResume from "../../components/CheckoutResume/resume"
 
 const CheckoutSuccess = () => {
     const dispatch = useDispatch();
@@ -48,6 +49,7 @@ const CheckoutSuccess = () => {
     },[]);
 
     const {datosFactura} = pedido;
+    console.log(pedido);
 
     return(
         <Main>
@@ -63,6 +65,10 @@ const CheckoutSuccess = () => {
                         <li className={estilos.itemLista}>
                             <span className={estilos.items}>Estado: </span>
                             <span className={estilos.items}>{datosDePago.estado}</span>
+                        </li>
+                        <li className={estilos.itemLista}>
+                            <span className={estilos.items}>Total de productos: </span>
+                            <span className={estilos.items}>${Intl.NumberFormat("es-AR").format(pedido.pago_total)}</span>
                         </li>
                         <li className={estilos.itemLista}>
                             <span className={estilos.items}>Método de pago: </span>
@@ -86,7 +92,26 @@ const CheckoutSuccess = () => {
                         </li>
                     </ul>
                     <br />
-                </div>        
+                </div>
+                <div id={estilos.contenedorDatos}>
+                    <H2>Datos de envío</H2>
+                    <br />
+                    <ul id={estilos.lista}>
+                        <li className={estilos.itemLista}>
+                            <span className={estilos.items}>Tipo: </span>
+                            <span className={estilos.items}>{pedido.tipo_de_envio}</span>
+                        </li>
+                        <li className={estilos.itemLista}>
+                            <span className={estilos.items}>Direccion: </span>
+                            <span className={estilos.items}>{pedido.direccion_de_envio}</span>
+                        </li>
+                        <li className={estilos.itemLista}>
+                            <span className={estilos.items}>Tiempo de retiro: </span>
+                            <span className={estilos.items}>A partir de 5 días hábiles</span>
+                        </li>
+                    </ul>
+                    <br />
+                </div>
             </Div>
         </Main>
     );
