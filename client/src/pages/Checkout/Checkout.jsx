@@ -156,7 +156,7 @@ const Checkout = () => {
      function radioChangeHandler(e){
         setEnvio(e.target.value);
         setInputEnvio({direccion: "", codigoPostal: "", provincia: "", tipo:e.target.value})
-        console.log(e.target.value);
+        // console.log(e.target.value);
      }
 
      function selectSucursal(sucursal){

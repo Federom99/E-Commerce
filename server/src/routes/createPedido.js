@@ -18,7 +18,7 @@ router.post("/", queue({ activeLimit: 1, queuedLimit: -1}), async (req, res) => 
     let { productos, comprador, direccion_de_envio, tipoDeEnvio } = req.body;
 
     if(!direccion_de_envio){
-      direccion_de_envio = comprador.direccion + " - " + comprador.codigoPostal + " - " + comprador.provincia;
+      direccion_de_envio = {direccion: comprador.direccion + " - " + comprador.provincia, CP: comprador.codigoPostal};
     }
 
     console.log(req.body);

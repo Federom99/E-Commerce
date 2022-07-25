@@ -67,6 +67,10 @@ const CheckoutSuccess = () => {
                             <span className={estilos.items}>{datosDePago.estado}</span>
                         </li>
                         <li className={estilos.itemLista}>
+                            <span className={estilos.items}>Total de productos: </span>
+                            <span className={estilos.items}>${Intl.NumberFormat("es-AR").format(pedido.pago_total)}</span>
+                        </li>
+                        <li className={estilos.itemLista}>
                             <span className={estilos.items}>Método de pago: </span>
                             <span className={estilos.items}>{datosDePago.medioDePago}</span>
                         </li>
@@ -89,7 +93,25 @@ const CheckoutSuccess = () => {
                     </ul>
                     <br />
                 </div>
-                {/* <checkoutResume cart={carrito} envio={envio}/>      */}
+                <div id={estilos.contenedorDatos}>
+                    <H2>Datos de envío</H2>
+                    <br />
+                    <ul id={estilos.lista}>
+                        <li className={estilos.itemLista}>
+                            <span className={estilos.items}>Tipo: </span>
+                            <span className={estilos.items}>{pedido.tipo_de_envio}</span>
+                        </li>
+                        <li className={estilos.itemLista}>
+                            <span className={estilos.items}>Direccion: </span>
+                            <span className={estilos.items}>{pedido.direccion_de_envio}</span>
+                        </li>
+                        <li className={estilos.itemLista}>
+                            <span className={estilos.items}>Tiempo de retiro: </span>
+                            <span className={estilos.items}>A partir de 5 días hábiles</span>
+                        </li>
+                    </ul>
+                    <br />
+                </div>
             </Div>
         </Main>
     );
