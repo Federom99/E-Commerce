@@ -35,7 +35,7 @@ function validate(form){
 };
 
 export default function EditForm({ submit, datos }) {
-    console.log(datos)
+    // console.log(datos)
     const dispatch = useDispatch();
     const categorias = useSelector(state => state.product.allCategories);
     const talles = useSelector(state => state.product.allTalles);
@@ -164,7 +164,7 @@ export default function EditForm({ submit, datos }) {
 
     return (
         <div id="contenedorForm">
-            <form className="formulario" onSubmit={handleSubmit}>
+            <form style={{overflow:"hidden"}} className="formulario" onSubmit={handleSubmit}>
                 <label>Nombre</label>
                 <input
                     name="nombre"

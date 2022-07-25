@@ -100,15 +100,15 @@ export default function Modal({ cambiarEstado, submit, datos }) {
 
     return (
         <>
-            <div className="modal">
+            <div className="modal" >
                 <div className='contentModal'>
                     <button className='cerrar' onClick={() => cambiarEstado(false)}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                             <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
                         </svg>
                     </button>
-                    <div id="contenedorForm">
-                        <form className="formulario" onSubmit={handleSubmit}>
+                    <div id="contenedorForm" >
+                        <form className="formulario" onSubmit={handleSubmit} style={{backgroundColor:"#fff"}}>
                             <label htmlFor="nombre">Nombre:</label>
                             <input
                                 type="text"
@@ -120,6 +120,7 @@ export default function Modal({ cambiarEstado, submit, datos }) {
 
                             <label htmlFor="descripcion">Descripcion:</label>
                             <textarea
+                                style={{resize: "none", borderRadius:"8px"}}
                                 rows="10"
                                 cols="50"
                                 id="descripcion"

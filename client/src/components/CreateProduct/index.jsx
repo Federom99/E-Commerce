@@ -13,9 +13,7 @@ export default function CreateProduct () {
     }
 
     return (
-        <Main>
         <Form submit={submit}/>
-        </Main>
     )
 }
 
