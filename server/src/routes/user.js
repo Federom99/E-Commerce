@@ -66,7 +66,7 @@ router.put('/profile/:id', async (req, res) => {
     const response = await user.update(body);
     res.json(response)
   } catch (error) {
-    throw new Error({msg: error})
+    res.status(409).send(error)
   }
 })
 

@@ -1,6 +1,6 @@
 .full {
   width: 100%;
-  z-index: 2;
+  z-index: 9999;
   font-family: "Raleway", sans-serif;
 }
 .container {
@@ -143,6 +143,7 @@
 
 .icons {
   margin: 0 5px;
+  font-weight: bold;
 }
 
 .icons:hover{
@@ -168,6 +169,12 @@
 }
 
 @media (max-width: 872px) {
+  .full {
+    width: 100vw;
+    z-index: 9999;
+    font-family: "Raleway", sans-serif;
+  }
+
   .container {
     grid-template-columns: 1fr 2fr 0.5fr 0.5fr 0.5fr;
   }

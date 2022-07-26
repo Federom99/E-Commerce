@@ -6,15 +6,17 @@ import {
   GET_ALL_REVIEWS,
   DELETE_REVIEW,
   POST_REVIEW,
+  CHANGE_MODAL_REVIEW,
+  CHANGE_MODAL_OPEN,
+  CHANGE_MODAL_CLOSE,
 } from "./actionTypes";
 
-const URL_SERVER = "http://localhost:3001";
-
+const URL_SERVER = "http://localhost:3001/";
 
 export function postReviews(id, payload) {
   return async function (dispatch) {
-    await axios.post(`${URL_SERVER}${ratings}${crear}/${id}`, payload);
-
+    const res = await axios.post(`${URL_SERVER}ratings/crear/${id}`, payload);
+    console.log(res);
     return dispatch({
       type: POST_REVIEW,
       payload,
@@ -22,11 +24,9 @@ export function postReviews(id, payload) {
   };
 }
 
-
 export function getReviews(id) {
   return async function (dispatch) {
     const resp = await axios.get(`${URL_SERVER}ratings/usuario/${id}`);
-
     if (resp) {
       dispatch({ type: GET_REVIEWS, payload: resp.data });
     }
@@ -35,10 +35,11 @@ export function getReviews(id) {
 
 export function getProductReviews(id) {
   return async function (dispatch) {
+    console.log(id);
     const resp = await axios.get(`${URL_SERVER}ratings/${id}`);
-
+    console.log(resp);
     if (resp) {
-      dispatch({ type: GET_PRODUCT_REVIEWS, payload: resp.data });
+      return dispatch({ type: GET_PRODUCT_REVIEWS, payload: resp.data });
     }
   };
 }
@@ -58,4 +59,18 @@ export function deleteReview(id) {
     await axios.delete(`${URL_SERVER}ratings/${id}`);
     return dispatch({ type: DELETE_REVIEW, payload: id });
   };
+}
+
+export function changeModalReview() {
+  return async function (dispatch) {
+    return dispatch({ type: CHANGE_MODAL_REVIEW });
+  };
+}
+
+export const changeModalOPen = (id, imagen, nombre, userId) => ({
+  type: CHANGE_MODAL_OPEN,
+  payload: { id, imagen, nombre, userId },
+});
+export function changeModalClose() {
+  return { type: CHANGE_MODAL_CLOSE };
 }

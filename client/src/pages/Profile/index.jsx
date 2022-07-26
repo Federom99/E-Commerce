@@ -4,9 +4,9 @@ import { getUser, updateUser } from "../../redux/actions/userProfile";
 
 import useFormEditProfile from "../../hooks/useFormEditProfile";
 
-import { 
-  Container, 
-  ImageContainer, 
+import {
+  Container,
+  ImageContainer,
   Image,
   UserInfo,
   UL,
@@ -17,97 +17,124 @@ import {
   FormEdit,
   Label,
   Input,
-  ButtonsContainer
+  ButtonsContainer,
+  LinkTo,
+  Errors,
+  Error,
 } from "./styles";
+import ModalContainer from "../../components/ModalReview/ModalContainer";
+import Modal from "../../components/ModalReview";
+import { getAllFavs } from "../../redux/actions/favoritos";
+
 
 export default function User() {
+  const { disabled, inputValues, inputErrors, editField, handleSubmit } =
+    useFormEditProfile();
 
   const {
-    disabled,
-    inputValues,
-    inputErrors, 
-    editField, 
-    handleSubmit,
-  } = useFormEditProfile()
+    user: { id },
+  } = useSelector((state) => state.auth);
+  const { user } = useSelector((state) => state.userReducer);
 
-  const {user: {id}} = useSelector(state => state.auth)
-  const {user} = useSelector(state => state.userReducer)
+  const [editProfile, setEditProfile] = useState(false);
 
-  const [editProfile, setEditProfile] = useState(false)
+  function changeInfo(e) {
+    try {
+      handleSubmit(e);
+      setEditProfile((prevState) => !prevState);
+    } catch (error) {
+      console.log("Ups");
+    }
+  }
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getUser(id))
-  }, [])
+    dispatch(getUser(id));
+    dispatch(getAllFavs(id))
+  }, []);
+
 
   return (
     <Container>
       <ImageContainer>
-        <Image src="https://static.vecteezy.com/system/resources/previews/002/318/271/original/user-profile-icon-free-vector.jpg" alt="" />
+        <Image
+          src="https://static.vecteezy.com/system/resources/previews/002/318/271/original/user-profile-icon-free-vector.jpg"
+          alt=""
+        />
       </ImageContainer>
-      {
-        editProfile
-        ?
+      {editProfile ? (
         <>
           <FormEdit>
             <Label>
               <p>Nombre</p>
               <Input
                 name="nombre"
-                value={inputValues.nombre} 
-                placeholder="Pepito"
-                onChange={(e) => editField(e.target.name,e.target.value)}
+                value={inputValues.nombre}
+                placeholder="Nombre"
+                onChange={(e) => editField(e.target.name, e.target.value)}
               />
             </Label>
             <Label>
               <p>Apellido</p>
               <Input
                 name="apellido"
-                value={inputValues.apellido} 
-                placeholder="Perez"
-                onChange={(e) => editField(e.target.name,e.target.value)}
+                value={inputValues.apellido}
+                placeholder="Apellido"
+                onChange={(e) => editField(e.target.name, e.target.value)}
               />
             </Label>
             <Label>
               <p>Correo electronico</p>
               <Input
                 name="mail"
-                value={inputValues.mail} 
-                placeholder="Perez"
-                onChange={(e) => editField(e.target.name,e.target.value)}
+                value={inputValues.mail}
+                placeholder="ejemplo@gmail.com"
+                onChange={(e) => editField(e.target.name, e.target.value)}
               />
             </Label>
             <Label>
               <p>Telefono</p>
-              <Input/>
+              <Input
+                name="telefono"
+                value={inputValues.telefono} 
+                placeholder="Número de teléfono"
+                onChange={(e) => editField(e.target.name,e.target.value)}
+              />
             </Label>
             <ButtonsContainer>
-              <Button 
-                type="button" 
-                onClick={() => setEditProfile(prevState => !prevState)}
+              <Button
+                type="button"
+                onClick={() => setEditProfile((prevState) => !prevState)}
               >
                 Cancelar
               </Button>
               <Button
                 disabled={disabled}
-                aceptar 
+                aceptar
                 onClick={(e) => {
-                  handleSubmit(e)
-                  setEditProfile(prevState => !prevState)
+                  handleSubmit(e);
+                  setEditProfile((prevState) => !prevState);
                 }}
               >
                 Aceptar
               </Button>
             </ButtonsContainer>
           </FormEdit>
+          <Errors>
+            <Error>{inputErrors.nombre}</Error>
+            <Error>{inputErrors.apellido}</Error>
+            <Error>{inputErrors.mail}</Error>
+          </Errors>
         </>
-        :
+      ) : (
         <>
           <UserInfo>
             <h3>Perfil</h3>
             <UL>
               <LI className="Info">Nombre de usuario</LI>
-              <LI>{user?.nombre} {user?.apellido}</LI>
+              <LI>
+                {user?.nombre} {user?.apellido}
+              </LI>
             </UL>
             <UL>
               <LI className="Info">Correo electronico</LI>
@@ -117,16 +144,16 @@ export default function User() {
               <LI className="Info">Telefono</LI>
               <LI>{user?.telefono}</LI>
             </UL>
-            <Button onClick={() => setEditProfile(prevState => !prevState)}>Editar perfil</Button>
+            <Button onClick={() => setEditProfile((prevState) => !prevState)}>
+              Editar perfil
+            </Button>
             <ExtraInfo>
-              <P>Compras</P>
-              <P>Favoritos</P>
+              <LinkTo to={`/profile/compras/${id}`}><Button>Compras</Button></LinkTo>
+              <LinkTo to={`/profile/favoritos/${id}`}><Button>Favoritos</Button></LinkTo>
             </ExtraInfo>
           </UserInfo>
         </>
-      }
+      )}
     </Container>
   );
 }
-
-

@@ -14,6 +14,9 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    tipo_de_envio: {
+      type: DataTypes.STRING
+    },
     direccion_de_envio: {
       type: DataTypes.JSON,
       allowNull: false,

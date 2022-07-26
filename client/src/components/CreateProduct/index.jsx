@@ -9,13 +9,11 @@ export default function CreateProduct () {
     function submit ( product ) {
         dispatch(postProduct(product));
         alert("Producto Creado !");
-        console.log(product);
+        // console.log(product);
     }
 
     return (
-        <Main>
         <Form submit={submit}/>
-        </Main>
     )
 }
 

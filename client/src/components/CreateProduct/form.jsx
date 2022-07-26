@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {getCategories, getTalles} from "../../redux/actions/product"
 import './form.css'
+import axios from "axios";
 
 function validate(form){
     let errors = {};
@@ -125,23 +126,38 @@ export default function Form({ submit }) {
     }
 
     function handleChange(e) {
-        setForm({
-            ...form,
-            [e.target.name]: e.target.value
-        })
+        if(e.target.name !== "imagen"){
+            setForm({
+                ...form,
+                [e.target.name]: e.target.value
+            })
+        }else{
+            console.log(e.target.files)
+            setForm({
+                ...form,
+                [e.target.name]: e.target.files[0]
+            })
+        }
         setErrors(validate({
             ...form,
             [e.target.name]: e.target.value
         }))
     }
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
+
+        const formDataImg = new FormData();
+        formDataImg.append("file", form.imagen);
+        formDataImg.append("upload_preset", "wsnlejcx");
+        try{
+        const imgUpload = await axios.post('https://api.cloudinary.com/v1_1/daneopbmn/image/upload', formDataImg)
+
         const producto = {
             nombre: form.nombre,
             precio: form.precio,
             descripcion: form.descripcion,
-            imagen: form.imagen,
+            imagen: imgUpload.data.url,
             talle: form.cantTalles,
             stock: form.stock,
             categoria: [form.categoria]
@@ -157,11 +173,15 @@ export default function Form({ submit }) {
             categoria: "Remeras",
             cantTalles: []
         })
+        }catch(e){
+            console.log(e)
+            return e
+        }
     }
 
     return (
         <div id="contenedorForm">
-            <form className="formulario" onSubmit={handleSubmit}>
+            <form style={{overflow:"hidden"}} className="formulario" onSubmit={handleSubmit}>
                 <label>Nombre</label>
                 <input
                     name="nombre"
@@ -169,6 +189,7 @@ export default function Form({ submit }) {
                     value={form.nombre}
                     onChange={handleChange}
                     placeholder="Nombre"
+                    className={errors.nombre && "inputError"}
                 />
                 {errors.nombre && (
                         <p className="errors">{errors.nombre}</p>
@@ -180,6 +201,7 @@ export default function Form({ submit }) {
                     value={form.descripcion}
                     onChange={handleChange}
                     placeholder="descripcion"
+                    className={errors.descripcion && "inputError"}
                 />
                 {errors.descripcion && (
                         <p className="errors">{errors.descripcion}</p>
@@ -187,10 +209,9 @@ export default function Form({ submit }) {
                 <label>Imagen</label>
                 <input
                     name="imagen"
-                    type="text"
-                    value={form.imagen}
+                    type="file"
                     onChange={handleChange}
-                    placeholder="imagen"
+                    className={errors.imagen && "inputError"}
                 />
                 {errors.imagen && (
                         <p className="errors">{errors.imagen}</p>
@@ -223,7 +244,8 @@ export default function Form({ submit }) {
                             <>
                             <label>{ct}</label>
                             <input type="number" value={form.stock[i]}
-                                onChange={(e) => handleStock(e, i)}></input>
+                                onChange={(e) => handleStock(e, i)}
+                                className={errors.stock && "inputError"}></input>
                             </>
                         )
                     })}
@@ -238,6 +260,7 @@ export default function Form({ submit }) {
                     value={form.precio}
                     onChange={handleChange}
                     placeholder="Precio"
+                    className={errors.precio && "inputError"}
                 />
                 {errors.precio && (
                         <p className="errors">{errors.precio}</p>

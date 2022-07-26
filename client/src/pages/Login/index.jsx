@@ -1,7 +1,8 @@
 import { GoogleLogin } from "@react-oauth/google";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { getUsuarios } from "../../redux/actions/checkout";
 
 import { useLocation } from "react-router-dom";
 import Loading from "../../components/Loader";
@@ -29,6 +30,13 @@ export default function Login() {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
 
+  const bloqueados = useSelector((state) => state.checkout.usuariosFiltrados);
+  // console.log(bloqueados)
+
+  useEffect(() => {
+    dispatch(getUsuarios());
+  }, []);
+
   useEffect(() => {
     const userSession = localStorage.getItem("user");
     if (userSession) {
@@ -40,7 +48,12 @@ export default function Login() {
     e.preventDefault();
 
     if ([mail, password].includes("")) {
-      setAlert({ msg: "All fields are required", type: "error" });
+      setAlert({ msg: "Todos los campos son obligatorios", type: "error" });
+      return;
+    }
+    const usuario = bloqueados.find((e) => e.mail === mail)
+    if (usuario && usuario.bloqueado === true) {
+      setAlert({ msg: "Usuario Bloqueado", type: "error" });
       return;
     }
     setLoading(true);

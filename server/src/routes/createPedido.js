@@ -16,10 +16,10 @@ router.post("/", isAuthenticated, queue({ activeLimit: 1, queuedLimit: -1}), asy
 
     const user = await Usuario.findByPk(id);
 
-    let { productos, comprador, direccion_de_envio } = req.body;
+    let { productos, comprador, direccion_de_envio, tipoDeEnvio } = req.body;
 
     if(!direccion_de_envio){
-      direccion_de_envio = comprador.direccion + " - " + comprador.codigoPostal + " - " + comprador.provincia;
+      direccion_de_envio = {direccion: comprador.direccion + " - " + comprador.provincia, CP: comprador.codigoPostal};
     }
 
     console.log(req.body);
@@ -39,7 +39,8 @@ router.post("/", isAuthenticated, queue({ activeLimit: 1, queuedLimit: -1}), asy
         }
       });
       //Me fijo si encontré un producto que requeria esa y que tenga stock. Si no lo hago en algún caso, devuelvo un error.
-      if(!productoTalle || (productoTalle.talles[0].dataValues.producto_talle.dataValues.stock - productos[i].cantidad) < 0) return res.status(400).send({Error: "Hubo un error. Porfavor, inténtelo de vuelta."})
+      if(!productoTalle || (productoTalle.talles[0].dataValues.producto_talle.dataValues.stock - productos[i].cantidad) < 0) 
+        return res.status(400).send({Error: "Lo sentimos. El producto seleccionado está agotado."})
       //Sumo el total del precio
       total += productos[i].cantidad * productoTalle.precio
     }
@@ -50,6 +51,8 @@ router.post("/", isAuthenticated, queue({ activeLimit: 1, queuedLimit: -1}), asy
       direccion_de_envio: direccion_de_envio,
       //Suponemos que esto se crea justo despues de la pasarela de pago, por lo que estaría aprobado.
       estado: "Pendiente de pago",
+      //tipo de envio
+      tipo_de_envio: comprador.tipoDeEnvio
     });
 
     //Creo una compra por cada producto

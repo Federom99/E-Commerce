@@ -12,14 +12,16 @@ import {
   Button,
   H2,
   StyledPopup,
-  ExtraInfo,
   Select,
   P,
   ImgLink,
   NoButton,
+  FavContainer,
+  DivBis,
 } from "./styles";
 import axios from "axios";
 import { ToastContainer , toast } from "react-toastify";
+import FavIcon from "../FavContainer";
 const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
   const [open, setOpen] = useState(false);
   const [stock , setStock] = useState(true);
@@ -28,22 +30,25 @@ const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
   let navigate = useNavigate();
 
   const currentStock = useSelector(state=>state.cart.cartRemainingStock)
+  const { user : currentUser }= useSelector(state=>state.auth)
 
   const closeModal = () => setOpen(false);
 
   const checkStock = async (cantidad = 1) => {
     let talle = size.current;
+    console.log('talle: ',talle)
     const product = await axios.get(`http://localhost:3001/product/${id}`);
-    if (talle === "Sin talle") {
-      if (product.data.talles[0].producto_talle.stock > cantidad) return true;
-      else return false;
+    console.log(product.data)
+    if (talle === "Sin talle") {      
+      if (product.data.talles[0].producto_talle.stock >= cantidad) return true;
+      else handleStockError(talle)
     } else {
       const index = await product.data.talles.findIndex(
         (p) => p.talle === talle
       );
       if (product.data.talles[index].producto_talle.stock > cantidad)
         return true;
-      else return false;
+      else handleStockError(talle)
     }
   };
   
@@ -69,7 +74,7 @@ const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
       cantidad: 1,
     };
     const check = await checkStock()
-    if (check){
+    if (check){      
       let index = currentStock.findIndex(p=>{
         if (p.id === id && p.talle === talle) return p
       })
@@ -101,6 +106,12 @@ const Card = ({ id, nombre, imagen, descripcion, precio, talles }) => {
   return (
     <DIV>
       <ContainerImage>
+      <DivBis>
+        <FavContainer>
+          {currentUser ? (<FavIcon productId={id} productName={nombre}/>) : null}
+        </FavContainer>
+      </DivBis>
+
         <ImgLink to={`/detail/${id}`}>
           <Image src={imagen} />
         </ImgLink>
