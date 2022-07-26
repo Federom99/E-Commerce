@@ -99,11 +99,16 @@ const CheckoutSuccess = () => {
                     <ul id={estilos.lista}>
                         <li className={estilos.itemLista}>
                             <span className={estilos.items}>Tipo: </span>
-                            <span className={estilos.items}>{pedido.tipo_de_envio}</span>
+                            <span className={estilos.items}>{pedido.tipo_de_envio === "Envio" ? "Envío a domicilio"
+                                : "Retiro en punto de entrega"}</span>
                         </li>
                         <li className={estilos.itemLista}>
                             <span className={estilos.items}>Direccion: </span>
-                            <span className={estilos.items}>{pedido.direccion_de_envio}</span>
+                            <span className={estilos.items}>{pedido.direccion_de_envio.direccion}</span>
+                        </li>
+                        <li className={estilos.itemLista}>
+                            <span className={estilos.items}>Código Postal: </span>
+                            <span className={estilos.items}>{pedido.direccion_de_envio.CP}</span>
                         </li>
                         <li className={estilos.itemLista}>
                             <span className={estilos.items}>Tiempo de retiro: </span>
