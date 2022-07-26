@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { List, Li , Error , Div , Header , CatList , Main, PriceSection, BOTON, Vaciar, ToastList} from "./styles";
+import { List, Li , Error , Div , Header , CatList , Main, PriceSection, BOTON, Vaciar, Button, Text} from "./styles";
 import OrderItem from '../../components/Cart/OrderItem';
 import { Link } from "react-router-dom";
 import { deleteCart, setLocalStorage } from "../../redux/actions/cart";
@@ -27,10 +27,12 @@ export default function ShoppingCart() {
   }
   const confirmarVaciado = ()=>{
     return (
-      <ToastList>
-        <li><p>Está vaciando el carrito</p></li>
-        <li><BOTON onClick={resetCart}>Confirmar</BOTON></li>
-      </ToastList>
+      <div>
+        <Text>
+          Está vaciando el carrito
+        </Text>
+        <Button onClick={resetCart}>Confirmar</Button>
+      </div>
     )
   }
   const resetCart = ()=>{
