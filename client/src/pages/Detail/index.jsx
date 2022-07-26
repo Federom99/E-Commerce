@@ -70,10 +70,11 @@ const ProductDetail = () => {
     if (!Object.keys(product).length) {
       dispatch(getProduct(productId));
       dispatch(getProductReviews(productId)).then((res) => {
-        console.log(res);
         if (res.payload.length === 0) {
+          setLoadingReview(false);
           setText("No hay reseñas de este producto");
         } else {
+          setLoadingReview(false);
           setText("Reseñas");
           setResenas(res.payload);
         }
@@ -242,48 +243,56 @@ const ProductDetail = () => {
       >
         <h2>{text}</h2>
         <ResenasContainer>
-          {resenas.length > 0 &&
-            resenas.map((r) => (
-              <>
-                <EachDiv class="div1 eachdiv">
-                  <UserDetails class="userdetails">
-                    <div>
-                      <img
-                        src="https://static.vecteezy.com/system/resources/previews/002/318/271/original/user-profile-icon-free-vector.jpg"
-                        alt=""
-                      />
-                    </div>
-                    <Detbox>
-                      <p className="name">{r.usuario.nombre}</p>
-                      <p class="designation">{r.usuario.mail}</p>
-                    </Detbox>
-                  </UserDetails>
-                  <Review>
-                    <div style={{ marginTop: "1rem" }}>
-                      <h4>{r.titulo}</h4>
-                      <Stars>
-                        {stars.map((_, index) => {
-                          return (
-                            <FaStar
-                              key={index}
-                              size={15}
-                              color={
-                                r.puntaje > index ? colors.orange : colors.grey
-                              }
-                              style={{
-                                marginRight: 5,
-                              }}
-                            />
-                          );
-                        })}
-                      </Stars>
-                    </div>
+          {loadingReview ? (
+            <Loading />
+          ) : (
+            <>
+              {resenas.length > 0 &&
+                resenas.map((r) => (
+                  <>
+                    <EachDiv class="div1 eachdiv">
+                      <UserDetails class="userdetails">
+                        <div>
+                          <img
+                            src="https://static.vecteezy.com/system/resources/previews/002/318/271/original/user-profile-icon-free-vector.jpg"
+                            alt=""
+                          />
+                        </div>
+                        <Detbox>
+                          <p className="name">{r.usuario.nombre}</p>
+                          <p class="designation">{r.usuario.mail}</p>
+                        </Detbox>
+                      </UserDetails>
+                      <Review>
+                        <div style={{ marginTop: "1rem" }}>
+                          <h4>{r.titulo}</h4>
+                          <Stars>
+                            {stars.map((_, index) => {
+                              return (
+                                <FaStar
+                                  key={index}
+                                  size={15}
+                                  color={
+                                    r.puntaje > index
+                                      ? colors.orange
+                                      : colors.grey
+                                  }
+                                  style={{
+                                    marginRight: 5,
+                                  }}
+                                />
+                              );
+                            })}
+                          </Stars>
+                        </div>
 
-                    <p>{r.comentario}</p>
-                  </Review>
-                </EachDiv>
-              </>
-            ))}
+                        <p>{r.comentario}</p>
+                      </Review>
+                    </EachDiv>
+                  </>
+                ))}
+            </>
+          )}
         </ResenasContainer>
       </div>
     </Main>
