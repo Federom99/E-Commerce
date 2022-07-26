@@ -18,6 +18,7 @@ export const List = styled.div`
   display: grid;
   grid-template-columns: 20% 60% 20%;
   grid-auto-flow: row;
+  grid-template-rows: 1fr 1fr;
   align-items: center;
   justify-items: center;
   margin-top: 15px;
@@ -25,6 +26,7 @@ export const List = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
   }
 `;
 
@@ -41,7 +43,7 @@ export const LiImg = styled.div`
   margin: 10px 0;
   width: 25rem;
   overflow-x: scroll;
-  @media (max-width: 815px) {
+  @media (max-width: 650px) {
     flex-direction: row;
     flex-wrap: wrap;
     overflow-y: scroll;
@@ -93,4 +95,13 @@ export const H3 = styled.h3`
   font-weight: bolder;
   margin-bottom: 5px;
   margin-top: 5px;
+`;
+
+export const Linea = styled.hr`
+  border: 1px dashed #000;
+  width: 70%;
+  grid-column: 1/4;
+  margin: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
 `;

@@ -159,7 +159,6 @@ const Modal = ({ handleClose, text }) => {
       setLoadingCreate(true);
 
       dispatch(postReviews(id, state)).then((res) => {
-        console.log(res);
         if (res.payload.response?.data?.Error) {
           setLoadingCreate(false);
           setErrors({ ...errors, postReview: res.payload.response.data.Error });
