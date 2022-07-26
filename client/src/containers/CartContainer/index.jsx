@@ -23,7 +23,9 @@ export default function ShoppingCart() {
     }
   },[])
   const setToast = ()=>{
-    toast.error(confirmarVaciado())
+    toast.error(confirmarVaciado(),{
+      toastId:'emptyCart'
+    })
   }
   const confirmarVaciado = ()=>{
     return (
