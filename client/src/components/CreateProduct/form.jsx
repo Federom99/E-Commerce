@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {getCategories, getTalles} from "../../redux/actions/product"
 import './form.css'
 import axios from "axios";
+import { toast , ToastContainer } from "react-toastify";
 
 function validate(form){
     let errors = {};
@@ -173,6 +174,7 @@ export default function Form({ submit }) {
             categoria: "Remeras",
             cantTalles: []
         })
+        window.scrollTo(0,0)
         }catch(e){
             console.log(e)
             return e
@@ -181,6 +183,10 @@ export default function Form({ submit }) {
 
     return (
         <div id="contenedorForm">
+                        <ToastContainer
+                    position="top-center"                    
+                    draggable
+                />
             <form style={{overflow:"hidden"}} className="formulario" onSubmit={handleSubmit}>
                 <label>Nombre</label>
                 <input

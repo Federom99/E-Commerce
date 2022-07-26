@@ -21,6 +21,7 @@ export const Header = styled.header`
   font-family: "Righteous", cursive;
 `
 export const List = styled.ul`
+position: relative;
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -76,3 +77,15 @@ export const BOTON = styled.button`
         border-style: solid;
     }
 `;
+export const Vaciar = styled(BOTON)`
+position: absolute;
+bottom:0px;
+right:0px;
+margin:10px;
+width: fit-content;
+`
+export const ToastList = styled.ul`
+    display:flex;
+    flex-direction:column;
+    list-style:none;    
+`
