@@ -6,5 +6,5 @@ export const lightTheme = {
     txtbtn: "white",
     btnTalla: "#cdcdcd",
     backgroundElement: "#0D0D0D",
-    background: "#FFFFFF",
+    background: `${({theme}) => theme.body}`,
 }
