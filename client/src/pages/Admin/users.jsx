@@ -3,6 +3,8 @@ import { getUsuarios, updateUser, filterUsers } from '../../redux/actions/checko
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from 'react';
 import './products.css'
+import { toast } from 'react-toastify';
+import { AiTwotoneAppstore } from 'react-icons/ai';
 
 export default function Users() {
   const dispatch = useDispatch();
@@ -26,14 +28,16 @@ export default function Users() {
 
   function alerta2(id, isAdmin) {
     dispatch(updateUser({ id, isAdmin: !isAdmin }))
-    alert("Usuario ya no es mas Admin")
+    if (isAdmin) toast.info('El usuario no es mas administrador')
+    else toast.info('El usuario ahora es administrador')
     // setTimeout(()=>{dispatch(getUsuarios());},500)
     dispatch(getUsuarios())
   }
 
   function alerta1(id, bloqueado) {
     dispatch(updateUser({ id, bloqueado: !bloqueado }))
-    alert("Usuario Bloqueado")
+    if (bloqueado) toast.info('El usuario ha sido desbloqueado')
+    else toast.info('El usuario ha sido bloqueado')
     dispatch(getUsuarios());
   }
 
@@ -110,6 +114,7 @@ export default function Users() {
 
   return (
     <div>
+      
       <div className='barraBusqueda'>
         <input
           type='text'

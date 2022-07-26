@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import Modal from '../../components/Modal/Modal';
 import EditProduct from '../../components/EditProduct';
 import EditForm from '../../components/EditProduct/form';
+import { toast } from 'react-toastify';
 
 export default function Products() {
   const [modal, setModal] = useState(false)
@@ -22,8 +23,9 @@ export default function Products() {
   const products = useSelector((state) => state.product.products);
 
   function borrar(id) {
+    toast.error('Producto eliminado!')
     dispatch(deleteProduct(id))
-    alert("Producto Eliminado !");
+    alert('elm')
     dispatch(getProducts());
   }
 
@@ -34,6 +36,7 @@ export default function Products() {
 
   function editar(datos) {
     setEditProduct(datos)
+    toast.success('Editado')
     setModal(!modal)
   }
   

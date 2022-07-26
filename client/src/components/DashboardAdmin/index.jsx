@@ -4,10 +4,15 @@ import Products from '../../pages/Admin/products'
 import Sales from '../../pages/Admin/sales';
 import Admin from '../../pages/Admin';
 import './Dashboard.css'
+import { ToastContainer } from 'react-toastify';
 
 export default function DashboardAdmin() {
     return (
         <div className='contenedor'>
+            <ToastContainer
+                    position="top-center"                    
+                    draggable
+                />
             <div className='sideBar'>
                 <h1>MENU</h1>
 

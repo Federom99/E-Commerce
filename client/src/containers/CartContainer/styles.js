@@ -21,6 +21,7 @@ export const Header = styled.header`
   font-family: "Righteous", cursive;
 `
 export const List = styled.ul`
+position: relative;
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -76,3 +77,37 @@ export const BOTON = styled.button`
         border-style: solid;
     }
 `;
+export const Vaciar = styled(BOTON)`
+position: absolute;
+bottom:0px;
+right:0px;
+margin:10px;
+width: fit-content;
+`
+export const Button = styled.button`
+  margin: auto;
+  padding: 5px;
+  vertical-align: middle;
+  display: flex;
+  align-items: stretch;
+  height: auto;
+  background-color: #181818;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bolder;
+  cursor: pointer;
+  &:hover {
+    background-color: whitesmoke;
+    color: black;
+    cursor: pointer;
+    border-color: black;
+    border-style: solid;
+  }
+`;
+
+export const Text = styled.p`
+  padding: 10px;
+  margin: 20px 0 0 0;
+  text-align: justify;
+`
