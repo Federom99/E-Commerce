@@ -1,13 +1,8 @@
-import { useEffect } from "react";
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import Compras from "../../components/Favoritos";
-import Modal from "../../components/ModalReview";
-import ModalContainer from "../../components/ModalReview/ModalContainer";
 
 import Review from "../../components/Review";
-import { changeModalClose, changeModalOPen } from "../../redux/actions/reviews";
 import { Header, Li, List, Main, Section } from "./styles";
 
 export default function ListContainer({ favProducts }) {

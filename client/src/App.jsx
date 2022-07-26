@@ -38,7 +38,7 @@ import Modal from "./components/ModalReview";
 import { changeModalClose, changeModalOPen } from "./redux/actions/reviews";
 import { useDarkMode } from "./styles/useDarkMode";
 import Toggle from "./components/Toggle/Toggle";
-import styled, { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider } from "styled-components";
 
 function handleErrors(response, rest) {
   if (response.status === 400) {
@@ -55,7 +55,7 @@ function App() {
 
   const dispatch = useDispatch();
   let location = useLocation();
-  const [ theme, toggleTheme ] = useDarkMode();
+  const [theme, toggleTheme] = useDarkMode();
   const themeMode = theme === "light" ? lightTheme : darkTheme;
 
   useEffect(() => {
@@ -90,17 +90,28 @@ function App() {
 
   return (
     <div className="App">
-    <ThemeProvider theme={themeMode}>
-      <ModalContainer>
-        {change == true && (
-          <Modal
-            modalOpen={change}
-            text={"lol"}
-            handleClose={() =>
-              change
-                ? dispatch(changeModalClose())
-                : dispatch(changeModalOPen())
-            }
+      <ThemeProvider theme={themeMode}>
+        <ModalContainer>
+          {change == true && (
+            <Modal
+              modalOpen={change}
+              text={"lol"}
+              handleClose={() =>
+                change
+                  ? dispatch(changeModalClose())
+                  : dispatch(changeModalOPen())
+              }
+            />
+          )}
+        </ModalContainer>
+        <GlobalStyle />
+        <NavBar products={products} />
+        {/* {location.pathname !== "/" ? <NavBar /> : null} */}
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={<MainContainer products={products} />}
           />
         )}
       </ModalContainer>

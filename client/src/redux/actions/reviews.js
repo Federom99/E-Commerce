@@ -15,12 +15,20 @@ const URL_SERVER = "http://localhost:3001/";
 
 export function postReviews(id, payload) {
   return async function (dispatch) {
-    const res = await axios.post(`${URL_SERVER}ratings/crear/${id}`, payload);
-    console.log(res);
-    return dispatch({
-      type: POST_REVIEW,
-      payload,
-    });
+    try {
+      const res = await axios.post(`${URL_SERVER}ratings/crear/${id}`, payload);
+      console.log(res);
+      return dispatch({
+        type: POST_REVIEW,
+        payload,
+      });
+    } catch (error) {
+      console.log(error);
+      return dispatch({
+        type: POST_REVIEW,
+        payload: error,
+      });
+    }
   };
 }
 
@@ -35,7 +43,6 @@ export function getReviews(id) {
 
 export function getProductReviews(id) {
   return async function (dispatch) {
-    console.log(id);
     const resp = await axios.get(`${URL_SERVER}ratings/${id}`);
     console.log(resp);
     if (resp) {

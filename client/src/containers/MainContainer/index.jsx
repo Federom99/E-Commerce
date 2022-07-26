@@ -1,19 +1,12 @@
-import React , { useEffect } from "react";
+import React, { useEffect } from "react";
 
-import { Main } from "./styles";
-import CardsContainer from "../CardsContainer";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import LeftBar from "../../components/LeftBar";
 import Paginado from "../../components/Paginado/Paginado";
-import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
 import { getAllFavs, getUserId } from "../../redux/actions/favoritos";
-import ModalContainer from "../../components/ModalReview/ModalContainer";
-import Modal from "../../components/ModalReview";
-import {
-  changeModalClose,
-  changeModalOPen,
-  changeModalReview,
-} from "../../redux/actions/reviews";
+import CardsContainer from "../CardsContainer";
+import { Main } from "./styles";
 
 const MainContainer = ({ products }) => {
   const [state, favs] = useSelector((state) => [state.auth, state.favorites]);
@@ -22,17 +15,17 @@ const MainContainer = ({ products }) => {
   const indiceFinal = paginaActual * cantidad;
   const indicePrimero = indiceFinal - cantidad;
   const productsItems = products.slice(indicePrimero, indiceFinal);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   // console.log(state)
 
-  useEffect (()=>{
-    if(state.user) {
-      dispatch(getUserId(state.user.name,state.user.email))
-  }
-  },[])
-  useEffect(()=>{
-      if (favs.userId) dispatch(getAllFavs(favs.userId))    
-  },[favs.userId])
+  useEffect(() => {
+    if (state.user) {
+      dispatch(getUserId(state.user.name, state.user.email));
+    }
+  }, []);
+  useEffect(() => {
+    if (favs.userId) dispatch(getAllFavs(favs.userId));
+  }, [favs.userId]);
 
   function paginado(nroPagina) {
     setPaginaActual(nroPagina);

@@ -13,18 +13,19 @@ export const Section = styled.section`
   box-shadow: 0px 0px 2px 0px rgb(153 153 153), 0px 5px 4px 0px rgb(153 153 153);
   width: 80%;
   min-height: 20vh;
+  max-width: 1440px;
   display: flex;
   flex-direction: column;
 `;
 
-export const List = styled.ul`
+export const List = styled.div`
   list-style: none;
   display: flex;
   flex-direction: column;
   justify-content: center;
 `;
 
-export const Li = styled.li`
+export const Li = styled.div`
   width: inherit;
   margin-bottom: 2rem;
   display: flex;
