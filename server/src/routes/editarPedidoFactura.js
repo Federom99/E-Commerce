@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const {DatosFactura, Pedido} = require("../db.js");
+const {DatosFactura, Pedido, Compra} = require("../db.js");
 const {Op} = require('sequelize');
 const { isAdmin, isAuthenticated } = require("../controllers/user.controller.js");
 const queue = require('express-queue');

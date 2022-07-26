@@ -10,7 +10,7 @@ import estilos from "./CheckoutSuccess.module.css";
 import { useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import queryString from "query-string";
-import { aprobarPedido, crearPedido, getFactura } from "../../redux/actions/checkout";
+import { aprobarPedido, crearPedido, enviarMail, getFactura } from "../../redux/actions/checkout";
 import { deleteCart } from "../../redux/actions/cart";
 import checkoutResume from "../../components/CheckoutResume/resume"
 
@@ -49,6 +49,7 @@ const CheckoutSuccess = () => {
     },[]);
 
     const {datosFactura} = pedido;
+    if(datosFactura) dispatch(enviarMail(datosFactura.mail));
     console.log(pedido);
 
     return(

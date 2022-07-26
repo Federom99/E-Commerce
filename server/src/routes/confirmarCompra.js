@@ -1,25 +1,25 @@
 const { Router } = require("express");
 const {Usuario} = require("../db.js");
-
+const nodemailer = require('nodemailer');
 const router = Router();
 
 
 
 router.post("/", async (req, res) => {
     try {
-      const { userId } = req.body;
-  
-      const usuario = await Usuario.findByPk(userId);
+      const { mail } = req.body;
+      console.log(mail)
+      // const usuario = await Usuario.findByPk(userId);
       var transporter = nodemailer.createTransport({
         service: "gmail",
         auth: {
           user: "henrypfg11@gmail.com",
-          pass: "Elpepe88",
+          pass: "chirxatvtficaopa",
         },
       });
       var mailOptions = {
         from: '"Henry Grupo 11 ☕" <henrypfg11@gmail.com>',
-        to: usuario.mail,
+        to: mail,
         subject: "Hello ✔",
         text: "Compra confirmada",
       };
