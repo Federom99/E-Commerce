@@ -1,8 +1,11 @@
 .graficoLineal {
     background-color: white;
-    width: 50%;
-    margin-top: 20px;
+    width: 27%;
+    height: 100%;
+    margin-top: 40px;
+    margin-left: 20px;
     padding: 10px;
     border-radius: 1rem;
-    position:  bottom;
+    align-items:initial;
+    /* position: bottom; */
 }

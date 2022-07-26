@@ -1,7 +1,7 @@
 .grafico {
     background-color: white;
     width: 70%;
-    height: 400px;
+    height: auto;
     margin-top: 40px;
     padding: 10px;
     border-radius: 1rem;
