@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const router = Router();
 const mercadopago = require("mercadopago");
+const { isAuthenticated } = require("../controllers/user.controller");
 //Provisional de esta forma, luego va en el .env
 const ACCESS_TOKEN = "APP_USR-2136680771902247-071214-4767199d5dfa22b7c0885a9e58ff3bec-1159384629";
 
@@ -8,7 +9,7 @@ mercadopago.configure({
     access_token: ACCESS_TOKEN,
 });
 
-router.post("/", (req, res) => {
+router.post("/", isAuthenticated, (req, res) => {
     try{
         const {items, datos, pedidoGenerado} = req.body
         console.log(req.body)

@@ -8,6 +8,7 @@ const {
   olvidePassword,
   comprobarToken,
   nuevoPassword,
+  isAuthenticated,
 } = require("../controllers/user.controller.js");
 const {
   registergoogleAuth,
@@ -27,7 +28,7 @@ router.get("/olvide-password/:token", comprobarToken);
 router.post("/olvide-password/:token", nuevoPassword);
 router.get("/", getUsers);
 
-router.get("/profile/:id", async (req, res) => {
+router.get("/profile/:id", isAuthenticated, async (req, res) => {
   let { id } = req.params;
 
   //Busco el usuario por id

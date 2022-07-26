@@ -1,10 +1,11 @@
 const { Router } = require("express");
 const { Producto, Categoria, Talle, Producto_talle} = require("../db.js");
-const {Op} = require('sequelize')
+const {Op} = require('sequelize');
+const { isAdmin } = require("../controllers/user.controller.js");
 
 const router = Router();
 
-router.put('/', async(req, res) => {
+router.put('/', isAdmin, async(req, res) => {
     const {id, nombre, precio, categoria, descripcion, imagen, talle, stock} = req.body;
     const productoParaActualizar = {nombre, descripcion, imagen, precio, talle};
     try{

@@ -21,7 +21,7 @@ const ResetPassword = () => {
         e.preventDefault()
         try {
             const {data} = await axios.post(`http://localhost:3001/user/olvide-password/${token}`,
-                {password: newPassword} 
+                {password: newPassword} , { withCredentials: true }
             )
             setTimeout(() => {
                 navigate("/login")
@@ -34,7 +34,7 @@ const ResetPassword = () => {
     useEffect(() => {
         const checkToken = async () => {
             const {data} = await axios.get(`http://localhost:3001/user/olvide-password/${token}`)
-            setValidToken(data)
+            setValidToken(data), { withCredentials: true }
         }
 
         checkToken()

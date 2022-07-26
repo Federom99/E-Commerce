@@ -1,8 +1,9 @@
 const { Router } = require("express");
+const { isAdmin } = require("../controllers/user.controller");
 const { Producto_talle, Talle } = require("../db");
 const router = Router();
 
-router.put("/:productId", async (req, res) => {
+router.put("/:productId", isAdmin, async (req, res) => {
   const { productId } = req.params;
 
   const { talle, stock } = req.body;

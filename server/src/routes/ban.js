@@ -1,9 +1,10 @@
 const { Router } = require("express");
+const { isAdmin } = require("../controllers/user.controller");
 const {Usuario} = require('../db')
 
 const router = Router();
 
-router.put("/:id", async (req, res) => {
+router.put("/:id", isAdmin, async (req, res) => {
 
     const {id} = req.params
     try{

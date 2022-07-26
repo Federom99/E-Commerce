@@ -1,14 +1,28 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 export const Contenido = styled.ul`
   & li {
     & a {
       color: ${(props) => props.theme.colorTextPri};
     }
-    &:hover{
-      cursor:pointer;
+    &:hover {
+      cursor: pointer;
     }
   }
+`;
+
+export const NavStyle = styled(NavLink)`
+  color: ${({theme}) => theme.color};
+  & svg {
+    color: ${({theme}) => theme.color};
+  }
+`;
+
+export const IconStyled = styled.li`
+& svg {
+  color: ${({theme}) => theme.color};
+}
 `;
 
 export const Image = styled.img`

@@ -102,7 +102,7 @@ export default function NewUser() {
             mail: newUser.email,
             contraseña: newUser.password,
             direccion: newUser.adress,
-          }
+          }, { withCredentials: true }
         );
 
         setAlert({ msg: data.msg, type: "success" });
@@ -134,7 +134,7 @@ export default function NewUser() {
         "http://localhost:3001/user/register-google",
         {
           user: userObject,
-        }
+        }, { withCredentials: true }
       );
 
       setAlert({ msg: data.msg, type: "success-google" });

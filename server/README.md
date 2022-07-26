@@ -9,6 +9,8 @@ DB_HOST=localhost
 
 JWT_SECRET=palabraSecret
 COOKIE_SECRET=asK9USD8SFZASLDlpfkqaefrekigdxkicauqLSDKFE
+
+DEPLOYED=true en caso de que se este haciendo un deploy.
 ```
 
 También hay que tener creada una base de datos con el nombre eccomerce

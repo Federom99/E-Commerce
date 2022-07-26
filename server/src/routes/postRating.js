@@ -1,10 +1,10 @@
 const { Router } = require("express");
-const { Rating, Usuario } = require("../db.js");
+const { isAuthenticated } = require("../controllers/user.controller.js");
+const { Rating } = require("../db.js");
 
 const router = Router();
 
-router.post("/:productoid", async (req, res) => {
-  // ruta que debe ser protegida
+router.post("/:productoid", isAuthenticated, async (req, res) => {
   try {
     const { puntaje, comentario, titulo, usuarioId } = req.body;
     const parsedScore = parseInt(puntaje);
