@@ -19,7 +19,7 @@ const URL_SERVER = "http://localhost:3001";
 export const checkout = (checkoutData) => async (dispatch) => {
   const { data } = await axios.post(
     `${URL_SERVER}/create_preference`,
-    checkoutData
+    checkoutData, { withCredentials: true }
   );
   return dispatch({
     type: CHECKOUT,
@@ -28,7 +28,7 @@ export const checkout = (checkoutData) => async (dispatch) => {
 };
 
 export const guardarDatosComprador = (checkoutData) => async dispatch => {
-  const {data} = await axios.post(`${URL_SERVER}/factura/crear`, checkoutData);
+  const {data} = await axios.post(`${URL_SERVER}/factura/crear`, checkoutData, { withCredentials: true });
   return dispatch({
       type: GUARDAR_DATOS_COMPRADOR,
       payload: data
@@ -61,7 +61,7 @@ export const getFactura = (idPedido) => async (dispatch) => {
 };
 
 export const aprobarPedido = (datos) => async (dispatch) => {
-  const { data } = await axios.put(`${URL_SERVER}/factura/edit`, datos);
+  const { data } = await axios.put(`${URL_SERVER}/factura/edit`, datos, { withCredentials: true });
   return dispatch({
     type: APROBAR_PEDIDO,
     payload: data,
@@ -84,7 +84,7 @@ export function getPedidos() {
 export function getUsuarios(reset){
   return async function(dispatch){
       try {
-      var json = await axios.get(`${URL_SERVER}/usuarios/`,{});
+      var json = await axios.get(`${URL_SERVER}/usuarios/`, { withCredentials: true });
       if(reset)
       return dispatch({
         type: "RESET_FILTER",
@@ -111,7 +111,7 @@ export function updateUser(payload) {
   return async function () {
     try {
       console.log(payload)
-      const response = await axios.put(`${URL_SERVER}/admin/usuario`, payload);
+      const response = await axios.put(`${URL_SERVER}/admin/usuario`, payload, { withCredentials: true });
       return response;
     } catch (e) {
       console.log(e);
