@@ -18,14 +18,15 @@ export const DIV = styled.div`
 
 export const Modale = styled.div`
   position: relative;
-  min-width: 250px;
-  max-width: 250px;
+  min-width: 300px;
+  max-width: 550px;
   max-height: 600px;
   margin: auto;
   padding: 0 2rem;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -36,16 +37,18 @@ export const Modale = styled.div`
   overflow-y: scroll;
 `;
 
+export const ModaleContent = styled.div`
+  margin-top: 5rem;
+  display: flex;
+`;
+
 export const BTN = styled.div`
   align-self: flex-end;
-  justify-self: flex-start;
-  margin-top: 1rem;
-  padding-left: 55px;
-  position: relative;
+  margin-top: 15px;
 `;
 
 export const Img = styled.img`
-  height: 5rem;
+  height: 15rem;
   margin: 15px 5px;
   -webkit-box-shadow: 3px 2px 2px 0px rgb(198 198 198 / 52%);
   -moz-box-shadow: 3px 2px 2px 0px rgb(198 198 198 / 52%);
@@ -101,6 +104,8 @@ export const Button = styled.button`
 export const Review = styled.textarea`
   margin-top: 1rem;
   height: 200px;
+  min-width: 250px;
+  max-width: 450px;
   padding: 1rem;
   border-radius: 5px;
   resize: none;
@@ -112,7 +117,9 @@ export const Review = styled.textarea`
 export const Input = styled.input`
   display: block;
   padding: 0.5rem 0.8rem;
-  max-width: 250px;
+  min-width: 250px;
+  max-width: 450px;
+  height: 30px;
   border: 1px solid rgba(0, 0, 0, 0.4);
   border-radius: 5px;
   margin-top: 1rem;
@@ -122,11 +129,62 @@ export const Input = styled.input`
 `;
 
 export const Stars = styled.div`
-  align-self: flex-start;
-  margin-top: 1rem;
+  align-self: center;
 `;
 
 export const ErrorsText = styled.p`
   color: red;
-  align-self: flex-start;
+  align-self: center;
+`;
+
+export const DivRese = styled.figure`
+  display: inline-block;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  color: #9e9e9e;
+  margin: 35px 10px 10px;
+  max-width: 230px;
+  min-width: 400px;
+  font-size: 16px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 5px;
+  border-top: 2px solid black;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
+  & figcaption {
+    padding: 13% 10% 12%;
+    &::before {
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%);
+      background-color: #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+      color: black;
+      content: "&";
+      font-size: 32px;
+      font-style: normal;
+      left: 50%;
+      line-height: 60px;
+      position: absolute;
+      top: -30px;
+      width: 60px;
+    }
+    & h3 {
+      color: #3c3c3c;
+      font-size: 20px;
+      font-weight: 300;
+      line-height: 24px;
+      margin: 10px 0 5px;
+    }
+
+    & blockquote {
+      font-style: italic;
+      font-weight: 300;
+      margin: 0 0 20px;
+    }
+  }
 `;

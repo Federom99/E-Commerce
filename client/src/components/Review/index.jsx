@@ -26,67 +26,61 @@ function Review() {
   }, []);
 
   return (
-    <>
-      <Div>
-        {loading ? (
-          <>
-            <Loading alto={0} />
-          </>
-        ) : (
-          <>
-            <List>
-              {pedidos.map((pedido) => {
-                return (
-                  <>
-                    <Li key={`${pedido.id}fecha`}>
-                      <H3>{dateFormat(pedido.fecha, "MM-yy-dd")}</H3>
-                    </Li>
-                    <LiImg key={`${pedido.id}img`}>
-                      {pedido.productos.map((product) => {
-                        return (
-                          <LIinimg
-                            as={motion.li}
-                            whileHover={{
-                              scale: 1.02,
-                            }}
-                            key={product.compra.productoId}
-                            onClick={() =>
-                              change
-                                ? close()
-                                : open(
-                                    product.compra.productoId,
-                                    product.imagen,
-                                    product.nombre,
-                                    id
-                                  )
-                            }
-                          >
-                            <Img
-                              as={motion.img}
-                              whileHover={{ scale: 1.05 }}
-                              whileTap={{ scale: 0.9 }}
-                              src={product.imagen}
-                            />
-                            <Ul>
-                              <li>Reseñar</li>
-                            </Ul>
-                          </LIinimg>
-                        );
-                      })}
-                    </LiImg>
-                    <Li>
-                      <h4 key={`${pedido.id}money`}>
-                        $ {Intl.NumberFormat("es-AR").format(pedido.pago_total)}
-                      </h4>
-                    </Li>
-                  </>
-                );
-              })}
-            </List>
-          </>
-        )}
-      </Div>
-    </>
+    <Div key={0}>
+      {loading ? (
+        <Loading alto={0} />
+      ) : (
+        <div>
+          {pedidos.map((pedido) => {
+            return (
+              <List key={pedido.id}>
+                <Li key={`${pedido.id}fecha`}>
+                  <H3>{dateFormat(pedido.fecha, "MM-yy-dd")}</H3>
+                </Li>
+                <LiImg key={`${pedido.id}img`}>
+                  {pedido.productos.map((product) => {
+                    return (
+                      <LIinimg
+                        as={motion.li}
+                        whileHover={{
+                          scale: 1.02,
+                        }}
+                        key={product.compra.productoId}
+                        onClick={() =>
+                          change
+                            ? close()
+                            : open(
+                                product.compra.productoId,
+                                product.imagen,
+                                product.nombre,
+                                id
+                              )
+                        }
+                      >
+                        <Img
+                          as={motion.img}
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.9 }}
+                          src={product.imagen}
+                        />
+                        <Ul>
+                          <p>Reseñar</p>
+                        </Ul>
+                      </LIinimg>
+                    );
+                  })}
+                </LiImg>
+                <Li>
+                  <h4 key={`${pedido.id}money`}>
+                    $ {Intl.NumberFormat("es-AR").format(pedido.pago_total)}
+                  </h4>
+                </Li>
+              </List>
+            );
+          })}
+        </div>
+      )}
+    </Div>
   );
 }
 
