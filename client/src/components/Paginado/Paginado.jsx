@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import estilos from "./Paginado.module.css";
-import {MdOutlineLastPage, MdOutlineFirstPage, MdArrowBackIos, MdArrowForwardIos} from "react-icons/md"
+import {
+  MdOutlineLastPage,
+  MdOutlineFirstPage,
+  MdArrowBackIos,
+  MdArrowForwardIos,
+} from "react-icons/md";
+import { Arrow, Final, NumeroPaginas, Principio } from "./style";
 
 export default function Paginado({
   cantidad,
@@ -26,51 +32,50 @@ export default function Paginado({
     <div className={estilos.PaginadoDiv}>
       {/* <h1>Pagina: {paginaActual}</h1> */}
       <div id={estilos.contenedorBotones}>
-        <button
+        <Principio
           className={estilos.principio}
           name="Principio"
           onClick={() => paginadoHandler(1)}
         >
           <MdOutlineFirstPage />
-        </button>
-        <button
+        </Principio>
+        <Arrow
           className={estilos.botones}
           name="Prev"
           onClick={() => paginadoHandler(paginaActual - 1)}
         >
           <MdArrowBackIos />
-        </button>
+        </Arrow>
         {numeros?.map((n, i) => {
           if (n > paginaActual + 2 || n < paginaActual - 2) {
             return;
           } else {
             return (
-              <button
+              <NumeroPaginas
                 className={
-                  paginaActual === n ? estilos.paginaActual : estilos.botones
+                  paginaActual === n ? 'paginaActual' : estilos.botones
                 }
                 key={i}
                 onClick={() => paginadoHandler(n)}
               >
                 {n}
-              </button>
+              </NumeroPaginas>
             );
           }
         })}
-        <button
+        <Arrow
           className={estilos.botones}
           name="Next"
           onClick={() => paginadoHandler(paginaActual + 1)}
         >
           <MdArrowForwardIos />
-        </button>
-        <button
-          className={estilos.final}
+        </Arrow>
+        <Final
           name="Final"
           onClick={() => paginadoHandler(cantTotal)}
         >
           <MdOutlineLastPage />
-        </button>
+        </Final>
       </div>
     </div>
   );
