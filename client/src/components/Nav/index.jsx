@@ -1,11 +1,12 @@
 import { BsFillPersonFill } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
 import { GrUserAdmin } from "react-icons/gr";
+import { RiAdminFill } from "react-icons/ri";
 import { ImExit } from "react-icons/im";
 import { NavLink, useNavigate } from "react-router-dom";
 import style from "./nav.module.css";
 import Search from "./search";
-import { Contenido } from "./style";
+import { Contenido, IconStyled, NavStyle } from "./style";
 import logo from "../../../assets/Logo.svg";
 import { RiAddBoxFill } from "react-icons/ri";
 import { subMenu } from "./submenu";
@@ -59,7 +60,7 @@ export default function NavBar({ products }) {
   const logOut = () => {
     dispatch(logout());
     dispatch(clearLocalStorage());
-    dispatch(removeFavs())
+    dispatch(removeFavs());
     window.location.reload();
     navigation("/");
   };
@@ -87,17 +88,17 @@ export default function NavBar({ products }) {
         </li>
         {showAdminBoard && (
           <li className={style.icons}>
-            <NavLink to="/admin/dashboard/">
-              <GrUserAdmin />
-            </NavLink>
+            <NavStyle to="/admin/dashboard/">
+              <RiAdminFill />
+            </NavStyle>
           </li>
         )}
       </>
     );
     contentExit = (
-      <li onClick={logOut} className={style.icons}>
+      <IconStyled onClick={logOut} className={style.icons}>
         <ImExit />
-      </li>
+      </IconStyled>
     );
   }
   if (!currentUser) {
@@ -127,11 +128,11 @@ export default function NavBar({ products }) {
           <Search data={data} />
         </li>
         {content}
-        <li className={style.icons}>
+        <IconStyled className={style.icons}>
           <NavLink to="/cart">
             <FaShoppingCart />
           </NavLink>
-        </li>
+        </IconStyled>
         {contentExit}
       </Contenido>
     </div>

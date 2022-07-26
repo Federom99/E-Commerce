@@ -14,6 +14,7 @@ import {
   List,
   Button,
   ErrorsText,
+  Register,
 } from "./styles";
 import { useDispatch } from "react-redux";
 import Loading from "../../components/Loader";
@@ -102,7 +103,7 @@ export default function NewUser() {
             mail: newUser.email,
             contraseña: newUser.password,
             direccion: newUser.adress,
-          }
+          }, { withCredentials: true }
         );
 
         setAlert({ msg: data.msg, type: "success" });
@@ -134,7 +135,7 @@ export default function NewUser() {
         "http://localhost:3001/user/register-google",
         {
           user: userObject,
-        }
+        }, { withCredentials: true }
       );
 
       setAlert({ msg: data.msg, type: "success-google" });
@@ -154,15 +155,9 @@ export default function NewUser() {
         <Title>¡Bienvenido!</Title>
       </Header>
       <Form onSubmit={handleSubmit}>
-        <h2
-          style={{
-            textAlign: "center",
-            color: "#252525",
-            marginBottom: "1rem",
-          }}
-        >
+        <Register>
           Registrarse
-        </h2>
+        </Register>
         <List>
           <Li>
             <Subtitle>Nombre:</Subtitle>

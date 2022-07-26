@@ -1,14 +1,39 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 export const Contenido = styled.ul`
+  list-style-type: none;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: calc(0.6vw + 1rem);
+  background: ${(theme) => theme.cardBackground};
+  box-shadow: 0px 0px 5px 0 rgb(31 38 135 / 37%);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
   & li {
     & a {
       color: ${(props) => props.theme.colorTextPri};
     }
-    &:hover{
-      cursor:pointer;
+    &:hover {
+      cursor: pointer;
     }
   }
+`;
+
+export const NavStyle = styled(NavLink)`
+  color: ${({theme}) => theme.color};
+  & svg {
+    color: ${({theme}) => theme.color};
+  }
+`;
+
+export const IconStyled = styled.li`
+& svg {
+  color: ${({theme}) => theme.color};
+}
 `;
 
 export const Image = styled.img`

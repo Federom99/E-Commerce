@@ -31,6 +31,7 @@ import {
   P,
   ResenasContainer,
   Review,
+  Price,
   Size,
   SizeInfo,
   Stars,
@@ -211,7 +212,8 @@ const ProductDetail = () => {
         </ImageContainer>
         <InfoContainer>
           <H2>{product?.nombre}</H2>
-          {size ? <P stock={stock}>Precio: $ {formatPrice}</P> : null}
+          <Price>Precio: $ {formatPrice}</Price>
+          {size ? <P stock={stock}></P> : null}
 
           <SizeInfo>
             {product.categorium?.nombre !== "Accesorios" &&

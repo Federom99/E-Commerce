@@ -15,6 +15,12 @@ export const Title = styled.h2`
   font-weight: 600;
 `;
 
+export const Register = styled.h2`
+  margin-bottom: 1rem;
+  text-align: center;
+  color: ${({theme}) => theme.color};
+`
+
 export const ErrorsText = styled.p`
   color: red;
 `;

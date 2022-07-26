@@ -80,15 +80,16 @@ export const H2 = styled.div`
 
 export const P = styled.p`
   position: relative;
-  margin: auto;
+  /* margin: auto;
   margin-bottom: 1rem;
   font-weight: 600;
   color: ${(props) => props.theme.colorTextPri};
-  text-align: center;
+  text-align: center; */
   &::after {
     text-align: center;
     margin: auto;
-    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    /* margin-top: 0.5rem; */
     content: "Stock: ${(props) => props.stock}";
     display: block;
     font-weight: 400;
@@ -231,3 +232,13 @@ export const Review = styled.div`
     line-height: 1.5;
   }
 `;
+
+export const Price = styled.p`
+  position: relative;
+  margin: auto;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: ${(props) => props.theme.colorTextPri};
+  text-align: center;
+`
+

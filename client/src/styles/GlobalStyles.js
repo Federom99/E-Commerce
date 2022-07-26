@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'Anek Malayalam', sans-serif;
         background-color: ${({theme}) => theme.body};
         color: ${({theme}) => theme.color};
-        /* transition: all .4s linear; */
+        transition: all .4s linear; 
     }
     .App{
         min-width: 375px;
@@ -23,9 +23,21 @@ export const GlobalStyle = createGlobalStyle`
 export const lightTheme = {
   body: "#fff",
   color: "#121212",
+  cardBackground: '#fff',
+  paginadoArrowButton: '#dcdcdc',
+  fontVariant: 'black',
+  shadowColor: '0 10px 14px rgba(0, 0, 0, .2)'
 };
 
 export const darkTheme = {
-  body: "#020010",
+  body: "#1b1b1b",
   color: "#fff",
+  cardBackground: '#1b1b1b',
+  paginadoArrowButton: 'black',
+  fontVariant: 'white',
+  shadowColor: '0 10px 14px rgb(169 169 169 / 20%)'
 };
+
+
+
+//#0d0d0d

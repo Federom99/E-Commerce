@@ -17,7 +17,9 @@ function Confirmacion() {
   const pagina = async () => {
     try {
       const url = `http://localhost:3001/user/confirmar/${id}`;
-      const result = await fetch(url);
+      const result = await fetch(url, {
+        credentials: "include",
+      });
       const res = result.json();
       console.log(res);
       setState({ ...state, load: false });
