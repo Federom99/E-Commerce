@@ -121,7 +121,7 @@ export function updateUser(payload) {
 
 export function enviarMail(userMail) {
   return async function (dispatch) {
-    await axios.post(`${URL_SERVER}usuario/confirmacion`, { mail: userMail });
+    await axios.post(`${URL_SERVER}/usuario/confirmacion`, { mail: userMail });
 
     dispatch({ type: CONFIRMAR_COMPRA, payload: userMail });
   };
