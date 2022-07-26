@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import './products.css'
 import { toast } from 'react-toastify';
 import { AiTwotoneAppstore } from 'react-icons/ai';
+import { Button, Text } from './styles';
 
 export default function Users() {
   const dispatch = useDispatch();
@@ -16,7 +17,7 @@ export default function Users() {
 
   useEffect(() => {
     dispatch(getUsuarios());
-    // console.log("me rompo")
+    console.log("me rompo")
   }, [])
 
   // useEffect(() => {
@@ -25,20 +26,54 @@ export default function Users() {
   
   // var usuariosFiltrados = [useSelector((state) => state.checkout.usuarios);]
   // console.log(usuarios)
-
+  const changeAdmin = (id,isAdmin)=>{
+    const adminSet = ()=>{
+      dispatch(updateUser({id,isAdmin: !isAdmin}))
+      setTimeout(()=>{
+        dispatch(getUsuarios())
+      },1000)
+    }
+    return(
+      isAdmin ? (
+      <div>
+        <Text>Está revocando los permisos de administrador al usuario</Text>
+        <Button onClick={adminSet}>Confirmar</Button>
+      </div>):(<div>
+        <Text>Está otorgando permisos de administrador al usuario</Text>
+        <Button onClick={adminSet}>Confirmar</Button>
+      </div>)
+    )
+  }
+  const blockUser = (id, bloqueado)=>{
+    const setBlock = ()=>{
+      dispatch(updateUser({id,bloqueado: !bloqueado}))
+      setTimeout(()=>{
+        dispatch(getUsuarios())
+      },1000)
+    }
+    return(
+      !bloqueado ? (
+      <div>
+        <Text>¿Bloquear al usuario?</Text>
+        <Button onClick={setBlock}>Confirmar</Button>
+      </div>):(<div>
+        <Text>¿Desbloquear al usuario?</Text>
+        <Button onClick={setBlock}>Confirmar</Button>
+      </div>)
+    )
+  }
   function alerta2(id, isAdmin) {
-    dispatch(updateUser({ id, isAdmin: !isAdmin }))
-    if (isAdmin) toast.info('El usuario no es mas administrador')
-    else toast.info('El usuario ahora es administrador')
-    // setTimeout(()=>{dispatch(getUsuarios());},500)
-    dispatch(getUsuarios())
+    toast.info(changeAdmin(id,isAdmin),{
+      toastId: `${id}admin${isAdmin}`
+    })
+    // dispatch(getUsuarios())
   }
 
   function alerta1(id, bloqueado) {
-    dispatch(updateUser({ id, bloqueado: !bloqueado }))
-    if (bloqueado) toast.info('El usuario ha sido desbloqueado')
-    else toast.info('El usuario ha sido bloqueado')
-    dispatch(getUsuarios());
+    toast.info(blockUser(id,bloqueado),{
+      toastId: `${id}block${bloqueado}`
+    })
+
   }
 
   function handleInputChange(e) {
