@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 export const MainDiv = styled.div`    
     width:900px;
-    background-color: ${props => props.theme.background};
+    background-color: ${props => props.theme.cardBackground};
     /* background-color: red; */
     height:auto;
     display:flex;
