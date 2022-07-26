@@ -143,15 +143,6 @@ export function updateEstadoPedido(payload) {
   };
 }
 
-export function enviarMail(userMail) {
-  return async function (dispatch) {
-    await axios.post(`${URL_SERVER}/usuario/confirmacion`, { mail: userMail });
-
-    dispatch({ type: CONFIRMAR_COMPRA, payload: userMail });
-  };
-}
-
-
 export function updateEnvio(id, payload, productos) {
   return async function (dispatch) {
     await axios

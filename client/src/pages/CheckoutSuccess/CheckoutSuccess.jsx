@@ -10,13 +10,14 @@ import estilos from "./CheckoutSuccess.module.css";
 import { useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import queryString from "query-string";
-import { aprobarPedido, crearPedido, enviarMail, getFactura } from "../../redux/actions/checkout";
+import { aprobarPedido, crearPedido, getFactura } from "../../redux/actions/checkout";
 import { deleteCart } from "../../redux/actions/cart";
 import checkoutResume from "../../components/CheckoutResume/resume"
 
 const CheckoutSuccess = () => {
     const dispatch = useDispatch();
     const pedido = useSelector(state => state.checkout.pedido);
+    const { user: currentUser } = useSelector((state) => state.auth);
     const productoCreado = false;
     let {search} = useLocation();
     let {idPedido} = useParams();
@@ -41,16 +42,16 @@ const CheckoutSuccess = () => {
             default: datosDePago.medioDePago = "Otro";
         }
     }
+    
+    const {datosFactura} = pedido;
 
     useEffect(() => {
         dispatch(getFactura(idPedido));
-        dispatch(aprobarPedido({idPedido, nroOperacion: datosDePago.nroOperacion, estado: datosDePago.estado}));
+        dispatch(aprobarPedido({idPedido, nroOperacion: datosDePago.nroOperacion, 
+            estado: datosDePago.estado, mail: currentUser.email}));
         dispatch(deleteCart());
     },[]);
-
-    const {datosFactura} = pedido;
-    if(datosFactura) dispatch(enviarMail(datosFactura.mail));
-    console.log(pedido);
+    
 
     return(
         <Main>
@@ -95,23 +96,23 @@ const CheckoutSuccess = () => {
                     <br />
                 </div>
                 {
-                pedido.datosFactura && datosDePago.estado === "Aprobado" &&
+                pedido?.datosFactura && datosDePago?.estado === "Aprobado" &&
                 <div id={estilos.contenedorDatos}>
                     <H2>Datos de envío</H2>
                     <br />
                     <ul id={estilos.lista}>
                         <li className={estilos.itemLista}>
                             <span className={estilos.items}>Tipo: </span>
-                            <span className={estilos.items}>{pedido.tipo_de_envio === "Envio" ? "Envío a domicilio"
+                            <span className={estilos.items}>{pedido?.tipo_de_envio === "Envio" ? "Envío a domicilio"
                                 : "Retiro en punto de entrega"}</span>
                         </li>
                         <li className={estilos.itemLista}>
                             <span className={estilos.items}>Direccion: </span>
-                            <span className={estilos.items}>{pedido.direccion_de_envio.direccion}</span>
+                            <span className={estilos.items}>{pedido?.direccion_de_envio.direccion}</span>
                         </li>
                         <li className={estilos.itemLista}>
                             <span className={estilos.items}>Código Postal: </span>
-                            <span className={estilos.items}>{pedido.direccion_de_envio.CP}</span>
+                            <span className={estilos.items}>{pedido?.direccion_de_envio.CP}</span>
                         </li>
                         <li className={estilos.itemLista}>
                             <span className={estilos.items}>Tiempo de retiro: </span>
