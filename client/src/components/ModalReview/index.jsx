@@ -1,23 +1,28 @@
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { AiFillCloseCircle } from "react-icons/ai";
+import { FaStar } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { getProductReviews, postReviews } from "../../redux/actions/reviews";
+import {
+  changeModalClose,
+  getProductReviews,
+  postReviews,
+} from "../../redux/actions/reviews";
+import Loading from "../Loader";
 import Backdrop from "./Backdrop";
+import { useOnClickOutside } from "./clickOutside";
 import {
   BTN,
   BtnRese,
-  Button,
+  DivRese,
   ErrorsText,
   Img,
   Input,
   Modale,
+  ModaleContent,
   Review,
   Stars,
 } from "./style";
-import { FaStar } from "react-icons/fa";
-import useFormEditProfile from "../../hooks/useFormEditProfile";
-import Loading from "../Loader";
-import { AiFillCloseCircle } from "react-icons/ai";
 
 const dropIn = {
   hidden: {
@@ -64,8 +69,11 @@ const Modal = ({ handleClose, text }) => {
   const [hoverValue, setHoverValue] = useState(undefined);
   const [errors, setErrors] = useState({});
   const [state, setState] = useState({ puntaje: 0 });
+  const [resenas, setResenas] = useState([]);
   const [ver, setVer] = useState(false);
-  const [rta, setRta] = useState("Ok");
+  const [rta, setRta] = useState("");
+  const ref = useRef(null);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -73,19 +81,20 @@ const Modal = ({ handleClose, text }) => {
       setLoading(false);
       if (res.payload.length === 0) {
         setRta("Actualmente no hay Reseñas...");
+      } else if (res.payload.length > 0) {
+        setResenas(res.payload);
       }
     });
 
     if (textLoading === "Reseña Creada") {
       setLoading(true);
       dispatch(getProductReviews(id)).then((res) => {
-        setLoading(false);
-        console.log(res);
-        console.log(res.payload.length);
         if (res.payload.length === 0) {
           setRta("Actualmente no hay Reseñas...");
         } else {
-          setRta("Hay reseñas");
+          setRta(null);
+          setTextLoading(null);
+          setResenas(res.payload.data);
         }
       });
     }
@@ -110,7 +119,6 @@ const Modal = ({ handleClose, text }) => {
   };
 
   const handleSubmitI = () => {
-    console.log("click");
     const validaciones = {
       titulo: {
         required: {
@@ -152,15 +160,25 @@ const Modal = ({ handleClose, text }) => {
       setLoadingCreate(true);
 
       dispatch(postReviews(id, state)).then((res) => {
-        setLoadingCreate(false);
-        setTextLoading("Reseña Creada");
+        console.log(res);
+        if (res.payload.response?.data?.Error) {
+          setLoadingCreate(false);
+          setErrors({ ...errors, postReview: res.payload.response.data.Error });
+        } else {
+          setLoadingCreate(false);
+          setTextLoading("Reseña Creada");
+        }
       });
     }
   };
 
+  useEffect(() => {}, []);
+
   const handleChange = (e) => {
     setState({ ...state, [e.target.name]: e.target.value });
   };
+
+  useOnClickOutside(ref, () => dispatch(changeModalClose()));
   return (
     <Backdrop onClick={handleClose}>
       <Modale
@@ -171,11 +189,13 @@ const Modal = ({ handleClose, text }) => {
         initial="hidden"
         animate="visible"
         exit="exit"
+        ref={ref}
       >
         <BTN onClick={handleClose}>
-          <AiFillCloseCircle />
+          <AiFillCloseCircle fontSize={20} />
         </BTN>
-        <h4 style={miniStyleInternal}>{nombre}</h4>
+        <h4>{nombre}</h4>
+
         <Img src={imagen} alt={`imagen-${id}`} />
         <BtnRese onClick={handleClickVer}>
           {!ver ? "Crear Reseña" : "En otro momento..."}
@@ -206,14 +226,12 @@ const Modal = ({ handleClose, text }) => {
                     onClick={() => handleClick(index + 1)}
                     onMouseOver={() => handleMouseOver(index + 1)}
                     onMouseLeave={handleMouseLeave}
-                    color={
-                      (hoverValue || state.puntaje) > index
-                        ? colors.orange
-                        : colors.grey
-                    }
+                    color={state.puntaje > index ? colors.orange : colors.grey}
                     style={{
                       marginRight: 10,
                       cursor: "pointer",
+                      marginTop: "1rem",
+                      alignSelf: "flex-start",
                     }}
                   />
                 );
@@ -221,19 +239,48 @@ const Modal = ({ handleClose, text }) => {
             </Stars>
             {errors.puntaje && <ErrorsText>{errors.puntaje}</ErrorsText>}
             <BtnRese onClick={handleSubmitI}>Enviar Reseña</BtnRese>
+            {errors.postReview && <ErrorsText>{errors.postReview}</ErrorsText>}
             {loadingCreate ? <Loading /> : <>{textLoading}</>}
           </>
         )}
+        {loading ? (
+          <>
+            <Loading />
+          </>
+        ) : (
+          <>
+            {resenas &&
+              resenas.map((rese) => (
+                <DivRese key={rese.id}>
+                  <figcaption>
+                    <blockquote>
+                      <p>{rese.comentario}</p>
+                    </blockquote>
 
-        <p style={miniStyleInternal}>
-          {loading ? (
-            <>
-              <Loading />
-            </>
-          ) : (
-            <>{rta}</>
-          )}
-        </p>
+                    <h3 style={{ padding: 0, margin: 0 }}>{rese.titulo}</h3>
+                    <Stars>
+                      {stars.map((_, index) => {
+                        return (
+                          <FaStar
+                            key={index}
+                            size={5}
+                            color={
+                              rese.puntaje > index ? colors.orange : colors.grey
+                            }
+                            style={{
+                              marginRight: 5,
+                            }}
+                          />
+                        );
+                      })}
+                    </Stars>
+                    {rese.usuario && <p>{rese.usuario.nombre}</p>}
+                  </figcaption>
+                </DivRese>
+              ))}
+            {rta !== "" && <div style={{ marginBottom: "1rem" }}>{rta}</div>}
+          </>
+        )}
       </Modale>
     </Backdrop>
   );
