@@ -93,6 +93,8 @@ const CheckoutSuccess = () => {
                     </ul>
                     <br />
                 </div>
+                {
+                pedido.datosFactura && datosDePago.estado === "Aprobado" &&
                 <div id={estilos.contenedorDatos}>
                     <H2>Datos de envío</H2>
                     <br />
@@ -117,6 +119,7 @@ const CheckoutSuccess = () => {
                     </ul>
                     <br />
                 </div>
+                }
             </Div>
         </Main>
     );
