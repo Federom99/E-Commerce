@@ -7,7 +7,18 @@ import { getPedidos } from "../../redux/actions/pedidos";
 import { changeModalClose, changeModalOPen } from "../../redux/actions/reviews";
 import Loading from "../Loader";
 import { dateFormat } from "./dateformat";
-import { CloseBtn, Div, H3, Img, Li, LiImg, LIinimg, List, Ul } from "./style";
+import {
+  CloseBtn,
+  Div,
+  H3,
+  Img,
+  Li,
+  LiImg,
+  LIinimg,
+  Linea,
+  List,
+  Ul,
+} from "./style";
 
 function Review() {
   const dispatch = useDispatch();
@@ -75,6 +86,7 @@ function Review() {
                     $ {Intl.NumberFormat("es-AR").format(pedido.pago_total)}
                   </h4>
                 </Li>
+                <Linea />
               </List>
             );
           })}
