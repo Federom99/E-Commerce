@@ -109,7 +109,9 @@ export default function Products() {
     },
     {
       name: 'Borrar',
-      selector: row => <button className='user' onClick={() => toast.error(deleteToast(row.id))}>Eliminar</button>,
+      selector: row => <button className='user' onClick={() => toast.error(deleteToast(row.id),{
+        toastId: `delete${row.id}`
+      })}>Eliminar</button>,
       sortable: true,
       grow: 0.1,
     },
