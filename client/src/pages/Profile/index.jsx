@@ -28,8 +28,14 @@ import { getAllFavs } from "../../redux/actions/favoritos";
 
 
 export default function User() {
-  const { disabled, inputValues, inputErrors, editField, handleSubmit } =
-    useFormEditProfile();
+  const { 
+    disabled, 
+    inputValues, 
+    setInputValues, 
+    inputErrors, 
+    editField, 
+    handleSubmit 
+  } = useFormEditProfile();
 
   const {
     user: { id },
@@ -112,8 +118,7 @@ export default function User() {
                 disabled={disabled}
                 aceptar
                 onClick={(e) => {
-                  handleSubmit(e);
-                  setEditProfile((prevState) => !prevState);
+                  changeInfo(e)
                 }}
               >
                 Aceptar
@@ -144,7 +149,16 @@ export default function User() {
               <LI className="Info">Telefono</LI>
               <LI>{user?.telefono}</LI>
             </UL>
-            <Button onClick={() => setEditProfile((prevState) => !prevState)}>
+            <Button onClick={() => {
+              setEditProfile((prevState) => !prevState)
+              setInputValues({
+                nombre: user?.nombre,
+                apellido: user?.apellido,
+                mail: user?.email || user?.mail,
+                telefono: user?.telefono
+              })
+              }}
+            >
               Editar perfil
             </Button>
             <ExtraInfo>

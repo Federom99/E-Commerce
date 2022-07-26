@@ -128,7 +128,8 @@ export default function useFormEditProfile(){
 
     return {
         disabled,
-        inputValues, 
+        inputValues,
+        setInputValues,
         inputErrors,
         editField,
         handleSubmit

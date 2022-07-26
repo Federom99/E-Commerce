@@ -13,8 +13,6 @@ function Search() {
   const [suggestionsActive, setSuggestionsActive] = useState(false); // showSuggestions
   const [value, setValue] = useState("");
   const data = useSelector(state => state.product.allProducts);
-  //console.log(data);
-
 
   const handleChange = (e) => {
     const query = e.target.value;
