@@ -105,17 +105,6 @@ function App() {
           )}
         </ModalContainer>
         <GlobalStyle />
-        <NavBar products={products} />
-        {/* {location.pathname !== "/" ? <NavBar /> : null} */}
-        <Routes>
-          <Route
-            exact
-            path="/"
-            element={<MainContainer products={products} />}
-          />
-        )}
-      </ModalContainer>
-      <GlobalStyle />
       <NavBar products={products} />
       {/* {location.pathname !== "/" ? <NavBar /> : null} */}
       <Routes>
