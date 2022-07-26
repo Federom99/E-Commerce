@@ -4,8 +4,9 @@ export const Main = styled.main`
   padding-top: 120px;
   padding: 1rem;
   min-width: 375px;
-  max-width: 1440px;
+  /* max-width: 1440px; */
   margin: 0 auto;
+  font-size: 16px;
   @media (min-width: 850px) {
     margin: 0 auto;
   }
@@ -18,53 +19,54 @@ export const Div = styled.div`
   -webkit-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
   -moz-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
   box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
   align-items: center;
+  grid-gap: 20px;
   width: 70%;
   max-width: 1440px;
-  height: 90vh;
+  /* height: 90vh; */
   margin: auto;
-  @media (min-width: 850px) {
-    flex-direction: row;
+  @media (max-width: 650px) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 1250px) {
+    grid-gap: 100px;
   }
 `;
 
 export const ImageContainer = styled.div`
-  // background-color: blue;
-  height: 80%;
-  position: relative;
-  // max-width: 500px;
-  -webkit-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
-  -moz-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
-  box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
+  margin: 10px;
+  /* @media (min-width: 1250px) {
+    justify-self: end;
+  } */
 `;
 export const FavContainer = styled.div`
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  margin: 10px;
+  position: relative;
 `;
 
 export const Image = styled.img`
-  height: 100%;
+  /* max-width: 166px; */
+  box-shadow: 0px 4px 15px 0px rgb(153 153 153);
+  max-width: 300px;
+  @media (max-width: 870px) {
+    width: 185px;
+  }
 `;
 
 export const InfoContainer = styled.div`
   /* background-color: blue; */
   padding: 1rem;
-  max-width: 500px;
-  margin-top: 1rem;
-  margin-left: 4rem;
+  /* max-width: 260px; */
+  margin: 1rem;
   border-radius: 1rem;
   -webkit-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 0.5);
   -moz-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 0.5);
   box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 0.5);
-  @media (min-width: 850px) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  @media (min-width: 1250px) {
+    justify-self: start;
   }
 `;
 
@@ -98,13 +100,15 @@ export const P = styled.p`
 export const Stars = styled.div`
   display: "flex";
   flex-direction: "row";
-  margin: 1rem 0;
+  margin-left: 2rem;
+  margin-bottom: 5px;
 `;
 
 export const SizeInfo = styled.ul`
   display: flex;
   justify-content: space-between;
   margin-bottom: 1rem;
+  flex-wrap: wrap;
   list-style: none;
 `;
 
@@ -147,5 +151,83 @@ export const Button = styled.button`
     cursor: pointer;
     border-color: black;
     border-style: solid;
+  }
+`;
+
+export const ResenasContainer = styled.div`
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  margin: 2rem;
+  margin-bottom: 5rem;
+  max-width: 70%;
+`;
+
+export const DivRese = styled.div`
+  background: #733fc8;
+  grid-column: 1/3;
+  grid-row: 1/2;
+`;
+
+export const EachDiv = styled.div`
+  padding: 1rem 2rem;
+  border-radius: 0.8rem;
+  box-shadow: 5px 5px 20px #6d6b6b6b;
+  color: black;
+  margin-bottom: 1rem;
+`;
+
+export const UserDetails = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  & div {
+    margin-right: 1rem;
+    & img {
+      border-radius: 50%;
+      width: 4rem;
+      /* border: 2px solid #cec5c5; */
+    }
+  }
+`;
+
+export const Detbox = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  & p {
+    margin: 0;
+  }
+  & .name {
+    color: black;
+    font-size: 0.9rem;
+    margin-bottom: 0.1rem;
+    font-weight: 600;
+  }
+
+  & .designation {
+    color: hsl(0deg 4% 19%);
+    opacity: 50%;
+    font-size: 0.8rem;
+  }
+`;
+
+export const Review = styled.div`
+  & div {
+    display: flex;
+    align-items: center;
+  }
+  & div > h4 {
+    font-size: 1.4rem;
+    color: black;
+    font-weight: 600;
+    line-height: 1.5;
+    /* margin-bottom: 0.8rem; */
+  }
+  & p {
+    font-size: 0.95rem;
+    color: #000000;
+    font-weight: 500;
+    opacity: 50%;
+    line-height: 1.5;
   }
 `;

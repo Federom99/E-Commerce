@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { FaStar } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
@@ -12,11 +13,15 @@ import {
   setLocalStorage,
 } from "../../redux/actions/cart";
 import { clearProduct, getProduct } from "../../redux/actions/product";
+import { getProductReviews } from "../../redux/actions/reviews";
 import estilos from "./detail.module.css";
 import {
   Button,
   Description,
+  Detbox,
   Div,
+  DivRese,
+  EachDiv,
   FavContainer,
   H2,
   Image,
@@ -24,39 +29,30 @@ import {
   InfoContainer,
   Main,
   P,
+  ResenasContainer,
+  Review,
   Size,
   SizeInfo,
+  Stars,
+  UserDetails,
 } from "./styles";
 
+const stars = Array(5).fill(0);
 const colors = {
   orange: "#FFBA5A",
   grey: "#a9a9a9",
 };
 
 const ProductDetail = () => {
-  const [currentValue, setCurrentValue] = useState(0);
-  const [hoverValue, setHoverValue] = useState(undefined);
-
   const [size, setSize] = useState("");
   const [stock, setStock] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
-
-  const stars = Array(5).fill(0);
-
-  const handleClick = (value) => {
-    setCurrentValue(value);
-  };
+  const [loadingReview, setLoadingReview] = useState(true);
+  const [text, setText] = useState(null);
+  const [resenas, setResenas] = useState([]);
 
   const defineSize = (event) => {
     setSize(event.target.innerHTML);
-  };
-
-  const handleMouseOver = (newHoverValue) => {
-    setHoverValue(newHoverValue);
-  };
-
-  const handleMouseLeave = () => {
-    setHoverValue(undefined);
   };
 
   let dispatch = useDispatch();
@@ -73,6 +69,15 @@ const ProductDetail = () => {
     window.scrollTo(0, 0);
     if (!Object.keys(product).length) {
       dispatch(getProduct(productId));
+      dispatch(getProductReviews(productId)).then((res) => {
+        console.log(res);
+        if (res.payload.length === 0) {
+          setText("No hay reseñas de este producto");
+        } else {
+          setText("Reseñas");
+          setResenas(res.payload);
+        }
+      });
     } else {
       setTimeout(() => {
         setIsLoading(false);
@@ -226,6 +231,61 @@ const ProductDetail = () => {
           <Button onClick={addCart}>Agregar al carrito</Button>
         </InfoContainer>
       </Div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "flex-start",
+          alignItems: "center",
+          marginTop: "1rem",
+        }}
+      >
+        <h2>{text}</h2>
+        <ResenasContainer>
+          {resenas.length > 0 &&
+            resenas.map((r) => (
+              <>
+                <EachDiv class="div1 eachdiv">
+                  <UserDetails class="userdetails">
+                    <div>
+                      <img
+                        src="https://static.vecteezy.com/system/resources/previews/002/318/271/original/user-profile-icon-free-vector.jpg"
+                        alt=""
+                      />
+                    </div>
+                    <Detbox>
+                      <p className="name">{r.usuario.nombre}</p>
+                      <p class="designation">{r.usuario.mail}</p>
+                    </Detbox>
+                  </UserDetails>
+                  <Review>
+                    <div style={{ marginTop: "1rem" }}>
+                      <h4>{r.titulo}</h4>
+                      <Stars>
+                        {stars.map((_, index) => {
+                          return (
+                            <FaStar
+                              key={index}
+                              size={15}
+                              color={
+                                r.puntaje > index ? colors.orange : colors.grey
+                              }
+                              style={{
+                                marginRight: 5,
+                              }}
+                            />
+                          );
+                        })}
+                      </Stars>
+                    </div>
+
+                    <p>{r.comentario}</p>
+                  </Review>
+                </EachDiv>
+              </>
+            ))}
+        </ResenasContainer>
+      </div>
     </Main>
   );
 };

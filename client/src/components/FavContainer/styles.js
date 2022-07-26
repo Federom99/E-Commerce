@@ -1,10 +1,14 @@
 import styled from "styled-components";
-import {MdFavoriteBorder , MdFavorite} from "react-icons/md";
+import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
 
 export const FavOn = styled(MdFavorite)`
-    color:red;
-`
+  color: red;
+`;
 
-export const FavOff = styled(MdFavoriteBorder)`
-    
-`
+export const FavOff = styled(MdFavoriteBorder)``;
+
+export const Div = styled.div`
+  position: absolute;
+  top: 10px;
+  left: 10px;
+`;
