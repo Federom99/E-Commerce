@@ -1,44 +1,52 @@
 import DataTable from 'react-data-table-component';
-import { getPedidos } from '../../redux/actions/checkout';
+import { getPedidos, updateEstadoPedido, filterPedidos } from '../../redux/actions/checkout';
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from 'react';
 
 export default function Sales() {
   const dispatch = useDispatch();
-  const [search, setSearch] = useState({
-    nombre: ""
-  })
-  const [datos, setDatos] = useState({
-    pedidosFiltrados: useSelector((state) => state.checkout.pedidos),
-  })
+  const [estado, setEstado] = useState("")
+  const [search, setSearch] = useState("")
+
+  const pedidosFiltrados = useSelector((state) => state.checkout.pedidosFiltrados);
 
   useEffect(() => {
     dispatch(getPedidos());
   }, [])
 
-  const pedidos = useSelector((state) => state.checkout.pedidos);
-  console.log(pedidos)
-
   function handleInputChange(e) {
     // e.preventDefault()
-    setSearch({
-      ...search,
-      [e.target.name]: e.target.value
-    })
+    setSearch(
+      e.target.value
+    )
   }
 
   function handleSubmit(e) {
-    e.preventDefault()
-    setDatos({ pedidosFiltrados: pedidos.filter(el => el.direccion_de_envio.direccion.toLowerCase().includes(search.nombre.toLowerCase())) })
+    // e.preventDefault()
+    // setDatos({ pedidosFiltrados: pedidos.filter(el => el.direccion_de_envio.direccion.toLowerCase().includes(search.nombre.toLowerCase())) })
+    dispatch(filterPedidos(search))
   }
 
   function RecargarSubmit(e) {
     // e.preventDefault()
-    setDatos({ pedidosFiltrados: pedidos })
-    setSearch({
-      nombre: "",
-    })
+    dispatch(getPedidos("Reset"))
+    setSearch("")
   }
+
+  function modificar(id, estado){
+    dispatch(updateEstadoPedido({id, estado: estado}))
+    alert("Estado Pedido Cambiado")
+    console.log(estado)
+    dispatch(getPedidos());
+  }
+
+  function handleSelect(e){
+    setEstado(
+        e.target.value
+    )
+    console.log(estado)
+    dispatch(getPedidos())
+}
 
   const columnas = [
     {
@@ -62,15 +70,37 @@ export default function Sales() {
       sortable: true
     },
     {
+      name: 'Productos',
+      selector: row => `${row.productos[0].nombre}`,
+      sortable: true,
+      grow: 2
+    },
+    {
       name: 'Estado',
       selector: row => `${row.estado}`,
       sortable: true
     },
     {
-      name: 'Productos',
-      selector: row => `${row.productos[0].nombre}`,
-      sortable: true,
-      grow: 2
+      name: 'Modificar',
+      selector: row => <button className='user' onClick={() => modificar(row.id, estado)}>Editar</button>,
+      sortable: true
+    },
+    {
+      name: 'Estados',
+      selector: row => <select
+      type= "text"
+      // value={estado}
+      name= "estado"
+      onChange={handleSelect}
+      >
+      <option> seleccione </option>
+       <option value={"en preparacion"}>en preparacion</option>
+       <option value={"en camino"}>en camino</option>
+       <option value={"en punto de entrega"}>en punto de entrega</option>
+       <option value={"en poder del correo"}>en poder del correo</option>
+       <option value={"entregado"}>entregado</option>
+      </select>,
+      sortable: true
     },
   ]
 
@@ -86,7 +116,7 @@ export default function Sales() {
         <input
           type='text'
           name='nombre'
-          value={search.nombre}
+          value={search}
           className='textField'
           placeholder="Buscar"
           onChange={(c) => handleInputChange(c)}
@@ -101,7 +131,7 @@ export default function Sales() {
       </div>
       <DataTable
         columns={columnas}
-        data={datos.pedidosFiltrados}
+        data={pedidosFiltrados}
         title="Pedidos"
         pagination
         paginationComponentOptions={paginacionOpciones}

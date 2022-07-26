@@ -68,10 +68,15 @@ export const aprobarPedido = (datos) => async (dispatch) => {
   });
 };
 
-export function getPedidos() {
+export function getPedidos(reset) {
   return async function (dispatch) {
     try {
       var json = await axios.get(`${URL_SERVER}/pedidos/`, {});
+      if(reset)
+      return dispatch({
+        type: "RESET_FILTER_PEDIDOS",
+        payload: json.data
+      }); else 
       return dispatch({
         type: GET_PEDIDOS,
         payload: json.data,
@@ -107,11 +112,30 @@ export function filterUsers(payload) {
 }
 }
 
+export function filterPedidos(payload) {
+  console.log(payload)
+  return {type: "FILTER_PEDIDOS",
+          payload: payload
+}
+}
+
 export function updateUser(payload) {
   return async function () {
     try {
       console.log(payload)
       const response = await axios.put(`${URL_SERVER}/admin/usuario`, payload, { withCredentials: true });
+      return response;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+}
+
+export function updateEstadoPedido(payload) {
+  return async function () {
+    try {
+      console.log(payload)
+      const response = await axios.put(`${URL_SERVER}/admin/pedido`, payload);
       return response;
     } catch (e) {
       console.log(e);

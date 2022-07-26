@@ -16,6 +16,8 @@ export default function DashboardAdmin() {
             <div className='sideBar'>
                 <h1>MENU</h1>
 
+                <Link to="/admin/dashboard/">Inicio</Link>
+
                 <Link to="/admin/dashboard/users">Usuarios</Link>
 
                 <Link to="/admin/dashboard/products">Productos</Link>

@@ -5,14 +5,15 @@ import {
 } from "../actions/actionTypes";
 
 const initialState = {
-  checkout:{},
+  checkout: {},
   datos: {},
   pedidos: [],
   usuarios: [],
   pedido: [],
   usuariosFiltrados: [],
   detalleEnvio: [],
-  sucursales: []
+  sucursales: [],
+  pedidosFiltrados: []
 };
 
 export default function productReducer(state = initialState, action) {
@@ -24,11 +25,24 @@ export default function productReducer(state = initialState, action) {
         usuariosFiltrados: state.usuarios.filter(e => e.nombre.toLowerCase().includes(action.payload.toLowerCase()))
         // usuariosFiltrados: usuarios.filter(el => el.nombre.toLowerCase().includes(search.nombre.toLowerCase()))
       };
+      case "FILTER_PEDIDOS":
+        console.log(action.payload)
+        return {
+          ...state,
+          pedidosFiltrados: state.pedidos.filter(e => e.direccion_de_envio.direccion.toLowerCase().includes(action.payload.toLowerCase()))
+          // usuariosFiltrados: usuarios.filter(el => el.nombre.toLowerCase().includes(search.nombre.toLowerCase()))
+        };
     case "RESET_FILTER":
       return {
         ...state,
         usuarios: action.payload,
         usuariosFiltrados: action.payload
+      }
+    case "RESET_FILTER_PEDIDOS":
+      return {
+        ...state,
+        pedidos: action.payload,
+        pedidosFiltrados: action.payload
       }
     case CHECKOUT:
       return {
@@ -56,10 +70,17 @@ export default function productReducer(state = initialState, action) {
         pedido: action.payload,
       };
     case GET_PEDIDOS:
+      const filtrado = []
+      for (let i = 0; i < state.pedidosFiltrados.length; i++) {
+        for (let j = 0; j < action.payload.length; j++) {
+          state.pedidosFiltrados[i].id === action.payload[j].id && filtrado.push(action.payload[j])
+        }
+      }
       return {
         ...state,
         pedidos: action.payload,
-      };
+        pedidosFiltrados: state.pedidosFiltrados.length < 1 ? action.payload : filtrado
+      }
     case GET_USUARIOS:
       const filtrados = []
       for (let i = 0; i < state.usuariosFiltrados.length; i++) {
@@ -79,7 +100,7 @@ export default function productReducer(state = initialState, action) {
         detalleEnvio: action.payload,
       };
     case GET_ALL_SUCURSALES:
-      return{
+      return {
         ...state,
         sucursales: action.payload
       }
