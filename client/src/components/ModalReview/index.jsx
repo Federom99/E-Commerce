@@ -19,7 +19,6 @@ import {
   Img,
   Input,
   Modale,
-  ModaleContent,
   Review,
   Stars,
 } from "./style";
