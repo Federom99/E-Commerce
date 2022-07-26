@@ -16,7 +16,7 @@ const URL_SERVER = "http://localhost:3001/";
 export function postReviews(id, payload) {
   return async function (dispatch) {
     try {
-      const res = await axios.post(`${URL_SERVER}ratings/crear/${id}`, payload);
+      const res = await axios.post(`${URL_SERVER}ratings/crear/${id}`, payload, { withCredentials: true });
       console.log(res);
       return dispatch({
         type: POST_REVIEW,
