@@ -2,6 +2,7 @@ import DataTable from 'react-data-table-component';
 import { getPedidos, updateEstadoPedido, filterPedidos } from '../../redux/actions/checkout';
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 export default function Sales() {
   const dispatch = useDispatch();
@@ -35,9 +36,10 @@ export default function Sales() {
 
   function modificar(id, estado){
     dispatch(updateEstadoPedido({id, estado: estado}))
-    alert("Estado Pedido Cambiado")
+    // alert("Estado Pedido Cambiado")
     console.log(estado)
     dispatch(getPedidos());
+    toast.info(`Pedido ${estado}`)
   }
 
   function handleSelect(e){

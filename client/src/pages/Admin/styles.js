@@ -27,3 +27,9 @@ export const Text = styled.p`
   margin: 20px 0 0 0;
   text-align: justify;
 `
+export const DeleteButton = styled(Button)`
+    &:hover{
+        background-color:red;
+        color:black;
+    }
+`

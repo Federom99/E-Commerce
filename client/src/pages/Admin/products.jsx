@@ -8,6 +8,7 @@ import Modal from '../../components/Modal/Modal';
 import EditProduct from '../../components/EditProduct';
 import EditForm from '../../components/EditProduct/form';
 import { toast } from 'react-toastify';
+import { Button, DeleteButton, Text } from './styles';
 
 export default function Products() {
   const [modal, setModal] = useState(false)
@@ -22,6 +23,20 @@ export default function Products() {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.product.products);
 
+  const deleteToast = (id)=>{
+    const deleteProd = ()=>{
+      dispatch(deleteProduct(id))
+      setTimeout(()=>{
+        dispatch(getProducts())
+      },1000)
+    }
+    return(
+      <div>
+        <Text>¿Desea eliminar el producto?</Text>
+        <DeleteButton onClick={deleteProd}>Confirmar</DeleteButton>
+      </div>
+    )
+  }
   function borrar(id) {
     toast.error('Producto eliminado!')
     dispatch(deleteProduct(id))
@@ -94,7 +109,7 @@ export default function Products() {
     },
     {
       name: 'Borrar',
-      selector: row => <button className='user' onClick={() => borrar(row.id)}>Eliminar</button>,
+      selector: row => <button className='user' onClick={() => toast.error(deleteToast(row.id))}>Eliminar</button>,
       sortable: true,
       grow: 0.1,
     },
