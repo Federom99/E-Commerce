@@ -34,12 +34,12 @@ export default function Sales() {
     setSearch("")
   }
 
-  function modificar(id, estado){
+  function modificar(id, estado,row){
     dispatch(updateEstadoPedido({id, estado: estado}))
     // alert("Estado Pedido Cambiado")
     console.log(estado)
     dispatch(getPedidos());
-    toast.info(`Pedido ${estado}`)
+    toast.info(`Pedido a direccion ${row.direccion_de_envio.direccion} ${estado}`)    
   }
 
   function handleSelect(e){
@@ -84,7 +84,7 @@ export default function Sales() {
     },
     {
       name: 'Modificar',
-      selector: row => <button className='user' onClick={() => modificar(row.id, estado)}>Editar</button>,
+      selector: row => <button className='user' onClick={() => modificar(row.id, estado,row)}>Editar</button>,
       sortable: true
     },
     {

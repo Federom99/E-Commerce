@@ -23,16 +23,17 @@ export default function Products() {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.product.products);
 
-  const deleteToast = (id)=>{
-    const deleteProd = ()=>{
-      dispatch(deleteProduct(id))
+  const deleteToast = (row)=>{
+    const deleteProd = ()=>{    
+      dispatch(deleteProduct(row.id))
       setTimeout(()=>{
         dispatch(getProducts())
       },1000)
     }
+    
     return(
       <div>
-        <Text>¿Desea eliminar el producto?</Text>
+        <Text>¿Desea eliminar el producto {row.nombre}?</Text>
         <DeleteButton onClick={deleteProd}>Confirmar</DeleteButton>
       </div>
     )
@@ -109,7 +110,7 @@ export default function Products() {
     },
     {
       name: 'Borrar',
-      selector: row => <button className='user' onClick={() => toast.error(deleteToast(row.id),{
+      selector: row => <button className='user' onClick={() => toast.error(deleteToast(row),{
         toastId: `delete${row.id}`
       })}>Eliminar</button>,
       sortable: true,

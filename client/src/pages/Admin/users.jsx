@@ -26,8 +26,9 @@ export default function Users() {
   
   // var usuariosFiltrados = [useSelector((state) => state.checkout.usuarios);]
   // console.log(usuarios)
-  const changeAdmin = (id,isAdmin)=>{
+  const changeAdmin = ({nombre , apellido , id , isAdmin})=>{
     const adminSet = ()=>{
+      // console.log(row)
       dispatch(updateUser({id,isAdmin: !isAdmin}))
       setTimeout(()=>{
         dispatch(getUsuarios())
@@ -36,15 +37,15 @@ export default function Users() {
     return(
       isAdmin ? (
       <div>
-        <Text>Está revocando los permisos de administrador al usuario</Text>
+        <Text>Está revocando los permisos de administrador al usuario {nombre} {apellido}</Text>
         <Button onClick={adminSet}>Confirmar</Button>
       </div>):(<div>
-        <Text>Está otorgando permisos de administrador al usuario</Text>
+        <Text>Está otorgando permisos de administrador al usuario {nombre} {apellido}</Text>
         <Button onClick={adminSet}>Confirmar</Button>
       </div>)
     )
   }
-  const blockUser = (id, bloqueado)=>{
+  const blockUser = ({id, bloqueado , nombre , apellido})=>{
     const setBlock = ()=>{
       dispatch(updateUser({id,bloqueado: !bloqueado}))
       setTimeout(()=>{
@@ -54,24 +55,24 @@ export default function Users() {
     return(
       !bloqueado ? (
       <div>
-        <Text>¿Bloquear al usuario?</Text>
+        <Text>¿Bloquear al usuario {nombre} {apellido}?</Text>
         <Button onClick={setBlock}>Confirmar</Button>
       </div>):(<div>
-        <Text>¿Desbloquear al usuario?</Text>
+        <Text>¿Desbloquear al usuario {nombre} {apellido}?</Text>
         <Button onClick={setBlock}>Confirmar</Button>
       </div>)
     )
   }
-  function alerta2(id, isAdmin) {
-    toast.info(changeAdmin(id,isAdmin),{
-      toastId: `${id}admin${isAdmin}`
+  function alerta2(row) {
+    toast.info(changeAdmin(row),{
+      toastId: `${row.id}admin${row.isAdmin}`
     })
     // dispatch(getUsuarios())
   }
 
-  function alerta1(id, bloqueado) {
-    toast.info(blockUser(id,bloqueado),{
-      toastId: `${id}block${bloqueado}`
+  function alerta1(row) {
+    toast.info(blockUser(row),{
+      toastId: `${row.id}block${row.bloqueado}`
     })
 
   }
@@ -128,13 +129,13 @@ export default function Users() {
     },
     {
       name: 'Admin',
-      selector: row => <button className='user' onClick={() => alerta2(row.id, row.isAdmin)}>Editar</button>,
+      selector: row => <button className='user' onClick={() => alerta2(row)}>Editar</button>,
       // row.isAdmin == true ? row.isAdmin = false : row.isAdmin = true
       sortable: true
     },
     {
       name: 'Bloqueado',
-      selector: row => <button className='user' onClick={() => alerta1(row.id, row.bloqueado)}>Editar</button>,
+      selector: row => <button className='user' onClick={() => alerta1(row)}>Editar</button>,
       // row.isAdmin == true ? row.isAdmin = false : row.isAdmin = true
       sortable: true
     },
