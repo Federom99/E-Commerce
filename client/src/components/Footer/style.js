@@ -79,7 +79,7 @@ export const Categoria = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
   max-height: 160px;
   flex-wrap: wrap;
 `;
