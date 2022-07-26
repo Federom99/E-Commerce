@@ -99,7 +99,7 @@ export const fetchProductFailure = (error) => ({
 
 export const postProduct = (payload) => {
   return async function () {
-    var json = await axios.post(`${URL_SERVER}/create/product`, payload);
+    var json = await axios.post(`${URL_SERVER}/create/product`, payload, { withCredentials: true });
     return json;
   };
 };
@@ -113,7 +113,7 @@ export const clearProduct = () => {
 export function deleteProduct(payload) {
   return async function () {
     try {
-      const response = await axios.delete(`${URL_SERVER}/product/delete/` + payload);
+      const response = await axios.delete(`${URL_SERVER}/product/delete/` + payload, { withCredentials: true });
       return response;
     } catch (e) {
       console.log(e);
@@ -124,7 +124,7 @@ export function deleteProduct(payload) {
 export function updateProduct(payload) {
   return async function () {
     try {
-      const response = await axios.put(`${URL_SERVER}/edit/product/`, payload);
+      const response = await axios.put(`${URL_SERVER}/edit/product/`, payload, { withCredentials: true });
       return response;
     } catch (e) {
       console.log(e);

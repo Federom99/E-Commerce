@@ -16,7 +16,7 @@ const ForgotPassword = () => {
     try {
         setValidEmail("")
         const {data} = await axios.post('http://localhost:3001/user/olvide-password/',
-            {email: emailValue} 
+            {email: emailValue} , { withCredentials: true }
         )
         setValidEmail(data.msg)
     } catch (error) {

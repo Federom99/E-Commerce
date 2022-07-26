@@ -1,19 +1,19 @@
 import styled from "styled-components";
 
-export const Div = styled.li`
+export const Div = styled.div`
   position: relative;
   margin: auto;
   margin-bottom: 1rem;
+  max-width: 1440px;
   /* border-radius: 1rem; */
   /* border-style: solid; */
   /* border-width: 1px; */
   /* -webkit-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
   -moz-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
   box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1); */
-  width: 90%;
 `;
 
-export const List = styled.ul`
+export const List = styled.div`
   list-style: none;
   display: grid;
   grid-template-columns: 20% 60% 20%;
@@ -21,25 +21,36 @@ export const List = styled.ul`
   align-items: center;
   justify-items: center;
   margin-top: 15px;
+  @media (max-width: 815px) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 `;
 
-export const Li = styled.li`
+export const Li = styled.div`
   align-self: center;
   display: flex;
   flex-direction: column;
   margin: 10px 0;
 `;
 
-export const LiImg = styled.li`
+export const LiImg = styled.div`
   align-self: center;
   display: flex;
   margin: 10px 0;
-  width: 17rem;
+  width: 25rem;
   overflow-x: scroll;
+  @media (max-width: 815px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
 `;
 
 export const Img = styled.img`
-  height: 5rem;
+  height: 8rem;
   border-radius: 50%;
   padding: 0.1rem;
   user-select: none;
@@ -52,14 +63,14 @@ export const Img = styled.img`
 export const DivImg = styled.div`
   position: absolute;
 `;
-export const LIinimg = styled.li`
+export const LIinimg = styled.div`
   margin: 7px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 `;
-export const Ul = styled.ul`
+export const Ul = styled.div`
   position: relative;
   top: -5px;
   font-size: 10px;
