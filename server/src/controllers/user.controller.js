@@ -4,6 +4,8 @@ const { emailRegistro, emailOlvidePassword } = require("../helpers/emails.js");
 const { generarJWT } = require("../helpers/generarJWT.js");
 const generarTokenID = require("../helpers/generarTokenID.js");
 const { comparePassword, hashPassword } = require("../helpers/hashPassword.js");
+const { promisify } = require("util");
+const jwt = require("jsonwebtoken");
 
 const register = async (req, res) => {
   //Sacamos los datos necesarios del body del request
@@ -75,6 +77,10 @@ const authentication = async (req, res) => {
   }
   if (!user.confirmado) {
     const error = new Error("Usuario no confirmado por favor revise su correo");
+    return res.status(400).json({ msg: error.message });
+  }
+  if(user.banned){
+    const error = new Error("Ese usuario esta baneado.");
     return res.status(400).json({ msg: error.message });
   }
 
@@ -229,6 +235,43 @@ const nuevoPassword = async (req, res) => {
   }
 };
 
+const isAuthenticated = async (req, res, next) => {
+
+  try{
+  const decode = await promisify(jwt.verify)(
+    req.cookies.jwt,
+    process.env.JWT_SECRET
+  );
+  const { id } = decode;
+  const user = await Usuario.findByPk(id);
+  if(!user) return res.send({Error: "Usuario no encontrado."})
+  if(user.banned) return res.send({Error: "Ese usuario está baneado."})
+  next()
+  }catch(e){
+    console.log(e)
+    res.send(e)
+  }
+}
+
+const isAdmin = async (req, res, next) => {
+
+  try{
+  const decode = await promisify(jwt.verify)(
+    req.cookies.jwt,
+    process.env.JWT_SECRET
+  );
+  const { id } = decode;
+  const user = await Usuario.findByPk(id);
+  if(!user) return res.send({Error: "Usuario no encontrado."})
+  if(user.banned) return res.send({Error: "Ese usuario está baneado."})
+  if(!user.isAdmin) return res.send({Error: "No autorizado."})
+  next()
+  }catch(e){
+    console.log(e)
+    res.send(e)
+  }
+}
+
 module.exports = {
   register,
   authentication,
@@ -237,5 +280,7 @@ module.exports = {
   olvidePassword,
   comprobarToken,
   nuevoPassword, 
-  salir
+  salir,
+  isAuthenticated,
+  isAdmin
 };

@@ -2,10 +2,11 @@ const { Router } = require("express");
 const {Usuario, Producto, Talle, Compra, Producto_talle } = require("../db.js");
 const { promisify } = require("util");
 const jwt = require("jsonwebtoken");
+const { isAuthenticated } = require("../controllers/user.controller.js");
 const router = Router();
 const queue = require('express-queue');
 
-router.post("/", queue({ activeLimit: 1, queuedLimit: -1}), async (req, res) => {
+router.post("/", isAuthenticated, queue({ activeLimit: 1, queuedLimit: -1}), async (req, res) => {
   try {
     const decode = await promisify(jwt.verify)(
       req.cookies.jwt,

@@ -1,10 +1,11 @@
 const { Router } = require("express");
+const { isAdmin } = require("../controllers/user.controller.js");
 const { Usuario } = require("../db.js");
 
 const router = Router();
 // PUT PARA CAMBIAR UN USER A ADMIN
 // Update game by id
-router.put("/", async (req, res) => {
+router.put("/", isAdmin, async (req, res) => {
   const { id,
     uid,
     nombre,
