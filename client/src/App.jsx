@@ -68,7 +68,7 @@ function App() {
 
   useEffect(() => {
     if (error) {
-      setTimeout(() => dispatch(getProducts()), 1000);
+      setTimeout(() => dispatch(getProducts()), 2000);
     }
   }, [error]);
 
@@ -77,7 +77,7 @@ function App() {
       <div>
         <GlobalStyle />
         <NavBar products={products} />
-        <ErrorContainer>Error! {error.message}</ErrorContainer>
+        <ErrorContainer>Error! No encontrado!</ErrorContainer>
       </div>
     );
   }
