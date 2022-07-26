@@ -20,7 +20,7 @@ export const createUserFav = (userId , productId) => async dispatch =>{
     const newFav = await axios.post(`${API_URL}/create/favoritos`,{
         userId,
         productId
-    })
+    }, { withCredentials: true })
     dispatch({
         type:"FAVOURITE_CREATED",
         payload: newFav,
