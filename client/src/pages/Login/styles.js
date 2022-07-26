@@ -8,6 +8,16 @@ export const Div = styled.div`
   margin-bottom: 20px;
 `;
 
+export const H2 = styled.h2`
+  text-align: center;
+  color: ${({theme}) => theme.color};
+`
+
+export const Label = styled.label`
+  font-weight: bold;
+  color: ${({theme}) => theme.color};
+`
+
 export const Section = styled.section`
   display: flex;
   flex-direction: column;
@@ -45,7 +55,7 @@ export const Form = styled.form`
   border-radius: 8px;
   -webkit-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
   -moz-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
-  box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
+  box-shadow: ${({theme}) => theme.shadowColor};
 `;
 export const Input = styled.input`
     padding: 10px;

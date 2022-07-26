@@ -14,7 +14,7 @@ export const DIV = styled.div`
   overflow: hidden;
   cursor: pointer;
   &:hover {
-    box-shadow: 0 10px 14px rgb(169 169 169 / 20%);
+    box-shadow: ${({ theme }) => theme.shadowColor};
   }
 `;
 export const StyledPopup = styled(Popup)`

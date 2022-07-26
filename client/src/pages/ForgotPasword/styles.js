@@ -37,7 +37,7 @@ export const Label = styled.label`
 export const P = styled.p`
     margin-bottom: 1rem;
     align-self: center;
-    color: #252525;
+    color: ${({theme}) => theme.color};
     font-weight: 600;
 `
 
