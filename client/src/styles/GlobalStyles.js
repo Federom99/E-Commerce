@@ -26,14 +26,16 @@ export const lightTheme = {
   cardBackground: '#fff',
   paginadoArrowButton: '#dcdcdc',
   fontVariant: 'black',
+  shadowColor: '0 10px 14px rgba(0, 0, 0, .2)'
 };
 
 export const darkTheme = {
   body: "#1b1b1b",
   color: "#fff",
-  cardBackground: '#0d0d0d',
+  cardBackground: '#1b1b1b',
   paginadoArrowButton: 'black',
-  fontVariant: 'white'
+  fontVariant: 'white',
+  shadowColor: '0 10px 14px rgb(169 169 169 / 20%)'
 };
 
 

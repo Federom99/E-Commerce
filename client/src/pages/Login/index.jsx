@@ -11,8 +11,10 @@ import {
   ButtonLogIn,
   Div,
   Form,
+  H2,
   Input,
   InputDiv,
+  Label,
   List,
   Section,
 } from "./styles";
@@ -91,14 +93,9 @@ export default function Login() {
       <Section>
         <InputDiv>
           <Form onSubmit={handleSubmit}>
-            <h2
-              style={{
-                textAlign: "center",
-                color: "#252525",
-              }}
-            >
+            <H2>
               Iniciar sesión
-            </h2>
+            </H2>
             <div
               style={{
                 display: "flex",
@@ -108,12 +105,9 @@ export default function Login() {
             >
               <List>
                 <li style={{ display: "flex", flexDirection: "column" }}>
-                  <label
-                    style={{ color: "#252525", fontWeight: "bold" }}
-                    htmlFor="mail"
-                  >
+                  <Label>
                     Email:
-                  </label>
+                  </Label>
                   <Input
                     type="text"
                     name="mail"
@@ -123,9 +117,9 @@ export default function Login() {
               </List>
               <List>
                 <li style={{ display: "flex", flexDirection: "column" }}>
-                  <label style={{ color: "#252525", fontWeight: "bold" }}>
+                  <Label>
                     Contraseña:
-                  </label>
+                  </Label>
                   <Input
                     type="password"
                     name="password"

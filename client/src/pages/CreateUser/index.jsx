@@ -14,6 +14,7 @@ import {
   List,
   Button,
   ErrorsText,
+  Register,
 } from "./styles";
 import { useDispatch } from "react-redux";
 import Loading from "../../components/Loader";
@@ -154,15 +155,9 @@ export default function NewUser() {
         <Title>¡Bienvenido!</Title>
       </Header>
       <Form onSubmit={handleSubmit}>
-        <h2
-          style={{
-            textAlign: "center",
-            color: "#252525",
-            marginBottom: "1rem",
-          }}
-        >
+        <Register>
           Registrarse
-        </h2>
+        </Register>
         <List>
           <Li>
             <Subtitle>Nombre:</Subtitle>
