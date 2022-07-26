@@ -108,25 +108,25 @@ function App() {
       <NavBar products={products} />
       {/* {location.pathname !== "/" ? <NavBar /> : null} */}
       <Routes>
-        <Route exact path="/" element={<MainContainer products={products} />} />
-        <Route path="/detail/:productId" element={<ProductDetail />} />
+        <Route exact path="/" element={<MainContainer products={products} theme={theme} />} />
+        <Route path="/detail/:productId" element={<ProductDetail theme={theme}/>} />
         <Route path="/login/" element={<Login />} />
         <Route path="/olvide-password" element={<ForgotPassword />} />
         <Route path="/olvide-password/:token" element={<ResetPassword />} />
         <Route path="/register" element={<CreateUser />} />
-        <Route path="/cart/" element={<ShoppingCart />} />
+        <Route path="/cart/" element={<ShoppingCart theme={theme}/>} />
 
         <Route element={<RequireAuthUser isLogged={true}/>}>
           <Route path="/profile/" element={<Profile />} />
           <Route path="/createProduct" element={<CreateProduct />} />
           <Route path="/profile/compras/:id" element={<Compras />} />
-          <Route path="/profile/favoritos/:id" element={<Favoritos />} />
+          <Route path="/profile/favoritos/:id" element={<Favoritos theme={theme}/>} />
         </Route>
 
         <Route path="/confirmar/:id" element={<Confirmacion />} />
 
         <Route element={<RequireAuthAdmin isAllowed={true}/>}>
-          <Route path="/admin/dashboard/*" element={<DashboardAdmin />} />
+          <Route path="/admin/dashboard/*" element={<DashboardAdmin theme={theme} />} />
         </Route>
 
         <Route

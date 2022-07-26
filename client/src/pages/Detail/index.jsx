@@ -44,7 +44,7 @@ const colors = {
   grey: "#a9a9a9",
 };
 
-const ProductDetail = () => {
+const ProductDetail = ({theme}) => {
   const [size, setSize] = useState("");
   const [stock, setStock] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
@@ -190,15 +190,26 @@ const ProductDetail = () => {
 
   return (
     <Main>
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        closeOnClick
-        pauseOnHover
-        draggable
-        progress={undefined}
-      />
+      {
+        theme === 'light' ? (<ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          closeOnClick
+          pauseOnHover
+          draggable
+          progress={undefined}
+        />) : (<ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          closeOnClick
+          pauseOnHover
+          draggable
+          progress={undefined}
+          theme={'dark'}
+        />)
+      }
       <Div>
         <ImageContainer>
           <FavContainer>

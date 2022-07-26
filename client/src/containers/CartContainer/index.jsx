@@ -5,7 +5,7 @@ import OrderItem from '../../components/Cart/OrderItem';
 import { Link } from "react-router-dom";
 import { deleteCart, setLocalStorage } from "../../redux/actions/cart";
 import { ToastContainer , toast } from "react-toastify";
-export default function ShoppingCart() {
+export default function ShoppingCart({theme}) {
   const [cart , shoppingCart,order] = useSelector((store) => [store.cart , store.cart.shoppingCart,store.cart.order]);
   const [amount,setAmount] = useState(shoppingCart.length)
   const { user: currentUser } = useSelector((state) => state.auth);
@@ -44,11 +44,27 @@ export default function ShoppingCart() {
   const price = order.reduce((prev,compra)=> prev+compra.subtotal,0)
   return (
     <Div>
-      <ToastContainer
-                    position="top-center"                    
-                    draggable
+      {
+        theme === 'light' ? (<ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          closeOnClick
+          pauseOnHover
+          draggable
+          progress={undefined}
+        />): (<ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          closeOnClick
+          pauseOnHover
+          draggable
+          progress={undefined}
+          theme={'dark'}
+        />)
+      }
 
-                />
       { shoppingCart && shoppingCart.length ? (
         <List>
           <Li>
