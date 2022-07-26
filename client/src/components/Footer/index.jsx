@@ -39,10 +39,10 @@ export default function Footer({ contacto }) {
       </div>
       <Contacto>
         {formateadoNosotros &&
-          formateadoNosotros.map((noso) => (
-            <Categoria>
+          formateadoNosotros.map((noso, i) => (
+            <Categoria key={i}>
               {noso?.map((n, i) => (
-                <SubTitle href={n.linkedIn} target="_blank">
+                <SubTitle href={n.linkedIn} target="_blank" key={i}>
                   <Img src={n.imagen} alt={`imagen-${n.usuario}-i`} />
                   {n.usuario}
                 </SubTitle>
