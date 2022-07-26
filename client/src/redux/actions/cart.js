@@ -57,7 +57,8 @@ export const setLocalStorage = (data) => {
     localStorage.setItem("cart", JSON.stringify(data));
   } else {
     item.shoppingCart = data.shoppingCart;
-    item.order = data.order;
+    item.cartRemainingStock=data.cartRemainingStock;
+    // item.order = data.order;
     localStorage.setItem("cart", JSON.stringify(item));
   }
 
