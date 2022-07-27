@@ -71,19 +71,23 @@ function Review({ theme }) {
           {pedidos.map((pedido) => {
             const colors = [
               "#ff0088",
+              "#00ffd5",
               "#ff0000",
+              "#ff2a00",
               "#ff8800",
               "#ffff00",
               "#6aff00",
-              "#00ff22",
+              "#00ff6a",
             ];
             let color;
-            if (pedido.estado === "Aprobado") color = colors[0];
-            if (pedido.estado === "En preparacion") color = colors[1];
-            else if (pedido.estado === "En camino") color = colors[2];
-            else if (pedido.estado === "En punto de entrega") color = colors[3];
-            else if (pedido.estado === "En poder del correo") color = colors[4];
-            else if (pedido.estado === "Entregado") color = colors[5];
+            if (pedido.estado === "Pendiente de pago") color = colors[0];
+            if (pedido.estado === "Aprobado") color = colors[1];
+            else if (pedido.estado === "Rechazado") color = colors[2];
+            else if (pedido.estado === "En preparacion") color = colors[3];
+            else if (pedido.estado === "En camino") color = colors[4];
+            else if (pedido.estado === "En punto de entrega") color = colors[5];
+            else if (pedido.estado === "En poder del correo") color = colors[6];
+            else if (pedido.estado === "Entregado") color = colors[7];
             return (
               <List key={pedido.id}>
                 <Li key={`${pedido.id}fecha`}>
