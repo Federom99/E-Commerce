@@ -677,7 +677,7 @@ function NoMatch() {
         <h1>404</h1>
         <h2>UH OH! Estamos perdidos!</h2>
         <p>Por alguna razon esta pagina no existe</p>
-        <p>Kasper De Bruyne February 18, 2020</p>
+        {/* <p>Kasper De Bruyne February 18, 2020</p> */}
         <NavLink to="/">
           <button>HOME</button>
         </NavLink>
