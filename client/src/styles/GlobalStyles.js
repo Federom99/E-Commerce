@@ -38,7 +38,7 @@ export const darkTheme = {
   cardBackground: '#1b1b1b',
   paginadoArrowButton: 'black',
   fontVariant: 'white',
-  shadowColor: '0 10px 14px rgb(169 169 169 / 20%)',
+  shadowColor: '0px 0px 4px 3px rgb(0 0 0 / 39%)',
   buttonCTA: '#000000',
   shadowButtonCTA: '0px 4px 16px 5px rgb(169 169 169 / 20%)',
   headerPopUp: '#4dcdb8'
