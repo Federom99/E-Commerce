@@ -1,11 +1,11 @@
 import ListContainer from "../../containers/ListContainer";
 
 
-export default function Favoritos (){
+export default function Favoritos ({theme}){
 
     return (
         <div>            
-            <ListContainer />
+            <ListContainer theme={theme}/>
         </div>
     )
 }

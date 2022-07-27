@@ -112,6 +112,7 @@ export default function NavBar({ products, theme }) {
     );
   }
 
+  console.log(theme)
   return (
     <div className={style.full}>
       <Contenido

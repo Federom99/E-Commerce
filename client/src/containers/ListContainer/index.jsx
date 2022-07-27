@@ -5,7 +5,7 @@ import Compras from "../../components/Favoritos";
 import Review from "../../components/Review";
 import { Header, Li, List, Main, Section } from "./styles";
 
-export default function ListContainer({ favProducts }) {
+export default function ListContainer({ favProducts ,theme}) {
   const location = useLocation();
 
   const [state, setState] = useState({ soy: "Review" });
@@ -23,7 +23,7 @@ export default function ListContainer({ favProducts }) {
         <List>
           <Li>
             <Header>{state.soy}</Header>
-            <Main>{state.soy === "Reseñar" ? <Review /> : <Compras />}</Main>
+            <Main>{state.soy === "Review" ? <Review /> : <Compras theme={theme} />}</Main>
           </Li>
         </List>
       </Section>

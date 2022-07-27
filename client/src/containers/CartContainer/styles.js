@@ -69,12 +69,14 @@ export const BOTON = styled.button`
     font-size: 15px;
     font-weight: 500;
     cursor: pointer;
+    border: none;
+    transition: all .2s ease;
     &:hover {
+        font-weight: bold;
         background-color: whitesmoke;
         color: black;
         cursor: pointer;
-        border-color: black;
-        border-style: solid;
+        box-shadow: ${({ theme }) => theme.shadowButtonCTA};
     }
 `;
 export const Vaciar = styled(BOTON)`
@@ -108,6 +110,4 @@ export const Button = styled.button`
 
 export const Text = styled.p`
   padding: 10px;
-  margin: 20px 0 0 0;
-  text-align: justify;
 `

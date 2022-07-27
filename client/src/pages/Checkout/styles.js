@@ -43,7 +43,7 @@ export const InfoContainer = styled.div`
 `;
 
 export const H2 = styled.div`
-  color: ${(props) => props.theme.colorTextPri};
+  color: ${(theme) => theme.color};
   font-size: 1.3rem;
   font-weight: 600;
   margin: auto;
