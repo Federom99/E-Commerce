@@ -1,11 +1,17 @@
 .graficoLineal {
     background-color: white;
     width: 27%;
-    height: 100%;
     margin-top: 40px;
     margin-left: 20px;
     padding: 10px;
     border-radius: 1rem;
     align-items:initial;
     /* position: bottom; */
+}
+
+.graficoLineal h1{
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+    font-size: 20px;
 }

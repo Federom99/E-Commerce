@@ -2,7 +2,8 @@ import React from "react";
 import { BsCart2 } from "react-icons/bs";
 import { AiFillPieChart } from "react-icons/ai";
 import { FaUser } from "react-icons/fa";
-import { CgArrowsExchangeV } from "react-icons/cg";
+// import { CgArrowsExchangeV } from "react-icons/cg";
+import { IoLogoUsd } from "react-icons/io"
 import { useDispatch, useSelector } from "react-redux";
 import { getUsuarios, getPedidos } from "../../redux/actions/checkout";
 import { useEffect } from 'react';
@@ -19,14 +20,14 @@ export default function Totales() {
 
     const data = [
         {
-            icon: <BsCart2 />,
+            icon: <IoLogoUsd />,
             title: "Total Ventas",
             value: `$ ${useSelector((state) => state.checkout.pedidos.reduce((acc, el) => acc += el.pago_total, 0))}`,
         },
         {
-            icon: <CgArrowsExchangeV />,
+            icon: <BsCart2 />,
             title: "Total Productos",
-            value: useSelector((state) => state.product.products.length),
+            value: useSelector((state) => state.product.allProducts.length),
         },
         {
             icon: <FaUser />,
@@ -35,7 +36,7 @@ export default function Totales() {
         },
         {
             icon: <AiFillPieChart />,
-            title: "Totales Pedidos",
+            title: "Total Pedidos",
             value: useSelector((state) => state.checkout.pedidos.length),
         },
     ];

@@ -5,8 +5,6 @@ import './products.css';
 import { deleteProduct, getProducts, postProduct } from '../../redux/actions/product';
 import { useEffect, useState } from "react";
 import Modal from '../../components/Modal/Modal';
-import EditProduct from '../../components/EditProduct';
-import EditForm from '../../components/EditProduct/form';
 import { toast } from 'react-toastify';
 
 export default function Products() {
@@ -16,11 +14,12 @@ export default function Products() {
     nombre: ""
   })
   const [datos, setDatos] = useState({
-    usuariosFiltrados: useSelector((state) => state.product.products)
+    productosFiltrados: useSelector((state) => state.product.allProducts)
   })
   
   const dispatch = useDispatch();
-  const products = useSelector((state) => state.product.products);
+  const products = useSelector((state) => state.product.allProducts);
+  // console.log(products)
 
   function borrar(id) {
     toast.error('Producto eliminado!')
@@ -50,12 +49,12 @@ export default function Products() {
 
   function handleSubmit(e) {
     e.preventDefault()
-    setDatos({ usuariosFiltrados: products.filter(el => el.nombre.toLowerCase().includes(search.nombre.toLowerCase())) })
+    setDatos({ productosFiltrados: products.filter(el => el.nombre.toLowerCase().includes(search.nombre.toLowerCase())) })
   }
 
   function RecargarSubmit(e) {
     // e.preventDefault()
-    setDatos({ usuariosFiltrados: products })
+    setDatos({ productosFiltrados: products })
     setSearch({
       nombre: "",
     })
@@ -72,7 +71,7 @@ export default function Products() {
       name: 'Precio $',
       selector: row => row.precio,
       sortable: true,
-      grow: 0,
+      grow: 0.1,
     },
     {
       name: 'Talle',
@@ -99,10 +98,10 @@ export default function Products() {
       grow: 0.1,
     },
     {
-      name: 'Modificar',
+      name: 'Editar',
       selector: row => <button className='user' onClick={() => editar(row)}>Editar</button>,
       sortable: true,
-      grow: 0,
+      grow: 0.1,
     },
   ]
 
@@ -127,17 +126,17 @@ export default function Products() {
           placeholder="Buscar"
           onChange={(c) => handleInputChange(c)}
         />
-        <button type='submit' className="btnBuscar" onClick={(e) => handleSubmit(e)}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+        <button type='submit' className="btnBuscar" onClick={(e) => handleSubmit(e)}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
           <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
         </svg></button>
-        <button type='submit' className="btnBuscar" onClick={(e) => RecargarSubmit(e)}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z" />
+        <button type='submit' className="btnBuscar" onClick={(e) => RecargarSubmit(e)}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+          <path fillRule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z" />
           <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z" />
         </svg></button>
       </div>      
       <DataTable
         columns={columnas}
-        data={datos.usuariosFiltrados}
+        data={datos.productosFiltrados}
         title="Productos"
         pagination
         paginationComponentOptions={paginacionOpciones}

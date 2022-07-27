@@ -9,6 +9,7 @@ export default function Sales() {
   const [search, setSearch] = useState("")
 
   const pedidosFiltrados = useSelector((state) => state.checkout.pedidosFiltrados);
+  // console.log(pedidosFiltrados)
 
   useEffect(() => {
     dispatch(getPedidos());
@@ -36,7 +37,6 @@ export default function Sales() {
   function modificar(id, estado){
     dispatch(updateEstadoPedido({id, estado: estado}))
     alert("Estado Pedido Cambiado")
-    console.log(estado)
     dispatch(getPedidos());
   }
 
@@ -44,7 +44,6 @@ export default function Sales() {
     setEstado(
         e.target.value
     )
-    console.log(estado)
     dispatch(getPedidos())
 }
 
@@ -52,38 +51,50 @@ export default function Sales() {
     {
       name: 'Fecha',
       selector: row => `${row.fecha.substring(0, 10)}`,
-      sortable: true
+      sortable: true,
+      grow: 0.7,
     },
     {
       name: 'Monto',
       selector: row => `${row.pago_total}`,
-      sortable: true
+      sortable: true,
+      grow: 0.7,
     },
     {
       name: 'Direccion',
       selector: row => `${row.direccion_de_envio.direccion}`,
-      sortable: true
+      sortable: true,
+      grow: 0.8,
     },
     {
       name: 'CP',
       selector: row => `${row.direccion_de_envio.CP}`,
-      sortable: true
+      sortable: true,
+      grow: 0.7,
     },
     {
       name: 'Productos',
       selector: row => `${row.productos[0].nombre}`,
       sortable: true,
-      grow: 2
+      grow: 1.8
+    },
+    {
+      name: 'Cantidad',
+      selector: row => `${row.productos[0].compra.cantidad}`,
+      sortable: true,
+      grow: 0.6,
     },
     {
       name: 'Estado',
       selector: row => `${row.estado}`,
-      sortable: true
+      sortable: true,
+      grow: 0.9,
     },
     {
       name: 'Modificar',
       selector: row => <button className='user' onClick={() => modificar(row.id, estado)}>Editar</button>,
-      sortable: true
+      sortable: true,
+      grow: 0.6,
     },
     {
       name: 'Estados',
@@ -94,11 +105,12 @@ export default function Sales() {
       onChange={handleSelect}
       >
       <option> seleccione </option>
-       <option value={"en preparacion"}>en preparacion</option>
-       <option value={"en camino"}>en camino</option>
-       <option value={"en punto de entrega"}>en punto de entrega</option>
-       <option value={"en poder del correo"}>en poder del correo</option>
-       <option value={"entregado"}>entregado</option>
+      <option value={"Aprobado"}>Aprobado</option>
+       <option value={"En Preparacion"}>En Preparacion</option>
+       <option value={"En Camino"}>En Camino</option>
+       <option value={"En Punto De Entrega"}>En Punto De Entrega</option>
+       <option value={"En Poder Del Correo"}>En Poder Del Correo</option>
+       <option value={"Entregado"}>Entregado</option>
       </select>,
       sortable: true
     },
@@ -121,11 +133,11 @@ export default function Sales() {
           placeholder="Buscar"
           onChange={(c) => handleInputChange(c)}
         />
-        <button type='submit' className="btnBuscar" onClick={(e) => handleSubmit(e)}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+        <button type='submit' className="btnBuscar" onClick={(e) => handleSubmit(e)}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
           <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
         </svg></button>
-        <button type='submit' className="btnBuscar" onClick={(e) => RecargarSubmit(e)}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z" />
+        <button type='submit' className="btnBuscar" onClick={(e) => RecargarSubmit(e)}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+          <path fillRule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z" />
           <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z" />
         </svg></button>
       </div>
