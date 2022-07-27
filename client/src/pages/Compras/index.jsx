@@ -1,9 +1,9 @@
 import ListContainer from "../../containers/ListContainer";
 
-export default function Compras() {
+export default function Compras({ theme }) {
   return (
     <div>
-      <ListContainer />
+      <ListContainer theme={theme} />
     </div>
   );
 }
