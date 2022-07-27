@@ -1,9 +1,9 @@
 import ShoppingCart from "../../containers/CartContainer";
 
-export default function Cart() {
+export default function Cart({theme}) {
   return (
     <div style={{ paddingTop: "2rem", minHeight: "70vh" }}>
-      <ShoppingCart />
+      <ShoppingCart theme={theme} />
     </div>
   );
 }

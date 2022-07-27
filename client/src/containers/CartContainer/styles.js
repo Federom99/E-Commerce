@@ -108,6 +108,4 @@ export const Button = styled.button`
 
 export const Text = styled.p`
   padding: 10px;
-  margin: 20px 0 0 0;
-  text-align: justify;
 `
