@@ -76,11 +76,12 @@ export const InfoContainer = styled.div`
 `;
 
 export const H2 = styled.div`
-  color: ${(props) => props.theme.colorTextPri};
+  color: ${(theme) => theme.color};
   font-size: 1.3rem;
   font-weight: 600;
   margin: auto;
   margin-bottom: 1rem;
+  text-align: center;
 `;
 
 export const P = styled.p`
@@ -88,7 +89,7 @@ export const P = styled.p`
   /* margin: auto;
   margin-bottom: 1rem;
   font-weight: 600;
-  color: ${(props) => props.theme.colorTextPri};
+  color: ${(theme) => theme.color};
   text-align: center; */
   &::after {
     text-align: center;
@@ -143,20 +144,22 @@ export const Button = styled.button`
   align-self: center;
   margin-top: 15px;
   margin-bottom: 15px;
-  width: 80%;
+  width: 100%;
   padding: 10px;
-  background-color: #181818;
+  background-color:  ${({ theme }) => theme.buttonCTA};
+  border: none;
   border-radius: 5px;
   color: #fff;
   font-size: 15px;
   font-weight: 500;
   cursor: pointer;
+  transition: all .2s ease;
   &:hover {
     background-color: whitesmoke;
     color: black;
     cursor: pointer;
-    border-color: black;
-    border-style: solid;
+    font-weight: bold;
+    box-shadow: ${({ theme }) => theme.shadowButtonCTA};
   }
 `;
 
@@ -243,6 +246,6 @@ export const Price = styled.p`
   margin: auto;
   margin-bottom: 1rem;
   font-weight: 600;
-  color: ${(props) => props.theme.colorTextPri};
+  color: ${(theme) => theme.color};
   text-align: center;
 `;
