@@ -36,7 +36,7 @@ export default function Sales() {
   function modificar(id, estado){
     dispatch(updateEstadoPedido({id, estado: estado}))
     alert("Estado Pedido Cambiado")
-    console.log(estado)
+    // console.log(estado)
     dispatch(getPedidos());
   }
 
@@ -44,7 +44,7 @@ export default function Sales() {
     setEstado(
         e.target.value
     )
-    console.log(estado)
+    // console.log(estado)
     dispatch(getPedidos())
 }
 

@@ -81,11 +81,12 @@ export const clearMsg = (dispatch) => {
 };
 
 export const logout = () => async (dispatch) => {
-  localStorage.removeItem("user");
+  // console.log("SALGO");
   await fetch(API_URL + "salir", {
     method: "POST",
-    // credentials: "include",
+    credentials: "include",
   });
+  localStorage.removeItem("user");
 
   return dispatch({ type: LOGOUT });
 };

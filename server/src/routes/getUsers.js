@@ -4,7 +4,7 @@ const { Usuario } = require("../db.js");
 
 const router = Router();
 // OBTENER TODOS LOS USERS 
-router.get('/', isAdmin, async (req,res) => {
+router.get('/', async (req,res) => {
   try {
     const users = await Usuario.findAll();
     res.json(users);

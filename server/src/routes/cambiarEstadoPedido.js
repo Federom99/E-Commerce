@@ -1,5 +1,6 @@
 const { Router } = require("express");
-const { Pedido } = require("../db.js");
+const { Pedido, Usuario, Compra } = require("../db.js");
+const nodemailer = require('nodemailer');
 
 const router = Router();
 
@@ -22,6 +23,45 @@ router.put("/", async (req, res) => {
       },
       { where: { id } }
     );
+
+    const pedidos = await Pedido.findOne({
+      include: [
+        {
+          model: Usuario,
+        },
+      ],
+      where: { id: id },
+    });
+    console.log(pedidos.dataValues.usuario.dataValues);
+    const mail = pedidos.dataValues.usuario.dataValues.mail;
+    var transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: "henrypfg11@gmail.com",
+        pass: "chirxatvtficaopa",
+      },
+    });
+    var mailOptions = {
+      from: '"PRO-ROPA" <henrypfg11@gmail.com>',
+      to: mail,
+      subject: "Cambio de estado en su pedido ✔",
+      // text: "Tu pedido ha sido " + estado,
+      html:`
+      <div>
+        <h1>¡Hola!</ h1>
+        <h2>Nos complace notificarte que tu pedido #${id} se encuentra ${estado}</ h2>
+        <h3>Pronto te notificaremos cómo continúa el proceso.</h3>
+        <hr />
+        <p><em>*El monto no incluye impuestos y/o tasas bancarias</ p>
+      </ div>
+      `
+    };
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.log(error.message);
+      }
+    });
+
     res.status(200).send(id);
   } catch (error) {
     res.status(400).send(error);
