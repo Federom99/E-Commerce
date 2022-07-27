@@ -12,7 +12,7 @@ export default function ListContainer({ favProducts }) {
   useEffect(() => {
     const interes = location.pathname.split("/")[2];
     if (interes === "compras") {
-      setState({ soy: "Review" });
+      setState({ soy: "Reseñar" });
     } else {
       setState({ soy: "Favoritos" });
     }
@@ -23,7 +23,7 @@ export default function ListContainer({ favProducts }) {
         <List>
           <Li>
             <Header>{state.soy}</Header>
-            <Main>{state.soy === "Review" ? <Review /> : <Compras />}</Main>
+            <Main>{state.soy === "Reseñar" ? <Review /> : <Compras />}</Main>
           </Li>
         </List>
       </Section>

@@ -95,9 +95,11 @@ function Review() {
                           whileTap={{ scale: 0.9 }}
                           src={product.imagen}
                         />
-                        <Ul>
-                          <p>Reseñar</p>
-                        </Ul>
+                        {pedido.estado === "entregado" && (
+                          <Ul>
+                            <p>Reseñar</p>
+                          </Ul>
+                        )}
                       </LIinimg>
                     );
                   })}

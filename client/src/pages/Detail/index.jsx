@@ -45,7 +45,7 @@ const colors = {
   grey: "#a9a9a9",
 };
 
-const ProductDetail = () => {
+const ProductDetail = ({ theme }) => {
   const [size, setSize] = useState("");
   const [stock, setStock] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
@@ -256,7 +256,7 @@ const ProductDetail = () => {
                 resenas.map((r) => (
                   <>
                     <EachDiv class="div1 eachdiv">
-                      <UserDetails class="userdetails">
+                      <UserDetails class="userdetails" tema={theme}>
                         <div>
                           <img
                             src="https://static.vecteezy.com/system/resources/previews/002/318/271/original/user-profile-icon-free-vector.jpg"

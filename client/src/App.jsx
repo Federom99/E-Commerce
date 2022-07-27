@@ -112,7 +112,10 @@ function App() {
             path="/"
             element={<MainContainer products={products} />}
           />
-          <Route path="/detail/:productId" element={<ProductDetail />} />
+          <Route
+            path="/detail/:productId"
+            element={<ProductDetail theme={theme} />}
+          />
           <Route path="/login/" element={<Login />} />
           <Route path="/olvide-password" element={<ForgotPassword />} />
           <Route path="/olvide-password/:token" element={<ResetPassword />} />
