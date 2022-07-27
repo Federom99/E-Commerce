@@ -16,9 +16,9 @@ export const Div = styled.div`
   // background-color: grey;
   border-style: none;
   border-radius: 1rem;
-  -webkit-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
-  -moz-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
-  box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
+  -webkit-box-shadow: ${({ theme }) => theme.shadowColor};
+  -moz-box-shadow: ${({ theme }) => theme.shadowColor};
+  box-shadow: ${({ theme }) => theme.shadowColor};
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-items: center;
@@ -54,7 +54,7 @@ export const FavIncluye = styled.div`
 
 export const Image = styled.img`
   /* max-width: 166px; */
-  box-shadow: 0px 4px 15px 0px rgb(153 153 153);
+  box-shadow: ${({ theme }) => theme.shadowColor};
   max-width: 300px;
   @media (max-width: 870px) {
     width: 185px;
@@ -65,18 +65,20 @@ export const InfoContainer = styled.div`
   /* background-color: blue; */
   padding: 1rem;
   /* max-width: 260px; */
+  display: flex;
+  flex-direction: column;
   margin: 1rem;
   border-radius: 1rem;
-  -webkit-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 0.5);
-  -moz-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 0.5);
-  box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 0.5);
+  -webkit-box-shadow: ${({ theme }) => theme.shadowColor};
+  -moz-box-shadow: ${({ theme }) => theme.shadowColor};
+  box-shadow: ${({ theme }) => theme.shadowColor};
   @media (min-width: 1250px) {
     justify-self: start;
   }
 `;
 
 export const H2 = styled.div`
-  color: ${(theme) => theme.color};
+  color: ${(props) => props.theme.color};
   font-size: 1.3rem;
   font-weight: 600;
   margin: auto;
@@ -181,7 +183,7 @@ export const DivRese = styled.div`
 export const EachDiv = styled.div`
   padding: 1rem 2rem;
   border-radius: 0.8rem;
-  box-shadow: 5px 5px 20px #6d6b6b6b;
+  box-shadow: ${({ theme }) => theme.shadowColor};
   color: black;
   margin-bottom: 1rem;
 `;
@@ -195,6 +197,8 @@ export const UserDetails = styled.div`
       border-radius: 50%;
       width: 4rem;
       /* border: 2px solid #cec5c5; */
+      filter: ${(props) =>
+        props.tema === "dark" ? "invert(89%)" : "invert(0)"};
     }
   }
 `;
@@ -207,14 +211,14 @@ export const Detbox = styled.div`
     margin: 0;
   }
   & .name {
-    color: black;
+    color: ${({ theme }) => theme.color};
     font-size: 0.9rem;
     margin-bottom: 0.1rem;
     font-weight: 600;
   }
 
   & .designation {
-    color: hsl(0deg 4% 19%);
+    color: ${({ theme }) => theme.color};
     opacity: 50%;
     font-size: 0.8rem;
   }
@@ -227,14 +231,14 @@ export const Review = styled.div`
   }
   & div > h4 {
     font-size: 1.4rem;
-    color: black;
+    color: ${({ theme }) => theme.color};
     font-weight: 600;
     line-height: 1.5;
     /* margin-bottom: 0.8rem; */
   }
   & p {
     font-size: 0.95rem;
-    color: #000000;
+    color: ${({ theme }) => theme.color};
     font-weight: 500;
     opacity: 50%;
     line-height: 1.5;
@@ -246,6 +250,6 @@ export const Price = styled.p`
   margin: auto;
   margin-bottom: 1rem;
   font-weight: 600;
-  color: ${(theme) => theme.color};
+  color: ${(props) => props.theme.color};
   text-align: center;
 `;

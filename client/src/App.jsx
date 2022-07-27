@@ -104,7 +104,6 @@ function App() {
           )}
         </ModalContainer>
         <GlobalStyle />
-
       <NavBar products={products} theme={theme} />
 
       {/* {location.pathname !== "/" ? <NavBar /> : null} */}

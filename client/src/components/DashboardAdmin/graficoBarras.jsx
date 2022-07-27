@@ -1,4 +1,3 @@
-import React, { useMemo } from "react";
 import { getUsuarios } from '../../redux/actions/checkout';
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from 'react';
@@ -41,17 +40,16 @@ export default function BarChart() {
     const scores = [usuarios.length, usuarios.reduce((acc, el) => acc += el.isAdmin === true, 0), usuarios.reduce((acc, el) => acc += el.bloqueado === true, 0)];
     const labels = ["Usuarios", "Admins", "Bloqueados"];
     const numeros = usuarios.reduce((acc, el) => acc += el.isAdmin === true, 0)
-    console.log(numeros)
+    // console.log(numeros)
 
     const options = {
         fill: true,
-        animations: false,
         scales: {
             y: {
                 min: 0,
             },
         },
-        responsive: true,
+        responsive: false,
         plugins: {
             legend: {
                 display: true,
@@ -59,11 +57,10 @@ export default function BarChart() {
         },
     };
 
-    const data = useMemo(function () {
-        return {
+    const data = {
             datasets: [
                 {
-                    label: "Mis datos",
+                    label: "Usuarios",
                     tension: 0.3,
                     data: scores,
                     borderColor: "rgb(75, 192, 192)",
@@ -72,11 +69,11 @@ export default function BarChart() {
             ],
             labels,
         };
-    }, []);
 
     return (
-        <div className="graficoLineal">
-            <Bar data={data} options={options} />
+        <div className="graficoLineal" >
+            <h1>Usuarios</h1>
+            <Bar data={data} options={options} width={385} height={520}/>
         </div>
     );
 }

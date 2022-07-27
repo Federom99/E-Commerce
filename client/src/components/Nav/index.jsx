@@ -8,7 +8,6 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { logout } from "../../redux/actions/autenticacion";
 import { clearLocalStorage } from "../../redux/actions/cart";
 import { removeFavs } from "../../redux/actions/favoritos";
-import logoWhite from "../../../assets/LogoWhite.png";
 import DropDown from "../DropDown";
 import Loading from "../Loader";
 import Logo from "./logo";
@@ -16,7 +15,6 @@ import style from "./nav.module.css";
 import Search from "./search";
 import { Contenido, IconStyled, NavStyle } from "./style";
 import { subMenu } from "./submenu";
-
 
 export default function NavBar({ products, theme }) {
   const navigation = useNavigate();
@@ -121,10 +119,8 @@ export default function NavBar({ products, theme }) {
         className={!currentUser ? style.container : style.containerLoggedIn}
       >
         <li>
-
-          <NavLink to="/">
-            <img src={theme === "light" ? logo : logoWhite} className={style.logo} alt="logo" />
-            
+          <NavLink to="/" className={style.logoActive}>
+            <Logo estilo={theme === "light" ? style.logo : style.logoDark} />
           </NavLink>
         </li>
         <li className={style.searching}>

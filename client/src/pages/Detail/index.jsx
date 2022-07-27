@@ -267,7 +267,7 @@ const ProductDetail = ({theme}) => {
                 resenas.map((r) => (
                   <>
                     <EachDiv class="div1 eachdiv">
-                      <UserDetails class="userdetails">
+                      <UserDetails class="userdetails" tema={theme}>
                         <div>
                           <img
                             src="https://static.vecteezy.com/system/resources/previews/002/318/271/original/user-profile-icon-free-vector.jpg"
