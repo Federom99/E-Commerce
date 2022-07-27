@@ -72,8 +72,8 @@ export const FavContainer = styled.div`
   color: black;
   position: absolute;
   z-index: 1337;
-  top: 0px;
-  left: 0px;
+  /* top: 10px;
+  left: 10px; */
   margin: 10px;
   width: 40px auto;
 `;

@@ -7,8 +7,4 @@ export const FavOn = styled(MdFavorite)`
 
 export const FavOff = styled(MdFavoriteBorder)``;
 
-export const Div = styled.div`
-  position: absolute;
-  top: 10px;
-  left: 10px;
-`;
+export const Div = styled.div``;
