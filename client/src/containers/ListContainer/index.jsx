@@ -5,14 +5,15 @@ import Compras from "../../components/Favoritos";
 import Review from "../../components/Review";
 import { Header, Li, List, Main, Section } from "./styles";
 
-export default function ListContainer({ favProducts ,theme}) {
+export default function ListContainer({ theme }) {
+  // console.log(theme);
   const location = useLocation();
 
   const [state, setState] = useState({ soy: "Review" });
   useEffect(() => {
     const interes = location.pathname.split("/")[2];
     if (interes === "compras") {
-      setState({ soy: "Reseñar" });
+      setState({ soy: "Compras" });
     } else {
       setState({ soy: "Favoritos" });
     }
@@ -23,7 +24,13 @@ export default function ListContainer({ favProducts ,theme}) {
         <List>
           <Li>
             <Header>{state.soy}</Header>
-            <Main>{state.soy === "Review" ? <Review /> : <Compras theme={theme} />}</Main>
+            <Main>
+              {state.soy === "Compras" ? (
+                <Review theme={theme} />
+              ) : (
+                <Compras theme={theme} />
+              )}
+            </Main>
           </Li>
         </List>
       </Section>

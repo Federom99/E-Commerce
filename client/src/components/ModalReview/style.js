@@ -18,7 +18,7 @@ export const DIV = styled.div`
 
 export const Modale = styled.div`
   position: relative;
-  min-width: 300px;
+  min-width: 500px;
   max-width: 550px;
   max-height: 600px;
   margin: auto;
@@ -65,7 +65,7 @@ export const BtnRese = styled.button`
   color: #0d0d0d;
   font-weight: 600;
   background-color: #ffffff;
-  border-radius: 500px;
+  border-radius: 8px;
   cursor: pointer;
   -webkit-align-items: flex-end;
   -webkit-box-align: flex-end;
@@ -103,7 +103,7 @@ export const Button = styled.button`
 
 export const Review = styled.textarea`
   margin-top: 1rem;
-  height: 200px;
+  min-height: 200px;
   min-width: 250px;
   max-width: 450px;
   padding: 1rem;

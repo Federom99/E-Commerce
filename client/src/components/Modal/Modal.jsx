@@ -4,6 +4,7 @@ import { getCategories, getTalles, updateProduct, getProduct } from "../../redux
 import { useNavigate } from 'react-router-dom'; 
 
 import './Modal.css'
+import { toast } from "react-toastify";
 
 export default function Modal({ cambiarEstado, submit, datos }) {
     // console.log(datos)
@@ -49,6 +50,7 @@ export default function Modal({ cambiarEstado, submit, datos }) {
         }
         dispatch(updateProduct(producto))
         // alert("Producto Editado !")
+        toast.success('Editado')
         cambiarEstado(false)
     }
 

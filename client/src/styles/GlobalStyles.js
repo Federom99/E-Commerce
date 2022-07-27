@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'Anek Malayalam', sans-serif;
         background-color: ${({ theme }) => theme.body};
         color: ${({ theme }) => theme.color};
-        transition: all .4s linear; 
+        /* transition: all .4s linear;  */
     }
     .App{
         min-width: 375px;
@@ -23,9 +23,10 @@ export const GlobalStyle = createGlobalStyle`
 export const lightTheme = {
   body: "#fff",
   color: "#121212",
-  cardBackground: '#fff',
-  paginadoArrowButton: '#dcdcdc',
-  fontVariant: 'black',
+  cardBackground: "#fff",
+  paginadoArrowButton: "#dcdcdc",
+  fontVariant: "black",
+  shadowColor: "0 10px 14px rgba(0, 0, 0, .2)",
   shadowColor: '0 10px 14px rgba(0, 0, 0, .2)',
   buttonCTA: '#181818',
   shadowButtonCTA: '0px 4px 16px 5px rgba(0,0,0,0.29)',
@@ -35,9 +36,10 @@ export const lightTheme = {
 export const darkTheme = {
   body: "#1b1b1b",
   color: "#fff",
-  cardBackground: '#1b1b1b',
-  paginadoArrowButton: 'black',
-  fontVariant: 'white',
+  cardBackground: "#1b1b1b",
+  paginadoArrowButton: "black",
+  fontVariant: "white",
+  shadowColor: "0px 0px 4px 3px rgb(0 0 0 / 39%);",
   shadowColor: '0 10px 14px rgb(169 169 169 / 20%)',
   buttonCTA: '#000000',
   shadowButtonCTA: '0px 4px 16px 5px rgb(169 169 169 / 20%)',

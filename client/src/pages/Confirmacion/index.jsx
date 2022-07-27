@@ -14,6 +14,12 @@ function Confirmacion() {
   const { id } = params;
   console.log(id);
 
+  document.title = "Pro Ropa - Confirmación";
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+    });
+
   const pagina = async () => {
     try {
       const url = `http://localhost:3001/user/confirmar/${id}`;
