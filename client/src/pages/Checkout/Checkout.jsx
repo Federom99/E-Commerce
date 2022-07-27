@@ -50,10 +50,6 @@ const Checkout = () => {
     }
 
     document.title = "Pro Ropa - Checkout";
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-    });
 
     useEffect(() => {
         // console.log(pedidoGenerado);
@@ -90,6 +86,10 @@ const Checkout = () => {
             const {name, lastName, dni, address} = currentUser;
             setInput({nombre: name, apellido: lastName, documento: dni, direccion: address, codigoPostal: "", provincia: ""})
         }
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
     },[])
 
     useEffect(() => {

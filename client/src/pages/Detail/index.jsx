@@ -262,7 +262,7 @@ const ProductDetail = ({theme}) => {
           marginTop: "1rem",
         }}
       >
-        <h2>{text}</h2>
+        <h2>{resenas.length ? text : null}</h2>
         <ResenasContainer>
           {loadingReview ? (
             <Loading />
