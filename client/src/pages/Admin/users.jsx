@@ -1,4 +1,4 @@
-import DataTable from 'react-data-table-component';
+import DataTable , {createTheme} from 'react-data-table-component';
 import { getUsuarios, updateUser, filterUsers } from '../../redux/actions/checkout';
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from 'react';
@@ -141,6 +141,28 @@ export default function Users() {
     },
   ]
 
+  // createTheme('custom', {
+  //   text: {
+  //     primary: '#268bd2',
+  //     secondary: '#2aa198',
+  //   },
+  //   background: {
+  //     default: '#1B1B1B',
+  //   },
+  //   context: {
+  //     background: '#cb4b16',
+  //     text: '#FFFFFF',
+  //   },
+  //   divider: {
+  //     default: '#073642',
+  //   },
+  //   action: {
+  //     button: 'rgba(0,0,0,.54)',
+  //     hover: 'rgba(0,0,0,.08)',
+  //     disabled: 'rgba(0,0,0,.12)',
+  //   },
+  // }, 'dark');
+
   const paginacionOpciones = {
     rowsPerPageText: 'Filas por pagina',
     rangeSeparatorText: 'de',
@@ -171,6 +193,7 @@ export default function Users() {
       <DataTable
         columns={columnas}
         data={usuariosFiltrados}
+        // theme="custom" //habilitar esta linea y descomentar createTheme()
         title="Usuarios"
         pagination
         paginationComponentOptions={paginacionOpciones}

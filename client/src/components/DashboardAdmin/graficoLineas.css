@@ -1,10 +1,11 @@
 .grafico {
-    background-color: #D9D8D8;
+    background-color: white;
     width: 70%;
     height: 563px;
     margin-top: 40px;
     padding: 10px;
     border-radius: 1rem;
+    /* color: #1B1B1B #D9D8D8 */
 }
 
 .user {
