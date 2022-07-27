@@ -90,6 +90,7 @@ export function getUsuarios(reset){
   return async function(dispatch){
       try {
       var json = await axios.get(`${URL_SERVER}/usuarios/`, { withCredentials: true });
+      // console.log(json);
       if(reset)
       return dispatch({
         type: "RESET_FILTER",
