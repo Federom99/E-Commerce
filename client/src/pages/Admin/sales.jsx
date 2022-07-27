@@ -36,8 +36,6 @@ export default function Sales() {
 
   function modificar(id, estado,row){
     dispatch(updateEstadoPedido({id, estado: estado}))
-    // alert("Estado Pedido Cambiado")
-    console.log(estado)
     dispatch(getPedidos());
     toast.info(`Pedido a direccion ${row.direccion_de_envio.direccion} ${estado}`)    
   }
@@ -46,7 +44,7 @@ export default function Sales() {
     setEstado(
         e.target.value
     )
-    console.log(estado)
+    // console.log(estado)
     dispatch(getPedidos())
 }
 

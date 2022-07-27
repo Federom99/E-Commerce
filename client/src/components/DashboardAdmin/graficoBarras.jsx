@@ -67,7 +67,7 @@ export default function BarChart() {
                     tension: 0.3,
                     data: scores,
                     borderColor: "rgb(75, 192, 192)",
-                    backgroundColor: "rgba(75, 192, 192, 0.3)",
+                    backgroundColor: "rgba(75, 192, 192, 0.45)",
                 },
             ],
             labels,
