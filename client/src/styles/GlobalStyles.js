@@ -37,3 +37,6 @@ export const darkTheme = {
   fontVariant: "white",
   shadowColor: "0px 0px 4px 3px rgb(0 0 0 / 39%);",
 };
+
+//#0d0d0d
+

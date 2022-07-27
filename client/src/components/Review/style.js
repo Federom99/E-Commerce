@@ -18,7 +18,7 @@ export const List = styled.div`
   display: grid;
   grid-template-columns: 20% 60% 20%;
   grid-auto-flow: row;
-  grid-template-rows: 1fr 20px 30px;
+  grid-template-rows: 1fr 1fr;
   align-items: center;
   justify-items: center;
   margin-top: 15px;
@@ -57,9 +57,9 @@ export const Img = styled.img`
   padding: 0.1rem;
   user-select: none;
   margin: 15px 5px;
-  -webkit-box-shadow: ${({ theme }) => theme.shadowColor};
-  -moz-box-shadow: ${({ theme }) => theme.shadowColor};
-  box-shadow: ${({ theme }) => theme.shadowColor};
+  -webkit-box-shadow: 3px 2px 2px 0px rgb(198 198 198 / 52%);
+  -moz-box-shadow: 3px 2px 2px 0px rgb(198 198 198 / 52%);
+  box-shadow: 3px 2px 2px 0px rgb(198 198 198 / 52%);
 `;
 
 export const DivImg = styled.div`
@@ -71,7 +71,6 @@ export const LIinimg = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 50%;
 `;
 export const Ul = styled.div`
   position: relative;
@@ -99,21 +98,10 @@ export const H3 = styled.h3`
 `;
 
 export const Linea = styled.hr`
-  border: 1px dashed ${({ theme }) => theme.color};
+  border: 1px dashed #000;
   width: 70%;
   grid-column: 1/4;
-  grid-row: 3/3;
   margin: auto;
   margin-top: 5%;
   margin-bottom: 5%;
-`;
-
-export const Estado = styled.p`
-  grid-column: 1/4;
-  grid-row: 2 /3;
-  justify-self: center;
-  margin: 0 1em;
-  color: ${(props) => props.color};
-  text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1),
-    1px 1px 1px rgba(0, 0, 0, 0.5);
 `;
