@@ -9,9 +9,6 @@ export const Div = styled.div`
   /* border-style: solid; */
   /* border-width: 1px; */
   width: 90%;
-  -webkit-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
-  -moz-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
-  box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
 `;
 
 export const List = styled.div`
@@ -22,7 +19,12 @@ export const List = styled.div`
   /* grid-template-rows: 1fr 20px 30px; */
   align-items: center;
   justify-items: center;
-  margin-top: 15px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  /* margin: auto; */
+  -webkit-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
+  -moz-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
+  box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
   @media (max-width: 815px) {
     display: flex;
     flex-direction: row;
@@ -42,8 +44,8 @@ export const LiImg = styled.div`
   align-self: center;
   display: flex;
   margin-left: 4rem;
-  width: 100%;
-  /* overflow-x: scroll; */
+  width: 60%;
+  overflow-x: scroll;
   @media (max-width: 650px) {
     flex-direction: row;
     flex-wrap: wrap;
@@ -115,7 +117,7 @@ export const Estado = styled.p`
   grid-row: 2 /3;
   justify-self: center;
   margin: 0 1em;
-  /* color: ${(props) => props.color}; */
+  color: ${(props) => props.color};
   font-weight: bold;
   /* text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1),
     1px 1px 1px rgba(0, 0, 0, 0.5); */
