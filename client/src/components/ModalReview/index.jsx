@@ -115,17 +115,12 @@ const Modal = ({ handleClose, text }) => {
 
   const handleClick = (value) => {
     setState({ ...state, puntaje: value });
+    setErrors({});
   };
 
   const handleSubmitI = () => {
     const validaciones = {
       titulo: {
-        required: {
-          value: true,
-          message: "Campo Requerido",
-        },
-      },
-      puntaje: {
         required: {
           value: true,
           message: "Campo Requerido",
@@ -137,17 +132,30 @@ const Modal = ({ handleClose, text }) => {
           message: "Campo Requerido",
         },
       },
+      puntaje: {
+        custom: {
+          isValid: (value) => value <= 5 && value > 0,
+          message: "El puntaje debe ser un valor mayor a 0",
+        },
+      },
     };
 
     if (validaciones) {
       let valid = true;
       const newErrors = {};
       for (const key in validaciones) {
+        // console.log(key);
         const value = state[key];
         const validacion = validaciones[key];
-        if (validacion.required.value && !value) {
+        if (validacion?.required?.value && !value) {
           valid = false;
           newErrors[key] = validacion.required.message;
+        }
+
+        const custom = validacion?.custom;
+        if (custom?.isValid && !custom.isValid(value)) {
+          valid = false;
+          newErrors[key] = custom.message;
         }
       }
 

@@ -6,11 +6,9 @@ export const Section = styled.section`
   margin-bottom: 4rem;
   border-style: none;
   border-radius: 1rem;
-  -webkit-box-shadow: 0px 0px 2px 0px rgb(153 153 153),
-    0px 5px 4px 0px rgb(153 153 153);
-  -moz-box-shadow: 0px 0px 2px 0px rgb(153 153 153),
-    0px 5px 4px 0px rgb(153 153 153);
-  box-shadow: 0px 0px 2px 0px rgb(153 153 153), 0px 5px 4px 0px rgb(153 153 153);
+  -webkit-box-shadow: ${({ theme }) => theme.shadowColor};
+  -moz-box-shadow: ${({ theme }) => theme.shadowColor};
+  box-shadow: ${({ theme }) => theme.shadowColor};
   width: 80%;
   min-height: 20vh;
   max-width: 1440px;
@@ -54,7 +52,6 @@ export const Error = styled.h1`
 `;
 export const Main = styled.ul`
   list-style: none;
-  border: 1px solid rgba(255, 255, 255, 0.18);
 `;
 export const PriceSection = styled.div`
   margin: auto;
