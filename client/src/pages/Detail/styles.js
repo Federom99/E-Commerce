@@ -38,13 +38,18 @@ export const Div = styled.div`
 `;
 
 export const ImageContainer = styled.div`
-  margin: 10px;
+  margin: 50px;
   /* @media (min-width: 1250px) {
     justify-self: end;
   } */
 `;
 export const FavContainer = styled.div`
+  position: absolute;
+`;
+export const FavIncluye = styled.div`
   position: relative;
+  top: 10px;
+  left: 10px;
 `;
 
 export const Image = styled.img`
@@ -240,5 +245,4 @@ export const Price = styled.p`
   font-weight: 600;
   color: ${(props) => props.theme.colorTextPri};
   text-align: center;
-`
-
+`;

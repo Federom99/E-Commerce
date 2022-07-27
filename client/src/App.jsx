@@ -57,7 +57,6 @@ function App() {
   let location = useLocation();
   const [theme, toggleTheme] = useDarkMode();
   const themeMode = theme === "light" ? lightTheme : darkTheme;
-
   useEffect(() => {
     dispatch(getProducts());
   }, []);
@@ -105,7 +104,7 @@ function App() {
           )}
         </ModalContainer>
         <GlobalStyle />
-      <NavBar products={products} />
+        <NavBar products={products} theme={theme} />
       {/* {location.pathname !== "/" ? <NavBar /> : null} */}
       <Routes>
         <Route exact path="/" element={<MainContainer products={products} />} />

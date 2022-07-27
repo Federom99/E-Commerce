@@ -36,6 +36,7 @@ import {
   SizeInfo,
   Stars,
   UserDetails,
+  FavIncluye,
 } from "./styles";
 
 const stars = Array(5).fill(0);
@@ -202,12 +203,14 @@ const ProductDetail = () => {
       <Div>
         <ImageContainer>
           <FavContainer>
-            {currentUser ? (
-              <FavIcon
-                productId={parseInt(productId)}
-                productName={product.nombre}
-              />
-            ) : null}
+            <FavIncluye>
+              {currentUser ? (
+                <FavIcon
+                  productId={parseInt(productId)}
+                  productName={product.nombre}
+                />
+              ) : null}
+            </FavIncluye>
           </FavContainer>
           <Image src={product?.imagen} />
         </ImageContainer>
