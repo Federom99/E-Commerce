@@ -4,6 +4,8 @@ import { NavLink } from "react-router-dom";
 export const Contenido = styled.ul`
   list-style-type: none;
   padding: 1rem;
+  position: relative;
+  z-index: 10;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -24,16 +26,16 @@ export const Contenido = styled.ul`
 `;
 
 export const NavStyle = styled(NavLink)`
-  color: ${({theme}) => theme.color};
+  color: ${({ theme }) => theme.color};
   & svg {
-    color: ${({theme}) => theme.color};
+    color: ${({ theme }) => theme.color};
   }
 `;
 
 export const IconStyled = styled.li`
-& svg {
-  color: ${({theme}) => theme.color};
-}
+  & svg {
+    color: ${({ theme }) => theme.color};
+  }
 `;
 
 export const Image = styled.img`
