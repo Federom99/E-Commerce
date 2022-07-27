@@ -26,15 +26,14 @@ import ModalContainer from "../../components/ModalReview/ModalContainer";
 import Modal from "../../components/ModalReview";
 import { getAllFavs } from "../../redux/actions/favoritos";
 
-
-export default function User() {
-  const { 
-    disabled, 
-    inputValues, 
-    setInputValues, 
-    inputErrors, 
-    editField, 
-    handleSubmit 
+export default function User({ theme }) {
+  const {
+    disabled,
+    inputValues,
+    setInputValues,
+    inputErrors,
+    editField,
+    handleSubmit,
   } = useFormEditProfile();
 
   const {
@@ -56,9 +55,8 @@ export default function User() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getUser(id));
-    dispatch(getAllFavs(id))
+    dispatch(getAllFavs(id));
   }, []);
-
 
   return (
     <Container>
@@ -66,6 +64,7 @@ export default function User() {
         <Image
           src="https://static.vecteezy.com/system/resources/previews/002/318/271/original/user-profile-icon-free-vector.jpg"
           alt=""
+          tema={theme}
         />
       </ImageContainer>
       {editProfile ? (
@@ -102,9 +101,9 @@ export default function User() {
               <p>Telefono</p>
               <Input
                 name="telefono"
-                value={inputValues.telefono} 
+                value={inputValues.telefono}
                 placeholder="Número de teléfono"
-                onChange={(e) => editField(e.target.name,e.target.value)}
+                onChange={(e) => editField(e.target.name, e.target.value)}
               />
             </Label>
             <ButtonsContainer>
@@ -118,7 +117,7 @@ export default function User() {
                 disabled={disabled}
                 aceptar
                 onClick={(e) => {
-                  changeInfo(e)
+                  changeInfo(e);
                 }}
               >
                 Aceptar
@@ -149,21 +148,26 @@ export default function User() {
               <LI className="Info">Telefono</LI>
               <LI>{user?.telefono}</LI>
             </UL>
-            <Button onClick={() => {
-              setEditProfile((prevState) => !prevState)
-              setInputValues({
-                nombre: user?.nombre,
-                apellido: user?.apellido,
-                mail: user?.email || user?.mail,
-                telefono: user?.telefono
-              })
+            <Button
+              onClick={() => {
+                setEditProfile((prevState) => !prevState);
+                setInputValues({
+                  nombre: user?.nombre,
+                  apellido: user?.apellido,
+                  mail: user?.email || user?.mail,
+                  telefono: user?.telefono,
+                });
               }}
             >
               Editar perfil
             </Button>
             <ExtraInfo>
-              <LinkTo to={`/profile/compras/${id}`}><Button>Compras</Button></LinkTo>
-              <LinkTo to={`/profile/favoritos/${id}`}><Button>Favoritos</Button></LinkTo>
+              <LinkTo to={`/profile/compras/${id}`}>
+                <Button>Compras</Button>
+              </LinkTo>
+              <LinkTo to={`/profile/favoritos/${id}`}>
+                <Button>Favoritos</Button>
+              </LinkTo>
             </ExtraInfo>
           </UserInfo>
         </>

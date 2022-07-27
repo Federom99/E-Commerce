@@ -124,7 +124,7 @@ function App() {
           <Route path="/cart/" element={<ShoppingCart theme={theme} />} />
 
           <Route element={<RequireAuthUser isLogged={true} />}>
-            <Route path="/profile/" element={<Profile />} />
+            <Route path="/profile/" element={<Profile theme={theme} />} />
             <Route path="/createProduct" element={<CreateProduct />} />
             <Route
               path="/profile/compras/:id"
