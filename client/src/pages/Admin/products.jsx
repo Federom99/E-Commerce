@@ -6,6 +6,7 @@ import { deleteProduct, getProducts, postProduct } from '../../redux/actions/pro
 import { useEffect, useState } from "react";
 import Modal from '../../components/Modal/Modal';
 import { toast } from 'react-toastify';
+import { Button, DeleteButton, Text } from './styles';
 
 export default function Products() {
   const [modal, setModal] = useState(false)
@@ -21,6 +22,21 @@ export default function Products() {
   const products = useSelector((state) => state.product.allProducts);
   // console.log(products)
 
+  const deleteToast = (row)=>{
+    const deleteProd = ()=>{    
+      dispatch(deleteProduct(row.id))
+      setTimeout(()=>{
+        dispatch(getProducts())
+      },1000)
+    }
+    
+    return(
+      <div>
+        <Text>¿Desea eliminar el producto {row.nombre}?</Text>
+        <DeleteButton onClick={deleteProd}>Confirmar</DeleteButton>
+      </div>
+    )
+  }
   function borrar(id) {
     toast.error('Producto eliminado!')
     dispatch(deleteProduct(id))
@@ -93,7 +109,9 @@ export default function Products() {
     },
     {
       name: 'Borrar',
-      selector: row => <button className='user' onClick={() => borrar(row.id)}>Eliminar</button>,
+      selector: row => <button className='user' onClick={() => toast.error(deleteToast(row),{
+        toastId: `delete${row.id}`
+      })}>Eliminar</button>,
       sortable: true,
       grow: 0.1,
     },

@@ -46,7 +46,7 @@ export const AddMore = styled(BsFillCartPlusFill)`
 
 export const Header = styled.header`
     width: inherit;
-    background-color: #4DCD57;
+    background-color: ${({ theme }) => theme.headerPopUp};
     text-align: center;
     padding: 10px;
     border-radius: 8px 8px 0px 0px ;
@@ -57,7 +57,7 @@ export const Button = styled.button`
     margin-bottom: 15px;
     width: 80%;
     padding: 10px;
-    background-color: #181818;
+    background-color: #000;
     border-radius: 5px;
     color: #fff;
     font-size: 15px;
@@ -69,12 +69,13 @@ export const Button = styled.button`
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    border: none;
     &:hover {
         background-color: whitesmoke;
         color: black;
         cursor: pointer;
-        border-color: black;
-        border-style: solid;
+        font-weight: bold;
+        box-shadow: ${({ theme }) => theme.shadowButtonCTA};
     }
 `;
 export const LinkButton = styled(Link)`
@@ -83,7 +84,7 @@ export const LinkButton = styled(Link)`
     /* margin-bottom: 15px; */
     width: 80%;
     padding: 10px;
-    background-color: #181818;
+    background-color: #2aa72a;
     border-radius: 5px;
     color: #fff;
     font-size: 15px;
@@ -91,20 +92,19 @@ export const LinkButton = styled(Link)`
     text-decoration: none;
     cursor: pointer;
     text-align: center;
-    border-color: black;
-    border-style: solid;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    transition: all .2s ease;
     &:hover {
         background-color: whitesmoke;
         color: black;
         cursor: pointer;
-        border-color: black;
-        border-style: solid;
+        font-weight: bold;
+        box-shadow: ${({ theme }) => theme.shadowButtonCTA};
     }
 `;
 export const Close = styled(Button)`

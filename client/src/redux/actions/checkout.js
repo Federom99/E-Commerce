@@ -90,6 +90,7 @@ export function getUsuarios(reset){
   return async function(dispatch){
       try {
       var json = await axios.get(`${URL_SERVER}/usuarios/`, { withCredentials: true });
+      // console.log(json);
       if(reset)
       return dispatch({
         type: "RESET_FILTER",
@@ -134,7 +135,7 @@ export function updateUser(payload) {
 export function updateEstadoPedido(payload) {
   return async function () {
     try {
-      console.log(payload)
+      // console.log(payload)
       const response = await axios.put(`${URL_SERVER}/admin/pedido`, payload);
       return response;
     } catch (e) {
@@ -142,15 +143,6 @@ export function updateEstadoPedido(payload) {
     }
   };
 }
-
-export function enviarMail(userMail) {
-  return async function (dispatch) {
-    await axios.post(`${URL_SERVER}/usuario/confirmacion`, { mail: userMail });
-
-    dispatch({ type: CONFIRMAR_COMPRA, payload: userMail });
-  };
-}
-
 
 export function updateEnvio(id, payload, productos) {
   return async function (dispatch) {

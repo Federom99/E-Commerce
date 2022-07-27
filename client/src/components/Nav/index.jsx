@@ -1,29 +1,31 @@
+import { useEffect, useState } from "react";
 import { BsFillPersonFill } from "react-icons/bs";
 import { FaShoppingCart } from "react-icons/fa";
-import { GrUserAdmin } from "react-icons/gr";
-import { RiAdminFill } from "react-icons/ri";
 import { ImExit } from "react-icons/im";
+import { RiAdminFill } from "react-icons/ri";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
+// import logo from "../../../assets/Logo.svg";
+// import logoDark from "../../../assets/logo_dark.svg";
+import { logout } from "../../redux/actions/autenticacion";
+import { clearLocalStorage } from "../../redux/actions/cart";
+import { removeFavs } from "../../redux/actions/favoritos";
+import logoWhite from "../../../assets/LogoWhite.png";
+import DropDown from "../DropDown";
+import Loading from "../Loader";
+import Logo from "./logo";
 import style from "./nav.module.css";
 import Search from "./search";
 import { Contenido, IconStyled, NavStyle } from "./style";
-import logo from "../../../assets/Logo.svg";
-import { RiAddBoxFill } from "react-icons/ri";
 import { subMenu } from "./submenu";
-import DropDown from "../DropDown";
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../../redux/actions/autenticacion";
-import Loading from "../Loader";
-import { clearLocalStorage } from "../../redux/actions/cart";
-import { removeFavs } from "../../redux/actions/favoritos";
 
-export default function NavBar({ products }) {
+
+export default function NavBar({ products, theme }) {
   const navigation = useNavigate();
   const dispatch = useDispatch();
   let data = products.map((a) => ({ nombre: a.nombre, im: a.imagen }));
   const [dropdown, setDropdown] = useState(false);
-
+  console.log(theme);
   const handleChange = (newValue) => {
     setDropdown(newValue);
   };
@@ -114,14 +116,17 @@ export default function NavBar({ products }) {
     );
   }
 
+  console.log(theme)
   return (
     <div className={style.full}>
       <Contenido
         className={!currentUser ? style.container : style.containerLoggedIn}
       >
         <li>
+
           <NavLink to="/">
-            <img src={logo} className={style.logo} alt="logo" />
+            <img src={theme === "light" ? logo : logoWhite} className={style.logo} alt="logo" />
+            
           </NavLink>
         </li>
         <li className={style.searching}>

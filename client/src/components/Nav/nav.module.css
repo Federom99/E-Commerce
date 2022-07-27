@@ -117,22 +117,22 @@
   font-weight: lighter;
 }
 
-.icons:hover{
+.icons:hover {
   animation: myAnim 5s linear 0s infinite normal forwards;
   cursor: pointer;
 }
 
 @keyframes myAnim {
-	0%,
-	50%,
-	100% {
-		opacity: 0.9;
-	}
+  0%,
+  50%,
+  100% {
+    opacity: 0.9;
+  }
 
-	25%,
-	75% {
-		opacity: 0.1;
-	}
+  25%,
+  75% {
+    opacity: 0.1;
+  }
 }
 
 .searching {
@@ -169,10 +169,24 @@
     /* height: 50px; */
     width: 150px;
   }
+
+  /* .logoDark {
+    height: 60px;
+    width: 150px;
+  } */
+  .logoDark {
+    width: 150px;
+  }
 }
 
 .logo {
   max-width: 300px;
   height: 70px;
-  fill: aqua;
+  fill: rgb(0, 0, 0);
+}
+
+.logoDark {
+  max-width: 300px;
+  height: 70px;
+  fill: rgb(255, 255, 255);
 }

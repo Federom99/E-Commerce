@@ -72,8 +72,8 @@ export const FavContainer = styled.div`
   color: black;
   position: absolute;
   z-index: 1337;
-  top: 0px;
-  left: 0px;
+  /* top: 10px;
+  left: 10px; */
   margin: 10px;
   width: 40px auto;
 `;
@@ -132,7 +132,7 @@ export const P = styled.p`
 `;
 
 export const Button = styled.div`
-  background-color: #181818;
+  background-color: ${({ theme }) => theme.buttonCTA};
   border-radius: 5px;
   color: #fff;
   font-size: 15px;
@@ -141,16 +141,17 @@ export const Button = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0.9rem 0;
+  margin: 1.5rem 0;
   width: 100%;
   height: 40px;
+  transition: all .2s ease;
   // font-weight: 600;
   &:hover {
     background-color: whitesmoke;
     color: black;
+    font-weight: bold;
     cursor: pointer;
-    border-color: black;
-    border-style: solid;
+    box-shadow: ${({ theme }) => theme.shadowButtonCTA};
   }
 `;
 export const NoButton = styled(Button)`
