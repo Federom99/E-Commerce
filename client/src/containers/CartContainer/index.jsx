@@ -29,7 +29,7 @@ export default function ShoppingCart() {
     return (
       <div>
         <Text>
-          Está vaciando el carrito
+          Está seguro que quiere vaciar el carrito?
         </Text>
         <Button onClick={resetCart}>Confirmar</Button>
       </div>
