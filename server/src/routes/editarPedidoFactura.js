@@ -40,9 +40,7 @@ router.put('/', queue({ activeLimit: 1, queuedLimit: -1}), async(req, res) => {
             };
             transporter.sendMail(mailOptions, (error, info) => {
               if (error) {
-                res.status(500).send(error.message);
-              } else {
-                res.status(200).jsonp(req.body);
+                console.log(error.message);
               }
             });
 

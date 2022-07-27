@@ -134,7 +134,7 @@ export function updateUser(payload) {
 export function updateEstadoPedido(payload) {
   return async function () {
     try {
-      console.log(payload)
+      // console.log(payload)
       const response = await axios.put(`${URL_SERVER}/admin/pedido`, payload);
       return response;
     } catch (e) {
