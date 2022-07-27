@@ -104,7 +104,6 @@ function App() {
           )}
         </ModalContainer>
         <GlobalStyle />
-<<<<<<< HEAD
         <NavBar products={products} theme={theme} />
         {/* {location.pathname !== "/" ? <NavBar /> : null} */}
         <Routes>
@@ -119,43 +118,31 @@ function App() {
           <Route path="/olvide-password/:token" element={<ResetPassword />} />
           <Route path="/register" element={<CreateUser />} />
           <Route path="/cart/" element={<ShoppingCart />} />
-=======
-      <NavBar products={products} />
-      {/* {location.pathname !== "/" ? <NavBar /> : null} */}
-      <Routes>
-        <Route exact path="/" element={<MainContainer products={products} />} />
-        <Route path="/detail/:productId" element={<ProductDetail />} />
-        <Route path="/login/" element={<Login />} />
-        <Route path="/olvide-password" element={<ForgotPassword />} />
-        <Route path="/olvide-password/:token" element={<ResetPassword />} />
-        <Route path="/register" element={<CreateUser />} />
-        <Route path="/cart/" element={<ShoppingCart />} />
->>>>>>> 6131295c60da9a3a374f2751f4e57ab04f1927cd
 
-        <Route element={<RequireAuthUser isLogged={true}/>}>
-          <Route path="/profile/" element={<Profile />} />
-          <Route path="/createProduct" element={<CreateProduct />} />
-          <Route path="/profile/compras/:id" element={<Compras />} />
-          <Route path="/profile/favoritos/:id" element={<Favoritos />} />
-        </Route>
+          <Route element={<RequireAuthUser isLogged={true} />}>
+            <Route path="/profile/" element={<Profile />} />
+            <Route path="/createProduct" element={<CreateProduct />} />
+            <Route path="/profile/compras/:id" element={<Compras />} />
+            <Route path="/profile/favoritos/:id" element={<Favoritos />} />
+          </Route>
 
-        <Route path="/confirmar/:id" element={<Confirmacion />} />
+          <Route path="/confirmar/:id" element={<Confirmacion />} />
 
-        <Route element={<RequireAuthAdmin isAllowed={true}/>}>
-          <Route path="/admin/dashboard/*" element={<DashboardAdmin />} />
-        </Route>
+          <Route element={<RequireAuthAdmin isAllowed={true} />}>
+            <Route path="/admin/dashboard/*" element={<DashboardAdmin />} />
+          </Route>
 
-        <Route
-          path="/checkout/success/:idPedido"
-          element={<CheckoutSuccess />}
-        />
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="*" element={<NoMatch />} />
-      </Routes>
+          <Route
+            path="/checkout/success/:idPedido"
+            element={<CheckoutSuccess />}
+          />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="*" element={<NoMatch />} />
+        </Routes>
 
-      <Footer />
-      <Toggle theme={theme} toggleTheme={toggleTheme} />
-    </ThemeProvider>
+        <Footer />
+        <Toggle theme={theme} toggleTheme={toggleTheme} />
+      </ThemeProvider>
     </div>
   );
 }

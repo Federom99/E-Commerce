@@ -16,9 +16,9 @@ export const Div = styled.div`
   // background-color: grey;
   border-style: none;
   border-radius: 1rem;
-  -webkit-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
-  -moz-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
-  box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
+  -webkit-box-shadow: ${({ theme }) => theme.shadowColor};
+  -moz-box-shadow: ${({ theme }) => theme.shadowColor};
+  box-shadow: ${({ theme }) => theme.shadowColor};
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-items: center;
@@ -54,7 +54,7 @@ export const FavIncluye = styled.div`
 
 export const Image = styled.img`
   /* max-width: 166px; */
-  box-shadow: 0px 4px 15px 0px rgb(153 153 153);
+  box-shadow: ${({ theme }) => theme.shadowColor};
   max-width: 300px;
   @media (max-width: 870px) {
     width: 185px;
@@ -65,18 +65,20 @@ export const InfoContainer = styled.div`
   /* background-color: blue; */
   padding: 1rem;
   /* max-width: 260px; */
+  display: flex;
+  flex-direction: column;
   margin: 1rem;
   border-radius: 1rem;
-  -webkit-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 0.5);
-  -moz-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 0.5);
-  box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 0.5);
+  -webkit-box-shadow: ${({ theme }) => theme.shadowColor};
+  -moz-box-shadow: ${({ theme }) => theme.shadowColor};
+  box-shadow: ${({ theme }) => theme.shadowColor};
   @media (min-width: 1250px) {
     justify-self: start;
   }
 `;
 
 export const H2 = styled.div`
-  color: ${(props) => props.theme.colorTextPri};
+  color: ${(props) => props.theme.color};
   font-size: 1.3rem;
   font-weight: 600;
   margin: auto;
@@ -243,6 +245,6 @@ export const Price = styled.p`
   margin: auto;
   margin-bottom: 1rem;
   font-weight: 600;
-  color: ${(props) => props.theme.colorTextPri};
+  color: ${(props) => props.theme.color};
   text-align: center;
 `;
