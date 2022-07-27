@@ -63,6 +63,7 @@ export default function reviewReducer(state = initialState, action) {
           imagen: action.payload.imagen,
           nombre: action.payload.nombre,
           userId: action.payload.userId,
+          estado: action.payload.estado,
         },
         modal: true,
       };

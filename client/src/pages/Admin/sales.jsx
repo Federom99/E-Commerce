@@ -37,7 +37,9 @@ export default function Sales() {
 
   function modificar(id, estado,row){
     dispatch(updateEstadoPedido({id, estado: estado}))
-    dispatch(getPedidos());
+    setTimeout(()=>{
+      dispatch(getPedidos());
+    },1000)
     toast.info(`Pedido a direccion ${row.direccion_de_envio.direccion} ${estado}`)    
   }
 
