@@ -26,14 +26,21 @@ import ModalContainer from "../../components/ModalReview/ModalContainer";
 import Modal from "../../components/ModalReview";
 import { getAllFavs } from "../../redux/actions/favoritos";
 
-export default function User({ theme }) {
-  const {
-    disabled,
-    inputValues,
-    setInputValues,
-    inputErrors,
-    editField,
-    handleSubmit,
+document.title = "Pro Ropa - Perfil";
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+    });
+
+
+export default function User() {
+  const { 
+    disabled, 
+    inputValues, 
+    setInputValues, 
+    inputErrors, 
+    editField, 
+    handleSubmit 
   } = useFormEditProfile();
 
   const {

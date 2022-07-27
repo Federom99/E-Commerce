@@ -49,6 +49,12 @@ const Checkout = () => {
         let disPedido = await dispatch(crearPedido(pedido));
     }
 
+    document.title = "Pro Ropa - Checkout";
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+    });
+
     useEffect(() => {
         // console.log(pedidoGenerado);
         if(pedidoGenerado.hasOwnProperty("pedido")) {

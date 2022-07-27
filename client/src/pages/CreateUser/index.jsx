@@ -38,6 +38,12 @@ export default function NewUser() {
     dispatch(getUsuarios());
   }, [])
 
+  document.title = "Pro Ropa - Registrarse";
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+    });
+
   const errorHandler = (data) => {
     let errors = {};
     if (!data.name) errors.name = "Campo requerido";

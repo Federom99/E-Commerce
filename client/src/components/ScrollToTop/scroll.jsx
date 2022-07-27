@@ -12,6 +12,7 @@ const Button = styled(FaAngleDoubleUp)`
   background-color: #fff;
   color: #333;
   cursor: pointer;
+  z-index: 9999999;
 `;
 export default function ScrollToTop() {
   const scrollTop = () => {

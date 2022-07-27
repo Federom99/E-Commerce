@@ -50,8 +50,7 @@ export default function Products() {
   // }
 
   function editar(datos) {
-    setEditProduct(datos)
-    toast.success('Editado')
+    setEditProduct(datos)    
     setModal(!modal)
   }
   
