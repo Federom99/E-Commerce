@@ -183,7 +183,7 @@ export const DivRese = styled.div`
 export const EachDiv = styled.div`
   padding: 1rem 2rem;
   border-radius: 0.8rem;
-  box-shadow: ${({ theme }) => theme.shadowColor};
+  box-shadow: 5px 5px 20px #6d6b6b6b;
   color: black;
   margin-bottom: 1rem;
 `;
@@ -197,8 +197,6 @@ export const UserDetails = styled.div`
       border-radius: 50%;
       width: 4rem;
       /* border: 2px solid #cec5c5; */
-      filter: ${(props) =>
-        props.tema === "dark" ? "invert(89%)" : "invert(0)"};
     }
   }
 `;
@@ -211,14 +209,14 @@ export const Detbox = styled.div`
     margin: 0;
   }
   & .name {
-    color: ${({ theme }) => theme.color};
+    color: black;
     font-size: 0.9rem;
     margin-bottom: 0.1rem;
     font-weight: 600;
   }
 
   & .designation {
-    color: ${({ theme }) => theme.color};
+    color: hsl(0deg 4% 19%);
     opacity: 50%;
     font-size: 0.8rem;
   }
@@ -231,14 +229,14 @@ export const Review = styled.div`
   }
   & div > h4 {
     font-size: 1.4rem;
-    color: ${({ theme }) => theme.color};
+    color: black;
     font-weight: 600;
     line-height: 1.5;
     /* margin-bottom: 0.8rem; */
   }
   & p {
     font-size: 0.95rem;
-    color: ${({ theme }) => theme.color};
+    color: #000000;
     font-weight: 500;
     opacity: 50%;
     line-height: 1.5;
