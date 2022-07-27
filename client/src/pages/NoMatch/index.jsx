@@ -4,6 +4,11 @@ import Loading from "../../components/Loader";
 import { NoMatchContainer, SVG, TxtContainer } from "./style";
 
 function NoMatch() {
+  document.title = "Pro Ropa - Error!";
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+    });
   return (
     <NoMatchContainer>
       <div>

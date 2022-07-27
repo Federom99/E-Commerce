@@ -67,8 +67,13 @@ const ProductDetail = ({theme}) => {
   const { user: currentUser } = useSelector((state) => state.auth);
   let { productId } = useParams();
 
+  document.title = "Pro Ropa - "+product.nombre;
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+
   useEffect(() => {
-    window.scrollTo(0, 0);
     if (!Object.keys(product).length) {
       dispatch(getProduct(productId));
       dispatch(getProductReviews(productId)).then((res) => {
