@@ -17,8 +17,9 @@ import { logout } from "../../redux/actions/autenticacion";
 import Loading from "../Loader";
 import { clearLocalStorage } from "../../redux/actions/cart";
 import { removeFavs } from "../../redux/actions/favoritos";
+import logoWhite from "../../../assets/LogoWhite.png";
 
-export default function NavBar({ products }) {
+export default function NavBar({ products, theme }) {
   const navigation = useNavigate();
   const dispatch = useDispatch();
   let data = products.map((a) => ({ nombre: a.nombre, im: a.imagen }));
@@ -114,6 +115,7 @@ export default function NavBar({ products }) {
     );
   }
 
+  console.log(theme)
   return (
     <div className={style.full}>
       <Contenido
@@ -121,7 +123,7 @@ export default function NavBar({ products }) {
       >
         <li>
           <NavLink to="/">
-            <img src={logo} className={style.logo} alt="logo" />
+            <img src={theme === "light" ? logo : logoWhite} className={style.logo} alt="logo" />
           </NavLink>
         </li>
         <li className={style.searching}>
