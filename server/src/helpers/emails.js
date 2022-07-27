@@ -9,8 +9,8 @@ const emailRegistro = async (data) => {
     port: 465,
     secure: true,
     auth: {
-      user: "rgzrgzm@gmail.com",
-      pass: "iqzbjdqabhfxfeut",
+      user: "henrypfg11@gmail.com",
+      pass: "chirxatvtficaopa",
     },
   });
 
@@ -36,8 +36,8 @@ const emailOlvidePassword = async (data) => {
       port: 465,
       secure: true,
       auth: {
-        user: "rgzrgzm@gmail.com",
-        pass: "iqzbjdqabhfxfeut",
+        user: "henrypfg11@gmail.com",
+        pass: "chirxatvtficaopa",
       },
     });
   
