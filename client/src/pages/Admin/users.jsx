@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import './products.css'
 import { toast } from 'react-toastify';
 import { AiTwotoneAppstore } from 'react-icons/ai';
+import { Button, Text } from './styles';
 
 export default function Users() {
   const dispatch = useDispatch();
@@ -16,7 +17,7 @@ export default function Users() {
 
   useEffect(() => {
     dispatch(getUsuarios());
-    // console.log("me rompo")
+    console.log("me rompo")
   }, [])
 
   // useEffect(() => {
@@ -25,20 +26,55 @@ export default function Users() {
   
   // var usuariosFiltrados = [useSelector((state) => state.checkout.usuarios);]
   // console.log(usuarios)
-
-  function alerta2(id, isAdmin) {
-    dispatch(updateUser({ id, isAdmin: !isAdmin }))
-    if (isAdmin) toast.info('El usuario no es mas administrador')
-    else toast.info('El usuario ahora es administrador')
-    // setTimeout(()=>{dispatch(getUsuarios());},500)
-    dispatch(getUsuarios())
+  const changeAdmin = ({nombre , apellido , id , isAdmin})=>{
+    const adminSet = ()=>{
+      // console.log(row)
+      dispatch(updateUser({id,isAdmin: !isAdmin}))
+      setTimeout(()=>{
+        dispatch(getUsuarios())
+      },1000)
+    }
+    return(
+      isAdmin ? (
+      <div>
+        <Text>Está revocando los permisos de administrador al usuario {nombre} {apellido}</Text>
+        <Button onClick={adminSet}>Confirmar</Button>
+      </div>):(<div>
+        <Text>Está otorgando permisos de administrador al usuario {nombre} {apellido}</Text>
+        <Button onClick={adminSet}>Confirmar</Button>
+      </div>)
+    )
+  }
+  const blockUser = ({id, bloqueado , nombre , apellido})=>{
+    const setBlock = ()=>{
+      dispatch(updateUser({id,bloqueado: !bloqueado}))
+      setTimeout(()=>{
+        dispatch(getUsuarios())
+      },1000)
+    }
+    return(
+      !bloqueado ? (
+      <div>
+        <Text>¿Bloquear al usuario {nombre} {apellido}?</Text>
+        <Button onClick={setBlock}>Confirmar</Button>
+      </div>):(<div>
+        <Text>¿Desbloquear al usuario {nombre} {apellido}?</Text>
+        <Button onClick={setBlock}>Confirmar</Button>
+      </div>)
+    )
+  }
+  function alerta2(row) {
+    toast.info(changeAdmin(row),{
+      toastId: `${row.id}admin${row.isAdmin}`
+    })
+    // dispatch(getUsuarios())
   }
 
-  function alerta1(id, bloqueado) {
-    dispatch(updateUser({ id, bloqueado: !bloqueado }))
-    if (bloqueado) toast.info('El usuario ha sido desbloqueado')
-    else toast.info('El usuario ha sido bloqueado')
-    dispatch(getUsuarios());
+  function alerta1(row) {
+    toast.info(blockUser(row),{
+      toastId: `${row.id}block${row.bloqueado}`
+    })
+
   }
 
   function handleInputChange(e) {
@@ -93,13 +129,13 @@ export default function Users() {
     },
     {
       name: 'Admin',
-      selector: row => <button className='user' onClick={() => alerta2(row.id, row.isAdmin)}>Editar</button>,
+      selector: row => <button className='user' onClick={() => alerta2(row)}>Editar</button>,
       // row.isAdmin == true ? row.isAdmin = false : row.isAdmin = true
       sortable: true
     },
     {
       name: 'Bloqueado',
-      selector: row => <button className='user' onClick={() => alerta1(row.id, row.bloqueado)}>Editar</button>,
+      selector: row => <button className='user' onClick={() => alerta1(row)}>Editar</button>,
       // row.isAdmin == true ? row.isAdmin = false : row.isAdmin = true
       sortable: true
     },

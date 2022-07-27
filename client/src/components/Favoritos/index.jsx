@@ -8,7 +8,7 @@ import FavCard from "./FavCard/index.jsx"
 import { Li, List, StyledContainer } from "./styles"
 
 
-export default function Compras (){
+export default function Compras ({theme}){
 const favs = useSelector( state => state.favorites)
 const dispatch = useDispatch();
 const {id} = useParams()
@@ -28,12 +28,26 @@ useEffect(()=>{
             isLoading ? (<Loading/>) : (
             
             <List>
-                <StyledContainer
-                    position="top-center"
-                    hideProgressBar = {false}                    
-                    draggable
-                    progress={undefined}
-                />
+                {
+        theme === 'light' ? (<ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          closeOnClick
+          pauseOnHover
+          draggable
+          progress={undefined}
+        />) : (<ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          closeOnClick
+          pauseOnHover
+          draggable
+          progress={undefined}
+          theme={'dark'}
+        />)
+      }
                 {
                     favs.userFavorites.length ? favs.userFavorites.map(id=><Li key={id}><FavCard productId={id}/></Li>) : <h3>No hay productos en favoritos</h3>
                 }

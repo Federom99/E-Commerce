@@ -6,13 +6,32 @@ import Admin from '../../pages/Admin';
 import './Dashboard.css'
 import { ToastContainer } from 'react-toastify';
 
-export default function DashboardAdmin() {
+export default function DashboardAdmin({theme}) {
     return (
         <div className='contenedor'>
-            <ToastContainer
-                    position="top-center"                    
-                    draggable
+            {
+            theme === 'light' ? (
+                <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                closeOnClick
+                pauseOnHover
+                draggable
+                progress={undefined}
+                />) : (
+                <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                closeOnClick
+                pauseOnHover
+                draggable
+                progress={undefined}
+                theme={'dark'}
                 />
+            )
+            }
             <div className='sideBar'>
                 <h1>MENU</h1>
 

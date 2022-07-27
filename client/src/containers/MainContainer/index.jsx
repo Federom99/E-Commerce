@@ -8,7 +8,7 @@ import { getAllFavs, getUserId } from "../../redux/actions/favoritos";
 import CardsContainer from "../CardsContainer";
 import { Main } from "./styles";
 
-const MainContainer = ({ products }) => {
+const MainContainer = ({ products , theme }) => {
   const [state, favs] = useSelector((state) => [state.auth, state.favorites]);
   const [paginaActual, setPaginaActual] = useState(1);
   const [cantidad, setCantidad] = useState(9);
@@ -35,7 +35,7 @@ const MainContainer = ({ products }) => {
     <>
       <Main>
         <LeftBar resetPagina={paginado} />
-        <CardsContainer products={productsItems} />
+        <CardsContainer products={productsItems} theme={theme}/>
       </Main>
       <Paginado
         cantidad={cantidad}
