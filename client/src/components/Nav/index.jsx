@@ -5,7 +5,7 @@ import { ImExit } from "react-icons/im";
 import { RiAdminFill } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
-// import logo from "../../../assets/Logo.svg";
+import logo from "../../../assets/Logo.svg";
 // import logoDark from "../../../assets/logo_dark.svg";
 import { logout } from "../../redux/actions/autenticacion";
 import { clearLocalStorage } from "../../redux/actions/cart";
