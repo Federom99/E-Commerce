@@ -26,6 +26,12 @@ import ModalContainer from "../../components/ModalReview/ModalContainer";
 import Modal from "../../components/ModalReview";
 import { getAllFavs } from "../../redux/actions/favoritos";
 
+document.title = "Pro Ropa - Perfil";
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+    });
+
 
 export default function User() {
   const { 

@@ -40,6 +40,12 @@ const ResetPassword = () => {
         checkToken()
     }, [])
 
+    document.title = "Pro Ropa - Cambiar contraseña";
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+    });
+
     if(validToken.tokenValid){
         return (
         <Div>

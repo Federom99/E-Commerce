@@ -35,6 +35,12 @@ export default function Login() {
   const bloqueados = useSelector((state) => state.checkout.usuariosFiltrados);
   // console.log(bloqueados)
 
+  document.title = "Pro Ropa - Iniciar sesión";
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+    });
+
   useEffect(() => {
     dispatch(getUsuarios());
   }, []);
