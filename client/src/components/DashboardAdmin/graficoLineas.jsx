@@ -14,6 +14,7 @@ import {
     Filler,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
+import { GraficoLineas } from './styles';
 
 ChartJS.register(
     CategoryScale,
@@ -97,7 +98,7 @@ export default function LineChart() {
         labels,
     }
     return (
-        <div className="grafico">
+        <GraficoLineas>
             <div className='ventas'>
                 <h1>Ventas</h1>
                 <button className="user" onClick={() => cambiar()}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-left-right" viewBox="0 0 16 16">
@@ -105,6 +106,6 @@ export default function LineChart() {
                 </svg></button>
             </div>
             <Line data={data} options={options} />
-        </div>
+        </GraficoLineas>
     )
 }

@@ -14,6 +14,7 @@ import {
     Filler,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
+import { GraficosBarras } from './styles';
 
 ChartJS.register(
     CategoryScale,
@@ -71,9 +72,9 @@ export default function BarChart() {
         };
 
     return (
-        <div className="graficoLineal" >
+        <GraficosBarras>
             <h1>Usuarios</h1>
             <Bar data={data} options={options} width={385} height={520}/>
-        </div>
+        </GraficosBarras>
     );
 }
