@@ -21,7 +21,7 @@ import {
 } from "./style";
 
 function Review({ theme }) {
-  console.log(theme);
+  // console.log(theme);
   const dispatch = useDispatch();
   const { id } = useParams();
 
@@ -90,9 +90,6 @@ function Review({ theme }) {
             else if (pedido.estado === "Entregado") color = colors[7];
             return (
               <List key={pedido.id}>
-                <Li key={`${pedido.id}fecha`}>
-                  <H3>{dateFormat(pedido.fecha, "dd-MM-yy")}</H3>
-                </Li>
                 <LiImg key={`${pedido.id}img`}>
                   {pedido.productos.map((product) => {
                     return (
@@ -122,7 +119,7 @@ function Review({ theme }) {
                         />
                         {pedido.estado === "Entregado" && (
                           <Ul>
-                            <p>Reseñar</p>
+                            <p style={{fontWeight:"bolder", fontSize:"1rem"}}>Reseñar</p>
                           </Ul>
                         )}
                       </LIinimg>
@@ -130,12 +127,20 @@ function Review({ theme }) {
                   })}
                 </LiImg>
                 <Li>
+                  <h4 key={`${pedido.id}id`}>
+                    # {pedido.id}
+                  </h4>
+                </Li>
+                <Li>
                   <h4 key={`${pedido.id}money`}>
                     $ {Intl.NumberFormat("es-AR").format(pedido.pago_total)}
                   </h4>
                 </Li>
-                <Estado color={color}>{pedido.estado}</Estado>
-                <Linea />
+                <Li><Estado color={color}>{pedido.estado}</Estado></Li>
+                <Li key={`${pedido.id}fecha`}>
+                  <H3>{dateFormat(pedido.fecha, "dd-MM-yy")}</H3>
+                </Li>
+                {/* <Linea /> */}
               </List>
             );
           })}

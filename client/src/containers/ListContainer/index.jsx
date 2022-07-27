@@ -6,7 +6,7 @@ import Review from "../../components/Review";
 import { Header, Li, List, Main, Section } from "./styles";
 
 export default function ListContainer({ theme }) {
-  console.log(theme);
+  // console.log(theme);
   const location = useLocation();
 
   const [state, setState] = useState({ soy: "Review" });

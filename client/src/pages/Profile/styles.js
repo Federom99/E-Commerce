@@ -5,9 +5,12 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 1rem auto 0 auto;
-  padding-top: 180px;
-  min-height: 1080px;
+  /* margin: 1rem auto 0 auto; */
+  margin: auto;
+  /* padding-top: 180px; */
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  min-height: 70vh;
   width: 100%;
   min-width: 375px;
   max-width: 1440px;

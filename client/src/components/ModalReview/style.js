@@ -65,7 +65,7 @@ export const BtnRese = styled.button`
   color: #0d0d0d;
   font-weight: 600;
   background-color: #ffffff;
-  border-radius: 500px;
+  border-radius: 8px;
   cursor: pointer;
   -webkit-align-items: flex-end;
   -webkit-box-align: flex-end;

@@ -36,13 +36,13 @@ export default function Login() {
   // console.log(bloqueados)
 
   document.title = "Pro Ropa - Iniciar sesión";
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-    });
 
   useEffect(() => {
     dispatch(getUsuarios());
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   }, []);
 
   useEffect(() => {

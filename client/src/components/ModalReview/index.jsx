@@ -198,7 +198,7 @@ const Modal = ({ handleClose, text }) => {
         ref={ref}
       >
         <BTN onClick={handleClose}>
-          <AiFillCloseCircle fontSize={20} />
+          <AiFillCloseCircle fontSize={30} style={{cursor:"pointer"}}/>
         </BTN>
         <h4>{nombre}</h4>
 
