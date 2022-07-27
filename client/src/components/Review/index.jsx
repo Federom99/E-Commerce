@@ -1,14 +1,13 @@
 import { motion } from "framer-motion";
 import React, { useEffect } from "react";
-import { AiOutlineHeart } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
+import { ToastContainer, toast } from "react-toastify";
 import { getPedidos } from "../../redux/actions/pedidos";
 import { changeModalClose, changeModalOPen } from "../../redux/actions/reviews";
 import Loading from "../Loader";
 import { dateFormat } from "./dateformat";
 import {
-  CloseBtn,
   Div,
   Estado,
   H3,
@@ -21,7 +20,8 @@ import {
   Ul,
 } from "./style";
 
-function Review() {
+function Review({ theme }) {
+  // console.log(theme);
   const dispatch = useDispatch();
   const { id } = useParams();
 
@@ -31,10 +31,9 @@ function Review() {
 
   const close = () => dispatch(changeModalClose());
   const open = (id, imagen, nombre, userId, estado) => {
-    console.log(estado);
-    if (estado === "entregado") {
+    if (estado === "Entregado") {
       dispatch(changeModalOPen(id, imagen, nombre, userId, estado));
-    }
+    } else toast.error("Solo Puede Reseñar si el pedido fue Entregado");
   };
   useEffect(() => {
     dispatch(getPedidos(id));
@@ -43,31 +42,52 @@ function Review() {
 
   return (
     <Div key={0}>
-      {loading ? (
-        <Loading alto={0} />
+      {theme === "light" ? (
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          closeOnClick
+          pauseOnHover
+          draggable
+          progress={undefined}
+        />
       ) : (
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          closeOnClick
+          pauseOnHover
+          draggable
+          progress={undefined}
+          theme={"dark"}
+        />
+      )}
         <div>
           {pedidos.map((pedido) => {
             const colors = [
               "#ff0088",
+              "#00ffd5",
               "#ff0000",
+              "#ff2a00",
               "#ff8800",
               "#ffff00",
               "#6aff00",
-              "#00ff22",
+              "#00ff6a",
             ];
             let color;
-            if (pedido.estado === "Aprobado") color = colors[0];
-            if (pedido.estado === "en preparacion") color = colors[1];
-            else if (pedido.estado === "en camino") color = colors[2];
-            else if (pedido.estado === "en punto de entrega") color = colors[3];
-            else if (pedido.estado === "en poder del correo") color = colors[4];
-            else if (pedido.estado === "entregado") color = colors[5];
+            if (pedido.estado === "Pendiente de pago") color = colors[0];
+            if (pedido.estado === "Aprobado") color = colors[1];
+            else if (pedido.estado === "Rechazado") color = colors[2];
+            else if (pedido.estado === "En Preparacion") color = colors[3];
+            else if (pedido.estado === "En camino") color = colors[4];
+            else if (pedido.estado === "En punto de entrega") color = colors[5];
+            else if (pedido.estado === "En poder del correo") color = colors[6];
+            else if (pedido.estado === "Entregado") color = colors[7];
+            if(pedido.estado === "Pendiente de pago") return;
             return (
               <List key={pedido.id}>
-                <Li key={`${pedido.id}fecha`}>
-                  <H3>{dateFormat(pedido.fecha, "MM-yy-dd")}</H3>
-                </Li>
                 <LiImg key={`${pedido.id}img`}>
                   {pedido.productos.map((product) => {
                     return (
@@ -95,9 +115,9 @@ function Review() {
                           whileTap={{ scale: 0.9 }}
                           src={product.imagen}
                         />
-                        {pedido.estado === "entregado" && (
+                        {pedido.estado === "Entregado" && (
                           <Ul>
-                            <p>Reseñar</p>
+                            <p style={{fontWeight:"bolder", fontSize:"1rem"}}>Reseñar</p>
                           </Ul>
                         )}
                       </LIinimg>
@@ -105,17 +125,24 @@ function Review() {
                   })}
                 </LiImg>
                 <Li>
+                  <h4 key={`${pedido.id}id`}>
+                    # {pedido.id}
+                  </h4>
+                </Li>
+                <Li>
                   <h4 key={`${pedido.id}money`}>
                     $ {Intl.NumberFormat("es-AR").format(pedido.pago_total)}
                   </h4>
                 </Li>
-                <Estado color={color}>{pedido.estado}</Estado>
-                <Linea />
+                <Li><Estado color={color}>{pedido.estado}</Estado></Li>
+                <Li key={`${pedido.id}fecha`}>
+                  <H3>{dateFormat(pedido.fecha, "dd-MM-yy")}</H3>
+                </Li>
+                {/* <Linea /> */}
               </List>
             );
           })}
         </div>
-      )}
     </Div>
   );
 }

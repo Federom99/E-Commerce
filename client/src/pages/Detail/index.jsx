@@ -67,8 +67,13 @@ const ProductDetail = ({theme}) => {
   const { user: currentUser } = useSelector((state) => state.auth);
   let { productId } = useParams();
 
+  document.title = "Pro Ropa - "+product.nombre;
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+
   useEffect(() => {
-    window.scrollTo(0, 0);
     if (!Object.keys(product).length) {
       dispatch(getProduct(productId));
       dispatch(getProductReviews(productId)).then((res) => {
@@ -257,7 +262,7 @@ const ProductDetail = ({theme}) => {
           marginTop: "1rem",
         }}
       >
-        <h2>{text}</h2>
+        <h2>{resenas.length ? text : null}</h2>
         <ResenasContainer>
           {loadingReview ? (
             <Loading />

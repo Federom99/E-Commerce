@@ -107,12 +107,12 @@ export default function NavBar({ products, theme }) {
           subMenu={subMenu}
           dropdown={dropdown}
           onChange={handleChange}
+          theme={theme}
         />
       </li>
     );
   }
 
-  console.log(theme)
   return (
     <div className={style.full}>
       <Contenido

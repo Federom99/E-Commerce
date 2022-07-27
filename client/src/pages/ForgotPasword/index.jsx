@@ -6,6 +6,12 @@ import { Form, Div, Label, P, Input, Button, MessageContainer, Message } from '.
 const ForgotPassword = () => {
     const [emailValue, setEmailValue] = useState("")
     const [validEmail, setValidEmail] = useState("")
+
+    document.title = "Pro Ropa - Olvidé mi contraseña";
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+    });
     
     useEffect(() => {
         setValidEmail("")

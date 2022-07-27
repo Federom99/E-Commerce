@@ -49,6 +49,8 @@ const Checkout = () => {
         let disPedido = await dispatch(crearPedido(pedido));
     }
 
+    document.title = "Pro Ropa - Checkout";
+
     useEffect(() => {
         // console.log(pedidoGenerado);
         if(pedidoGenerado.hasOwnProperty("pedido")) {
@@ -84,6 +86,10 @@ const Checkout = () => {
             const {name, lastName, dni, address} = currentUser;
             setInput({nombre: name, apellido: lastName, documento: dni, direccion: address, codigoPostal: "", provincia: ""})
         }
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
     },[])
 
     useEffect(() => {

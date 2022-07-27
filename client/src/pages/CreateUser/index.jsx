@@ -36,7 +36,14 @@ export default function NewUser() {
 
   useEffect(() => {
     dispatch(getUsuarios());
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   }, [])
+
+  document.title = "Pro Ropa - Registrarse";
+    
 
   const errorHandler = (data) => {
     let errors = {};

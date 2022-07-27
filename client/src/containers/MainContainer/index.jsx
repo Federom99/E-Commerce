@@ -7,6 +7,7 @@ import Paginado from "../../components/Paginado/Paginado";
 import { getAllFavs, getUserId } from "../../redux/actions/favoritos";
 import CardsContainer from "../CardsContainer";
 import { Main } from "./styles";
+import ScrollToTop from "../../components/ScrollToTop/scroll"
 
 const MainContainer = ({ products , theme }) => {
   const [state, favs] = useSelector((state) => [state.auth, state.favorites]);
@@ -42,7 +43,8 @@ const MainContainer = ({ products , theme }) => {
         allProducts={products}
         paginado={paginado}
         paginaActual={paginaActual}
-      />
+        />
+        {/* <ScrollToTop></ScrollToTop> */}
     </>
   );
 };

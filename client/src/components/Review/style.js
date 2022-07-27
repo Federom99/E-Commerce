@@ -5,23 +5,26 @@ export const Div = styled.div`
   margin: auto;
   margin-bottom: 1rem;
   max-width: 1440px;
-  /* border-radius: 1rem; */
+  /* border-radius: 1rem;  */
   /* border-style: solid; */
   /* border-width: 1px; */
-  /* -webkit-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
-  -moz-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
-  box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1); */
+  width: 90%;
 `;
 
 export const List = styled.div`
   list-style: none;
   display: grid;
-  grid-template-columns: 20% 60% 20%;
+  grid-template-columns: 20% 20% 20% 20% 20%;
   grid-auto-flow: row;
-  grid-template-rows: 1fr 20px 30px;
+  /* grid-template-rows: 1fr 20px 30px; */
   align-items: center;
   justify-items: center;
-  margin-top: 15px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  /* margin: auto; */
+  -webkit-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
+  -moz-box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
+  box-shadow: 0px 4px 15px 0px rgba(153, 153, 153, 1);
   @media (max-width: 815px) {
     display: flex;
     flex-direction: row;
@@ -40,8 +43,8 @@ export const Li = styled.div`
 export const LiImg = styled.div`
   align-self: center;
   display: flex;
-  margin: 10px 0;
-  width: 25rem;
+  margin-left: 4rem;
+  width: 60%;
   overflow-x: scroll;
   @media (max-width: 650px) {
     flex-direction: row;
@@ -52,9 +55,10 @@ export const LiImg = styled.div`
 `;
 
 export const Img = styled.img`
-  height: 8rem;
-  border-radius: 50%;
-  padding: 0.1rem;
+  height: 10rem;
+  /* border-radius: 50%; */
+  border: none;
+  /* padding: 0.1rem; */
   user-select: none;
   margin: 15px 5px;
   -webkit-box-shadow: ${({ theme }) => theme.shadowColor};
@@ -114,6 +118,7 @@ export const Estado = styled.p`
   justify-self: center;
   margin: 0 1em;
   color: ${(props) => props.color};
-  text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1),
-    1px 1px 1px rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+  /* text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1),
+    1px 1px 1px rgba(0, 0, 0, 0.5); */
 `;

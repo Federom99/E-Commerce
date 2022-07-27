@@ -5,6 +5,8 @@ export const FavOn = styled(MdFavorite)`
   color: red;
 `;
 
-export const FavOff = styled(MdFavoriteBorder)``;
+export const FavOff = styled(MdFavoriteBorder)`
+  color: black;
+`;
 
 export const Div = styled.div``;
