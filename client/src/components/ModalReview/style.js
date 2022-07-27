@@ -9,7 +9,7 @@ export const DIV = styled.div`
   width: 100%;
   margin: 0;
   padding: 0 15rem;
-  background: ${({ theme }) => theme.cardBackground};
+  background: white;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,7 +29,7 @@ export const Modale = styled.div`
   justify-content: flex-start;
   align-items: center;
   background: rgba(255, 255, 255, 0.1);
-  box-shadow: ${({ theme }) => theme.shadowColor};
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(1.5px);
   -webkit-backdrop-filter: blur(1.5px);
   border-radius: 10px;
@@ -50,9 +50,9 @@ export const BTN = styled.div`
 export const Img = styled.img`
   height: 15rem;
   margin: 15px 5px;
-  -webkit-box-shadow: ${({ theme }) => theme.shadowColor};
-  -moz-box-shadow: ${({ theme }) => theme.shadowColor};
-  box-shadow: ${({ theme }) => theme.shadowColor}; ;
+  -webkit-box-shadow: 3px 2px 2px 0px rgb(198 198 198 / 52%);
+  -moz-box-shadow: 3px 2px 2px 0px rgb(198 198 198 / 52%);
+  box-shadow: 3px 2px 2px 0px rgb(198 198 198 / 52%);
 `;
 
 export const BtnRese = styled.button`

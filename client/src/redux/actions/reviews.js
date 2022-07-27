@@ -74,9 +74,9 @@ export function changeModalReview() {
   };
 }
 
-export const changeModalOPen = (id, imagen, nombre, userId, estado) => ({
+export const changeModalOPen = (id, imagen, nombre, userId) => ({
   type: CHANGE_MODAL_OPEN,
-  payload: { id, imagen, nombre, userId, estado },
+  payload: { id, imagen, nombre, userId },
 });
 export function changeModalClose() {
   return { type: CHANGE_MODAL_CLOSE };

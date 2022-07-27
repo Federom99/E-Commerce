@@ -9,7 +9,7 @@ export const FContainer = styled.footer`
   background-color: red;
   height: 150px;
   background: rgba(12, 12, 12, 0.1);
-  box-shadow: ${({ theme }) => theme.shadowColor};
+  box-shadow: 0px 0px 12px 1px rgb(0 0 0 / 37%);
   border: 1px solid rgba(255, 255, 255, 0.18);
 `;
 
@@ -26,7 +26,7 @@ export const Box = styled.a`
   color: black;
   margin: 10px;
   font-size: calc(0.2vw + 1rem);
-  box-shadow: ${({ theme }) => theme.shadowColor};
+  box-shadow: 0px 0px 5px 0 rgb(31 38 135 / 37%);
   border: 1px solid rgba(255, 255, 255, 0.18);
   ${(props) =>
     props.expanded &&
@@ -43,8 +43,7 @@ export const Container = styled.div`
   width: 100%;
 
   /* height: 260px; */
-  border-top: 1px solid #00000014;
-  box-shadow: ${({ theme }) => theme.shadowColor};
+  box-shadow: 0px 0px 5px 0 rgb(31 38 135 / 37%);
   @media screen and (max-width: 560px) {
     heigth: 130px;
     justify-content: space-evenly;

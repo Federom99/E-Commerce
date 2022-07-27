@@ -12,7 +12,7 @@ export default function ListContainer({ favProducts ,theme}) {
   useEffect(() => {
     const interes = location.pathname.split("/")[2];
     if (interes === "compras") {
-      setState({ soy: "Reseñar" });
+      setState({ soy: "Review" });
     } else {
       setState({ soy: "Favoritos" });
     }
