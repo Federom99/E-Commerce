@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { DropDownStyle, SubMenustyle } from "./style";
 
-function DropDown({ subMenu, dropdown, onChange }) {
+function DropDown({ subMenu, dropdown, onChange, theme }) {
   return (
     <DropDownStyle dropdown={dropdown}>
       {subMenu.map((item, index) => (
