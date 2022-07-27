@@ -32,12 +32,13 @@ router.put("/", async (req, res) => {
       ],
       where: { id: id },
     });
-    console.log(req.body);
+    console.log(pedidos.dataValues.usuario.dataValues);
+    const {nombre} = pedidos.dataValues.usuario.dataValues;
     let htmlContenido = "";
     switch(estado){
       case "En Preparacion":
         htmlContenido =` <div>
-            <h1>¡Hola!</ h1>
+            <h1>¡Hola, ${nombre}!</ h1>
             <h2>Nos complace notificarte que tu pedido #${id} se encuentra en preparación.</ h2>
             <h3>Pronto te notificaremos cómo continúa el proceso.</h3>
           </ div>
@@ -45,7 +46,7 @@ router.put("/", async (req, res) => {
         break;
       case "En Camino":
         htmlContenido =` <div>
-            <h1>¡Hola!</ h1>
+            <h1>¡Hola, ${nombre}!</ h1>
             <h2>Nos complace notificarte que tu pedido #${id} se encuentra en camino.</ h2>
             <h3>Pronto te notificaremos cómo continúa el proceso.</h3>
           </ div>
@@ -53,27 +54,27 @@ router.put("/", async (req, res) => {
         break;
       case "En Punto De Entrega":
         htmlContenido =` <div>
-            <h1>¡Hola!</ h1>
+            <h1>¡Hola, ${nombre}!</ h1>
             <h2>Nos complace notificarte que tu pedido #${id} se encuentra en el punto de entrega seleccionado.</ h2>
-            <h3>Podrás retirarlo acercandote a: ${direccion_de_envio.direccion} - ${direccion_de_envio.CP}.</h3>
+            <h3>Podrás retirarlo acercandote al punto de entrega seleccionado.</h3>
             <p>Recordá traer DNI y el número de pedido al momento de reitrar.</p>
           </ div>
        `
        break;
        case "En Poder Del Correo":
         htmlContenido =` <div>
-            <h1>¡Hola!</ h1>
+            <h1>¡Hola, ${nombre}!</ h1>
             <h2>Nos complace notificarte que tu pedido #${id} se encuentra en poder del correo responsable de la entrega.</ h2>
-            <h3>La entrega se realizará en: ${direccion_de_envio.direccion} - ${direccion_de_envio.CP}.</h3>
+            <h3>La entrega se realizará en los próximos días hábiles.</h3>
             <p>Recordá tener DNI en mano al momento de recibir.</p>
           </ div>
        `
        break;
        case "Entregado":
         htmlContenido = ` <div>
-            <h1>¡Hola!</ h1>
+            <h1>¡Hola, ${nombre}!</ h1>
             <h2>Nos complace notificarte que tu pedido #${id} ya fue entregado.</ h2>
-            <h3>La entrega se realizó en: ${direccion_de_envio.direccion} - ${direccion_de_envio.CP}.</h3>
+            <h3>La entrega se realizó exitosamente.</h3>
             <p>¡Que lo disfrutes! Recordá dejar tu reseña para que más personas se animen a comprarlo.</p>
           </ div>
        `
