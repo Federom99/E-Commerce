@@ -64,9 +64,6 @@ function Review({ theme }) {
           theme={"dark"}
         />
       )}
-      {loading ? (
-        <Loading alto={0} />
-      ) : (
         <div>
           {pedidos.map((pedido) => {
             const colors = [
@@ -83,11 +80,12 @@ function Review({ theme }) {
             if (pedido.estado === "Pendiente de pago") color = colors[0];
             if (pedido.estado === "Aprobado") color = colors[1];
             else if (pedido.estado === "Rechazado") color = colors[2];
-            else if (pedido.estado === "En preparacion") color = colors[3];
+            else if (pedido.estado === "En Preparacion") color = colors[3];
             else if (pedido.estado === "En camino") color = colors[4];
             else if (pedido.estado === "En punto de entrega") color = colors[5];
             else if (pedido.estado === "En poder del correo") color = colors[6];
             else if (pedido.estado === "Entregado") color = colors[7];
+            if(pedido.estado === "Pendiente de pago") return;
             return (
               <List key={pedido.id}>
                 <LiImg key={`${pedido.id}img`}>
@@ -145,7 +143,6 @@ function Review({ theme }) {
             );
           })}
         </div>
-      )}
     </Div>
   );
 }
