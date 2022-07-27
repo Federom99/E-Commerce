@@ -118,7 +118,7 @@ const ProductDetail = ({theme}) => {
         setStock(product.talles[0].producto_talle.stock);
       }
     }
-  }, [size]);
+  }, [product]);
 
   useEffect(() => {
     if (
