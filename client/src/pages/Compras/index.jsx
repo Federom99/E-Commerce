@@ -1,5 +1,6 @@
 import ListContainer from "../../containers/ListContainer";
 
+export default function Compras({ theme }) {
 export default function Compras() {
   document.title = "Pro Ropa - Compras";
     window.scrollTo({
@@ -8,7 +9,7 @@ export default function Compras() {
     });
   return (
     <div>
-      <ListContainer />
+      <ListContainer theme={theme} />
     </div>
   );
 }
