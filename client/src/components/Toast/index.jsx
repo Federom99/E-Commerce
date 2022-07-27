@@ -19,7 +19,7 @@ export default function ToastMsg ({tipo , name , closeToast , toastProps , userI
         <div>
 
             <Text>
-                 Está seguro que quiere eliminar {tipo === 'fav' ? "de favoritos " : "del carrito " } a {name}  ?           
+                 Está seguro que quiere eliminar a {name} {tipo === 'fav' ? "de favoritos " : "del carrito " } ?       
             </Text>
             <div>
                 {tipo === "fav" ? (<Button onClick={deleteFav}>Confirmar</Button>) : (<Button onClick={deleteCart}>Confirmar</Button>)}
