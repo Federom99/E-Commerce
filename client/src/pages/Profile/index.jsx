@@ -33,7 +33,7 @@ document.title = "Pro Ropa - Perfil";
     });
 
 
-export default function User() {
+export default function User({theme}) {
   const { 
     disabled, 
     inputValues, 
