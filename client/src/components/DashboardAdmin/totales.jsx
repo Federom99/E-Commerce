@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUsuarios, getPedidos } from "../../redux/actions/checkout";
 import { useEffect } from 'react';
 import './totales.css';
+
+import { H2, H4, Icon, Milestone, TotalesStyled } from "./styles";
 import { getProducts } from "../../redux/actions/product";
 export default function Totales() {
     const dispatch = useDispatch();
@@ -40,18 +42,18 @@ export default function Totales() {
         },
     ];
     return (
-        <div className="milestones">
+        <TotalesStyled>
             {data.map((milestone) => {
                 return (
-                    <div className="milestone">
-                        <div className="icon">{milestone.icon}</div>
+                    <Milestone>
+                        <Icon className="icon">{milestone.icon}</Icon>
                         <div className="details">
-                            <h4>{milestone.title}</h4>
-                            <h2>{milestone.value}</h2>
+                            <H4>{milestone.title}</H4>
+                            <H2>{milestone.value}</H2>
                         </div>
-                    </div>
+                    </Milestone>
                 );
             })}
-        </div>
+        </TotalesStyled>
     );
 }
