@@ -1,3 +1,22 @@
+.milestones {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    padding: 1rem;
+    padding: 1rem 1rem 1rem 0;
+    border-radius: 1rem;
+}
+
+.milestone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    border-right: 3px solid black;
+    padding-right: 6rem;
+    padding-left: 1rem;
+}
+
 /* &:last-of-type {
     border-right: none;
 }
