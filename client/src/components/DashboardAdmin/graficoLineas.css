@@ -1,8 +1,34 @@
 .grafico {
     background-color: #D9D8D8;
     width: 70%;
-    height: auto;
+    height: 563px;
     margin-top: 40px;
     padding: 10px;
     border-radius: 1rem;
+}
+
+.user {
+    padding: 7px;
+    font-size: 15px;
+    color: white;
+    background-color: #1877f2;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #1877f2;
+    margin-left: auto;
+    margin-right: 1rem;
+}
+
+.grafico h1{
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+    font-size: 25px;
+    display: flex;
+    margin-left: 27px;
+}
+
+.ventas {
+    display: flex;
+    height: 30px;
 }
