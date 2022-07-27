@@ -33,3 +33,23 @@ export const Icon = styled.div`
     border-radius: 1rem;
     background-color: #D9D8D8;
 `
+
+export const GraficosBarras = styled.div`
+    background-color: ${({theme}) => theme.cardBackground};
+    width: 27%;
+    margin-top: 40px;
+    margin-left: 20px;
+    padding: 10px;
+    border-radius: 1rem;
+    align-items:initial;
+    /* position: bottom; */
+`
+
+export const GraficoLineas = styled.div`
+    background-color: ${({theme}) => theme.cardBackground};
+    width: 70%;
+    height: 563px;
+    margin-top: 40px;
+    padding: 10px;
+    border-radius: 1rem;
+`
