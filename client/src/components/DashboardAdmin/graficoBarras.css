@@ -1,11 +1,12 @@
 .graficoLineal {
-    background-color: #D9D8D8;
+    background-color: white;
     width: 27%;
     margin-top: 40px;
     margin-left: 20px;
     padding: 10px;
     border-radius: 1rem;
     align-items:initial;
+     /* color: #1B1B1B #D9D8D8*/
     /* position: bottom; */
 }
 

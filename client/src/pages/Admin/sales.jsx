@@ -1,4 +1,4 @@
-import DataTable from 'react-data-table-component';
+import DataTable , {createTheme} from 'react-data-table-component';
 import { getPedidos, updateEstadoPedido, filterPedidos } from '../../redux/actions/checkout';
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from 'react';
@@ -36,11 +36,18 @@ export default function Sales() {
   }
 
   function modificar(id, estado,row){
+    if (estado === "" || estado === "seleccione"){toast.info(`Debe selecccionar estado`)
+  return
+  }
     dispatch(updateEstadoPedido({id, estado: estado}))
     setTimeout(()=>{
       dispatch(getPedidos());
     },1000)
-    toast.info(`Pedido a direccion ${row.direccion_de_envio.direccion} ${estado}`)    
+    setEstado(
+      "seleccione"
+  )
+    toast.info(`Pedido a direccion ${row.direccion_de_envio.direccion} ${estado}`)
+    console.log(estado)
   }
 
   function handleSelect(e){
@@ -107,7 +114,7 @@ export default function Sales() {
       name= "estado"
       onChange={handleSelect}
       >
-      <option> seleccione </option>
+      <option value={"seleccione"}> seleccione </option>
       <option value={"Aprobado"}>Aprobado</option>
        <option value={"En Preparacion"}>En Preparacion</option>
        <option value={"En Camino"}>En Camino</option>
@@ -118,6 +125,28 @@ export default function Sales() {
       sortable: true
     },
   ]
+
+  // createTheme('custom', {
+  //   text: {
+  //     primary: '#268bd2',
+  //     secondary: '#2aa198',
+  //   },
+  //   background: {
+  //     default: '#1B1B1B',
+  //   },
+  //   context: {
+  //     background: '#cb4b16',
+  //     text: '#FFFFFF',
+  //   },
+  //   divider: {
+  //     default: '#073642',
+  //   },
+  //   action: {
+  //     button: 'rgba(0,0,0,.54)',
+  //     hover: 'rgba(0,0,0,.08)',
+  //     disabled: 'rgba(0,0,0,.12)',
+  //   },
+  // }, 'dark');
 
   const paginacionOpciones = {
     rowsPerPageText: 'Filas por pagina',
@@ -147,6 +176,7 @@ export default function Sales() {
       <DataTable
         columns={columnas}
         data={pedidosFiltrados}
+        // theme="custom" //habilitar esta linea y descomentar createTheme()
         title="Pedidos"
         pagination
         paginationComponentOptions={paginacionOpciones}

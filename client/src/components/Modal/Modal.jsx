@@ -131,10 +131,10 @@ export default function Modal({ cambiarEstado, submit, datos }) {
 
                             <label htmlFor="imagen">Imagen:</label>
                             <input
-                                type="text"
+                                type="file"
                                 id="imagen"
                                 name="imagen"
-                                value={form.imagen}
+                                // value={form.imagen}
                                 onChange={e => setForm({ ...form, [e.target.name]: e.target.value })}
                             />
 

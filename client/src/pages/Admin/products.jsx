@@ -1,4 +1,4 @@
-import DataTable from 'react-data-table-component';
+import DataTable , {createTheme} from 'react-data-table-component';
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from 'react-router-dom';
 import './products.css';
@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import Modal from '../../components/Modal/Modal';
 import { toast } from 'react-toastify';
 import { Button, DeleteButton, Text } from './styles';
+
 
 export default function Products() {
   const [modal, setModal] = useState(false)
@@ -123,6 +124,28 @@ export default function Products() {
     },
   ]
 
+  // createTheme('custom', {
+  //   text: {
+  //     primary: '#268bd2',
+  //     secondary: '#2aa198',
+  //   },
+  //   background: {
+  //     default: '#1B1B1B',
+  //   },
+  //   context: {
+  //     background: '#cb4b16',
+  //     text: '#FFFFFF',
+  //   },
+  //   divider: {
+  //     default: '#073642',
+  //   },
+  //   action: {
+  //     button: 'rgba(0,0,0,.54)',
+  //     hover: 'rgba(0,0,0,.08)',
+  //     disabled: 'rgba(0,0,0,.12)',
+  //   },
+  // }, 'dark');
+
   const paginacionOpciones = {
     rowsPerPageText: 'Filas por pagina',
     rangeSeparatorText: 'de',
@@ -152,9 +175,10 @@ export default function Products() {
           <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z" />
         </svg></button>
       </div>      
-      <DataTable
+      <DataTable className='rdt_Table'
         columns={columnas}
         data={datos.productosFiltrados}
+        // theme="custom" //habilitar esta linea y descomentar createTheme()
         title="Productos"
         pagination
         paginationComponentOptions={paginacionOpciones}
